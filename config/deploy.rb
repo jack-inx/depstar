@@ -1,6 +1,7 @@
 set :application, "production"
 set :deploy_to, "/home/depstar/rails_apps/#{application}"
 
+
 #############################################################
 # Bundler
 #############################################################
@@ -28,9 +29,9 @@ role :db, domain, :primary => true
 #############################################################
 
 set :repository,  "https://subversion.assembla.com/svn/sparkwire/Depstar/trunk"
-set :svn_username, "sparkwire"
-set :svn_password, "assemblapass"
-#set :checkout, "export"
+set :scm_username, "sparkwire"
+set :scm_password, "assemblapass"
+set :checkout, "export"
 
 set :scm, :subversion
 
