@@ -30,7 +30,7 @@ role :db, domain, :primary => true
 
 set :repository,  "https://subversion.assembla.com/svn/sparkwire/Depstar/trunk"
 set :scm_username, "sparkwire"
-set :scm_password, "assemblapass"
+#set :scm_password, "assemblapass"
 set :checkout, "export"
 
 set :scm, :subversion
