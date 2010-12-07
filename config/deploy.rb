@@ -30,13 +30,13 @@ role :db, domain, :primary => true
 set :repository,  "https://subversion.assembla.com/svn/sparkwire/Depstar/trunk"
 set :svn_username, "sparkwire"
 set :svn_password, "assemblapass"
-set :checkout, "export"
+#set :checkout, "export"
 
 set :scm, :subversion
 
 role :web, "depstar.com"                          # Your HTTP server, Apache/etc
 role :app, "depstar.com"                          # This may be the same as your `Web` server
-role :db,  "depstar.com", :primary => true # This is where Rails migrations will run
+role :db,  "depstar.com", :primary => true        # This is where Rails migrations will run
 
 set :scm_command, "/usr/bin/svn"
 set :local_scm_command, "svn"
