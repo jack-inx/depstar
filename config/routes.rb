@@ -4,6 +4,7 @@ Trunk::Application.routes.draw do
   resources :products
   
   match 'admin' => 'admin#index'
+  match 'home' => 'home#index'
   match 'dev' => 'home#index'
 
   # The priority is based upon order of creation:
