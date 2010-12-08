@@ -1,5 +1,10 @@
 Trunk::Application.routes.draw do
+  resources :categories
+
   resources :products
+  
+  match 'admin' => 'admin#index'
+  match 'dev' => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

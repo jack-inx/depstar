@@ -270,3 +270,3064 @@ Started GET "/products/new" for 127.0.0.1 at Wed Dec 08 15:37:46 -0500 2010
 Rendered products/_form.html.erb (242.2ms)
 Rendered products/new.html.erb within layouts/application (251.8ms)
 Completed 200 OK in 345ms (Views: 265.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 15:41:40 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 15ms (Views: 9.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/home" for 127.0.0.1 at Wed Dec 08 16:07:05 -0500 2010
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 16:11:57 -0500 2010
+
+ActionController::RoutingError (uninitialized constant AdminController):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 16:14:26 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 10ms (Views: 9.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 16:16:44 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (30.6ms)
+Completed   in 37ms
+
+ActionView::Template::Error (undefined local variable or method `flight_reservations_path' for #<#<Class:0x10345df90>:0x10345c028>):
+    3:   <div style="float: left; margin: 0px 10px;">
+    4:     <h2> Flights </h2>
+    5:     <h3>
+    6:       <%= link_to 'Flight Reservations', flight_reservations_path %> <br/>
+    7:       <%= link_to 'Flights', flights_path %> <br/>
+    8:       <%#= link_to 'Flight Prices', flight_prices_path %>
+    9:       <%= link_to 'Charters', charters_path %> <br/>      
+  app/views/admin/index.html.erb:6:in `_app_views_admin_index_html_erb__993639150_2174932020_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 16:16:48 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 83ms (Views: 82.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 16:16:52 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (14.6ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 29ms (Views: 9.7ms | ActiveRecord: 14.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 16:17:09 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (8.2ms)
+Completed   in 15ms
+
+ActionView::Template::Error (undefined local variable or method `categpries_path' for #<#<Class:0x1033a6a48>:0x1033a4e50>):
+    4:     <h2> Admin </h2>
+    5:     <h3>
+    6:       <%= link_to 'Products', products_path %> <br/>
+    7:       <%= link_to 'Categories', categpries_path %> <br/>
+    8:     </h3>
+    9:   </div>
+    10:   
+  app/views/admin/index.html.erb:7:in `_app_views_admin_index_html_erb__993639150_2174556960_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 16:17:22 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:17:24 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+SQLite3::SQLException: no such table: categories: SELECT "categories".* FROM "categories"
+Completed   in 5ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: categories: SELECT "categories".* FROM "categories"):
+  app/controllers/categories_controller.rb:5:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.7ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20101207230654)
+Migrating to CreateCategories (20101208211045)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (14.1ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "is_popular" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101208211045')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("categories")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("products")[0m
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 16:17:37 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 15ms (Views: 9.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed Dec 08 16:17:39 -0500 2010
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (5.8ms)
+Rendered products/new.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 22ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20101207230654)
+Migrating to CreateCategories (20101208211045)
+Migrating to CreateProductTypes (20101208211836)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "product_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101208211836')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("categories")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("product_types")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("products")
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 16:19:16 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/product_types" for 127.0.0.1 at Wed Dec 08 16:19:17 -0500 2010
+  Processing by ProductTypesController#index as HTML
+  [1m[35mProductType Load (0.4ms)[0m  SELECT "product_types".* FROM "product_types"
+Rendered product_types/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 90ms (Views: 9.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/product_types" for 127.0.0.1 at Wed Dec 08 16:20:05 -0500 2010
+  Processing by ProductTypesController#index as HTML
+  [1m[36mProductType Load (0.5ms)[0m  [1mSELECT "product_types".* FROM "product_types"[0m
+Rendered product_types/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 15ms (Views: 9.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/product_types" for 127.0.0.1 at Wed Dec 08 16:20:07 -0500 2010
+  Processing by ProductTypesController#index as HTML
+  [1m[35mProductType Load (0.4ms)[0m  SELECT "product_types".* FROM "product_types"
+Rendered product_types/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 14ms (Views: 9.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/product_types/new" for 127.0.0.1 at Wed Dec 08 16:20:08 -0500 2010
+  Processing by ProductTypesController#new as HTML
+Rendered product_types/_form.html.erb (85.0ms)
+Rendered product_types/new.html.erb within layouts/application (89.5ms)
+Completed 200 OK in 101ms (Views: 95.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/product_types" for 127.0.0.1 at Wed Dec 08 16:20:10 -0500 2010
+  Processing by ProductTypesController#create as HTML
+  Parameters: {"commit"=>"Create Product type", "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓"}
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "product_types" ("updated_at", "created_at") VALUES ('2010-12-08 21:20:10.356935', '2010-12-08 21:20:10.356935')
+Redirected to http://127.0.0.1:3000/product_types/1
+Completed 302 Found in 39ms
+
+
+Started GET "/product_types/1" for 127.0.0.1 at Wed Dec 08 16:20:10 -0500 2010
+  Processing by ProductTypesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProductType Load (0.1ms)[0m  [1mSELECT "product_types".* FROM "product_types" WHERE ("product_types"."id" = 1) LIMIT 1[0m
+Rendered product_types/show.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 17ms (Views: 11.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/product_types/1/edit" for 127.0.0.1 at Wed Dec 08 16:20:12 -0500 2010
+  Processing by ProductTypesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProductType Load (0.1ms)[0m  SELECT "product_types".* FROM "product_types" WHERE ("product_types"."id" = 1) LIMIT 1
+Rendered product_types/_form.html.erb (4.0ms)
+Rendered product_types/edit.html.erb within layouts/application (84.2ms)
+Completed 200 OK in 96ms (Views: 90.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/product_types/1" for 127.0.0.1 at Wed Dec 08 16:20:13 -0500 2010
+  Processing by ProductTypesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProductType Load (0.1ms)[0m  [1mSELECT "product_types".* FROM "product_types" WHERE ("product_types"."id" = 1) LIMIT 1[0m
+Rendered product_types/show.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 17ms (Views: 11.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/product_types" for 127.0.0.1 at Wed Dec 08 16:20:17 -0500 2010
+  Processing by ProductTypesController#index as HTML
+  [1m[35mProductType Load (0.4ms)[0m  SELECT "product_types".* FROM "product_types"
+Rendered product_types/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 17ms (Views: 12.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/product_types/1" for 127.0.0.1 at Wed Dec 08 16:20:20 -0500 2010
+  Processing by ProductTypesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "id"=>"1"}
+  [1m[36mProductType Load (0.2ms)[0m  [1mSELECT "product_types".* FROM "product_types" WHERE ("product_types"."id" = 1) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "product_types" WHERE ("product_types"."id" = 1)
+Redirected to http://127.0.0.1:3000/product_types
+Completed 302 Found in 14ms
+
+
+Started GET "/product_types" for 127.0.0.1 at Wed Dec 08 16:20:20 -0500 2010
+  Processing by ProductTypesController#index as HTML
+  [1m[36mProductType Load (0.7ms)[0m  [1mSELECT "product_types".* FROM "product_types"[0m
+Rendered product_types/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 14ms (Views: 8.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/home" for 127.0.0.1 at Wed Dec 08 16:20:28 -0500 2010
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:20:32 -0500 2010
+
+ActionController::RoutingError (No route matches "/dev"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:21:18 -0500 2010
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:22:03 -0500 2010
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 8ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 16:22:10 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 16:22:12 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 85ms (Views: 9.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 16:22:43 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 16:22:50 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 16:22:54 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 16:22:58 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 17ms (Views: 9.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed Dec 08 16:22:59 -0500 2010
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (7.1ms)
+Rendered products/new.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 27ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.6ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "is_popular" boolean, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.7ms)[0m  CREATE TABLE "product_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.6ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (10.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101208211836')[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101207230654')
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101208211045')[0m
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:25:34 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 14ms (Views: 9.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Wed Dec 08 16:25:35 -0500 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (5.9ms)
+Rendered categories/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 23ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Wed Dec 08 16:25:47 -0500 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"iPhones", "is_popular"=>"1"}, "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓"}
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "categories" ("created_at", "is_popular", "updated_at", "name") VALUES ('2010-12-08 21:25:47.982221', 't', '2010-12-08 21:25:47.982221', 'iPhones')[0m
+Redirected to http://127.0.0.1:3000/categories/1
+Completed 302 Found in 14ms
+
+
+Started GET "/categories/1" for 127.0.0.1 at Wed Dec 08 16:25:48 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 17ms (Views: 11.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories/1/edit" for 127.0.0.1 at Wed Dec 08 16:25:49 -0500 2010
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+Rendered categories/_form.html.erb (5.9ms)
+Rendered categories/edit.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 22ms (Views: 17.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:25:50 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 19ms (Views: 14.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Wed Dec 08 16:25:51 -0500 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (5.7ms)
+Rendered categories/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 21ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Wed Dec 08 16:26:08 -0500 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"HTC EVO G4", "is_popular"=>"0"}, "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓"}
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "categories" ("updated_at", "name", "is_popular", "created_at") VALUES ('2010-12-08 21:26:08.508823', 'HTC EVO G4', 'f', '2010-12-08 21:26:08.508823')[0m
+Redirected to http://127.0.0.1:3000/categories/2
+Completed 302 Found in 92ms
+
+
+Started GET "/categories/2" for 127.0.0.1 at Wed Dec 08 16:26:08 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 2) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 18ms (Views: 12.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:30:39 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 20ms (Views: 14.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Wed Dec 08 16:30:44 -0500 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (5.8ms)
+Rendered categories/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 95ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:34:39 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 20ms (Views: 14.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:37:42 -0500 2010
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 16:37:46 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:40:46 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 20ms (Views: 14.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/categories/1" for 127.0.0.1 at Wed Dec 08 16:40:50 -0500 2010
+  Processing by CategoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "id"=>"1"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM "categories" WHERE ("categories"."id" = 1)[0m
+Redirected to http://127.0.0.1:3000/categories
+Completed 302 Found in 13ms
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:40:51 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 18ms (Views: 13.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/categories/2" for 127.0.0.1 at Wed Dec 08 16:40:54 -0500 2010
+  Processing by CategoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "id"=>"2"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 2) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "categories" WHERE ("categories"."id" = 2)
+Redirected to http://127.0.0.1:3000/categories
+Completed 302 Found in 12ms
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:40:54 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 87ms (Views: 8.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Wed Dec 08 16:40:56 -0500 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (5.8ms)
+Rendered categories/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 21ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Wed Dec 08 16:41:08 -0500 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"Cell Phones", "is_popular"=>"1"}, "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓"}
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "categories" ("updated_at", "is_popular", "created_at", "name") VALUES ('2010-12-08 21:41:08.108742', 't', '2010-12-08 21:41:08.108742', 'Cell Phones')
+Redirected to http://127.0.0.1:3000/categories/3
+Completed 302 Found in 14ms
+
+
+Started GET "/categories/3" for 127.0.0.1 at Wed Dec 08 16:41:08 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered categories/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 91ms (Views: 85.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:41:10 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 18ms (Views: 12.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Wed Dec 08 16:41:11 -0500 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (5.7ms)
+Rendered categories/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 21ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Wed Dec 08 16:41:17 -0500 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"Laptops", "is_popular"=>"0"}, "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓"}
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO "categories" ("updated_at", "is_popular", "name", "created_at") VALUES ('2010-12-08 21:41:17.974699', 'f', 'Laptops', '2010-12-08 21:41:17.974699')[0m
+Redirected to http://127.0.0.1:3000/categories/4
+Completed 302 Found in 87ms
+
+
+Started GET "/categories/4" for 127.0.0.1 at Wed Dec 08 16:41:18 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 4) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 17ms (Views: 11.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:41:20 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 20ms (Views: 14.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories/4/edit" for 127.0.0.1 at Wed Dec 08 16:41:21 -0500 2010
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 4) LIMIT 1
+Rendered categories/_form.html.erb (6.0ms)
+Rendered categories/edit.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 24ms (Views: 18.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/categories/4" for 127.0.0.1 at Wed Dec 08 16:41:23 -0500 2010
+  Processing by CategoriesController#update as HTML
+  Parameters: {"commit"=>"Update Category", "category"=>{"name"=>"Laptops", "is_popular"=>"1"}, "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓", "id"=>"4"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 4) LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "categories" SET "updated_at" = '2010-12-08 21:41:23.826296', "is_popular" = 't' WHERE ("categories"."id" = 4)
+Redirected to http://127.0.0.1:3000/categories/4
+Completed 302 Found in 17ms
+
+
+Started GET "/categories/4" for 127.0.0.1 at Wed Dec 08 16:41:23 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 4) LIMIT 1[0m
+Rendered categories/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 17ms (Views: 12.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:41:25 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 19ms (Views: 14.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Wed Dec 08 16:41:26 -0500 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (5.7ms)
+Rendered categories/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 21ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Wed Dec 08 16:41:33 -0500 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"PDAs", "is_popular"=>"1"}, "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓"}
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "categories" ("is_popular", "updated_at", "created_at", "name") VALUES ('t', '2010-12-08 21:41:33.340745', '2010-12-08 21:41:33.340745', 'PDAs')[0m
+Redirected to http://127.0.0.1:3000/categories/5
+Completed 302 Found in 14ms
+
+
+Started GET "/categories/5" for 127.0.0.1 at Wed Dec 08 16:41:33 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 5) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 17ms (Views: 12.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:41:40 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 20ms (Views: 14.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Wed Dec 08 16:41:42 -0500 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (5.9ms)
+Rendered categories/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 21ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Wed Dec 08 16:41:56 -0500 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"Cameras", "is_popular"=>"1"}, "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓"}
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "categories" ("updated_at", "name", "is_popular", "created_at") VALUES ('2010-12-08 21:41:56.382692', 'Cameras', 't', '2010-12-08 21:41:56.382692')
+Redirected to http://127.0.0.1:3000/categories/6
+Completed 302 Found in 14ms
+
+
+Started GET "/categories/6" for 127.0.0.1 at Wed Dec 08 16:41:56 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 6) LIMIT 1[0m
+Rendered categories/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 18ms (Views: 12.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:41:57 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 22ms (Views: 16.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Wed Dec 08 16:41:58 -0500 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (5.8ms)
+Rendered categories/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 21ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Wed Dec 08 16:42:02 -0500 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"Monitors", "is_popular"=>"1"}, "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓"}
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "categories" ("updated_at", "is_popular", "name", "created_at") VALUES ('2010-12-08 21:42:02.524958', 't', 'Monitors', '2010-12-08 21:42:02.524958')[0m
+Redirected to http://127.0.0.1:3000/categories/7
+Completed 302 Found in 14ms
+
+
+Started GET "/categories/7" for 127.0.0.1 at Wed Dec 08 16:42:02 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 7) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 91ms (Views: 11.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:42:04 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 22ms (Views: 17.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Wed Dec 08 16:42:14 -0500 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (5.7ms)
+Rendered categories/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 21ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Wed Dec 08 16:42:28 -0500 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"GPS Devices", "is_popular"=>"1"}, "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓"}
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "categories" ("updated_at", "created_at", "name", "is_popular") VALUES ('2010-12-08 21:42:28.715802', '2010-12-08 21:42:28.715802', 'GPS Devices', 't')
+Redirected to http://127.0.0.1:3000/categories/8
+Completed 302 Found in 15ms
+
+
+Started GET "/categories/8" for 127.0.0.1 at Wed Dec 08 16:42:28 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 8) LIMIT 1[0m
+Rendered categories/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 17ms (Views: 11.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:42:50 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 24ms (Views: 18.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories/6/edit" for 127.0.0.1 at Wed Dec 08 16:42:52 -0500 2010
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 6) LIMIT 1[0m
+Rendered categories/_form.html.erb (6.3ms)
+Rendered categories/edit.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 23ms (Views: 17.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/categories/6" for 127.0.0.1 at Wed Dec 08 16:42:54 -0500 2010
+  Processing by CategoriesController#update as HTML
+  Parameters: {"commit"=>"Update Category", "category"=>{"name"=>"Digital Cameras", "is_popular"=>"1"}, "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓", "id"=>"6"}
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 6) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "categories" SET "name" = 'Digital Cameras', "updated_at" = '2010-12-08 21:42:54.138803' WHERE ("categories"."id" = 6)[0m
+Redirected to http://127.0.0.1:3000/categories/6
+Completed 302 Found in 16ms
+
+
+Started GET "/categories/6" for 127.0.0.1 at Wed Dec 08 16:42:54 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 6) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 17ms (Views: 11.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:42:55 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 26ms (Views: 20.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Wed Dec 08 16:42:57 -0500 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (6.0ms)
+Rendered categories/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 22ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:43:17 -0500 2010
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 16:43:21 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:43:23 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (92.0ms)
+Completed 200 OK in 105ms (Views: 99.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Wed Dec 08 16:43:24 -0500 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (5.6ms)
+Rendered categories/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 20ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Wed Dec 08 16:43:27 -0500 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"Blu-Ray Players", "is_popular"=>"0"}, "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓"}
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "categories" ("updated_at", "created_at", "is_popular", "name") VALUES ('2010-12-08 21:43:27.112264', '2010-12-08 21:43:27.112264', 'f', 'Blu-Ray Players')[0m
+Redirected to http://127.0.0.1:3000/categories/9
+Completed 302 Found in 15ms
+
+
+Started GET "/categories/9" for 127.0.0.1 at Wed Dec 08 16:43:27 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 9) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 17ms (Views: 11.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:43:28 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 26ms (Views: 20.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories/8/edit" for 127.0.0.1 at Wed Dec 08 16:43:30 -0500 2010
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 8) LIMIT 1
+Rendered categories/_form.html.erb (6.0ms)
+Rendered categories/edit.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 22ms (Views: 16.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/categories/8" for 127.0.0.1 at Wed Dec 08 16:43:32 -0500 2010
+  Processing by CategoriesController#update as HTML
+  Parameters: {"commit"=>"Update Category", "category"=>{"name"=>"GPS Devices", "is_popular"=>"0"}, "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓", "id"=>"8"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 8) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "categories" SET "is_popular" = 'f', "updated_at" = '2010-12-08 21:43:32.641276' WHERE ("categories"."id" = 8)
+Redirected to http://127.0.0.1:3000/categories/8
+Completed 302 Found in 15ms
+
+
+Started GET "/categories/8" for 127.0.0.1 at Wed Dec 08 16:43:32 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 8) LIMIT 1[0m
+Rendered categories/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 94ms (Views: 89.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:43:33 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 26ms (Views: 20.5ms | ActiveRecord: 0.6ms)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 1
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't')[0m
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:46:39 -0500 2010
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed   in 7ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    6:     <th></th>
+    7:   </tr>
+    8: 
+    9: <% @categories.each do |category| %>
+    10:   <tr>
+    11: 	<td><%= category.name %></td>
+    12:     <td><%= link_to 'Show', product_type %></td>
+  app/views/home/index.html.erb:9:in `_app_views_home_index_html_erb___1579250802_2174098400_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (92.7ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:47:08 -0500 2010
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed   in 7ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    6:     <th></th>
+    7:   </tr>
+    8: 
+    9: <% @categories.each do |category| %>
+    10:   <tr>
+    11: 	<td><%= category.name %></td>
+    12:     <td><%= link_to 'Show', product_type %></td>
+  app/views/home/index.html.erb:9:in `_app_views_home_index_html_erb___1579250802_2177783820_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.4ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:47:35 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't')[0m
+Rendered home/index.html.erb within layouts/application (14.7ms)
+Completed   in 36ms
+
+ActionView::Template::Error (undefined local variable or method `product_type' for #<#<Class:0x10329ca30>:0x10329a708>):
+    9: <% @categories.each do |category| %>
+    10:   <tr>
+    11: 	<td><%= category.name %></td>
+    12:     <td><%= link_to 'Show', product_type %></td>
+    13:   </tr>
+    14: <% end %>
+    15: </table>
+  app/views/home/index.html.erb:12:in `_app_views_home_index_html_erb___1579250802_2174009720_0'
+  app/views/home/index.html.erb:9:in `each'
+  app/views/home/index.html.erb:9:in `_app_views_home_index_html_erb___1579250802_2174009720_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.3ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:47:44 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't')
+Rendered home/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 90ms (Views: 84.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/categories/6" for 127.0.0.1 at Wed Dec 08 16:47:47 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 6) LIMIT 1[0m
+Rendered categories/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 18ms (Views: 12.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:48:50 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't')
+Rendered home/index.html.erb within layouts/application (19.7ms)
+Completed   in 32ms
+
+ActionView::Template::Error (undefined local variable or method `categories' for #<#<Class:0x1032691d0>:0x103266e30>):
+    11:   </tr>
+    12: <% end %>
+    13: 	<tr>
+    14:   		<td><%= link_to "Show All", categories %></td>
+    15: 	</tr>
+    16: </table>
+  app/views/home/index.html.erb:14:in `_app_views_home_index_html_erb___1579250802_2173878720_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (81.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (87.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:49:08 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't')[0m
+Rendered home/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 19ms (Views: 13.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:49:26 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't')
+Rendered home/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 20ms (Views: 14.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 16:49:28 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 26ms (Views: 21.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:50:54 -0500 2010
+  Processing by HomeController#index as HTML
+Completed   in 4ms
+
+NameError (undefined local variable or method `limit' for #<HomeController:0x1033fa0a8>):
+  app/controllers/home_controller.rb:6:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:50:58 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered home/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 18ms (Views: 12.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:52:04 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed   in 8ms
+
+NameError (uninitialized constant HomeController::Phone):
+  app/controllers/home_controller.rb:8:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.6ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:52:11 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed   in 7ms
+
+NameError (uninitialized constant HomeController::Phone):
+  app/controllers/home_controller.rb:8:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.6ms)
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:53:09 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+Completed   in 9ms
+
+NoMethodError (undefined method `find_all_by_is_popular' for #<Class:0x1039e7538>):
+  app/controllers/home_controller.rb:8:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.0ms)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20101207230654)
+Migrating to CreateCategories (20101208211045)
+Migrating to CreateProductTypes (20101208211836)
+Migrating to AddColumnIsPopularToProducts (20101208215357)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (19.3ms)[0m  [1mALTER TABLE "products" ADD "is_popular" boolean[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101208215357')
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("categories")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("product_types")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("products")
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:56:18 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+Rendered home/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 24ms (Views: 13.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 16:56:29 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 16:56:31 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 14ms (Views: 9.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed Dec 08 16:56:34 -0500 2010
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (6.6ms)
+Rendered products/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 22ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at Wed Dec 08 16:56:40 -0500 2010
+  Processing by ProductsController#create as HTML
+  Parameters: {"commit"=>"Create Product", "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓", "product"=>{"name"=>"iPhone", "is_popular"=>"1", "description"=>""}}
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "products" ("is_popular", "created_at", "name", "description", "updated_at") VALUES ('t', '2010-12-08 21:56:40.802383', 'iPhone', '', '2010-12-08 21:56:40.802383')
+Redirected to http://127.0.0.1:3000/products/1
+Completed 302 Found in 15ms
+
+
+Started GET "/products/1" for 127.0.0.1 at Wed Dec 08 16:56:40 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 17ms (Views: 12.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 16:56:41 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 19ms (Views: 13.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed Dec 08 16:56:43 -0500 2010
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (6.4ms)
+Rendered products/new.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 23ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 16:56:49 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 19ms (Views: 14.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 16:56:51 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+Rendered products/_form.html.erb (7.7ms)
+Rendered products/edit.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 26ms (Views: 19.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/products/1" for 127.0.0.1 at Wed Dec 08 16:57:06 -0500 2010
+  Processing by ProductsController#update as HTML
+  Parameters: {"commit"=>"Update Product", "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓", "id"=>"1", "product"=>{"name"=>"iPhone 4 16GB Black", "is_popular"=>"1", "description"=>""}}
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "products" SET "updated_at" = '2010-12-08 21:57:06.893467', "name" = 'iPhone 4 16GB Black' WHERE ("products"."id" = 1)
+Redirected to http://127.0.0.1:3000/products/1
+Completed 302 Found in 14ms
+
+
+Started GET "/products/1" for 127.0.0.1 at Wed Dec 08 16:57:06 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 17ms (Views: 12.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 16:57:08 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 96ms (Views: 13.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed Dec 08 16:57:09 -0500 2010
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (6.5ms)
+Rendered products/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 23ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at Wed Dec 08 16:57:59 -0500 2010
+  Processing by ProductsController#create as HTML
+  Parameters: {"commit"=>"Create Product", "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓", "product"=>{"name"=>"DROID 2", "is_popular"=>"1", "description"=>""}}
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "products" ("updated_at", "description", "name", "created_at", "is_popular") VALUES ('2010-12-08 21:57:59.781626', '', 'DROID 2', '2010-12-08 21:57:59.781626', 't')[0m
+Redirected to http://127.0.0.1:3000/products/2
+Completed 302 Found in 14ms
+
+
+Started GET "/products/2" for 127.0.0.1 at Wed Dec 08 16:57:59 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 2) LIMIT 1
+Rendered products/show.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 23ms (Views: 17.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 16:58:00 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 21ms (Views: 16.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed Dec 08 16:58:01 -0500 2010
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (7.2ms)
+Rendered products/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 22ms (Views: 17.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at Wed Dec 08 16:58:27 -0500 2010
+  Processing by ProductsController#create as HTML
+  Parameters: {"commit"=>"Create Product", "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓", "product"=>{"name"=>"BlackBerry Torch 9800", "is_popular"=>"1", "description"=>""}}
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "products" ("created_at", "updated_at", "name", "description", "is_popular") VALUES ('2010-12-08 21:58:27.261135', '2010-12-08 21:58:27.261135', 'BlackBerry Torch 9800', '', 't')
+Redirected to http://127.0.0.1:3000/products/3
+Completed 302 Found in 15ms
+
+
+Started GET "/products/3" for 127.0.0.1 at Wed Dec 08 16:58:27 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 18ms (Views: 12.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 16:58:28 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 52ms (Views: 46.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed Dec 08 16:58:30 -0500 2010
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (6.9ms)
+Rendered products/new.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 24ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at Wed Dec 08 16:59:05 -0500 2010
+  Processing by ProductsController#create as HTML
+  Parameters: {"commit"=>"Create Product", "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓", "product"=>{"name"=>"Samsung Epic 4G", "is_popular"=>"1", "description"=>""}}
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "products" ("created_at", "name", "updated_at", "description", "is_popular") VALUES ('2010-12-08 21:59:05.454157', 'Samsung Epic 4G', '2010-12-08 21:59:05.454157', '', 't')[0m
+Redirected to http://127.0.0.1:3000/products/4
+Completed 302 Found in 14ms
+
+
+Started GET "/products/4" for 127.0.0.1 at Wed Dec 08 16:59:05 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 4) LIMIT 1
+Rendered products/show.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 19ms (Views: 13.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 16:59:17 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 22ms (Views: 16.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed Dec 08 16:59:18 -0500 2010
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (80.6ms)
+Rendered products/new.html.erb within layouts/application (84.9ms)
+Completed 200 OK in 96ms (Views: 90.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at Wed Dec 08 16:59:20 -0500 2010
+  Processing by ProductsController#create as HTML
+  Parameters: {"commit"=>"Create Product", "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓", "product"=>{"name"=>"Google Nexus One", "is_popular"=>"1", "description"=>""}}
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "products" ("updated_at", "name", "created_at", "description", "is_popular") VALUES ('2010-12-08 21:59:20.710099', 'Google Nexus One', '2010-12-08 21:59:20.710099', '', 't')
+Redirected to http://127.0.0.1:3000/products/5
+Completed 302 Found in 15ms
+
+
+Started GET "/products/5" for 127.0.0.1 at Wed Dec 08 16:59:20 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 5) LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 18ms (Views: 12.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 16:59:21 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (94.6ms)
+Completed 200 OK in 107ms (Views: 101.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:59:31 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+Rendered home/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 28ms (Views: 17.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 16:59:33 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 24ms (Views: 18.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 16:59:55 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+Rendered home/index.html.erb within layouts/application (17.9ms)
+Completed   in 34ms
+
+ActionView::Template::Error (undefined local variable or method `admin' for #<#<Class:0x1030b6810>:0x1030b4b78>):
+    1: <h1>Depstar</h1>
+    2: 
+    3: <%= link_to admin %>
+    4: 
+    5: <table>
+    6:   <tr>
+  app/views/home/index.html.erb:3:in `_app_views_home_index_html_erb___1579250802_2173016360_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.2ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:00:02 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+Rendered home/index.html.erb within layouts/application (18.5ms)
+Completed   in 35ms
+
+ActionView::Template::Error (undefined local variable or method `admin' for #<#<Class:0x10349d348>:0x103499b08>):
+    1: <h1>Depstar</h1>
+    2: 
+    3: <%= link_to 'Admin', admin %>
+    4: 
+    5: <table>
+    6:   <tr>
+  app/views/home/index.html.erb:3:in `_app_views_home_index_html_erb___1579250802_2175039340_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.7ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:00:09 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+Rendered home/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 28ms (Views: 17.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:00:17 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+Rendered home/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 28ms (Views: 18.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:00:25 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+Rendered home/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 121ms (Views: 18.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:00:53 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+Rendered home/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 28ms (Views: 17.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:00:56 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+Rendered home/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 28ms (Views: 17.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:01:21 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+Rendered home/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 29ms (Views: 17.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:02:16 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+ERROR: compiling _app_views_home_index_html_erb___1579250802_2176556780_0 RAISED compile error
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:32: syntax error, unexpected '<'
+	</tr>
+	 ^
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:33: unknown regexp options - tabl
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:35: syntax error, unexpected '<'
+<div style=\'margin-top:30px;\'>
+ ^
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:35: syntax error, unexpected $undefined
+<div style=\'margin-top:30px;\'>
+            ^
+Function body:           def _app_views_home_index_html_erb___1579250802_2176556780_0(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "home/index";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<h1>Depstar</h1>
+
+<table>
+  <tr>
+    <th>Categories</th>
+  </tr>
+
+');@output_buffer.append_if_string=  @categories.each do |category| 
+@output_buffer.safe_concat('  <tr>
+    <td>');@output_buffer.append= ( link_to category.name, category );@output_buffer.safe_concat('</td>
+  </tr>
+'); end 
+@output_buffer.safe_concat('	<tr>
+  		<td><b>');@output_buffer.append= ( link_to "Show All", categories_path );@output_buffer.safe_concat('</b></td>
+	</tr>
+</table>
+
+<br/>
+
+<table>
+  <tr>
+    <th>Phones</th>
+  </tr>
+
+');@output_buffer.append_if_string=  @products.each do |product| 
+@output_buffer.safe_concat('  <tr>
+    <td>');@output_buffer.append= ( link_to product.name, product );@output_buffer.safe_concat('</td>
+  </tr>
+'); end 
+@output_buffer.safe_concat('	<tr>
+  		<td><b>');@output_buffer.append= ( link_to "Show All", products_path );@output_buffer.safe_concat('</b> - ');@output_buffer.append= ( link_to "Sell yours now", # );@output_buffer.safe_concat('</td>
+	</tr>
+</table>
+
+<div style=\'margin-top:30px;\'>
+	');@output_buffer.append= ( link_to 'Admin', admin_path );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</div>');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:40:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:134:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:59:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:56:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:26:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:92:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:17:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:151:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:435:in `_run__738958071__process_action__199225275__callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:120:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:40:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal.rb:138:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal.rb:178:in `action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/cookies.rb:295:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:32:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:12:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/rack/logger.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:168:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:77:in `send'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:77:in `method_missing'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands/server.rb:65:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:30
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:27:in `tap'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed   in 18ms
+
+ActionView::Template::Error (compile error
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:32: syntax error, unexpected '<'
+	</tr>
+	 ^
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:33: unknown regexp options - tabl
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:35: syntax error, unexpected '<'
+<div style=\'margin-top:30px;\'>
+ ^
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:35: syntax error, unexpected $undefined
+<div style=\'margin-top:30px;\'>
+            ^):
+    29: <% end %>
+    30: 	<tr>
+    31:   		<td><b><%= link_to "Show All", products_path %></b> - <%= link_to "Sell yours now", # %></td>
+    32: 	</tr>
+    33: </table>
+    34: 
+    35: <div style='margin-top:30px;'>
+  app/views/home/index.html.erb:40:in `compile'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.7ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:02:21 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+Rendered home/index.html.erb within layouts/application (28.4ms)
+Completed 200 OK in 47ms (Views: 35.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:02:24 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+Rendered home/index.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 40ms (Views: 24.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:02:39 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+Rendered home/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 28ms (Views: 17.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 17:17:01 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/product_types" for 127.0.0.1 at Wed Dec 08 17:17:05 -0500 2010
+  Processing by ProductTypesController#index as HTML
+  [1m[35mProductType Load (0.4ms)[0m  SELECT "product_types".* FROM "product_types"
+Rendered product_types/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 15ms (Views: 9.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 17:18:37 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:18:38 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (45.0ms)
+Completed 200 OK in 59ms (Views: 51.5ms | ActiveRecord: 0.5ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20101207230654)
+Migrating to CreateCategories (20101208211045)
+Migrating to AddColumnIsPopularToProducts (20101208215357)
+Migrating to AddColumnCategoryIdToProducts (20101208222041)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1mALTER TABLE "products" ADD "category_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101208222041')
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("categories")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("product_types")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("products")
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" LIMIT 1[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" LIMIT 1
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products" LIMIT 1[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" LIMIT 1[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products" LIMIT 1
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products" LIMIT 1[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products" LIMIT 1
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products" LIMIT 1[0m
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products" LIMIT 1
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products" LIMIT 1[0m
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:23:26 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 28ms (Views: 19.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:29:24 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 116ms (Views: 34.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:31:45 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+Completed   in 9ms
+
+NameError (uninitialized constant ProductsController::Cateogry):
+  app/controllers/products_controller.rb:41:in `edit'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.4ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:31:47 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+Completed   in 7ms
+
+NameError (uninitialized constant ProductsController::Cateogry):
+  app/controllers/products_controller.rb:41:in `edit'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.8ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:32:16 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+Completed   in 29ms
+
+NameError (uninitialized constant ProductsController::Cateogry):
+  app/controllers/products_controller.rb:41:in `edit'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.8ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:32:34 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+Completed   in 9ms
+
+NameError (uninitialized constant ProductsController::Cateogry):
+  app/controllers/products_controller.rb:41:in `edit'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (80.4ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:32:39 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+Completed   in 8ms
+
+NameError (uninitialized constant ProductsController::Cateogry):
+  app/controllers/products_controller.rb:41:in `edit'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.8ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:32:53 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (91.0ms)
+Rendered products/edit.html.erb within layouts/application (97.4ms)
+Completed 200 OK in 160ms (Views: 103.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:33:04 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (12.1ms)
+Rendered products/edit.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 35ms (Views: 22.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:33:16 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (12.3ms)
+Rendered products/edit.html.erb within layouts/application (14.3ms)
+Completed   in 102ms
+
+ActionView::Template::Error (undefined method `name' for #<Array:0x103abd228>):
+    25:   </div>
+    26:   <div class="field">
+    27:     <%= f.label :category_id %><br />
+    28: 	<%= f.select ("category_id", @categories.name, :prompt => "Select") %>
+    29:   </div>
+    30:   <div class="actions">
+    31:     <%= f.submit %>
+  app/views/products/_form.html.erb:28:in `_app_views_products__form_html_erb___1703972543_2177900460_1070910'
+  app/views/products/_form.html.erb:1:in `_app_views_products__form_html_erb___1703972543_2177900460_1070910'
+  app/views/products/edit.html.erb:3:in `_app_views_products_edit_html_erb___1227858186_2178177220_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.3ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:33:56 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (7.7ms)
+Rendered products/edit.html.erb within layouts/application (9.6ms)
+Completed   in 28ms
+
+ActionView::Template::Error (undefined method `merge' for :name:Symbol):
+    25:   </div>
+    26:   <div class="field">
+    27:     <%= f.label :category_id %><br />
+    28: 	<%= f.select ("category_id", @categories, :name, :prompt => "Select") %>
+    29:   </div>
+    30:   <div class="actions">
+    31:     <%= f.submit %>
+  app/views/products/_form.html.erb:28:in `_app_views_products__form_html_erb___1703972543_2173612940_1070910'
+  app/views/products/_form.html.erb:1:in `_app_views_products__form_html_erb___1703972543_2173612940_1070910'
+  app/views/products/edit.html.erb:3:in `_app_views_products_edit_html_erb___1227858186_2173626600_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.2ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:34:03 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (12.7ms)
+Rendered products/edit.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 109ms (Views: 23.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:34:12 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (12.0ms)
+Rendered products/edit.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 35ms (Views: 22.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:34:59 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+ERROR: compiling _app_views_products__form_html_erb___1703972543_2175696240_1070910 RAISED compile error
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:28: syntax error, unexpected ')', expecting tASSOC
+...s, :prompt => "Select", :name) );@output_buffer.safe_concat(...
+                              ^
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:33: syntax error, unexpected kEND, expecting ')'
+'); end 
+       ^
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:35: syntax error, unexpected kENSURE, expecting ')'
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:37: syntax error, unexpected kEND, expecting ')'
+Function body:           def _app_views_products__form_html_erb___1703972543_2175696240_1070910(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "products/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@product) do |f| @output_buffer.safe_concat('
+');   if @product.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@product.errors.count, "error") );@output_buffer.safe_concat(' prohibited this product from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @product.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :name );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :name );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :description );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :description );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :is_popular );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.check_box :is_popular );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :category_id );@output_buffer.safe_concat('<br />
+	');@output_buffer.append= ( f.select (:category_id, @categories, :prompt => "Select", :name) );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:37:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:134:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:333:in `render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:262:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:378:in `_render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:31:in `render'
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/edit.html.erb:3:in `_app_views_products_edit_html_erb___1227858186_2175714140_0'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:135:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:59:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:56:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:26:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:92:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:17:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:151:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:435:in `_run__1118320962__process_action__1992409046__callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:120:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:40:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal.rb:138:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal.rb:178:in `action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:82:in `optimized_each'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/cookies.rb:295:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:32:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:12:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/rack/logger.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:168:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:77:in `send'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:77:in `method_missing'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands/server.rb:65:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:30
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:27:in `tap'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered products/_form.html.erb (1.2ms)
+Rendered products/edit.html.erb within layouts/application (3.0ms)
+Completed   in 21ms
+
+ActionView::Template::Error (compile error
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:28: syntax error, unexpected ')', expecting tASSOC
+...s, :prompt => "Select", :name) );@output_buffer.safe_concat(...
+                              ^
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:33: syntax error, unexpected kEND, expecting ')'
+'); end 
+       ^
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:35: syntax error, unexpected kENSURE, expecting ')'
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:37: syntax error, unexpected kEND, expecting ')'):
+    25:   </div>
+    26:   <div class="field">
+    27:     <%= f.label :category_id %><br />
+    28: 	<%= f.select (:category_id, @categories, :prompt => "Select", :name) %>
+    29:   </div>
+    30:   <div class="actions">
+    31:     <%= f.submit %>
+  app/views/products/_form.html.erb:37:in `compile'
+  app/views/products/edit.html.erb:3:in `_app_views_products_edit_html_erb___1227858186_2175714140_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.2ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:36:06 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+ERROR: compiling _app_views_products__form_html_erb___1703972543_2173107560_1070910 RAISED compile error
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:28: syntax error, unexpected ')', expecting tASSOC
+...s, :prompt => "Select", :name) );@output_buffer.safe_concat(...
+                              ^
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:34: syntax error, unexpected kEND, expecting ')'
+'); end 
+       ^
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:36: syntax error, unexpected kENSURE, expecting ')'
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:38: syntax error, unexpected kEND, expecting ')'
+Function body:           def _app_views_products__form_html_erb___1703972543_2173107560_1070910(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "products/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@product) do |f| @output_buffer.safe_concat('
+');   if @product.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@product.errors.count, "error") );@output_buffer.safe_concat(' prohibited this product from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @product.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :name );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :name );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :description );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :description );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :is_popular );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.check_box :is_popular );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :category_id );@output_buffer.safe_concat('<br />
+	');@output_buffer.append= ( f.select (:category_id, @categories, :prompt => "Select", :name) );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	');@output_buffer.append= ( options_from_collection_for_select(@categories, :category_id, :name) );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:38:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:134:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:333:in `render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:262:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:378:in `_render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:31:in `render'
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/edit.html.erb:3:in `_app_views_products_edit_html_erb___1227858186_2173117720_0'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:135:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:59:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:56:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:26:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:92:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:17:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:151:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:435:in `_run__1118320962__process_action__1992409046__callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:120:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:40:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal.rb:138:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal.rb:178:in `action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:82:in `optimized_each'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/cookies.rb:295:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:32:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:12:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/rack/logger.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:168:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:77:in `send'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:77:in `method_missing'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands/server.rb:65:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:30
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:27:in `tap'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered products/_form.html.erb (1.4ms)
+Rendered products/edit.html.erb within layouts/application (3.3ms)
+Completed   in 21ms
+
+ActionView::Template::Error (compile error
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:28: syntax error, unexpected ')', expecting tASSOC
+...s, :prompt => "Select", :name) );@output_buffer.safe_concat(...
+                              ^
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:34: syntax error, unexpected kEND, expecting ')'
+'); end 
+       ^
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:36: syntax error, unexpected kENSURE, expecting ')'
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/products/_form.html.erb:38: syntax error, unexpected kEND, expecting ')'):
+    25:   </div>
+    26:   <div class="field">
+    27:     <%= f.label :category_id %><br />
+    28: 	<%= f.select (:category_id, @categories, :prompt => "Select", :name) %>
+    29: 	<%= options_from_collection_for_select(@categories, :category_id, :name) %>
+    30:   </div>
+    31:   <div class="actions">
+  app/views/products/_form.html.erb:38:in `compile'
+  app/views/products/edit.html.erb:3:in `_app_views_products_edit_html_erb___1227858186_2173117720_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (15.8ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:36:11 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (12.2ms)
+Rendered products/edit.html.erb within layouts/application (14.1ms)
+Completed   in 32ms
+
+ActionView::Template::Error (undefined method `category_id' for #<Category:0x10335d708>):
+    26:   <div class="field">
+    27:     <%= f.label :category_id %><br />
+    28: 	<%= f.select (:category_id, @categories, :prompt => "Select") %>
+    29: 	<%= options_from_collection_for_select(@categories, :category_id, :name) %>
+    30:   </div>
+    31:   <div class="actions">
+    32:     <%= f.submit %>
+  app/views/products/_form.html.erb:29:in `_app_views_products__form_html_erb___1703972543_2174369600_1070910'
+  app/views/products/_form.html.erb:1:in `_app_views_products__form_html_erb___1703972543_2174369600_1070910'
+  app/views/products/edit.html.erb:3:in `_app_views_products_edit_html_erb___1227858186_2174384360_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.1ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:36:17 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (12.6ms)
+Rendered products/edit.html.erb within layouts/application (14.9ms)
+Completed   in 112ms
+
+ActionView::Template::Error (undefined method `category_id' for #<Category:0x103ad0058>):
+    26:   <div class="field">
+    27:     <%= f.label :category_id %><br />
+    28: 	<%= f.select (:category_id, @categories, :prompt => "Select") %>
+    29: 	<%= options_from_collection_for_select(@categories, :category_id, :name) %>
+    30:   </div>
+    31:   <div class="actions">
+    32:     <%= f.submit %>
+  app/views/products/_form.html.erb:29:in `_app_views_products__form_html_erb___1703972543_2177980560_1070910'
+  app/views/products/_form.html.erb:1:in `_app_views_products__form_html_erb___1703972543_2177980560_1070910'
+  app/views/products/edit.html.erb:3:in `_app_views_products_edit_html_erb___1227858186_2178192760_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (21.1ms)
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" LIMIT 1
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:36:39 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (27.7ms)
+Rendered products/edit.html.erb within layouts/application (29.7ms)
+Completed   in 48ms
+
+ActionView::Template::Error (undefined method `options_from_collection_for_select' for #<ActionView::Helpers::FormBuilder:0x10315ba40>):
+    26:   <div class="field">
+    27:     <%= f.label :category_id %><br />
+    28: 	<%= f.select (:category_id, @categories, :prompt => "Select") %>
+    29: 	<%= f.options_from_collection_for_select(@categories, :category_id, :name) %>
+    30:   </div>
+    31:   <div class="actions">
+    32:     <%= f.submit %>
+  app/views/products/_form.html.erb:29:in `_app_views_products__form_html_erb___1703972543_2173532700_1070910'
+  app/views/products/_form.html.erb:1:in `_app_views_products__form_html_erb___1703972543_2173532700_1070910'
+  app/views/products/edit.html.erb:3:in `_app_views_products_edit_html_erb___1227858186_2173568580_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (79.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (85.5ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:36:46 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (12.3ms)
+Rendered products/edit.html.erb within layouts/application (14.2ms)
+Completed   in 33ms
+
+ActionView::Template::Error (undefined method `category_id' for #<Category:0x1037b2f88>):
+    26:   <div class="field">
+    27:     <%= f.label :category_id %><br />
+    28: 	<%= f.select (:category_id, @categories, :prompt => "Select") %>
+    29: 	<%= options_from_collection_for_select(@categories, :category_id, :name) %>
+    30:   </div>
+    31:   <div class="actions">
+    32:     <%= f.submit %>
+  app/views/products/_form.html.erb:29:in `_app_views_products__form_html_erb___1703972543_2176501120_1070910'
+  app/views/products/_form.html.erb:1:in `_app_views_products__form_html_erb___1703972543_2176501120_1070910'
+  app/views/products/edit.html.erb:3:in `_app_views_products_edit_html_erb___1227858186_2176550880_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.4ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:37:09 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (12.1ms)
+Rendered products/edit.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 35ms (Views: 22.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:37:55 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (13.4ms)
+Rendered products/edit.html.erb within layouts/application (15.6ms)
+Completed   in 34ms
+
+ActionView::Template::Error (wrong number of arguments (3 for 4)):
+    26:   <div class="field">
+    27:     <%= f.label :category_id %><br />
+    28: 	<%= f.select (:category_id, @categories, :prompt => "Select") %>
+    29: 	<%= f.collection_select(@categories, :category_id, :name) %>
+    30:   </div>
+    31:   <div class="actions">
+    32:     <%= f.submit %>
+  app/views/products/_form.html.erb:29:in `collection_select'
+  app/views/products/_form.html.erb:29:in `_app_views_products__form_html_erb___1703972543_2175566320_1070910'
+  app/views/products/_form.html.erb:1:in `_app_views_products__form_html_erb___1703972543_2175566320_1070910'
+  app/views/products/edit.html.erb:3:in `_app_views_products_edit_html_erb___1227858186_2175596260_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.6ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:38:20 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (13.7ms)
+Rendered products/edit.html.erb within layouts/application (15.6ms)
+Completed   in 105ms
+
+ActionView::Template::Error (undefined method `category_id' for #<Category:0x1039930c8>):
+    26:   <div class="field">
+    27:     <%= f.label :category_id %><br />
+    28: 	<%= f.select (:category_id, @categories, :prompt => "Select") %>
+    29: 	<%= f.collection_select "category_id", @categories, :category_id, :name %>
+    30:   </div>
+    31:   <div class="actions">
+    32:     <%= f.submit %>
+  app/views/products/_form.html.erb:29:in `_app_views_products__form_html_erb___1703972543_2177546660_1070910'
+  app/views/products/_form.html.erb:1:in `_app_views_products__form_html_erb___1703972543_2177546660_1070910'
+  app/views/products/edit.html.erb:3:in `_app_views_products_edit_html_erb___1227858186_2177574080_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.8ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:38:29 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (12.3ms)
+Rendered products/edit.html.erb within layouts/application (14.2ms)
+Completed   in 32ms
+
+ActionView::Template::Error (undefined method `category_id' for #<Category:0x103168d30>):
+    26:   <div class="field">
+    27:     <%= f.label :category_id %><br />
+    28: 	<%= f.select (:category_id, @categories, :prompt => "Select") %>
+    29: 	<%= f.collection_select "category_id", @categories, :category_id, :name %>
+    30:   </div>
+    31:   <div class="actions">
+    32:     <%= f.submit %>
+  app/views/products/_form.html.erb:29:in `_app_views_products__form_html_erb___1703972543_2173345020_1070910'
+  app/views/products/_form.html.erb:1:in `_app_views_products__form_html_erb___1703972543_2173345020_1070910'
+  app/views/products/edit.html.erb:3:in `_app_views_products_edit_html_erb___1227858186_2173356760_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.7ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:38:33 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (13.2ms)
+Rendered products/edit.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 36ms (Views: 23.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:38:46 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (84.9ms)
+Rendered products/edit.html.erb within layouts/application (89.7ms)
+Completed 200 OK in 108ms (Views: 95.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at Wed Dec 08 17:38:50 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (15.4ms)
+Rendered products/edit.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 45ms (Views: 27.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/products/1" for 127.0.0.1 at Wed Dec 08 17:38:56 -0500 2010
+  Processing by ProductsController#update as HTML
+  Parameters: {"commit"=>"Update Product", "authenticity_token"=>"lAxOkeJsfoPERM+Erig6F4+S3Z2CRWPyhGPi3Yt5ayk=", "utf8"=>"✓", "id"=>"1", "product"=>{"name"=>"iPhone 4 16GB Black", "category_id"=>"3", "is_popular"=>"1", "description"=>""}}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE "products" SET "category_id" = 3, "updated_at" = '2010-12-08 22:38:56.209720' WHERE ("products"."id" = 1)
+Redirected to http://127.0.0.1:3000/products/1
+Completed 302 Found in 36ms
+
+
+Started GET "/products/1" for 127.0.0.1 at Wed Dec 08 17:38:56 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 28ms (Views: 21.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at Wed Dec 08 17:40:22 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 29ms (Views: 21.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:40:24 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 25ms (Views: 18.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:41:00 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (4.1ms)
+Completed   in 89ms
+
+ActionView::Template::Error (undefined method `category' for nil:NilClass):
+    16:     <td><%= product.name %></td>
+    17:     <td><%= product.description %></td>
+    18:     <td><%= product.is_popular %></td>
+    19:     <td><%= @product.category.name %></td>
+    20:     <td><%= link_to 'Show', product %></td>
+    21:     <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    22:     <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
+  app/views/products/index.html.erb:19:in `_app_views_products_index_html_erb__1445637069_2178200420_0'
+  app/views/products/index.html.erb:14:in `each'
+  app/views/products/index.html.erb:14:in `_app_views_products_index_html_erb__1445637069_2178200420_0'
+  app/controllers/products_controller.rb:7:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.5ms)
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products" LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products" ORDER BY products.id DESC LIMIT 1
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:43:23 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (4.3ms)
+Completed   in 17ms
+
+ActionView::Template::Error (undefined method `category_name' for nil:NilClass):
+    16:     <td><%= product.name %></td>
+    17:     <td><%= product.description %></td>
+    18:     <td><%= product.is_popular %></td>
+    19:     <td><%= @product.category_name %></td>
+    20:     <td><%= link_to 'Show', product %></td>
+    21:     <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    22:     <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
+  app/views/products/index.html.erb:19:in `_app_views_products_index_html_erb__1445637069_2174205560_0'
+  app/views/products/index.html.erb:14:in `each'
+  app/views/products/index.html.erb:14:in `_app_views_products_index_html_erb__1445637069_2174205560_0'
+  app/controllers/products_controller.rb:7:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:43:36 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (4.3ms)
+Completed   in 16ms
+
+ActionView::Template::Error (undefined method `category' for nil:NilClass):
+    16:     <td><%= product.name %></td>
+    17:     <td><%= product.description %></td>
+    18:     <td><%= product.is_popular %></td>
+    19:     <td><%= @product.category %></td>
+    20:     <td><%= link_to 'Show', product %></td>
+    21:     <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    22:     <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
+  app/views/products/index.html.erb:19:in `_app_views_products_index_html_erb__1445637069_2172893000_0'
+  app/views/products/index.html.erb:14:in `each'
+  app/views/products/index.html.erb:14:in `_app_views_products_index_html_erb__1445637069_2172893000_0'
+  app/controllers/products_controller.rb:7:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (74.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (85.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:43:44 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 24ms (Views: 18.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:43:51 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (4.1ms)
+Completed   in 17ms
+
+ActionView::Template::Error (undefined method `category' for nil:NilClass):
+    16:     <td><%= product.name %></td>
+    17:     <td><%= product.description %></td>
+    18:     <td><%= product.is_popular %></td>
+    19:     <td><%= @product.category %></td>
+    20:     <td><%= link_to 'Show', product %></td>
+    21:     <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    22:     <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
+  app/views/products/index.html.erb:19:in `_app_views_products_index_html_erb__1445637069_2173638120_0'
+  app/views/products/index.html.erb:14:in `each'
+  app/views/products/index.html.erb:14:in `_app_views_products_index_html_erb__1445637069_2173638120_0'
+  app/controllers/products_controller.rb:7:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.5ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:43:59 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (4.2ms)
+Completed   in 17ms
+
+ActionView::Template::Error (undefined method `category' for nil:NilClass):
+    16:     <td><%= product.name %></td>
+    17:     <td><%= product.description %></td>
+    18:     <td><%= product.is_popular %></td>
+    19:     <td><%= @product.category %></td>
+    20:     <td><%= link_to 'Show', product %></td>
+    21:     <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    22:     <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
+  app/views/products/index.html.erb:19:in `_app_views_products_index_html_erb__1445637069_2175451780_0'
+  app/views/products/index.html.erb:14:in `each'
+  app/views/products/index.html.erb:14:in `_app_views_products_index_html_erb__1445637069_2175451780_0'
+  app/controllers/products_controller.rb:7:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.6ms)
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY products.id DESC LIMIT 1[0m
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:44:50 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (4.2ms)
+Completed   in 17ms
+
+ActionView::Template::Error (undefined method `category' for nil:NilClass):
+    16:     <td><%= product.name %></td>
+    17:     <td><%= product.description %></td>
+    18:     <td><%= product.is_popular %></td>
+    19:     <td><%= @product.category.try(:name) %></td>
+    20:     <td><%= link_to 'Show', product %></td>
+    21:     <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    22:     <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
+  app/views/products/index.html.erb:19:in `_app_views_products_index_html_erb__1445637069_2173152240_0'
+  app/views/products/index.html.erb:14:in `each'
+  app/views/products/index.html.erb:14:in `_app_views_products_index_html_erb__1445637069_2173152240_0'
+  app/controllers/products_controller.rb:7:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:44:58 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (4.1ms)
+Completed   in 17ms
+
+ActionView::Template::Error (undefined method `category' for nil:NilClass):
+    16:     <td><%= product.name %></td>
+    17:     <td><%= product.description %></td>
+    18:     <td><%= product.is_popular %></td>
+    19:     <td><%= @product.category %></td>
+    20:     <td><%= link_to 'Show', product %></td>
+    21:     <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    22:     <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
+  app/views/products/index.html.erb:19:in `_app_views_products_index_html_erb__1445637069_2176948480_0'
+  app/views/products/index.html.erb:14:in `each'
+  app/views/products/index.html.erb:14:in `_app_views_products_index_html_erb__1445637069_2176948480_0'
+  app/controllers/products_controller.rb:7:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:45:05 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (4.1ms)
+Completed   in 16ms
+
+ActionView::Template::Error (undefined method `category' for nil:NilClass):
+    16:     <td><%= product.name %></td>
+    17:     <td><%= product.description %></td>
+    18:     <td><%= product.is_popular %></td>
+    19:     <td><%= @product.category %></td>
+    20:     <td><%= link_to 'Show', product %></td>
+    21:     <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    22:     <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
+  app/views/products/index.html.erb:19:in `_app_views_products_index_html_erb__1445637069_2173606640_0'
+  app/views/products/index.html.erb:14:in `each'
+  app/views/products/index.html.erb:14:in `_app_views_products_index_html_erb__1445637069_2173606640_0'
+  app/controllers/products_controller.rb:7:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.6ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:45:10 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/index.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 109ms (Views: 29.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:45:15 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/index.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 34ms (Views: 28.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:45:25 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+Rendered home/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 56ms (Views: 41.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:45:26 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+Rendered home/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 33ms (Views: 18.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories/3" for 127.0.0.1 at Wed Dec 08 17:45:27 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 20ms (Views: 12.7ms | ActiveRecord: 0.1ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" LIMIT 1
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" LIMIT 1
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:47:01 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 39ms (Views: 24.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/categories/3" for 127.0.0.1 at Wed Dec 08 17:47:03 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 20ms (Views: 12.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed Dec 08 17:47:04 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 26ms (Views: 19.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:47:12 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 113ms (Views: 25.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:47:18 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 42ms (Views: 25.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at Wed Dec 08 17:47:25 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 31ms (Views: 23.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed Dec 08 17:47:26 -0500 2010
+  Processing by AdminController#index as HTML
+Rendered admin/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:47:28 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products"
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/index.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 37ms (Views: 30.0ms | ActiveRecord: 0.9ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.2ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "is_popular" boolean, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE TABLE "product_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.4ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "is_popular" boolean, "category_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (2.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101208222041')[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101207230654')
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101208211045')[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101208215357')
+
+
+Started GET "/categories/3" for 127.0.0.1 at Wed Dec 08 17:49:01 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 19ms (Views: 12.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at Wed Dec 08 17:49:53 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (92.6ms)
+Completed 200 OK in 106ms (Views: 98.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at Wed Dec 08 17:49:54 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 29ms (Views: 22.0ms | ActiveRecord: 0.4ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.5ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "is_popular" boolean, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "product_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "is_popular" boolean, "category_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (2.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101208222041')[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101207230654')
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101208211045')[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101208215357')
+
+
+Started GET "/products/1" for 127.0.0.1 at Wed Dec 08 17:52:11 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (92.3ms)
+Completed 200 OK in 105ms (Views: 98.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories/3" for 127.0.0.1 at Wed Dec 08 17:52:19 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered categories/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 19ms (Views: 11.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at Wed Dec 08 17:52:21 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 30ms (Views: 22.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products/4" for 127.0.0.1 at Wed Dec 08 17:52:23 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 4) LIMIT 1
+Rendered products/show.html.erb within layouts/application (4.1ms)
+Completed   in 16ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    17: 
+    18: <p>
+    19: 	<b>Category</b>
+    20: 	<%= @product.category.name %>
+    21: </p>
+    22: 
+    23: <%= link_to 'Edit', edit_product_path(@product) %> |
+  app/views/products/show.html.erb:20:in `_app_views_products_show_html_erb___1790632055_2177116160_0'
+  app/controllers/products_controller.rb:18:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.2ms)
+
+
+Started GET "/products/4" for 127.0.0.1 at Wed Dec 08 17:52:46 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 4) LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 19ms (Views: 13.0ms | ActiveRecord: 0.1ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.4ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "is_popular" boolean, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (50.6ms)[0m  CREATE TABLE "product_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.4ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "is_popular" boolean, "category_id" integer) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (4.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101208222041')[0m
+  [1m[35mSQL (2.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101207230654')
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101208211045')[0m
+  [1m[35mSQL (2.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101208215357')
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 17:52:53 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/index.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 49ms (Views: 38.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 17:52:58 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 71ms (Views: 56.7ms | ActiveRecord: 1.2ms)

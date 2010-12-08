@@ -25,6 +25,8 @@ class ProductsController < ApplicationController
   # GET /products/new.xml
   def new
     @product = Product.new
+    
+    @categories = Category.find(:all)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +37,9 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
+    
+    @categories = Category.find(:all)
+    
   end
 
   # POST /products

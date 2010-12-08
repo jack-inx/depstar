@@ -1,0 +1,37 @@
+<h1>Depstar</h1>
+
+<table>
+  <tr>
+    <th>Categories</th>
+  </tr>
+
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= link_to category.name, category %> (<%= category.products.count %>)</td>
+  </tr>
+<% end %>
+	<tr>
+  		<td><b><%= link_to "Show All", categories_path %></b></td>
+	</tr>
+</table>
+
+<br/>
+
+<table>
+  <tr>
+    <th>Phones</th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%= link_to product.name, product %> - <%= link_to "Sell yours now", '' %></td>
+  </tr>
+<% end %>
+	<tr>
+  		<td><b><%= link_to "Show All", products_path %></b></td>
+	</tr>
+</table>
+
+<div style='margin-top:30px;'>
+	<%= link_to 'Admin', admin_path %>
+</div>

@@ -25,6 +25,7 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should show product" do
+    debugger
     get :show, :id => @product.to_param
     assert_response :success
   end

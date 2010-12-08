@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  description: MyString
-  is_popluar: true
+  is_popular: false
 
 two:
   name: MyString
-  description: MyString
   is_popular: false
