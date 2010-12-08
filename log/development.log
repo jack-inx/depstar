@@ -6,3 +6,267 @@ ActionController::RoutingError (No route matches "/dev"):
   
 
 Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 07 18:07:04 -0500 2010
+
+ActionController::RoutingError (No route matches "/dev"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/product" for 127.0.0.1 at Tue Dec 07 18:07:10 -0500 2010
+
+ActionController::RoutingError (No route matches "/product"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/product2" for 127.0.0.1 at Tue Dec 07 18:07:13 -0500 2010
+
+ActionController::RoutingError (No route matches "/product2"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:07:16 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+SQLite3::SQLException: no such table: products: SELECT "products".* FROM "products"
+Completed   in 48ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: products: SELECT "products".* FROM "products"):
+  app/controllers/products_controller.rb:5:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (36.7ms)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (20.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (10.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateProducts (20101207230654)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101207230654')
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("products")
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:07:26 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 41ms (Views: 35.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Tue Dec 07 18:07:33 -0500 2010
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (89.2ms)
+Rendered products/new.html.erb within layouts/application (95.8ms)
+Completed 200 OK in 107ms (Views: 102.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:10:29 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 14ms (Views: 9.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:10:34 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 14ms (Views: 9.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:10:35 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 15ms (Views: 9.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:10:51 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 13ms (Views: 9.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:11:01 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 31ms (Views: 9.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Tue Dec 07 18:11:07 -0500 2010
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (9.2ms)
+Rendered products/new.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 24ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:11:36 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 13ms (Views: 8.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:11:52 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 14ms (Views: 9.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:11:58 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 82ms (Views: 9.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:12:06 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 14ms (Views: 9.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:12:41 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 81ms (Views: 8.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:12:47 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 14ms (Views: 9.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:14:48 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (72.2ms)
+Completed 200 OK in 84ms (Views: 78.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:14:56 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 13ms (Views: 8.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:15:27 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 13ms (Views: 8.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Tue Dec 07 18:15:29 -0500 2010
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (5.7ms)
+Rendered products/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 20ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:15:30 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 14ms (Views: 9.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Tue Dec 07 18:15:33 -0500 2010
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (6.4ms)
+Rendered products/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 40ms (Views: 25.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:15:34 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 14ms (Views: 8.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:15:53 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 15ms (Views: 9.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:15:56 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 13ms (Views: 8.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Tue Dec 07 18:15:58 -0500 2010
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (5.5ms)
+Rendered products/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 20ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 07 18:16:00 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 14ms (Views: 9.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Wed Dec 08 10:44:35 -0500 2010
+
+ActionController::RoutingError (No route matches "/dev"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Dec 08 10:44:50 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (8.9ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 111ms (Views: 65.8ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed Dec 08 15:37:46 -0500 2010
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (242.2ms)
+Rendered products/new.html.erb within layouts/application (251.8ms)
+Completed 200 OK in 345ms (Views: 265.7ms | ActiveRecord: 0.0ms)
