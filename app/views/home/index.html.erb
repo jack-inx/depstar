@@ -1,6 +1,6 @@
 <table>
   <tr>
-    <th>Categories</th>
+    <th><h2>Categories</h2></th>
   </tr>
 
 <% @categories.each do |category| %>
@@ -15,21 +15,26 @@
 
 <br/>
 
-<table>
-  <tr>
-    <th>Products</th>
-  </tr>
 
-<% @products.each do |product| %>
-  <tr>
-    <td><%= link_to product.name, product %> - <%= link_to "Sell yours now", '' %></td>
-  </tr>
-<% end %>
-	<tr>
-  		<td><b><%= link_to "Show All", products_path %></b></td>
-	</tr>
-</table>
+<div>
+	<h2>Products</h2>
+	<% @products.each do |product| %>
+	<div style="border: 1px solid lightgray; float: left; width: 200px; background: white; text-align: center;">
+		<div>
+			<%= link_to product.name, product %>
+		</div>
+		<div>
+			<%= link_to image_tag(product.photo.url(:small)), product %>
+		</div>
+		<div>		
+			<%= link_to "Sell yours now", product %>
+		</div>	
+	</div>
+	<% end %>
+</div>
 
-<div style='margin-top:30px;'>
+<div style="clear: both;" />
+
+<div style='float: left; margin-top:30px;'>
 	<%= link_to 'Admin', admin_path %>
 </div>

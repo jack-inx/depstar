@@ -5393,3 +5393,1154 @@ Started GET "/dev" for 127.0.0.1 at Thu Dec 09 15:23:25 -0500 2010
   [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
 Rendered home/index.html.erb within layouts/application (111.1ms)
 Completed 200 OK in 136ms (Views: 116.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 15:53:14 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (12.6ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (1.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (209.6ms)
+Completed 200 OK in 437ms (Views: 232.9ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at Thu Dec 09 15:53:36 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 114ms (Views: 103.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 15:53:37 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 15:53:44 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at Thu Dec 09 15:54:43 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 80ms (Views: 51.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 15:54:43 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (17.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 15:54:44 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (23.8ms)
+Completed   in 51ms
+
+ActionView::Template::Error (undefined method `photo' for nil:NilClass):
+    24:   <tr>
+    25:     <td>
+    26: 		<%= link_to product.name, product %> 
+    27: 		<%= image_tag @product.photo.url(:small) %>
+    28: 		<%= link_to "Sell yours now", '' %>
+    29: 	</td>
+    30:   </tr>
+  app/views/home/index.html.erb:27:in `_app_views_home_index_html_erb___1579250802_2174487520_0'
+  app/views/home/index.html.erb:23:in `each'
+  app/views/home/index.html.erb:23:in `_app_views_home_index_html_erb___1579250802_2174487520_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (24.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (85.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (117.7ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 15:54:55 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (47.2ms)
+Completed   in 73ms
+
+ActionView::Template::Error (undefined method `photo' for nil:NilClass):
+    24:   <tr>
+    25:     <td>
+    26: 		<%= link_to product.name, product %> 
+    27: 		<%= image_tag @product.photo.try(url(:small)) %>
+    28: 		<%= link_to "Sell yours now", '' %>
+    29: 	</td>
+    30:   </tr>
+  app/views/home/index.html.erb:27:in `_app_views_home_index_html_erb___1579250802_2175339960_0'
+  app/views/home/index.html.erb:23:in `each'
+  app/views/home/index.html.erb:23:in `_app_views_home_index_html_erb___1579250802_2175339960_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (18.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 15:55:07 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.9ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (97.5ms)
+Completed   in 146ms
+
+ActionView::Template::Error (undefined method `photo' for nil:NilClass):
+    24:   <tr>
+    25:     <td>
+    26: 		<%= link_to product.name, product %> 
+    27: 		<%= image_tag @product.photo %>
+    28: 		<%= link_to "Sell yours now", '' %>
+    29: 	</td>
+    30:   </tr>
+  app/views/home/index.html.erb:27:in `_app_views_home_index_html_erb___1579250802_2173117800_0'
+  app/views/home/index.html.erb:23:in `each'
+  app/views/home/index.html.erb:23:in `_app_views_home_index_html_erb___1579250802_2173117800_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 15:55:23 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (55.9ms)
+Completed   in 82ms
+
+ActionView::Template::Error (undefined local variable or method `photo' for #<#<Class:0x1032763d0>:0x103274760>):
+    24:   <tr>
+    25:     <td>
+    26: 		<%= link_to product.name, product %> 
+    27: 		<%= image_tag @product.try(photo.url(:small)) %>
+    28: 		<%= link_to "Sell yours now", '' %>
+    29: 	</td>
+    30:   </tr>
+  app/views/home/index.html.erb:27:in `_app_views_home_index_html_erb___1579250802_2173933340_0'
+  app/views/home/index.html.erb:23:in `each'
+  app/views/home/index.html.erb:23:in `_app_views_home_index_html_erb___1579250802_2173933340_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.0ms)
+  [1m[36mProduct Load (82.3ms)[0m  [1mSELECT "products".* FROM "products" LIMIT 1[0m
+  [1m[35mProduct Load (1.6ms)[0m  SELECT "products".* FROM "products" ORDER BY products.id DESC LIMIT 1
+  [1m[36mProduct Load (28.5ms)[0m  [1mSELECT "products".* FROM "products"[0m
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 15:56:13 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (51.1ms)
+Completed 200 OK in 77ms (Views: 56.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 15:56:13 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 15:56:34 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (28.9ms)
+Completed 200 OK in 55ms (Views: 34.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 15:56:34 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 15:57:02 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (54.9ms)
+Completed 200 OK in 81ms (Views: 60.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 15:57:02 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 15:57:10 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (42.2ms)
+Completed 200 OK in 94ms (Views: 49.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 15:57:10 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 15:58:54 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (32.5ms)
+Completed 200 OK in 80ms (Views: 37.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 15:58:54 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 15:58:54 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 15:59:38 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (33.3ms)
+Completed 200 OK in 59ms (Views: 38.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 15:59:38 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 15:59:39 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:02:53 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (30.2ms)
+Completed 200 OK in 58ms (Views: 36.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:02:53 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:03:10 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (92.7ms)
+Completed 200 OK in 118ms (Views: 97.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:03:10 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:03:16 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 54ms (Views: 34.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:03:16 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:03:31 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (63.1ms)
+Completed 200 OK in 88ms (Views: 68.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:03:31 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:03:38 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (29.8ms)
+Completed 200 OK in 77ms (Views: 35.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:03:38 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:03:43 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (53.2ms)
+Completed 200 OK in 78ms (Views: 58.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:03:43 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:03:48 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (29.6ms)
+Completed 200 OK in 55ms (Views: 34.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:03:48 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:04:15 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (97.8ms)
+Completed 200 OK in 123ms (Views: 103.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:04:16 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:04:28 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (99.3ms)
+Completed 200 OK in 125ms (Views: 104.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:04:28 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:14:06 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (26.1ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (99.5ms)
+Completed 200 OK in 151ms (Views: 105.7ms | ActiveRecord: 27.7ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:14:06 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:15:30 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (26.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (100.3ms)
+Completed 200 OK in 167ms (Views: 105.7ms | ActiveRecord: 28.3ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:15:31 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/products/2" for 127.0.0.1 at Thu Dec 09 16:15:45 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 2) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (93.9ms)
+Completed 200 OK in 138ms (Views: 128.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:15:48 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 54ms (Views: 33.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:15:48 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:16:00 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (119.9ms)
+Completed 200 OK in 173ms (Views: 126.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:16:02 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (103.4ms)
+Completed 200 OK in 130ms (Views: 108.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:16:03 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/products/2" for 127.0.0.1 at Thu Dec 09 16:16:03 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 2) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (91.7ms)
+Completed 200 OK in 109ms (Views: 97.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:16:57 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (14.7ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+ERROR: compiling _app_views_home_index_html_erb___1579250802_2175143660_0 RAISED compile error
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:27: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...= ( link_to, image_tag product.photo.url(:small), product );...
+                              ^
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:27: syntax error, unexpected ',', expecting ')'
+...tag product.photo.url(:small), product );@output_buffer.safe...
+                              ^
+Function body:           def _app_views_home_index_html_erb___1579250802_2175143660_0(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "home/index";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<table>
+  <tr>
+    <th><h2>Categories</h2></th>
+  </tr>
+
+');@output_buffer.append_if_string=  @categories.each do |category| 
+@output_buffer.safe_concat('  <tr>
+    <td>');@output_buffer.append= ( link_to category.name, category );@output_buffer.safe_concat(' (');@output_buffer.append= ( category.products.count );@output_buffer.safe_concat(')</td>
+  </tr>
+'); end 
+@output_buffer.safe_concat('	<tr>
+  		<td><b>');@output_buffer.append= ( link_to "Show All", categories_path );@output_buffer.safe_concat('</b></td>
+	</tr>
+</table>
+
+<br/>
+
+
+<div>
+	<h2>Products</h2>
+');@output_buffer.append_if_string= 	 @products.each do |product| 
+@output_buffer.safe_concat('	<div style="border: 1px solid lightgray; float: left; width: 200px; background: white; text-align: center;">
+		<div>
+			');@output_buffer.append= ( link_to product.name, product );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('		</div>
+		<div>
+			');@output_buffer.append= ( link_to, image_tag product.photo.url(:small), product );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('		</div>
+		<div>		
+			');@output_buffer.append= ( link_to "Sell yours now", product );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('		</div>	
+	</div>
+');	 end 
+@output_buffer.safe_concat('</div>
+
+<div style="clear: both;" />
+
+<div style=\'float: left; margin-top:30px;\'>
+	');@output_buffer.append= ( link_to 'Admin', admin_path );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</div>');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:43:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:134:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:59:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:56:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:26:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:92:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:17:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:151:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:435:in `_run__738958071__process_action__199225275__callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:120:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:40:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal.rb:138:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal.rb:178:in `action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/cookies.rb:295:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:32:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:12:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/rack/logger.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:168:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:77:in `send'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:77:in `method_missing'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/rack/debugger.rb:21:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands/server.rb:65:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:30
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:27:in `tap'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered home/index.html.erb within layouts/application (1.2ms)
+Completed   in 42ms
+
+ActionView::Template::Error (compile error
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:27: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...= ( link_to, image_tag product.photo.url(:small), product );...
+                              ^
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:27: syntax error, unexpected ',', expecting ')'
+...tag product.photo.url(:small), product );@output_buffer.safe...
+                              ^):
+    24: 			<%= link_to product.name, product %>
+    25: 		</div>
+    26: 		<div>
+    27: 			<%= link_to, image_tag product.photo.url(:small), product %>
+    28: 		</div>
+    29: 		<div>		
+    30: 			<%= link_to "Sell yours now", product %>
+  app/views/home/index.html.erb:43:in `compile'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.2ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:17:11 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+ERROR: compiling _app_views_home_index_html_erb___1579250802_2173308320_0 RAISED compile error
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:27: syntax error, unexpected ',', expecting tCOLON2 or '[' or '.'
+...ag(product.photo.url(:small)), product );@output_buffer.safe...
+                              ^
+Function body:           def _app_views_home_index_html_erb___1579250802_2173308320_0(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "home/index";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<table>
+  <tr>
+    <th><h2>Categories</h2></th>
+  </tr>
+
+');@output_buffer.append_if_string=  @categories.each do |category| 
+@output_buffer.safe_concat('  <tr>
+    <td>');@output_buffer.append= ( link_to category.name, category );@output_buffer.safe_concat(' (');@output_buffer.append= ( category.products.count );@output_buffer.safe_concat(')</td>
+  </tr>
+'); end 
+@output_buffer.safe_concat('	<tr>
+  		<td><b>');@output_buffer.append= ( link_to "Show All", categories_path );@output_buffer.safe_concat('</b></td>
+	</tr>
+</table>
+
+<br/>
+
+
+<div>
+	<h2>Products</h2>
+');@output_buffer.append_if_string= 	 @products.each do |product| 
+@output_buffer.safe_concat('	<div style="border: 1px solid lightgray; float: left; width: 200px; background: white; text-align: center;">
+		<div>
+			');@output_buffer.append= ( link_to product.name, product );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('		</div>
+		<div>
+			');@output_buffer.append= ( link_to, image_tag(product.photo.url(:small)), product );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('		</div>
+		<div>		
+			');@output_buffer.append= ( link_to "Sell yours now", product );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('		</div>	
+	</div>
+');	 end 
+@output_buffer.safe_concat('</div>
+
+<div style="clear: both;" />
+
+<div style=\'float: left; margin-top:30px;\'>
+	');@output_buffer.append= ( link_to 'Admin', admin_path );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</div>');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:43:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:134:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:59:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:56:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:26:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:92:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:17:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:151:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:435:in `_run__738958071__process_action__199225275__callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:120:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:40:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal.rb:138:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal.rb:178:in `action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/cookies.rb:295:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:32:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:12:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/rack/logger.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:168:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:77:in `send'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:77:in `method_missing'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/rack/debugger.rb:21:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands/server.rb:65:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:30
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:27:in `tap'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered home/index.html.erb within layouts/application (1.1ms)
+Completed   in 26ms
+
+ActionView::Template::Error (compile error
+/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/views/home/index.html.erb:27: syntax error, unexpected ',', expecting tCOLON2 or '[' or '.'
+...ag(product.photo.url(:small)), product );@output_buffer.safe...
+                              ^):
+    24: 			<%= link_to product.name, product %>
+    25: 		</div>
+    26: 		<div>
+    27: 			<%= link_to, image_tag(product.photo.url(:small)), product %>
+    28: 		</div>
+    29: 		<div>		
+    30: 			<%= link_to "Sell yours now", product %>
+  app/views/home/index.html.erb:43:in `compile'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (107.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (114.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:17:21 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (22.6ms)
+Completed   in 91ms
+
+ActionView::Template::Error (undefined method `symbolize_keys!' for #<Product:0x10351c760>):
+    24: 			<%= link_to product.name, product %>
+    25: 		</div>
+    26: 		<div>
+    27: 			<%= link_to image_tag product.photo.url(:small), product %>
+    28: 		</div>
+    29: 		<div>		
+    30: 			<%= link_to "Sell yours now", product %>
+  app/views/home/index.html.erb:27:in `_app_views_home_index_html_erb___1579250802_2175299360_0'
+  app/views/home/index.html.erb:21:in `each'
+  app/views/home/index.html.erb:21:in `_app_views_home_index_html_erb___1579250802_2175299360_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.7ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:17:30 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (17.6ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.9ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (181.0ms)
+Completed 200 OK in 232ms (Views: 187.3ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:17:31 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:18:12 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (33.9ms)
+Completed 200 OK in 147ms (Views: 39.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:18:12 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:49:25 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (19.8ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.9ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (82.9ms)
+Completed 200 OK in 557ms (Views: 130.3ms | ActiveRecord: 21.6ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:49:27 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Thu Dec 09 16:49:30 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 125ms (Views: 114.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products/2" for 127.0.0.1 at Thu Dec 09 16:49:32 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 2) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 64ms (Views: 40.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:49:37 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (80.7ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (56.9ms)
+Completed 200 OK in 255ms (Views: 62.0ms | ActiveRecord: 82.1ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:49:37 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/categories/3" for 127.0.0.1 at Thu Dec 09 16:49:38 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 27ms (Views: 19.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Thu Dec 09 16:49:41 -0500 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (43.1ms)
+Completed 200 OK in 58ms (Views: 50.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 16:49:43 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 80ms (Views: 43.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 16:49:43 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
