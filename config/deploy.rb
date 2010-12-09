@@ -59,3 +59,5 @@ namespace :deploy do
   end
   
 end
+
+after 'deploy:update_code', 'deploy:symlink_shared'
