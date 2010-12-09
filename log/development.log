@@ -6544,3 +6544,114 @@ ActionController::RoutingError (No route matches "/assets/products/1/small/iphon
   
 
 Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 17:28:09 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (1.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (1.8ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (53.0ms)
+Completed 200 OK in 94ms (Views: 59.3ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 17:28:10 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/products/missing_small.jpg" for 127.0.0.1 at Thu Dec 09 17:28:10 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/missing_small.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/products/missing_small.jpg" for 127.0.0.1 at Thu Dec 09 17:28:10 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/missing_small.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 17:28:11 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (130.8ms)
+Completed 200 OK in 163ms (Views: 138.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 17:28:12 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/products/missing_small.jpg" for 127.0.0.1 at Thu Dec 09 17:28:12 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/missing_small.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/assets/products/missing_small.jpg" for 127.0.0.1 at Thu Dec 09 17:28:12 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/missing_small.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Thu Dec 09 17:28:16 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (40.8ms)
+Completed 200 OK in 172ms (Views: 46.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/products/1/small/iphone-4.jpg?1291923592" for 127.0.0.1 at Thu Dec 09 17:28:17 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/1/small/iphone-4.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/products/missing_small.jpg" for 127.0.0.1 at Thu Dec 09 17:28:17 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/missing_small.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/products/missing_small.jpg" for 127.0.0.1 at Thu Dec 09 17:28:17 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/missing_small.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
