@@ -45,7 +45,7 @@ set :use_sudo, false
 # Passenger
 #############################################################
 
-deploy.task :restart, :roles => :app do
+namespace :deploy do
   
   desc "Tell Passenger to restart the app."
   task :restart do
