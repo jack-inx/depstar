@@ -20,12 +20,16 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
     <%= f.label :is_popular %><br />
     <%= f.check_box :is_popular %>
   </div>
   <div class="field">
     <%= f.label :category_id %><br />
-	<%= f.collection_select "category_id", Category.all, :id, :name, :prompt => "Select"	 %>
+	<%= f.collection_select "category_id", Category.all, :id, :name, :prompt => "Select" %>
   </div>
   <div class="field">
     <%= f.label :photo %><br />

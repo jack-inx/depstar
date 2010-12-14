@@ -1,13 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
+  category_id: 1
   name: MyString
-  description: MyString
-  price: 100
-  is_popular: true
+  multipler: 1.5
 
 two:
+  category_id: 1
   name: MyString
-  description: MyString
-  price: 200
-  is_popular: false
+  multipler: 1.5

@@ -9,6 +9,43 @@ class ProductsController < ApplicationController
       format.xml  { render :xml => @products }
     end
   end
+  
+  def get_quote
+    
+    @product = Product.find(params[:id])
+    #debugger
+    
+    @quote = @product.price
+    
+    unless params[:question_1].blank?      
+      if params[:question_1] == "True"
+        @quote *= @product.category.question_1_option_1_multiplier
+      elsif params[:question_1] == "False"
+        @quote *= @product.category.question_1_option_2_multiplier
+      end      
+    end
+    
+    unless params[:question_2].blank?      
+      if params[:question_2] == "True"
+        @quote *= @product.category.question_2_option_1_multiplier
+      elsif params[:question_2] == "False"
+        @quote *= @product.category.question_2_option_2_multiplier
+      end      
+    end
+        
+    unless params[:question_3].blank?      
+      if params[:question_3] == "1"
+        @quote *= @product.category.question_3_option_1_multiplier
+      elsif params[:question_3] == "2"
+        @quote *= @product.category.question_3_option_2_multiplier
+      elsif params[:question_3] == "3"
+        @quote *= @product.category.question_3_option_3_multiplier        
+      elsif params[:question_3] == "4"
+        @quote *= @product.category.question_3_option_4_multiplier
+      end
+    end
+    
+  end
 
   # GET /products/1
   # GET /products/1.xml

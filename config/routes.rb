@@ -1,7 +1,9 @@
-Trunk::Application.routes.draw do
+Trunk::Application.routes.draw do  #match 'get_quote' => 'price_quotes#get_quote'
+  
   resources :categories
 
   resources :products
+  match 'get_quote' => 'products#get_quote'  
   
   match 'admin' => 'admin#index'
   match 'home' => 'home#index'

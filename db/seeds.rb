@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+  QuestionType.create(:name => 'Radio', :value => 'radio')
+  QuestionType.create(:name => 'Checkbox', :value => 'checkbox')  

@@ -9,7 +9,8 @@ gem 'mysql2'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 
 group :development do
-  gem 'sqlite3-ruby', :require => 'sqlite3'
+	gem 'sqlite3-ruby', :require => 'sqlite3'
+	gem 'hirb'
 end
 # Use unicorn as the web server
 # gem 'unicorn'

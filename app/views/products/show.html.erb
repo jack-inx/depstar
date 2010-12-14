@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <b>Value:</b>
+  <%= number_to_currency(@product.price) %>
+</p>
+
+<p>
 	<b>Is Popular</b>
 	<%= @product.is_popular %>
 </p>
@@ -20,10 +25,49 @@
 	<%= @product.category.try(:name) %>
 </p>
 
+<div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
+	<%= form_tag get_quote_path, :method => :get, :remote => true do %>
+		<%= hidden_field_tag(:id, @product.id) %>
+		
+		<% if @product.category.try(:question_1_is_enabled) %>
+			<p>
+				<b><%= @product.category.question_1_name %> </b>
+				<%= radio_button_tag(:question_1, "True") %> Yes
+				<%= radio_button_tag(:question_1, "False") %> No
+			</p>
+		<% end %>
+		
+		<% if @product.category.try(:question_2_is_enabled) %>
+			<p>
+				<b><%= @product.category.question_2_name %> </b>
+				<%= radio_button_tag(:question_2, "True") %> Yes
+				<%= radio_button_tag(:question_2, "False") %> No
+			</p>
+		<% end %>
+				
+		<% if @product.category.try(:question_3_is_enabled) %>
+			<p>
+				<b><%= @product.category.question_3_name %> </b>
+				<%= radio_button_tag(:question_3, "1") %> Poor
+				<%= radio_button_tag(:question_3, "2") %> Fair
+				<%= radio_button_tag(:question_3, "3") %> Good
+				<%= radio_button_tag(:question_3, "4") %> Perfect							
+			</p>
+		<% end %>
+		
+		<%= submit_tag "Get Quote" %>
+	<% end %>
+</div>
+
+<div id='price_quote_results'>
+	Fill in form above to get a quote
+</div>
+
 <p>
   <b>Photo:</b>
   <%= image_tag @product.photo.url(:small) %>
 </p>
+	
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
