@@ -12,49 +12,7 @@ class ProductsController < ApplicationController
   
   def get_quote
     
-    @product = Product.find(params[:id])
-    #debugger
-    
-    @quote = @product.price
-    
-    unless params[:question_1].blank?      
-      if params[:question_1] == "True"
-        @quote *= @product.category.question_1_option_1_multiplier
-      elsif params[:question_1] == "False"
-        @quote *= @product.category.question_1_option_2_multiplier
-      end      
-    end
-    
-    unless params[:question_2].blank?      
-      if params[:question_2] == "True"
-        @quote *= @product.category.question_2_option_1_multiplier
-      elsif params[:question_2] == "False"
-        @quote *= @product.category.question_2_option_2_multiplier
-      end      
-    end
-        
-    unless params[:question_3].blank?      
-      if params[:question_3] == "1"
-        @quote *= @product.category.question_3_option_1_multiplier
-      elsif params[:question_3] == "2"
-        @quote *= @product.category.question_3_option_2_multiplier
-      elsif params[:question_3] == "3"
-        @quote *= @product.category.question_3_option_3_multiplier        
-      elsif params[:question_3] == "4"
-        @quote *= @product.category.question_3_option_4_multiplier
-      end
-    end
-
-    #debugger
-    @product.category.question_options.each do |question_option|      
-      unless params[:question_option_ids].blank?        
-        unless params[:question_option_ids].include?(question_option.id.to_s())
-          @quote *= question_option.multiplier
-        end
-      else
-        @quote *= question_option.multiplier
-      end      
-    end
+    @question_response = QuestionResponse.new(params[:id], params[:question_1], params[:question_2], params[:question_3], params[:question_option_ids])  
     
   end
 

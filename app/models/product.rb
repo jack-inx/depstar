@@ -12,6 +12,4 @@ class Product < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
   
-  #validates_presence_of :return_flight_id, :if => lambda { |o| o. }, :message => "be picked before you continue"
-    
 end
