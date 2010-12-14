@@ -3,9 +3,9 @@
 one:
   category_id: 1
   name: MyString
-  multipler: 1.5
+  multiplier: 1.5
 
 two:
   category_id: 1
   name: MyString
-  multipler: 1.5
+  multiplier: 1.5

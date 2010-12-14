@@ -55,6 +55,17 @@
 			</p>
 		<% end %>
 		
+		<% if @product.category.try(:question_4_is_enabled) %>
+			<p>
+				<b><%= @product.category.question_4_name %> </b>
+				<% @product.category.question_options.each do |question_option| %>
+					<%#= check_box_tag "product[question_option_ids][]", question_option.id %>
+					<%= check_box_tag "question_option_ids[]", question_option.id %>
+					<%#= check_box_tag(question_option.name, question_option.id) %> <%= question_option.name %>
+				<% end %>
+			</p>
+		<% end %>
+		
 		<%= submit_tag "Get Quote" %>
 	<% end %>
 </div>

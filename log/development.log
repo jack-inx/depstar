@@ -13343,3 +13343,1144 @@ Completed 200 OK in 63ms (Views: 47.2ms | ActiveRecord: 0.6ms)
   [1m[35mSQL (2.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101213213516')
   [1m[36mSQL (6.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101214165813')[0m
   [1m[35mSQL (1.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101214170556')
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 14 14:34:19 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (130.4ms)
+Completed 200 OK in 164ms (Views: 136.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/categories/3" for 127.0.0.1 at Tue Dec 14 14:34:21 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products".category_id = 3)[0m
+Rendered categories/show.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 66ms (Views: 52.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories/3/edit" for 127.0.0.1 at Tue Dec 14 14:34:22 -0500 2010
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered categories/_form.html.erb (101.8ms)
+Rendered categories/edit.html.erb within layouts/application (107.9ms)
+Completed 200 OK in 126ms (Views: 114.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories/3/edit" for 127.0.0.1 at Tue Dec 14 14:34:32 -0500 2010
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered categories/_form.html.erb (21.5ms)
+Rendered categories/edit.html.erb within layouts/application (28.2ms)
+Completed 200 OK in 46ms (Views: 34.4ms | ActiveRecord: 0.3ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/categories/3/edit" for 127.0.0.1 at Tue Dec 14 14:38:38 -0500 2010
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered categories/_question_option_fields.erb (4.0ms)
+Rendered categories/_question_option_fields.erb (7.0ms)
+Rendered categories/_form.html.erb (48.5ms)
+Rendered categories/edit.html.erb within layouts/application (54.8ms)
+Completed 200 OK in 73ms (Views: 62.5ms | ActiveRecord: 0.3ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20101207230654)
+Migrating to CreateCategories (20101208211045)
+Migrating to AddColumnIsPopularToProducts (20101208215357)
+Migrating to AddColumnCategoryIdToProducts (20101208222041)
+Migrating to AddAttachmentPhotoToProduct (20101209164732)
+Migrating to AddColumnValueToProducts (20101213191208)
+Migrating to RenameColumnValueOnProducts (20101213213516)
+Migrating to AddQuestionColumnsToCategory (20101214165813)
+Migrating to CreateQuestionOptions (20101214170556)
+Migrating to RenameColumnMultiplerOnQuestionOptions (20101214194105)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE TEMPORARY TABLE "altered_question_options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_id" integer, "name" varchar(255), "multiplier" float, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("question_options")
+  [1m[36mSQL (0.6ms)[0m  [1mDROP TABLE "question_options"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "question_options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_id" integer, "name" varchar(255), "multiplier" float, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_question_options")[0m
+  [1m[35mSQL (0.5ms)[0m  DROP TABLE "altered_question_options"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101214194105')[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("categories")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("price_quotes")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("product_types")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("products")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("question_options")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("question_types")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("questions")[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (8.3ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "is_popular" boolean, "created_at" datetime, "updated_at" datetime, "question_1_is_enabled" boolean, "question_1_name" varchar(255), "question_1_option_1_multiplier" float, "question_1_option_2_multiplier" float, "question_2_is_enabled" boolean, "question_2_name" varchar(255), "question_2_option_1_multiplier" float, "question_2_option_2_multiplier" float, "question_3_is_enabled" boolean, "question_3_name" varchar(255), "question_3_option_1_multiplier" float, "question_3_option_2_multiplier" float, "question_3_option_3_multiplier" float, "question_3_option_4_multiplier" float, "question_4_is_enabled" boolean, "question_4_name" varchar(255)) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.2ms)[0m  CREATE TABLE "price_quotes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "question_1" boolean, "question_2" boolean, "question_3" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.9ms)[0m  CREATE TABLE "product_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (75.4ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "is_popular" boolean, "category_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "price" float) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.4ms)[0m  CREATE TABLE "question_options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_id" integer, "name" varchar(255), "multiplier" float, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.6ms)[0m  CREATE TABLE "question_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "value" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (7.1ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "question_type_id" integer, "category_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (2.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101214194105')[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101207230654')
+  [1m[36mSQL (2.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101208211045')[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101208215357')
+  [1m[36mSQL (5.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101208222041')[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101209164732')
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101213191208')[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101213213516')
+  [1m[36mSQL (3.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101214165813')[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101214170556')
+  [1m[36mSQL (18.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.7ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.6ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "is_popular" boolean, "created_at" datetime, "updated_at" datetime, "question_1_is_enabled" boolean, "question_1_name" varchar(255), "question_1_option_1_multiplier" float, "question_1_option_2_multiplier" float, "question_2_is_enabled" boolean, "question_2_name" varchar(255), "question_2_option_1_multiplier" float, "question_2_option_2_multiplier" float, "question_3_is_enabled" boolean, "question_3_name" varchar(255), "question_3_option_1_multiplier" float, "question_3_option_2_multiplier" float, "question_3_option_3_multiplier" float, "question_3_option_4_multiplier" float, "question_4_is_enabled" boolean, "question_4_name" varchar(255)) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.8ms)[0m  CREATE TABLE "price_quotes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "question_1" boolean, "question_2" boolean, "question_3" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.2ms)[0m  CREATE TABLE "product_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "is_popular" boolean, "category_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "price" float) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.1ms)[0m  CREATE TABLE "question_options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_id" integer, "name" varchar(255), "multiplier" float, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "question_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "value" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.2ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "question_type_id" integer, "category_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (25.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101214194105')[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101207230654')
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101208211045')[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101208215357')
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101208222041')[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101209164732')
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101213191208')[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101213213516')
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101214165813')[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101214170556')
+
+
+Started GET "/categories/3/edit" for 127.0.0.1 at Tue Dec 14 15:22:56 -0500 2010
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (18.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCategory Load (18.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered categories/_question_option_fields.erb (2.7ms)
+Rendered categories/_question_option_fields.erb (36.3ms)
+Rendered categories/_form.html.erb (166.1ms)
+Rendered categories/edit.html.erb within layouts/application (185.9ms)
+Completed   in 430ms
+
+ActionView::Template::Error (undefined method `multipler' for #<QuestionOption:0x103065d70>):
+    7:   
+    8:   <div style="float: left;">
+    9:   <%= f.label :multipler, "Multiplier if not checked" %><br />
+    10:   <%= f.text_field :multipler, :style=>'width: 100px;' %><br />
+    11:   </div>
+    12:     
+    13:   <div style="float: left;">
+  app/views/categories/_question_option_fields.erb:10:in `_app_views_categories__question_option_fields_erb__1268236455_2172844060_4623500'
+  app/helpers/application_helper.rb:10:in `link_to_add_fields'
+  app/helpers/application_helper.rb:9:in `link_to_add_fields'
+  app/views/categories/_form.html.erb:117:in `_app_views_categories__form_html_erb__1759048026_2173563320_1071710'
+  app/views/categories/_form.html.erb:1:in `_app_views_categories__form_html_erb__1759048026_2173563320_1071710'
+  app/views/categories/edit.html.erb:3:in `_app_views_categories_edit_html_erb__1940325516_2173573680_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (29.1ms)
+
+
+Started GET "/categories/3/edit" for 127.0.0.1 at Tue Dec 14 15:25:21 -0500 2010
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered categories/_question_option_fields.erb (2.8ms)
+Rendered categories/_question_option_fields.erb (4.5ms)
+Rendered categories/_form.html.erb (43.4ms)
+Rendered categories/edit.html.erb within layouts/application (49.5ms)
+Completed 200 OK in 82ms (Views: 73.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories/3/edit" for 127.0.0.1 at Tue Dec 14 15:26:10 -0500 2010
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (14.5ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered categories/_question_option_fields.erb (2.4ms)
+Rendered categories/_question_option_fields.erb (4.9ms)
+Rendered categories/_form.html.erb (40.0ms)
+Rendered categories/edit.html.erb within layouts/application (45.0ms)
+Completed 200 OK in 75ms (Views: 51.3ms | ActiveRecord: 14.5ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.3ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "is_popular" boolean, "created_at" datetime, "updated_at" datetime, "question_1_is_enabled" boolean, "question_1_name" varchar(255), "question_1_option_1_multiplier" float, "question_1_option_2_multiplier" float, "question_2_is_enabled" boolean, "question_2_name" varchar(255), "question_2_option_1_multiplier" float, "question_2_option_2_multiplier" float, "question_3_is_enabled" boolean, "question_3_name" varchar(255), "question_3_option_1_multiplier" float, "question_3_option_2_multiplier" float, "question_3_option_3_multiplier" float, "question_3_option_4_multiplier" float, "question_4_is_enabled" boolean, "question_4_name" varchar(255)) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.6ms)[0m  CREATE TABLE "price_quotes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "question_1" boolean, "question_2" boolean, "question_3" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (40.5ms)[0m  CREATE TABLE "product_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.7ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "is_popular" boolean, "category_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "price" float) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.7ms)[0m  CREATE TABLE "question_options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_id" integer, "name" varchar(255), "multiplier" float, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.4ms)[0m  CREATE TABLE "question_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "value" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "question_type_id" integer, "category_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (3.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101214194105')[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101207230654')
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101208211045')[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101208215357')
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101208222041')[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101209164732')
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101213191208')[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101213213516')
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101214165813')[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101214170556')
+
+
+Started POST "/categories/3" for 127.0.0.1 at Tue Dec 14 15:26:48 -0500 2010
+  Processing by CategoriesController#update as HTML
+  Parameters: {"commit"=>"Update Category", "category"=>{"question_2_option_2_multiplier"=>"0.8", "name"=>"Cell Phones", "question_2_option_1_multiplier"=>"1.0", "question_1_name"=>"Does the phone have water damage?", "is_popular"=>"1", "question_options"=>{"name"=>"Original Box", "multiplier"=>".98", "_destroy"=>"false"}, "question_4_is_enabled"=>"1", "question_3_name"=>"Condition of phone?", "question_4_name"=>"Do you have", "question_3_option_4_multiplier"=>"1.0", "question_3_is_enabled"=>"1", "question_2_name"=>"Can the phone make calls?", "question_1_option_2_multiplier"=>"1.0", "question_3_option_3_multiplier"=>"0.8", "question_3_option_1_multiplier"=>"0.4", "question_2_is_enabled"=>"1", "question_1_option_1_multiplier"=>"0.5", "question_3_option_2_multiplier"=>"0.6", "question_1_is_enabled"=>"1"}, "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "id"=>"3"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Completed   in 111ms
+
+ActiveRecord::AssociationTypeMismatch (QuestionOption(#2176921380) expected, got Array(#2148267660)):
+  app/controllers/categories_controller.rb:62:in `update'
+  app/controllers/categories_controller.rb:61:in `update'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (32.0ms)
+
+
+Started POST "/categories/3" for 127.0.0.1 at Tue Dec 14 15:27:43 -0500 2010
+  Processing by CategoriesController#update as HTML
+  Parameters: {"commit"=>"Update Category", "category"=>{"question_2_option_2_multiplier"=>"0.8", "name"=>"Cell Phones", "question_2_option_1_multiplier"=>"1.0", "question_1_name"=>"Does the phone have water damage?", "is_popular"=>"1", "question_options"=>{"name"=>"Original Box", "multiplier"=>".98", "_destroy"=>"false"}, "question_4_is_enabled"=>"1", "question_3_name"=>"Condition of phone?", "question_4_name"=>"Do you have", "question_3_option_4_multiplier"=>"1.0", "question_3_is_enabled"=>"1", "question_2_name"=>"Can the phone make calls?", "question_1_option_2_multiplier"=>"1.0", "question_3_option_3_multiplier"=>"0.8", "question_3_option_1_multiplier"=>"0.4", "question_2_is_enabled"=>"1", "question_1_option_1_multiplier"=>"0.5", "question_3_option_2_multiplier"=>"0.6", "question_1_is_enabled"=>"1"}, "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "id"=>"3"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Completed   in 27ms
+
+ActiveRecord::AssociationTypeMismatch (QuestionOption(#2172593600) expected, got Array(#2148267660)):
+  app/controllers/categories_controller.rb:62:in `update'
+  app/controllers/categories_controller.rb:61:in `update'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (91.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (98.0ms)
+
+
+Started GET "/categories/3/edit" for 127.0.0.1 at Tue Dec 14 15:27:48 -0500 2010
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (17.2ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered categories/_question_option_fields.erb (2.0ms)
+Rendered categories/_form.html.erb (49.2ms)
+Rendered categories/edit.html.erb within layouts/application (54.3ms)
+Completed 200 OK in 69ms (Views: 43.3ms | ActiveRecord: 17.7ms)
+
+
+Started POST "/categories/3" for 127.0.0.1 at Tue Dec 14 15:27:49 -0500 2010
+  Processing by CategoriesController#update as HTML
+  Parameters: {"commit"=>"Update Category", "category"=>{"question_2_option_2_multiplier"=>"0.8", "name"=>"Cell Phones", "question_2_option_1_multiplier"=>"1.0", "question_1_name"=>"Does the phone have water damage?", "is_popular"=>"1", "question_4_is_enabled"=>"0", "question_3_name"=>"Condition of phone?", "question_4_name"=>"", "question_3_option_4_multiplier"=>"1.0", "question_3_is_enabled"=>"1", "question_2_name"=>"Can the phone make calls?", "question_1_option_2_multiplier"=>"1.0", "question_3_option_3_multiplier"=>"0.8", "question_3_option_1_multiplier"=>"0.4", "question_2_is_enabled"=>"1", "question_1_option_1_multiplier"=>"0.5", "question_3_option_2_multiplier"=>"0.6", "question_1_is_enabled"=>"1"}, "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "id"=>"3"}
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "categories" SET "question_4_name" = '', "question_4_is_enabled" = 'f', "updated_at" = '2010-12-14 20:27:50.023276' WHERE ("categories"."id" = 3)
+Redirected to http://127.0.0.1:3000/categories/3
+Completed 302 Found in 28ms
+
+
+Started GET "/categories/3" for 127.0.0.1 at Tue Dec 14 15:27:50 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mProduct Load (0.9ms)[0m  SELECT "products".* FROM "products" WHERE ("products".category_id = 3)
+Rendered categories/show.html.erb within layouts/application (41.9ms)
+Completed 200 OK in 58ms (Views: 47.1ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/categories/3" for 127.0.0.1 at Tue Dec 14 15:27:55 -0500 2010
+  Processing by CategoriesController#update as HTML
+  Parameters: {"commit"=>"Update Category", "category"=>{"question_2_option_2_multiplier"=>"0.8", "name"=>"Cell Phones", "question_2_option_1_multiplier"=>"1.0", "question_1_name"=>"Does the phone have water damage?", "is_popular"=>"1", "question_4_is_enabled"=>"0", "question_3_name"=>"Condition of phone?", "question_options_attributes"=>{"1292358472754"=>{"name"=>"test", "multiplier"=>"", "_destroy"=>"false"}}, "question_4_name"=>"", "question_3_option_4_multiplier"=>"1.0", "question_3_is_enabled"=>"1", "question_2_name"=>"Can the phone make calls?", "question_1_option_2_multiplier"=>"1.0", "question_3_option_3_multiplier"=>"0.8", "question_3_option_1_multiplier"=>"0.4", "question_2_is_enabled"=>"1", "question_1_option_1_multiplier"=>"0.5", "question_3_option_2_multiplier"=>"0.6", "question_1_is_enabled"=>"1"}, "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "id"=>"3"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "question_options" ("updated_at", "category_id", "created_at", "multiplier", "name") VALUES ('2010-12-14 20:27:55.381437', 3, '2010-12-14 20:27:55.381437', NULL, 'test')
+Redirected to http://127.0.0.1:3000/categories/3
+Completed 302 Found in 38ms
+
+
+Started GET "/categories/3" for 127.0.0.1 at Tue Dec 14 15:27:55 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products" WHERE ("products".category_id = 3)
+Rendered categories/show.html.erb within layouts/application (111.9ms)
+Completed 200 OK in 127ms (Views: 117.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/categories/3/edit" for 127.0.0.1 at Tue Dec 14 15:27:57 -0500 2010
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered categories/_question_option_fields.erb (82.7ms)
+Rendered categories/_question_option_fields.erb (2.2ms)
+Rendered categories/_form.html.erb (118.4ms)
+Rendered categories/edit.html.erb within layouts/application (123.2ms)
+Completed 200 OK in 138ms (Views: 129.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/categories/3" for 127.0.0.1 at Tue Dec 14 15:28:18 -0500 2010
+  Processing by CategoriesController#update as HTML
+  Parameters: {"commit"=>"Update Category", "category"=>{"question_2_option_2_multiplier"=>"0.8", "name"=>"Cell Phones", "question_2_option_1_multiplier"=>"1.0", "question_1_name"=>"Does the phone have water damage?", "is_popular"=>"1", "question_4_is_enabled"=>"1", "question_3_name"=>"Condition of phone?", "question_options_attributes"=>{"1292358488919"=>{"name"=>"Original box", "multiplier"=>".98", "_destroy"=>"false"}, "0"=>{"name"=>"Charger", "multiplier"=>".95", "id"=>"1", "_destroy"=>"false"}}, "question_4_name"=>"Do you have", "question_3_option_4_multiplier"=>"1.0", "question_3_is_enabled"=>"1", "question_2_name"=>"Can the phone make calls?", "question_1_option_2_multiplier"=>"1.0", "question_3_option_3_multiplier"=>"0.8", "question_3_option_1_multiplier"=>"0.4", "question_2_is_enabled"=>"1", "question_1_option_1_multiplier"=>"0.5", "question_3_option_2_multiplier"=>"0.6", "question_1_is_enabled"=>"1"}, "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "id"=>"3"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3) AND ("question_options"."id" IN (1))
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "categories" SET "question_4_is_enabled" = 't', "updated_at" = '2010-12-14 20:28:18.832456', "question_4_name" = 'Do you have' WHERE ("categories"."id" = 3)[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "question_options" SET "multiplier" = 0.95, "name" = 'Charger', "updated_at" = '2010-12-14 20:28:18.834263' WHERE ("question_options"."id" = 1)
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "question_options" ("category_id", "multiplier", "name", "created_at", "updated_at") VALUES (3, 0.98, 'Original box', '2010-12-14 20:28:18.835535', '2010-12-14 20:28:18.835535')[0m
+Redirected to http://127.0.0.1:3000/categories/3
+Completed 302 Found in 59ms
+
+
+Started GET "/categories/3" for 127.0.0.1 at Tue Dec 14 15:28:18 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products".category_id = 3)[0m
+Rendered categories/show.html.erb within layouts/application (39.9ms)
+Completed 200 OK in 133ms (Views: 123.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/categories/3/edit" for 127.0.0.1 at Tue Dec 14 15:28:27 -0500 2010
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered categories/_question_option_fields.erb (2.3ms)
+Rendered categories/_question_option_fields.erb (2.1ms)
+Rendered categories/_question_option_fields.erb (1.6ms)
+Rendered categories/_form.html.erb (118.1ms)
+Rendered categories/edit.html.erb within layouts/application (122.9ms)
+Completed 200 OK in 140ms (Views: 128.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 14 15:28:33 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 62ms (Views: 40.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at Tue Dec 14 15:28:34 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (31.5ms)
+Completed 200 OK in 127ms (Views: 37.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at Tue Dec 14 15:29:00 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (30.3ms)
+Completed 200 OK in 46ms (Views: 36.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at Tue Dec 14 15:29:13 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 46ms (Views: 36.6ms | ActiveRecord: 0.5ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+
+
+Started GET "/products/1" for 127.0.0.1 at Tue Dec 14 15:31:07 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (42.7ms)
+Completed 200 OK in 60ms (Views: 48.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at Tue Dec 14 15:31:28 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/show.html.erb within layouts/application (43.4ms)
+Completed 200 OK in 60ms (Views: 49.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:32:33 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+Rendered products/get_quote.js.erb (0.7ms)
+Completed 200 OK in 106ms (Views: 17.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&Charger=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:32:35 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"1", "Charger"=>"1"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+Rendered products/get_quote.js.erb (0.7ms)
+Completed 200 OK in 31ms (Views: 15.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at Tue Dec 14 15:35:28 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (41.9ms)
+Completed 200 OK in 63ms (Views: 49.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&product%5Bquestion_option_ids%5D%5B%5D=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:35:30 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"1", "product"=>{"question_option_ids"=>["1"]}}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+Rendered products/get_quote.js.erb (0.7ms)
+Completed 200 OK in 31ms (Views: 16.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&product%5Bquestion_option_ids%5D%5B%5D=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:35:51 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"1", "product"=>{"question_option_ids"=>["1"]}}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 52459ms (Views: 22.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&product%5Bquestion_option_ids%5D%5B%5D=1&product%5Bquestion_option_ids%5D%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:36:46 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"1", "product"=>{"question_option_ids"=>["1", "2"]}}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+Rendered products/get_quote.js.erb (1.0ms)
+Completed 200 OK in 22978ms (Views: 23.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at Tue Dec 14 15:38:00 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (49.6ms)
+Completed 200 OK in 69ms (Views: 55.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_option_ids%5B%5D=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:38:03 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"1", "question_option_ids"=>["1"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+Rendered products/get_quote.js.erb (1.3ms)
+Completed 200 OK in 10538ms (Views: 22.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:38:17 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"1", "question_option_ids"=>["1", "2"]}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+Rendered products/get_quote.js.erb (1.0ms)
+Completed 200 OK in 27591ms (Views: 22.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:39:09 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"1", "question_option_ids"=>["1", "2"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+Rendered products/get_quote.js.erb (1.6ms)
+Completed 200 OK in 11404ms (Views: 23.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:40:07 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"1", "question_option_ids"=>["1", "2"]}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+Rendered products/get_quote.js.erb (1.0ms)
+Completed 200 OK in 3830ms (Views: 22.6ms | ActiveRecord: 0.2ms)
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.5ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3) AND ("question_options"."id" = 1) LIMIT 1
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:41:18 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"1", "question_option_ids"=>["1", "2"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mQuestionOption Load (0.2ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 1) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.2ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 2) LIMIT 1
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 45ms (Views: 16.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_option_ids%5B%5D=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:41:21 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"1", "question_option_ids"=>["1"]}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.2ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 1) LIMIT 1
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 43ms (Views: 16.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:41:22 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"1", "question_option_ids"=>["1", "2"]}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.2ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 1) LIMIT 1
+  [1m[36mQuestionOption Load (0.2ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 2) LIMIT 1[0m
+Rendered products/get_quote.js.erb (1.0ms)
+Completed 200 OK in 118ms (Views: 90.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_3=1&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:41:51 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"1", "question_3"=>"1", "question_option_ids"=>["1", "2"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.2ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 1) LIMIT 1
+  [1m[36mQuestionOption Load (0.2ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 2) LIMIT 1[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 65ms (Views: 16.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_3=2&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:41:53 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"1", "question_3"=>"2", "question_option_ids"=>["1", "2"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.2ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 1) LIMIT 1
+  [1m[36mQuestionOption Load (0.2ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 2) LIMIT 1[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 143ms (Views: 16.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_2=True&question_3=2&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:41:56 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "question_2"=>"True", "id"=>"1", "question_3"=>"2", "question_option_ids"=>["1", "2"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.2ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 1) LIMIT 1
+  [1m[36mQuestionOption Load (0.2ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 2) LIMIT 1[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 66ms (Views: 16.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=True&question_3=2&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:41:58 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"True", "id"=>"1", "question_3"=>"2", "question_option_ids"=>["1", "2"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.2ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 1) LIMIT 1
+  [1m[36mQuestionOption Load (0.2ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 2) LIMIT 1[0m
+Rendered products/get_quote.js.erb (1.0ms)
+Completed 200 OK in 145ms (Views: 16.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=2&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:42:03 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"2", "question_option_ids"=>["1", "2"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.2ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 1) LIMIT 1
+  [1m[36mQuestionOption Load (0.2ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 2) LIMIT 1[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 67ms (Views: 16.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:42:06 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"2"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 135ms (Views: 16.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=2&question_option_ids%5B%5D=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:42:10 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"2", "question_option_ids"=>["1"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.2ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 1) LIMIT 1
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 65ms (Views: 16.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=2&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:43:36 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"2", "question_option_ids"=>["2"]}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.2ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options"."id" = 2) LIMIT 1[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 145ms (Views: 16.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=2&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:45:30 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"2", "question_option_ids"=>["2"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 67ms (Views: 17.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=2&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:45:32 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"2", "question_option_ids"=>["1", "2"]}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 145ms (Views: 15.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=2&question_option_ids%5B%5D=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:45:34 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"2", "question_option_ids"=>["1"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.4ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (1.0ms)
+Completed 200 OK in 68ms (Views: 16.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:45:45 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"2"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.4ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 18986ms (Views: 17.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=2&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 15:47:41 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"2", "question_option_ids"=>["1", "2"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (360.0ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3) AND ("question_options"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3) AND ("question_options"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3) AND ("question_options"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3) AND ("question_options"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3) AND ("question_options"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3) AND ("question_options"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3) AND ("question_options"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3) AND ("question_options"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3) AND ("question_options"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3) AND ("question_options"."id" = 1) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.7ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (1.1ms)
+Completed 200 OK in 2414050ms (Views: 23.9ms | ActiveRecord: 361.2ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:27:55 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"1"}
+  [1m[36mProduct Load (19.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.4ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 1538ms (Views: 19.7ms | ActiveRecord: 19.9ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:27:56 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"2"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (1.0ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 813ms (Views: 19.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=2&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:27:57 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"2", "question_option_ids"=>["1", "2"]}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.4ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (1.0ms)
+Completed 200 OK in 758ms (Views: 19.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:27:58 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"1"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.4ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (1.0ms)
+Completed 200 OK in 717ms (Views: 17.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:27:59 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"2"}
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.4ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 625ms (Views: 16.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:28:06 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"2"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 67ms (Views: 16.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:28:08 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"2"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 146ms (Views: 94.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:28:09 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"1"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 66ms (Views: 16.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:28:17 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (1.0ms)
+Completed 200 OK in 147ms (Views: 16.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=1&question_option_ids%5B%5D=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:28:18 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"1", "question_option_ids"=>["1"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 69ms (Views: 16.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=1&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:28:20 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"1", "question_option_ids"=>["1", "2"]}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 147ms (Views: 16.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:28:24 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"1"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (1.0ms)
+Completed 200 OK in 69ms (Views: 16.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=1&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:28:26 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"1", "question_option_ids"=>["1", "2"]}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 154ms (Views: 16.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:28:31 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"1", "question_option_ids"=>["2"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 68ms (Views: 16.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:28:46 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"1", "question_option_ids"=>["2"]}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 148ms (Views: 16.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:28:48 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"1"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 68ms (Views: 16.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=1&question_option_ids%5B%5D=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:28:50 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"1", "question_option_ids"=>["1"]}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 149ms (Views: 16.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=1&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:28:52 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"1", "question_option_ids"=>["1", "2"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.8ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 67ms (Views: 16.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:28:54 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"1", "question_option_ids"=>["2"]}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 144ms (Views: 16.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=1&question_1=True&question_2=False&question_3=1&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:28:56 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"1", "question_3"=>"1", "question_option_ids"=>["1", "2"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 66ms (Views: 16.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 14 16:29:21 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/application (39.8ms)
+Completed 200 OK in 166ms (Views: 58.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/categories/3" for 127.0.0.1 at Tue Dec 14 16:29:22 -0500 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products".category_id = 3)[0m
+Rendered categories/show.html.erb within layouts/application (48.0ms)
+Completed 200 OK in 83ms (Views: 70.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 16:29:24 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.4ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/show.html.erb within layouts/application (52.0ms)
+Completed 200 OK in 70ms (Views: 58.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=3&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:29:26 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Completed   in 128ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.*):
+  app/controllers/products_controller.rb:55:in `get_quote'
+  app/controllers/products_controller.rb:49:in `get_quote'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.1ms)
+
+
+Started GET "/products/3/edit" for 127.0.0.1 at Tue Dec 14 16:29:55 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (27.4ms)
+Rendered products/edit.html.erb within layouts/application (33.4ms)
+Completed 200 OK in 63ms (Views: 40.0ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/products/3" for 127.0.0.1 at Tue Dec 14 16:29:57 -0500 2010
+  Processing by ProductsController#update as HTML
+  Parameters: {"commit"=>"Update Product", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "id"=>"3", "product"=>{"price"=>"", "name"=>"BlackBerry Torch 9800", "category_id"=>"3", "is_popular"=>"1", "description"=>""}}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (36.3ms)
+Rendered products/edit.html.erb within layouts/application (42.3ms)
+Completed 200 OK in 156ms (Views: 132.0ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/products/3" for 127.0.0.1 at Tue Dec 14 16:30:02 -0500 2010
+  Processing by ProductsController#update as HTML
+  Parameters: {"commit"=>"Update Product", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "id"=>"3", "product"=>{"price"=>"250", "name"=>"BlackBerry Torch 9800", "category_id"=>"3", "is_popular"=>"1", "description"=>""}}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "products" SET "price" = 250.0, "updated_at" = '2010-12-14 21:30:02.213507' WHERE ("products"."id" = 3)
+[paperclip] Saving attachments.
+Redirected to http://127.0.0.1:3000/products/3
+Completed 302 Found in 27ms
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 16:30:02 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (138.4ms)
+Completed 200 OK in 157ms (Views: 144.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=3&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:30:04 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"3"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 143ms (Views: 16.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=3&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 16:30:07 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"3", "question_option_ids"=>["1", "2"]}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (0.9ms)
+Completed 200 OK in 65ms (Views: 16.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 16:31:30 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/show.html.erb within layouts/application (53.5ms)
+Completed 200 OK in 152ms (Views: 59.0ms | ActiveRecord: 0.8ms)

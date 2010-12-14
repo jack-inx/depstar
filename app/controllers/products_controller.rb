@@ -44,6 +44,17 @@ class ProductsController < ApplicationController
         @quote *= @product.category.question_3_option_4_multiplier
       end
     end
+
+    #debugger
+    @product.category.question_options.each do |question_option|      
+      unless params[:question_option_ids].blank?        
+        unless params[:question_option_ids].include?(question_option.id.to_s())
+          @quote *= question_option.multiplier
+        end
+      else
+        @quote *= question_option.multiplier
+      end      
+    end
     
   end
 

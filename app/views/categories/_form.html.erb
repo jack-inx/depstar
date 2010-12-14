@@ -97,6 +97,27 @@
 		</div>
 		
 	</div>
+	
+	<div style="padding: 5px; margin: 5px; border: 1px solid gray; width: 300px;">
+		<h3>Question 4</h3>
+		<div class="field">
+    	<%= f.label :question_4_is_enabled, "Is Enabled?" %><br />
+    	<%= f.check_box :question_4_is_enabled %>
+		</div>
+		
+		<div class="field">
+		<%= f.label :question_4_name, "Name" %><br />
+		<%= f.text_field :question_4_name %>
+		</div>
+
+		<div class="question_options admin_details">
+			<%= f.fields_for :question_options do |builder| %>
+				<%= render "question_option_fields", :f => builder %>      
+			<% end %>
+			<p><%= link_to_add_fields "Add Question Option", f, :question_options %></p>
+		</div>
+		
+	</div>
 
   <div class="actions">
     <%= f.submit %>
