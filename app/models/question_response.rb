@@ -1,16 +1,35 @@
 require 'active_model'
 
 class QuestionResponse
+  extend ActiveModel::Naming 
+  include ActiveModel::Conversion
   include ActiveModel::Validations
+  include ActiveModel::MassAssignmentSecurity
   
   validates_presence_of :product_id, :question_1, :question_2, :question_3, :question_4
 
-  attr_accessor :product_id, :question_1, :question_2, :question_3, :question_4
-  def initialize(product_id, question_1, question_2, question_3, question_4)
-    @product_id, @question_1, @question_2, @question_3, @question_4 = product_id, question_1, question_2, question_3, question_4
+  attr_accessor :product_id, :question_1, :question_2, :question_3, :question_4  
+
+  def initialize(params = nil)
+
+    unless params.nil?
+      @product_id = params[:id] unless params[:id].nil?
+      @question_1 = params[:question_1] unless params[:question_1].nil?
+      @question_2 = params[:question_2] unless params[:question_2].nil?
+      @question_3 = params[:question_3] unless params[:question_3].nil?
+      @question_4 = params[:question_4] unless params[:question_4].nil?
+    end
     
-    @product = Product.find(@product_id)
+    unless @product_id.nil?
+      @product = Product.find(@product_id)
+    else
+      @product = nil
+    end
     
+  end
+
+  def persisted?
+    false
   end
   
   def quote
@@ -50,7 +69,8 @@ class QuestionResponse
       end
     end
 
-    @product.category.question_options.each do |question_option|      
+    @product.category.question_options.each do |question_option|
+
       unless @question_4.blank?                
         unless @question_4.include?(question_option.id.to_s())
           @multiplier *= question_option.multiplier

@@ -5,6 +5,8 @@ Trunk::Application.routes.draw do  #match 'get_quote' => 'price_quotes#get_quote
   resources :products
   match 'get_quote' => 'products#get_quote'  
   
+  match 'question_responses' => 'products#get_quote'
+  
   match 'admin' => 'admin#index'
   match 'home' => 'home#index'
   match 'dev' => 'home#index'

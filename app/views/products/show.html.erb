@@ -26,32 +26,32 @@
 </p>
 
 <div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
-	<%= form_tag get_quote_path, :method => :get, :remote => true do %>
-		<%= hidden_field_tag(:id, @product.id) %>
+	<%= form_for @question_response, :method => :get, :remote => true do |f| %>
+		<%= f.hidden_field :id, :value => @product.id %>
 		
 		<% if @product.category.try(:question_1_is_enabled) %>
 			<p>
 				<b><%= @product.category.question_1_name %> </b>
-				<%= radio_button_tag(:question_1, "True") %> Yes
-				<%= radio_button_tag(:question_1, "False") %> No
+				<%= f.radio_button(:question_1, "True") %> Yes
+				<%= f.radio_button(:question_1, "False") %> No
 			</p>
 		<% end %>
 		
 		<% if @product.category.try(:question_2_is_enabled) %>
 			<p>
 				<b><%= @product.category.question_2_name %> </b>
-				<%= radio_button_tag(:question_2, "True") %> Yes
-				<%= radio_button_tag(:question_2, "False") %> No
+				<%= f.radio_button(:question_2, "True") %> Yes
+				<%= f.radio_button(:question_2, "False") %> No
 			</p>
 		<% end %>
 				
 		<% if @product.category.try(:question_3_is_enabled) %>
 			<p>
 				<b><%= @product.category.question_3_name %> </b>
-				<%= radio_button_tag(:question_3, "1") %> Poor
-				<%= radio_button_tag(:question_3, "2") %> Fair
-				<%= radio_button_tag(:question_3, "3") %> Good
-				<%= radio_button_tag(:question_3, "4") %> Perfect							
+				<%= f.radio_button(:question_3, "1") %> Poor
+				<%= f.radio_button(:question_3, "2") %> Fair
+				<%= f.radio_button(:question_3, "3") %> Good
+				<%= f.radio_button(:question_3, "4") %> Perfect							
 			</p>
 		<% end %>
 		
@@ -59,9 +59,7 @@
 			<p>
 				<b><%= @product.category.question_4_name %> </b>
 				<% @product.category.question_options.each do |question_option| %>
-					<%#= check_box_tag "product[question_option_ids][]", question_option.id %>
-					<%= check_box_tag "question_option_ids[]", question_option.id %>
-					<%#= check_box_tag(question_option.name, question_option.id) %> <%= question_option.name %>
+					<%= check_box_tag "question_response[question_4][]", question_option.id %> <%= question_option.name %>
 				<% end %>
 			</p>
 		<% end %>

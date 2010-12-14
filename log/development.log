@@ -15290,3 +15290,1477 @@ Started GET "/get_quote?utf8=%E2%9C%93&id=3&question_option_ids%5B%5D=1&question
   [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
 Rendered products/get_quote.js.erb (120.0ms)
 Completed 200 OK in 152ms (Views: 134.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:28:52 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (31.9ms)
+Completed   in 50ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    26: </p>
+    27: 
+    28: <div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
+    29: 	<%= form_for @question_response, :method => :get, :remote => true do %>
+    30: 		<%= hidden_field_tag(:id, @product.id) %>
+    31: 		
+    32: 		<% if @product.category.try(:question_1_is_enabled) %>
+  app/views/products/show.html.erb:29:in `_app_views_products_show_html_erb___1790632055_2174165700_0'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (25.7ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:29:10 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (32.6ms)
+Completed   in 135ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    26: </p>
+    27: 
+    28: <div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
+    29: 	<%= form_for @question_response, :method => :get, :remote => true do %>
+    30: 		<%= hidden_field_tag(:id, @product.id) %>
+    31: 		
+    32: 		<% if @product.category.try(:question_1_is_enabled) %>
+  app/views/products/show.html.erb:29:in `_app_views_products_show_html_erb___1790632055_2173987420_0'
+  app/controllers/products_controller.rb:25:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.0ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:29:19 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+Completed   in 17ms
+
+ArgumentError (wrong number of arguments (0 for 5)):
+  app/controllers/products_controller.rb:23:in `initialize'
+  app/controllers/products_controller.rb:23:in `new'
+  app/controllers/products_controller.rb:23:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.3ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:29:40 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+Completed   in 96ms
+
+ArgumentError (wrong number of arguments (0 for 5)):
+  app/controllers/products_controller.rb:23:in `initialize'
+  app/controllers/products_controller.rb:23:in `new'
+  app/controllers/products_controller.rb:23:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.3ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:29:56 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+Completed   in 17ms
+
+ActiveRecord::RecordNotFound (Couldn't find Product without an ID):
+  app/models/question_response.rb:12:in `initialize'
+  app/controllers/products_controller.rb:23:in `new'
+  app/controllers/products_controller.rb:23:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.2ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:30:32 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+Completed   in 17ms
+
+NoMethodError (undefined method `is_nil' for nil:NilClass):
+  app/models/question_response.rb:12:in `initialize'
+  app/controllers/products_controller.rb:23:in `new'
+  app/controllers/products_controller.rb:23:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (78.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (92.7ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:30:42 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (32.1ms)
+Completed   in 56ms
+
+ActionView::Template::Error (undefined method `to_key' for #<QuestionResponse:0x1033b4878>):
+    26: </p>
+    27: 
+    28: <div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
+    29: 	<%= form_for @question_response, :method => :get, :remote => true do %>
+    30: 		<%= hidden_field_tag(:id, @product.id) %>
+    31: 		
+    32: 		<% if @product.category.try(:question_1_is_enabled) %>
+  app/views/products/show.html.erb:29:in `_app_views_products_show_html_erb___1790632055_2174409840_0'
+  app/controllers/products_controller.rb:25:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.9ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:31:31 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.4ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (53.4ms)
+Completed 200 OK in 157ms (Views: 59.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=3&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 17:31:33 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"3"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (42.4ms)
+Completed 200 OK in 100ms (Views: 57.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=3&question_option_ids%5B%5D=1&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 17:31:35 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"3", "question_option_ids"=>["1"]}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (123.9ms)
+Completed 200 OK in 156ms (Views: 139.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:32:16 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/show.html.erb within layouts/application (51.5ms)
+Completed 200 OK in 69ms (Views: 57.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=3&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 17:32:20 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "utf8"=>"✓", "id"=>"3", "question_option_ids"=>["1", "2"]}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (41.2ms)
+Completed 200 OK in 73ms (Views: 55.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=3&question_1=True&question_2=True&question_3=2&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 17:32:24 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_option_ids"=>["1", "2"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (43.1ms)
+Completed 200 OK in 151ms (Views: 58.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=3&question_1=True&question_2=False&question_3=2&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 17:32:27 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"True", "utf8"=>"✓", "question_2"=>"False", "id"=>"3", "question_3"=>"2", "question_option_ids"=>["1", "2"]}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (115.4ms)
+Completed 200 OK in 148ms (Views: 130.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_quote?utf8=%E2%9C%93&id=3&question_1=False&question_2=True&question_3=2&question_option_ids%5B%5D=1&question_option_ids%5B%5D=2&commit=Get%20Quote" for 127.0.0.1 at Tue Dec 14 17:32:32 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "question_1"=>"False", "utf8"=>"✓", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_option_ids"=>["1", "2"]}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (41.2ms)
+Completed 200 OK in 74ms (Views: 56.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:34:12 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (164.8ms)
+Completed 200 OK in 186ms (Views: 172.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:34:17 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/show.html.erb within layouts/application (56.1ms)
+Completed 200 OK in 170ms (Views: 149.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:34:24 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (59.2ms)
+Completed   in 183ms
+
+ActionView::Template::Error (undefined method `to_key' for #<QuestionResponse:0x1038f4ae0>):
+    27: 
+    28: <div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
+    29: 	<%#= form_tag get_quote_path, :method => :get, :remote => true do %>
+    30: 	<%= form_for @question_response, :method => :get, :remote => true do %>
+    31: 		<%= hidden_field_tag(:id, @product.id) %>
+    32: 		
+    33: 		<% if @product.category.try(:question_1_is_enabled) %>
+  app/views/products/show.html.erb:30:in `_app_views_products_show_html_erb___1790632055_2177290840_0'
+  app/controllers/products_controller.rb:25:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (20.3ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:34:44 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (110.3ms)
+Completed   in 134ms
+
+ActionView::Template::Error (undefined method `to_key' for #<QuestionResponse:0x102f63ff8>):
+    27: 
+    28: <div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
+    29: 	<%#= form_tag get_quote_path, :method => :get, :remote => true do %>
+    30: 	<%= form_for @question_response, :method => :get, :remote => true do |f| %>
+    31: 		<%= hidden_field_tag(:id, @product.id) %>
+    32: 		
+    33: 		<% if @product.category.try(:question_1_is_enabled) %>
+  app/views/products/show.html.erb:30:in `_app_views_products_show_html_erb___1790632055_2172317480_0'
+  app/controllers/products_controller.rb:25:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.0ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:35:15 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (31.7ms)
+Completed   in 57ms
+
+ActionView::Template::Error (undefined method `to_key' for #<QuestionResponse:0x10317f030>):
+    27: 
+    28: <div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
+    29: 	<%#= form_tag get_quote_path, :method => :get, :remote => true do %>
+    30: 	<%= form_for @question_response do |f| %>
+    31: 		<%= hidden_field_tag(:id, @product.id) %>
+    32: 		
+    33: 		<% if @product.category.try(:question_1_is_enabled) %>
+  app/views/products/show.html.erb:30:in `_app_views_products_show_html_erb___1790632055_2173411760_0'
+  app/controllers/products_controller.rb:25:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.5ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:35:42 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (33.1ms)
+Completed   in 138ms
+
+ActionView::Template::Error (undefined method `to_key' for #<QuestionResponse:0x1038ad640>):
+    27: 
+    28: <div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
+    29: 	<%#= form_tag get_quote_path, :method => :get, :remote => true do %>
+    30: 	<%= form_for @question_response, :method => :get, :remote => true do |f| %>
+    31: 		<%= hidden_field_tag(:id, @product.id) %>
+    32: 		
+    33: 		<% if @product.category.try(:question_1_is_enabled) %>
+  app/views/products/show.html.erb:30:in `_app_views_products_show_html_erb___1790632055_2177165100_0'
+  app/controllers/products_controller.rb:25:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.0ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:36:45 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (109.7ms)
+Completed   in 133ms
+
+ActionView::Template::Error (undefined method `persisted?' for #<QuestionResponse:0x102f77da0>):
+    27: 
+    28: <div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
+    29: 	<%#= form_tag get_quote_path, :method => :get, :remote => true do %>
+    30: 	<%= form_for @question_response, :method => :get, :remote => true do |f| %>
+    31: 		<%= hidden_field_tag(:id, @product.id) %>
+    32: 		
+    33: 		<% if @product.category.try(:question_1_is_enabled) %>
+  app/views/products/show.html.erb:30:in `_app_views_products_show_html_erb___1790632055_2172358220_0'
+  app/controllers/products_controller.rb:25:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.9ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:36:59 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (42.5ms)
+Completed   in 66ms
+
+ActionView::Template::Error (undefined method `question_responses_path' for #<#<Class:0x103103fc0>:0x1030fd3f0>):
+    27: 
+    28: <div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
+    29: 	<%#= form_tag get_quote_path, :method => :get, :remote => true do %>
+    30: 	<%= form_for @question_response, :method => :get, :remote => true do |f| %>
+    31: 		<%= hidden_field_tag(:id, @product.id) %>
+    32: 		
+    33: 		<% if @product.category.try(:question_1_is_enabled) %>
+  app/views/products/show.html.erb:30:in `_app_views_products_show_html_erb___1790632055_2173163560_0'
+  app/controllers/products_controller.rb:25:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.3ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:38:18 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (42.3ms)
+Completed   in 66ms
+
+ActionView::Template::Error (undefined method `question_responses_path' for #<#<Class:0x103140ec0>:0x10313d590>):
+    27: 
+    28: <div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
+    29: 	<%#= form_tag get_quote_path, :method => :get, :remote => true do %>
+    30: 	<%= form_for @question_response, :method => :get, :remote => true do |f| %>
+    31: 		<%= hidden_field_tag(:id, @product.id) %>
+    32: 		
+    33: 		<% if @product.category.try(:question_1_is_enabled) %>
+  app/views/products/show.html.erb:30:in `_app_views_products_show_html_erb___1790632055_2173292700_0'
+  app/controllers/products_controller.rb:25:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.3ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:38:39 -0500 2010
+
+NoMethodError (undefined method `math' for #<ActionDispatch::Routing::Mapper:0x102e57240>):
+  config/routes.rb:8
+  config/routes.rb:1
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.6ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:38:49 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (50.4ms)
+Completed 200 OK in 74ms (Views: 56.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:39:19 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "id"=>"3", "_"=>""}
+Rendered products/get_quote.js.erb (0.6ms)
+Completed   in 24ms
+
+ActionView::Template::Error (undefined method `price' for nil:NilClass):
+    1: $("price_quote_results").update("Offer - <%= number_to_currency(@question_response.quote) %>");
+  app/models/question_response.rb:29:in `quote'
+  app/views/products/get_quote.js.erb:1:in `_app_views_products_get_quote_js_erb___275373126_2174904140_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.4ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:41:41 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "id"=>"3", "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (43.7ms)
+Completed 200 OK in 181ms (Views: 86.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:43:03 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "id"=>"3", "_"=>"", "question_option_ids"=>["1"]}
+  [1m[36mProduct Load (0.9ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (122.2ms)
+Completed 200 OK in 205ms (Views: 162.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:44:06 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (38.4ms)
+Completed   in 71ms
+
+ActionView::Template::Error (undefined method `merge' for 3:Fixnum):
+    28: <div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
+    29: 	<%#= form_tag get_quote_path, :method => :get, :remote => true do %>
+    30: 	<%= form_for @question_response, :method => :get, :remote => true do |f| %>
+    31: 		<%= f.hidden_field(:id, @product.id) %>
+    32: 		
+    33: 		<% if @product.category.try(:question_1_is_enabled) %>
+    34: 			<p>
+  app/views/products/show.html.erb:31:in `_app_views_products_show_html_erb___1790632055_2173858520_0'
+  app/views/products/show.html.erb:30:in `_app_views_products_show_html_erb___1790632055_2173858520_0'
+  app/controllers/products_controller.rb:25:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.5ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:45:18 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/show.html.erb within layouts/application (49.3ms)
+Completed   in 233ms
+
+ActionView::Template::Error (undefined method `merge' for 1:Fixnum):
+    61: 				<b><%= @product.category.question_4_name %> </b>
+    62: 				<% @product.category.question_options.each do |question_option| %>
+    63: 					<%#= check_box_tag "product[question_option_ids][]", question_option.id %>
+    64: 					<%= f.check_box "question_option_ids[]", question_option.id %>
+    65: 					<%#= check_box_tag(question_option.name, question_option.id) %> <%= question_option.name %>
+    66: 				<% end %>
+    67: 			</p>
+  app/views/products/show.html.erb:64:in `_app_views_products_show_html_erb___1790632055_2178280120_0'
+  app/views/products/show.html.erb:62:in `_app_views_products_show_html_erb___1790632055_2178280120_0'
+  app/views/products/show.html.erb:30:in `_app_views_products_show_html_erb___1790632055_2178280120_0'
+  app/controllers/products_controller.rb:25:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.2ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:45:41 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.7ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (131.7ms)
+Completed   in 156ms
+
+ActionView::Template::Error (undefined method `question_option_ids[]' for #<QuestionResponse:0x102f687d8>):
+    61: 				<b><%= @product.category.question_4_name %> </b>
+    62: 				<% @product.category.question_options.each do |question_option| %>
+    63: 					<%#= check_box_tag "product[question_option_ids][]", question_option.id %>
+    64: 					<%= f.check_box "question_option_ids[]", :value => question_option.id %>
+    65: 					<%#= check_box_tag(question_option.name, question_option.id) %> <%= question_option.name %>
+    66: 				<% end %>
+    67: 			</p>
+  app/views/products/show.html.erb:64:in `_app_views_products_show_html_erb___1790632055_2172326820_0'
+  app/views/products/show.html.erb:62:in `_app_views_products_show_html_erb___1790632055_2172326820_0'
+  app/views/products/show.html.erb:30:in `_app_views_products_show_html_erb___1790632055_2172326820_0'
+  app/controllers/products_controller.rb:25:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (15.2ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:45:54 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.6ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/show.html.erb within layouts/application (160.7ms)
+Completed 200 OK in 184ms (Views: 166.3ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:45:56 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"id"=>"3", "question_4"=>"0"}, "_"=>""}
+Rendered products/get_quote.js.erb (0.5ms)
+Completed   in 24ms
+
+ActionView::Template::Error (undefined method `price' for nil:NilClass):
+    1: $("price_quote_results").update("Offer - <%= number_to_currency(@question_response.quote) %>");
+  app/models/question_response.rb:27:in `quote'
+  app/views/products/get_quote.js.erb:1:in `_app_views_products_get_quote_js_erb___275373126_2173996340_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.3ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:46:27 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (55.0ms)
+Completed 200 OK in 82ms (Views: 61.0ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:46:29 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"id"=>"3", "question_4"=>"0"}, "_"=>""}
+Completed   in 15ms
+
+ArgumentError (Unknown key(s): commit, authenticity_token, utf8, action, question_response, controller, _):
+  app/models/question_response.rb:16:in `initialize'
+  app/controllers/products_controller.rb:15:in `new'
+  app/controllers/products_controller.rb:15:in `get_quote'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.5ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:47:29 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.4ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/show.html.erb within layouts/application (206.7ms)
+Completed 200 OK in 257ms (Views: 212.7ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:47:30 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"id"=>"3", "question_4"=>"0"}, "_"=>""}
+Completed   in 15ms
+
+ArgumentError (Unknown key(s): id, question_4):
+  app/models/question_response.rb:16:in `initialize'
+  app/controllers/products_controller.rb:15:in `new'
+  app/controllers/products_controller.rb:15:in `get_quote'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (93.8ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:47:57 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (54.8ms)
+Completed 200 OK in 81ms (Views: 61.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:47:59 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"id"=>"3", "question_4"=>"0"}, "_"=>""}
+Completed   in 7ms
+
+ArgumentError (wrong number of arguments (1 for 0)):
+  app/controllers/products_controller.rb:15:in `initialize'
+  app/controllers/products_controller.rb:15:in `new'
+  app/controllers/products_controller.rb:15:in `get_quote'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.6ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:49:42 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/show.html.erb within layouts/application (258.8ms)
+Completed 200 OK in 293ms (Views: 265.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:49:44 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"id"=>"3", "question_4"=>"0"}, "_"=>""}
+Completed   in 6ms
+
+ArgumentError (wrong number of arguments (1 for 0)):
+  app/controllers/products_controller.rb:15:in `initialize'
+  app/controllers/products_controller.rb:15:in `new'
+  app/controllers/products_controller.rb:15:in `get_quote'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (95.0ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:52:23 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"id"=>"3", "question_4"=>"0"}, "_"=>""}
+Completed   in 7ms
+
+NameError (undefined local variable or method `debuggger' for #<QuestionResponse:0x103494680>):
+  app/models/question_response.rb:14:in `initialize'
+  app/controllers/products_controller.rb:15:in `new'
+  app/controllers/products_controller.rb:15:in `get_quote'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.6ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:52:39 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+Completed   in 24ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/products_controller.rb:24:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (25.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (40.0ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:52:45 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+Completed   in 18ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/products_controller.rb:24:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.5ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:52:50 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+Completed   in 19ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/products_controller.rb:24:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.7ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:52:58 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/show.html.erb within layouts/application (59.2ms)
+Completed 200 OK in 221ms (Views: 97.6ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:53:05 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"id"=>"3", "question_4"=>"0"}, "_"=>""}
+Rendered products/get_quote.js.erb (0.7ms)
+Completed   in 96803ms
+
+ActionView::Template::Error (undefined method `price' for nil:NilClass):
+    1: $("price_quote_results").update("Offer - <%= number_to_currency(@question_response.quote) %>");
+  app/models/question_response.rb:41:in `quote'
+  app/views/products/get_quote.js.erb:1:in `_app_views_products_get_quote_js_erb___275373126_2176212480_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (15.7ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:54:44 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+Completed   in 39ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/products_controller.rb:24:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.2ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 17:54:54 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/show.html.erb within layouts/application (81.0ms)
+Completed 200 OK in 195ms (Views: 88.2ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:55:02 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"id"=>"3", "question_4"=>"0"}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.4ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (43.1ms)
+Completed 200 OK in 78ms (Views: 59.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:55:06 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"id"=>"3", "question_3"=>"2", "question_4"=>"1"}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (183.7ms)
+Completed 200 OK in 218ms (Views: 199.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:55:37 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"id"=>"3", "question_3"=>"2", "question_4"=>"1"}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.4ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (43.6ms)
+Completed 200 OK in 78ms (Views: 59.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:55:39 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"id"=>"3", "question_3"=>"2", "question_4"=>"1"}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (43.0ms)
+Completed 200 OK in 160ms (Views: 57.8ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:55:42 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>"1"}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (41.8ms)
+Completed 200 OK in 75ms (Views: 56.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:55:48 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>"1"}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.4ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (43.5ms)
+Completed 200 OK in 77ms (Views: 58.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:55:49 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>"1"}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (124.3ms)
+Completed 200 OK in 157ms (Views: 139.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:55:52 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>"1"}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (42.6ms)
+Completed 200 OK in 75ms (Views: 57.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:55:54 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>"0"}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (42.1ms)
+Completed 200 OK in 155ms (Views: 57.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:55:56 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>"0"}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (118.3ms)
+Completed 200 OK in 151ms (Views: 133.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:55:59 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>"1"}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (43.0ms)
+Completed 200 OK in 77ms (Views: 58.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:56:01 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>"0"}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (127.1ms)
+Completed 200 OK in 160ms (Views: 142.0ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:56:04 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>"0"}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (42.4ms)
+Completed 200 OK in 76ms (Views: 57.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:56:07 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>"0"}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.4ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (44.0ms)
+Completed 200 OK in 161ms (Views: 60.0ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:56:09 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>"1"}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (117.9ms)
+Completed 200 OK in 151ms (Views: 132.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:56:26 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>"0"}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (39783.5ms)
+Completed 200 OK in 39818ms (Views: 39799.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:57:21 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>"0"}, "_"=>""}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (43.3ms)
+Completed 200 OK in 15156ms (Views: 58.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 17:57:39 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>"1"}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (122.3ms)
+Completed 200 OK in 18867ms (Views: 137.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 18:01:28 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>"1"}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (44.1ms)
+Completed 200 OK in 10727ms (Views: 73.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:02:44 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (13.6ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+Completed   in 168ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/products_controller.rb:24:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.5ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:02:49 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+Completed   in 18ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/products_controller.rb:24:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.2ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:02:50 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+Completed   in 17ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/products_controller.rb:24:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (97.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (104.0ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:03:04 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+Completed   in 19ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/products_controller.rb:24:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.1ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:03:11 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (31.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (64.0ms)
+Completed   in 84ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    27: 
+    28: <div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
+    29: 	<%#= form_tag get_quote_path, :method => :get, :remote => true do %>
+    30: 	<%= form_for @question_response, :method => :get, :remote => true do |f| %>
+    31: 		<%= f.hidden_field :id, :value => @product.id %>
+    32: 		
+    33: 		<% if @product.category.try(:question_1_is_enabled) %>
+  app/views/products/show.html.erb:30:in `_app_views_products_show_html_erb___1790632055_2172746300_0'
+  app/controllers/products_controller.rb:26:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (101.6ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:03:28 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+Completed   in 21ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/products_controller.rb:24:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.6ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:03:33 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+Completed   in 22ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/models/question_response.rb:15:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.8ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:04:01 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+Completed   in 18ms
+
+SyntaxError (/Users/charlespalleschi/Documents/Development/Depstar/trunk/app/models/question_response.rb:87: syntax error, unexpected kEND, expecting $end):
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.5ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:05:13 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (21.6ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (1.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (1.0ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (171.7ms)
+Completed 200 OK in 219ms (Views: 176.4ms | ActiveRecord: 23.8ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 18:05:15 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"id"=>"3", "question_4"=>"0"}, "_"=>""}
+Completed   in 7ms
+
+ArgumentError (wrong number of arguments (1 for 0)):
+  app/controllers/products_controller.rb:15:in `initialize'
+  app/controllers/products_controller.rb:15:in `new'
+  app/controllers/products_controller.rb:15:in `get_quote'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.6ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:05:43 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+Completed   in 20ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/models/question_response.rb:15:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.7ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:05:44 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+Completed   in 18ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/models/question_response.rb:15:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.6ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:05:52 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+Completed   in 98ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/products_controller.rb:24:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:05:55 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+Completed   in 17ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/models/question_response.rb:15:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.8ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:06:08 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+Completed   in 17ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/models/question_response.rb:15:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (87.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (94.3ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:06:23 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+Completed   in 18ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/products_controller.rb:24:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.8ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:06:28 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+Completed   in 17ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/products_controller.rb:24:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.4ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:06:37 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (55.4ms)
+Completed 200 OK in 104ms (Views: 85.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:06:40 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+Completed   in 19ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/models/question_response.rb:15:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.5ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:06:49 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+Completed   in 17ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/models/question_response.rb:15:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.6ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:07:15 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+Completed   in 98ms
+
+NameError (undefined local variable or method `param' for #<QuestionResponse:0x1038f2948>):
+  app/models/question_response.rb:15:in `initialize'
+  app/controllers/products_controller.rb:24:in `new'
+  app/controllers/products_controller.rb:24:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.8ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:07:21 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (72.9ms)
+Completed 200 OK in 99ms (Views: 80.1ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 18:07:23 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"id"=>"3", "question_4"=>"0"}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (118.9ms)
+Completed 200 OK in 155ms (Views: 135.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 18:07:25 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"id"=>"3", "question_3"=>"1", "question_4"=>"0"}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (44.0ms)
+Completed 200 OK in 78ms (Views: 59.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 18:07:27 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_2"=>"True", "id"=>"3", "question_3"=>"1", "question_4"=>"0"}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (135.9ms)
+Completed 200 OK in 179ms (Views: 155.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 18:07:29 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_2"=>"False", "id"=>"3", "question_3"=>"1", "question_4"=>"0"}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (46.9ms)
+Completed 200 OK in 89ms (Views: 64.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 18:07:46 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_2"=>"False", "id"=>"3", "question_3"=>"1", "question_4"=>"0"}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (43.4ms)
+Completed 200 OK in 7644ms (Views: 65.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:08:57 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (183.5ms)
+Completed 200 OK in 4133ms (Views: 192.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 18:09:06 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"id"=>"3"}, "question_4"=>["1", "2"], "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (44.2ms)
+Completed 200 OK in 18239ms (Views: 157.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at Tue Dec 14 18:09:53 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (75.4ms)
+Completed 200 OK in 3488ms (Views: 85.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 18:10:03 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>["1", "2"]}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (120.0ms)
+Completed 200 OK in 10238ms (Views: 142.9ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 18:10:21 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>["2"]}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (43.9ms)
+Completed 200 OK in 79ms (Views: 59.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 18:10:22 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2"}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (44.1ms)
+Completed 200 OK in 157ms (Views: 59.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 18:10:25 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2"}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (43.9ms)
+Completed 200 OK in 78ms (Views: 59.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 18:10:26 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>["1"]}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (45.4ms)
+Completed 200 OK in 83ms (Views: 61.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 18:10:29 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>["2"]}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/get_quote.js.erb (129.5ms)
+Completed 200 OK in 163ms (Views: 144.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 14 18:10:31 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"kepTwaE1o0xMOdYtpZ5O5XSte0Qtlq3k6z457aXEHb8=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>["1", "2"]}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/get_quote.js.erb (43.8ms)
+Completed 200 OK in 79ms (Views: 59.9ms | ActiveRecord: 0.8ms)

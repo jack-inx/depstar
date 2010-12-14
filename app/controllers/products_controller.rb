@@ -11,8 +11,9 @@ class ProductsController < ApplicationController
   end
   
   def get_quote
-    
-    @question_response = QuestionResponse.new(params[:id], params[:question_1], params[:question_2], params[:question_3], params[:question_option_ids])  
+
+    @question_response = QuestionResponse.new(params[:question_response])  
+    #@question_response = QuestionResponse.new(params[:id], params[:question_1], params[:question_2], params[:question_3], params[:question_option_ids])  
     
   end
 
@@ -20,7 +21,8 @@ class ProductsController < ApplicationController
   # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
-
+    @question_response = QuestionResponse.new()
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @product }
