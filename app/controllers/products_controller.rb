@@ -11,10 +11,12 @@ class ProductsController < ApplicationController
   end
   
   def get_quote
-
-    @question_response = QuestionResponse.new(params[:question_response])  
-    #@question_response = QuestionResponse.new(params[:id], params[:question_1], params[:question_2], params[:question_3], params[:question_option_ids])  
+    @question_response = QuestionResponse.new(params[:question_response])    
     
+    respond_to do |format|
+      format.js
+      format.xml  { render :xml => @question_response }
+    end    
   end
 
   # GET /products/1

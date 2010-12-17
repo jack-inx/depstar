@@ -28,6 +28,11 @@ class ProductsControllerTest < ActionController::TestCase
     get :show, :id => @product.to_param
     assert_response :success
   end
+  
+  test "should get get quote" do
+    #get :get_quote, :id => @product.to_param
+    #assert_select_rjs :replace, 'price_quote_results'
+  end
 
   test "should get edit" do
     get :edit, :id => @product.to_param

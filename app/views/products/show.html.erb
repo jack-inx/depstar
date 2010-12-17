@@ -27,6 +27,7 @@
 
 <div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
 	<%= form_for @question_response, :method => :get, :remote => true do |f| %>
+		<p id="notice"><%= notice %></p>
 		<%= f.hidden_field :id, :value => @product.id %>
 		
 		<% if @product.category.try(:question_1_is_enabled) %>
