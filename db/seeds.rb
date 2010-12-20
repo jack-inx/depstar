@@ -6,5 +6,10 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-  QuestionType.create(:name => 'Radio', :value => 'radio')
-  QuestionType.create(:name => 'Checkbox', :value => 'checkbox')  
+  #QuestionType.destroy_all
+  #QuestionType.create(:name => 'Radio', :value => 'radio')
+  #QuestionType.create(:name => 'Checkbox', :value => 'checkbox')  
+  
+  PaymentMethod.destroy_all
+  PaymentMethod.create(:name => 'Check', :short_code => 'check')
+  PaymentMethod.create(:name => 'Paypal', :short_code => 'paypal')

@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @shipping_detail.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @shipping_detail.last_name %>
+</p>
+
+<p>
+  <b>Address1:</b>
+  <%= @shipping_detail.address1 %>
+</p>
+
+<p>
+  <b>Address2:</b>
+  <%= @shipping_detail.address2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @shipping_detail.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @shipping_detail.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @shipping_detail.zip %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @shipping_detail.email %>
+</p>
+
+<p>
+  <b>Payment method:</b>
+  <%= @shipping_detail.payment_method_id %>
+</p>
+
+<p>
+  <b>Paypal email:</b>
+  <%= @shipping_detail.paypal_email %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @shipping_detail.product_id %>
+</p>
+
+<p>
+  <b>Requires box:</b>
+  <%= @shipping_detail.requires_box %>
+</p>
+
+<p>
+  <b>Question response:</b>
+  <%= @shipping_detail.question_response_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_shipping_detail_path(@shipping_detail) %> |
+<%= link_to 'Back', shipping_details_path %>

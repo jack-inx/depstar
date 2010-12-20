@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101214194105) do
+ActiveRecord::Schema.define(:version => 20101220215255) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(:version => 20101214194105) do
     t.float    "question_3_option_4_multiplier"
     t.boolean  "question_4_is_enabled"
     t.string   "question_4_name"
+  end
+
+  create_table "payment_methods", :force => true do |t|
+    t.string   "name"
+    t.string   "short_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "price_quotes", :force => true do |t|
@@ -82,6 +89,24 @@ ActiveRecord::Schema.define(:version => 20101214194105) do
     t.string   "name"
     t.integer  "question_type_id"
     t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shipping_details", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "email"
+    t.integer  "payment_method_id"
+    t.string   "paypal_email"
+    t.integer  "product_id"
+    t.boolean  "requires_box"
+    t.integer  "question_response_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

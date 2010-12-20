@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  address1: MyString
+  address2: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  email: MyString
+  payment_method_id: 1
+  paypal_email: MyString
+  product_id: 1
+  requires_box: false
+  question_response_id: 1
+
+two:
+  first_name: MyString
+  last_name: MyString
+  address1: MyString
+  address2: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  email: MyString
+  payment_method_id: 1
+  paypal_email: MyString
+  product_id: 1
+  requires_box: false
+  question_response_id: 1

@@ -1,8 +1,9 @@
 Trunk::Application.routes.draw do  #match 'get_quote' => 'price_quotes#get_quote'
   
   resources :categories
-
-  resources :products
+  resources :shipping_details
+  
+  resources :products  
   match 'get_quote' => 'products#get_quote'  
   
   match 'question_responses' => 'products#get_quote'
