@@ -1,1 +1,2 @@
-$("price_quote_results").update("Offer - <%= number_to_currency(@question_response.quote) %>");
+$("price_quote_results").update("<%= 'Offer - ' + number_to_currency(@question_response.quote) if @question_response.valid? %>");
+$("price_quote_results").insert("<p id=\"error\"><%= flash[:error] %></p>");

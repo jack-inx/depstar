@@ -11,7 +11,13 @@ class ProductsController < ApplicationController
   end
   
   def get_quote
-    @question_response = QuestionResponse.new(params[:question_response])    
+    @question_response = QuestionResponse.new(params[:question_response])
+    
+    if @question_response.valid?
+      flash[:error] = nil
+    else
+      flash[:error] = "Please answer all questions"
+    end
     
     respond_to do |format|
       format.js
