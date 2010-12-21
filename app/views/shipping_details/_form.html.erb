@@ -11,6 +11,17 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :product_id, :value => params[:product_id] %>
+  <%= f.hidden_field :question_response_id, :value => params[:question_response_id] %>
+
+  <div class="field">
+    <%= f.label :requires_box, "Would you like us to send you a prepaid box?" %><br />
+    <%= f.check_box :requires_box %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
   <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %>
@@ -40,10 +51,6 @@
     <%= f.text_field :zip %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
 	<% PaymentMethod.all.each do |payment_method| %>
 	    <%= f.radio_button :payment_method_id, '0' %> <%= f.label payment_method.name %> <br />
 	<% end %>
@@ -52,19 +59,7 @@
     <%= f.label :paypal_email %><br />
     <%= f.text_field :paypal_email %>
   </div>
-  <div class="field">
-    <%#= f.label :product_id %><br />
-    <%#= f.text_field :product_id, :value => params[:product_id] %>
-  </div>
-  <div class="field">
-    <%= f.label :requires_box %><br />
-    <%= f.check_box :requires_box %>
-  </div>
-  <div class="field">
-    <%= f.label :question_response_id %><br />
-    <%= f.text_field :question_response_id %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Get Paid" %>
   </div>
 <% end %>

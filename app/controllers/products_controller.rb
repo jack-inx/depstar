@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
     @question_response = QuestionResponse.new(params[:question_response])
     
     if @question_response.save
-      redirect_to new_shipping_detail_path
+      redirect_to new_shipping_detail_path(:question_response_id => @question_response.id, :product_id => @question_response.product_id)
     else
       redirect_to product_path(params[:question_response][:product_id])
     end

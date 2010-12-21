@@ -25,7 +25,6 @@ class ShippingDetailsController < ApplicationController
   # GET /shipping_details/new.xml
   def new
     @shipping_detail = ShippingDetail.new
-    #debugger
     
     respond_to do |format|
       format.html # new.html.erb

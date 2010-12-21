@@ -26013,3 +26013,447 @@ Started GET "/shipping_details/new" for 127.0.0.1 at Tue Dec 21 17:54:11 -0500 2
 Rendered shipping_details/_form.html.erb (31.9ms)
 Rendered shipping_details/new.html.erb within layouts/application (37.2ms)
 Completed 200 OK in 12942ms (Views: 50.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/shipping_details/new" for 127.0.0.1 at Tue Dec 21 18:00:57 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  [1m[35mPaymentMethod Load (0.3ms)[0m  SELECT "payment_methods".* FROM "payment_methods"
+Rendered shipping_details/_form.html.erb (32.0ms)
+Rendered shipping_details/new.html.erb within layouts/application (37.4ms)
+Completed 200 OK in 50ms (Views: 43.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/products/missing_small.jpg" for 127.0.0.1 at Tue Dec 21 18:02:02 -0500 2010
+
+ActionController::RoutingError (No route matches "/assets/products/missing_small.jpg"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 21 18:02:03 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"LcSbMLOs1i8abEDufZ/B5UvOvG3hoJ7h0gMK1LYGsw8=", "utf8"=>"✓", "question_response"=>{"product_id"=>"2", "question_1"=>"True", "question_2"=>"False", "question_3"=>"1", "question_4"=>["2"]}, "_"=>""}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 2) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/_offer.html.erb (159.6ms)
+Rendered products/get_quote.js.erb (161.9ms)
+Completed 200 OK in 184ms (Views: 171.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/accept_quote?question_response[product_id]=2&question_response[question_1]=True&question_response[question_2]=False&question_response[question_3]=1&question_response[question_4][]=2" for 127.0.0.1 at Tue Dec 21 18:02:04 -0500 2010
+  Processing by ProductsController#accept_quote as HTML
+  Parameters: {"question_response"=>{"product_id"=>"2", "question_1"=>"True", "question_2"=>"False", "question_3"=>"1", "question_4"=>["2"]}}
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "question_responses" ("question_4", "question_2", "question_1", "created_at", "updated_at", "product_id", "question_3") VALUES ('2', 'False', 'True', '2010-12-21 23:02:04.886453', '2010-12-21 23:02:04.886453', 2, '1')
+Redirected to http://127.0.0.1:3000/shipping_details/new?question_response_id=12
+Completed 302 Found in 20ms
+
+
+Started GET "/shipping_details/new?question_response_id=12" for 127.0.0.1 at Tue Dec 21 18:02:04 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"question_response_id"=>"12"}
+  [1m[36mPaymentMethod Load (0.3ms)[0m  [1mSELECT "payment_methods".* FROM "payment_methods"[0m
+Rendered shipping_details/_form.html.erb (31.3ms)
+Rendered shipping_details/new.html.erb within layouts/application (36.6ms)
+Completed 200 OK in 49ms (Views: 42.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 21 18:03:44 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"LcSbMLOs1i8abEDufZ/B5UvOvG3hoJ7h0gMK1LYGsw8=", "utf8"=>"✓", "question_response"=>{"product_id"=>"2", "question_1"=>"True", "question_2"=>"False", "question_3"=>"1", "question_4"=>["2"]}, "_"=>""}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 2) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/_offer.html.erb (57.9ms)
+Rendered products/get_quote.js.erb (59.9ms)
+Completed 200 OK in 83ms (Views: 69.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/accept_quote?question_response[product_id]=2&question_response[question_1]=True&question_response[question_2]=False&question_response[question_3]=1&question_response[question_4][]=2" for 127.0.0.1 at Tue Dec 21 18:03:47 -0500 2010
+  Processing by ProductsController#accept_quote as HTML
+  Parameters: {"question_response"=>{"product_id"=>"2", "question_1"=>"True", "question_2"=>"False", "question_3"=>"1", "question_4"=>["2"]}}
+  [1m[36mAREL (0.7ms)[0m  [1mINSERT INTO "question_responses" ("question_3", "product_id", "created_at", "question_2", "question_4", "question_1", "updated_at") VALUES ('1', 2, '2010-12-21 23:03:47.634336', 'False', '2', 'True', '2010-12-21 23:03:47.634336')[0m
+Redirected to http://127.0.0.1:3000/shipping_details/new?question_response_id=13
+Completed 302 Found in 122ms
+
+
+Started GET "/shipping_details/new?question_response_id=13" for 127.0.0.1 at Tue Dec 21 18:03:47 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"question_response_id"=>"13"}
+  [1m[35mPaymentMethod Load (0.3ms)[0m  SELECT "payment_methods".* FROM "payment_methods"
+Rendered shipping_details/_form.html.erb (31.8ms)
+Rendered shipping_details/new.html.erb within layouts/application (37.4ms)
+Completed 200 OK in 41760ms (Views: 46.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 21 18:04:40 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"LcSbMLOs1i8abEDufZ/B5UvOvG3hoJ7h0gMK1LYGsw8=", "utf8"=>"✓", "question_response"=>{"product_id"=>"2", "question_1"=>"True", "question_2"=>"False", "question_3"=>"1", "question_4"=>["2"]}, "_"=>""}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 2) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/_offer.html.erb (160.7ms)
+Rendered products/get_quote.js.erb (162.7ms)
+Completed 200 OK in 185ms (Views: 172.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/accept_quote?question_response[product_id]=2&question_response[question_1]=True&question_response[question_2]=False&question_response[question_3]=1&question_response[question_4][]=2" for 127.0.0.1 at Tue Dec 21 18:04:41 -0500 2010
+  Processing by ProductsController#accept_quote as HTML
+  Parameters: {"question_response"=>{"product_id"=>"2", "question_1"=>"True", "question_2"=>"False", "question_3"=>"1", "question_4"=>["2"]}}
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "question_responses" ("created_at", "updated_at", "product_id", "question_2", "question_3", "question_1", "question_4") VALUES ('2010-12-21 23:04:41.496531', '2010-12-21 23:04:41.496531', 2, 'False', '1', 'True', '2')
+Redirected to http://127.0.0.1:3000/shipping_details/new?question_response_id=14
+Completed 302 Found in 20ms
+
+
+Started GET "/shipping_details/new?question_response_id=14" for 127.0.0.1 at Tue Dec 21 18:04:41 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"question_response_id"=>"14"}
+  [1m[36mPaymentMethod Load (0.3ms)[0m  [1mSELECT "payment_methods".* FROM "payment_methods"[0m
+Rendered shipping_details/_form.html.erb (141.6ms)
+Rendered shipping_details/new.html.erb within layouts/application (147.2ms)
+Completed 200 OK in 2818ms (Views: 156.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Tue Dec 21 18:05:55 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"LcSbMLOs1i8abEDufZ/B5UvOvG3hoJ7h0gMK1LYGsw8=", "utf8"=>"✓", "question_response"=>{"product_id"=>"2", "question_1"=>"True", "question_2"=>"False", "question_3"=>"1", "question_4"=>["2"]}, "_"=>""}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 2) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/_offer.html.erb (55.5ms)
+Rendered products/get_quote.js.erb (57.5ms)
+Completed 200 OK in 80ms (Views: 67.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/accept_quote?question_response[product_id]=2&question_response[question_1]=True&question_response[question_2]=False&question_response[question_3]=1&question_response[question_4][]=2" for 127.0.0.1 at Tue Dec 21 18:05:56 -0500 2010
+  Processing by ProductsController#accept_quote as HTML
+  Parameters: {"question_response"=>{"product_id"=>"2", "question_1"=>"True", "question_2"=>"False", "question_3"=>"1", "question_4"=>["2"]}}
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "question_responses" ("updated_at", "question_2", "question_4", "question_3", "question_1", "product_id", "created_at") VALUES ('2010-12-21 23:05:56.298453', 'False', '2', '1', 'True', 2, '2010-12-21 23:05:56.298453')[0m
+Redirected to http://127.0.0.1:3000/shipping_details/new?product_id=2&question_response_id=15
+Completed 302 Found in 21ms
+
+
+Started GET "/shipping_details/new?product_id=2&question_response_id=15" for 127.0.0.1 at Tue Dec 21 18:05:56 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"product_id"=>"2", "question_response_id"=>"15"}
+  [1m[35mPaymentMethod Load (0.3ms)[0m  SELECT "payment_methods".* FROM "payment_methods"
+Rendered shipping_details/_form.html.erb (32.5ms)
+Rendered shipping_details/new.html.erb within layouts/application (38.3ms)
+Completed 200 OK in 2787ms (Views: 46.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/shipping_details/new?product_id=2&question_response_id=15" for 127.0.0.1 at Tue Dec 21 18:07:43 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"product_id"=>"2", "question_response_id"=>"15"}
+  [1m[36mPaymentMethod Load (0.3ms)[0m  [1mSELECT "payment_methods".* FROM "payment_methods"[0m
+Rendered shipping_details/_form.html.erb (142.4ms)
+Rendered shipping_details/new.html.erb within layouts/application (148.1ms)
+Completed 200 OK in 4254ms (Views: 157.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/shipping_details/new?product_id=2&question_response_id=15" for 127.0.0.1 at Tue Dec 21 18:08:10 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"product_id"=>"2", "question_response_id"=>"15"}
+  [1m[35mPaymentMethod Load (0.3ms)[0m  SELECT "payment_methods".* FROM "payment_methods"
+Rendered shipping_details/_form.html.erb (31.5ms)
+Rendered shipping_details/new.html.erb within layouts/application (139.7ms)
+Completed 200 OK in 3500ms (Views: 149.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/shipping_details/new?product_id=2&question_response_id=15" for 127.0.0.1 at Tue Dec 21 18:08:26 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"product_id"=>"2", "question_response_id"=>"15"}
+  [1m[36mPaymentMethod Load (0.3ms)[0m  [1mSELECT "payment_methods".* FROM "payment_methods"[0m
+Rendered shipping_details/_form.html.erb (30.7ms)
+Rendered shipping_details/new.html.erb within layouts/application (35.9ms)
+Completed 200 OK in 49ms (Views: 41.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/shipping_details/new?product_id=2&question_response_id=15" for 127.0.0.1 at Tue Dec 21 18:14:17 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"product_id"=>"2", "question_response_id"=>"15"}
+  [1m[35mPaymentMethod Load (0.3ms)[0m  SELECT "payment_methods".* FROM "payment_methods"
+Rendered shipping_details/_form.html.erb (30.1ms)
+Rendered shipping_details/new.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 48ms (Views: 41.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/shipping_details/new?product_id=2&question_response_id=15" for 127.0.0.1 at Tue Dec 21 18:14:36 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"product_id"=>"2", "question_response_id"=>"15"}
+  [1m[36mPaymentMethod Load (0.3ms)[0m  [1mSELECT "payment_methods".* FROM "payment_methods"[0m
+Rendered shipping_details/_form.html.erb (29.9ms)
+Rendered shipping_details/new.html.erb within layouts/application (35.5ms)
+Completed 200 OK in 48ms (Views: 41.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/shipping_details/new?product_id=2&question_response_id=15" for 127.0.0.1 at Tue Dec 21 18:15:58 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"product_id"=>"2", "question_response_id"=>"15"}
+  [1m[35mPaymentMethod Load (0.3ms)[0m  SELECT "payment_methods".* FROM "payment_methods"
+Rendered shipping_details/_form.html.erb (31.2ms)
+Rendered shipping_details/new.html.erb within layouts/application (36.5ms)
+Completed 200 OK in 49ms (Views: 42.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/shipping_details/new?product_id=2&question_response_id=15" for 127.0.0.1 at Tue Dec 21 18:16:21 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"product_id"=>"2", "question_response_id"=>"15"}
+  [1m[36mPaymentMethod Load (0.3ms)[0m  [1mSELECT "payment_methods".* FROM "payment_methods"[0m
+Rendered shipping_details/_form.html.erb (44.6ms)
+Rendered shipping_details/new.html.erb within layouts/application (49.9ms)
+Completed 200 OK in 63ms (Views: 56.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/shipping_details/new?product_id=2&question_response_id=15" for 127.0.0.1 at Tue Dec 21 18:22:03 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"product_id"=>"2", "question_response_id"=>"15"}
+ERROR: compiling _app_views_shipping_details__form_html_erb__1736381553_2211367660_1071710 RAISED compile error
+/Users/charlespalleschi/Documents/Development/Depstar/app/views/shipping_details/_form.html.erb:63: syntax error, unexpected ')', expecting tCOLON2 or '[' or '.'
+....append= ( f.submit, "Tsdfs" );@output_buffer.safe_concat('
+                              ^
+/Users/charlespalleschi/Documents/Development/Depstar/app/views/shipping_details/_form.html.erb:65: syntax error, unexpected kEND, expecting ')'
+'); end 
+       ^
+/Users/charlespalleschi/Documents/Development/Depstar/app/views/shipping_details/_form.html.erb:67: syntax error, unexpected kENSURE, expecting ')'
+/Users/charlespalleschi/Documents/Development/Depstar/app/views/shipping_details/_form.html.erb:69: syntax error, unexpected kEND, expecting ')'
+Function body:           def _app_views_shipping_details__form_html_erb__1736381553_2211367660_1071710(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "shipping_details/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@shipping_detail) do |f| @output_buffer.safe_concat('
+');   if @shipping_detail.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@shipping_detail.errors.count, "error") );@output_buffer.safe_concat(' prohibited this shipping_detail from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @shipping_detail.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  ');@output_buffer.append= ( f.hidden_field :product_id, :value => params[:product_id] );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  ');@output_buffer.append= ( f.hidden_field :question_response_id, :value => params[:question_response_id] );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :requires_box, "Would you like us to send you a prepaid box?" );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.check_box :requires_box );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :email );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :email );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :first_name );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :first_name );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :last_name );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :last_name );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :address1 );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :address1 );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :address2 );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :address2 );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :city );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :city );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :state );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :state );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :zip );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :zip );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+');@output_buffer.append_if_string= 	 PaymentMethod.all.each do |payment_method| 
+@output_buffer.safe_concat('	    ');@output_buffer.append= ( f.radio_button :payment_method_id, '0' );@output_buffer.safe_concat(' ');@output_buffer.append= ( f.label payment_method.name );@output_buffer.safe_concat(' <br />
+');	 end 
+@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :paypal_email );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :paypal_email );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit, "Tsdfs" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /Users/charlespalleschi/Documents/Development/Depstar/app/views/shipping_details/_form.html.erb:69:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:134:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:333:in `render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:262:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:378:in `_render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:31:in `render'
+/Users/charlespalleschi/Documents/Development/Depstar/app/views/shipping_details/new.html.erb:3:in `_app_views_shipping_details_new_html_erb__1515483351_2211379760_0'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:135:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:59:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:56:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:26:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:92:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:17:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/mime_responds.rb:261:in `retrieve_response_from_mimes'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/Users/charlespalleschi/Documents/Development/Depstar/app/controllers/shipping_details_controller.rb:29:in `new'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:151:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:435:in `_run__651946432__process_action__943997142__callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:120:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:40:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal.rb:138:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_controller/metal.rb:178:in `action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/cookies.rb:295:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:32:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:12:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/rack/logger.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:168:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:77:in `send'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/application.rb:77:in `method_missing'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/rack/debugger.rb:21:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands/server.rb:65:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:30
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:27:in `tap'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.3/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered shipping_details/_form.html.erb (2.3ms)
+Rendered shipping_details/new.html.erb within layouts/application (5.5ms)
+Completed   in 19ms
+
+ActionView::Template::Error (compile error
+/Users/charlespalleschi/Documents/Development/Depstar/app/views/shipping_details/_form.html.erb:63: syntax error, unexpected ')', expecting tCOLON2 or '[' or '.'
+....append= ( f.submit, "Tsdfs" );@output_buffer.safe_concat('
+                              ^
+/Users/charlespalleschi/Documents/Development/Depstar/app/views/shipping_details/_form.html.erb:65: syntax error, unexpected kEND, expecting ')'
+'); end 
+       ^
+/Users/charlespalleschi/Documents/Development/Depstar/app/views/shipping_details/_form.html.erb:67: syntax error, unexpected kENSURE, expecting ')'
+/Users/charlespalleschi/Documents/Development/Depstar/app/views/shipping_details/_form.html.erb:69: syntax error, unexpected kEND, expecting ')'):
+    60:     <%= f.text_field :paypal_email %>
+    61:   </div>
+    62:   <div class="actions">
+    63:     <%= f.submit, "Tsdfs" %>
+    64:   </div>
+    65: <% end %>
+  app/views/shipping_details/_form.html.erb:69:in `compile'
+  app/views/shipping_details/new.html.erb:3:in `_app_views_shipping_details_new_html_erb__1515483351_2211379760_0'
+  app/controllers/shipping_details_controller.rb:29:in `new'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.5ms)
+
+
+Started GET "/shipping_details/new?product_id=2&question_response_id=15" for 127.0.0.1 at Tue Dec 21 18:22:10 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"product_id"=>"2", "question_response_id"=>"15"}
+  [1m[35mPaymentMethod Load (0.3ms)[0m  SELECT "payment_methods".* FROM "payment_methods"
+Rendered shipping_details/_form.html.erb (29.7ms)
+Rendered shipping_details/new.html.erb within layouts/application (34.8ms)
+Completed 200 OK in 47ms (Views: 40.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/shipping_details/new?product_id=2&question_response_id=15" for 127.0.0.1 at Tue Dec 21 18:23:05 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"product_id"=>"2", "question_response_id"=>"15"}
+  [1m[36mPaymentMethod Load (0.3ms)[0m  [1mSELECT "payment_methods".* FROM "payment_methods"[0m
+Rendered shipping_details/_form.html.erb (30.2ms)
+Rendered shipping_details/new.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 48ms (Views: 40.9ms | ActiveRecord: 0.3ms)
+  [1m[35mQuestionResponse Load (371.5ms)[0m  SELECT "question_responses".* FROM "question_responses"
