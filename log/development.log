@@ -22047,3 +22047,169 @@ Started GET "/shipping_details/new?product_id=3" for 127.0.0.1 at Mon Dec 20 17:
 Rendered shipping_details/_form.html.erb (30.4ms)
 Rendered shipping_details/new.html.erb within layouts/application (35.6ms)
 Completed 200 OK in 48ms (Views: 41.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Mon Dec 20 17:58:50 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"rtfdurjhGHFn5Sxzw9DTTSfCIKxPgxlQ9diknb/qaxQ=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"1", "question_4"=>["2"]}, "_"=>""}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/_offer.html.erb (378.6ms)
+Rendered products/get_quote.js.erb (381.5ms)
+Completed 200 OK in 470ms (Views: 393.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/shipping_details/new?product_id=3" for 127.0.0.1 at Mon Dec 20 17:58:52 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"product_id"=>"3"}
+  [1m[35mPaymentMethod Load (0.3ms)[0m  SELECT "payment_methods".* FROM "payment_methods"
+Rendered shipping_details/_form.html.erb (32.1ms)
+Rendered shipping_details/new.html.erb within layouts/application (60.6ms)
+Completed 200 OK in 74ms (Views: 66.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Mon Dec 20 17:59:07 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"rtfdurjhGHFn5Sxzw9DTTSfCIKxPgxlQ9diknb/qaxQ=", "utf8"=>"✓", "question_response"=>{"question_1"=>"False", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>["2"]}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/_offer.html.erb (21.3ms)
+Rendered products/get_quote.js.erb (23.3ms)
+Completed 200 OK in 187ms (Views: 33.6ms | ActiveRecord: 0.9ms)
+  [1m[35mSQL (0.7ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+
+Started POST "/question_responses" for 127.0.0.1 at Mon Dec 20 18:05:59 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"rtfdurjhGHFn5Sxzw9DTTSfCIKxPgxlQ9diknb/qaxQ=", "utf8"=>"✓", "question_response"=>{"question_1"=>"False", "question_2"=>"True", "id"=>"3", "question_3"=>"1", "question_4"=>["2"]}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/_offer.html.erb (21.2ms)
+Rendered products/get_quote.js.erb (23.5ms)
+Completed 200 OK in 98ms (Views: 33.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/shipping_details/new?product_id=3&question_response=" for 127.0.0.1 at Mon Dec 20 18:06:05 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"product_id"=>"3", "question_response"=>""}
+  [1m[36mPaymentMethod Load (0.3ms)[0m  [1mSELECT "payment_methods".* FROM "payment_methods"[0m
+Rendered shipping_details/_form.html.erb (58.2ms)
+Rendered shipping_details/new.html.erb within layouts/application (93.1ms)
+Completed 200 OK in 161ms (Views: 154.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products/3-blackberry-torch-9800" for 127.0.0.1 at Mon Dec 20 18:11:31 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3-blackberry-torch-9800"}
+  [1m[35mProduct Load (16.9ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.8ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.8ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/show.html.erb within layouts/application (252.2ms)
+Completed 200 OK in 352ms (Views: 281.8ms | ActiveRecord: 18.4ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Mon Dec 20 18:11:36 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"rtfdurjhGHFn5Sxzw9DTTSfCIKxPgxlQ9diknb/qaxQ=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"False", "id"=>"3", "question_3"=>"2", "question_4"=>["2"]}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/_offer.html.erb (21.1ms)
+Rendered products/get_quote.js.erb (23.1ms)
+Completed 200 OK in 179ms (Views: 33.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/shipping_details/new?product_id=3&question_response=" for 127.0.0.1 at Mon Dec 20 18:11:37 -0500 2010
+  Processing by ShippingDetailsController#new as HTML
+  Parameters: {"product_id"=>"3", "question_response"=>""}
+  [1m[35mPaymentMethod Load (0.3ms)[0m  SELECT "payment_methods".* FROM "payment_methods"
+Rendered shipping_details/_form.html.erb (32.2ms)
+Rendered shipping_details/new.html.erb within layouts/application (38.1ms)
+Completed 200 OK in 161027ms (Views: 66.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products/3-blackberry-torch-9800" for 127.0.0.1 at Mon Dec 20 18:15:04 -0500 2010
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3-blackberry-torch-9800"}
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/show.html.erb within layouts/application (52.8ms)
+Completed 200 OK in 244ms (Views: 58.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Mon Dec 20 18:15:08 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"rtfdurjhGHFn5Sxzw9DTTSfCIKxPgxlQ9diknb/qaxQ=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_4"=>["2"]}, "_"=>""}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/_offer.html.erb (2.2ms)
+Rendered products/get_quote.js.erb (4.1ms)
+Completed 200 OK in 89ms (Views: 14.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Mon Dec 20 18:15:17 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"rtfdurjhGHFn5Sxzw9DTTSfCIKxPgxlQ9diknb/qaxQ=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_4"=>["2"]}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.8ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/_offer.html.erb (2.4ms)
+Rendered products/get_quote.js.erb (102.8ms)
+Completed 200 OK in 188ms (Views: 113.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Mon Dec 20 18:15:26 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"rtfdurjhGHFn5Sxzw9DTTSfCIKxPgxlQ9diknb/qaxQ=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_4"=>["2"]}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/_offer.html.erb (2.5ms)
+Rendered products/get_quote.js.erb (4.4ms)
+Completed 200 OK in 58ms (Views: 15.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Mon Dec 20 18:15:36 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"rtfdurjhGHFn5Sxzw9DTTSfCIKxPgxlQ9diknb/qaxQ=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_4"=>["2"]}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/_offer.html.erb (2.4ms)
+Rendered products/get_quote.js.erb (4.3ms)
+Completed 200 OK in 206ms (Views: 14.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Mon Dec 20 18:15:54 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"rtfdurjhGHFn5Sxzw9DTTSfCIKxPgxlQ9diknb/qaxQ=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_4"=>["2"]}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered products/_offer.html.erb (2.4ms)
+Rendered products/get_quote.js.erb (4.4ms)
+Completed 200 OK in 84ms (Views: 15.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Mon Dec 20 18:16:00 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"rtfdurjhGHFn5Sxzw9DTTSfCIKxPgxlQ9diknb/qaxQ=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>["2"]}, "_"=>""}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mQuestionOption Load (0.3ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)
+Rendered products/_offer.html.erb (20.9ms)
+Rendered products/get_quote.js.erb (22.8ms)
+Completed 200 OK in 178ms (Views: 32.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/question_responses" for 127.0.0.1 at Mon Dec 20 18:16:07 -0500 2010
+  Processing by ProductsController#get_quote as JS
+  Parameters: {"commit"=>"Get Quote", "authenticity_token"=>"rtfdurjhGHFn5Sxzw9DTTSfCIKxPgxlQ9diknb/qaxQ=", "utf8"=>"✓", "question_response"=>{"question_1"=>"True", "question_2"=>"True", "id"=>"3", "question_3"=>"2", "question_4"=>["2"]}, "_"=>""}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+Rendered products/_offer.html.erb (91635.3ms)
+Rendered products/get_quote.js.erb (91637.6ms)
+Completed 200 OK in 91689ms (Views: 91647.8ms | ActiveRecord: 0.8ms)
