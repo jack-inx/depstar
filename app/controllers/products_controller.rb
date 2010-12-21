@@ -10,9 +10,9 @@ class ProductsController < ApplicationController
     end
   end
   
-  def get_quote
+  def get_quote 
     @question_response = QuestionResponse.new(params[:question_response])
-    
+        
     if @question_response.valid?
       flash[:error] = nil
     else
@@ -24,12 +24,22 @@ class ProductsController < ApplicationController
       format.xml  { render :xml => @question_response }
     end    
   end
+  
+  def accept_quote
+    @question_response = QuestionResponse.new(params[:question_response])
+    
+    if @question_response.save
+      redirect_to new_shipping_detail_path
+    else
+      redirect_to product_path(params[:question_response][:product_id])
+    end
+  end
 
   # GET /products/1
   # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
-    @question_response = QuestionResponse.new()
+    @question_response = QuestionResponse.new
     
     respond_to do |format|
       format.html # show.html.erb

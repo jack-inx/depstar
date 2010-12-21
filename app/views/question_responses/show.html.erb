@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product:</b>
+  <%= @question_response.product_id %>
+</p>
+
+<p>
+  <b>Question 1:</b>
+  <%= @question_response.question_1 %>
+</p>
+
+<p>
+  <b>Question 2:</b>
+  <%= @question_response.question_2 %>
+</p>
+
+<p>
+  <b>Question 3:</b>
+  <%= @question_response.question_3 %>
+</p>
+
+<p>
+  <b>Question 4:</b>
+  <%= @question_response.question_4 %>
+</p>
+
+
+<%= link_to 'Edit', edit_question_response_path(@question_response) %> |
+<%= link_to 'Back', question_responses_path %>
