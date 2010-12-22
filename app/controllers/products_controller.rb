@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.js
       format.xml  { render :xml => @question_response }
-    end    
+    end
   end
   
   def accept_quote
