@@ -8,17 +8,10 @@ class QuestionResponse < ActiveRecord::Base
   belongs_to :product
 
   validates_presence_of :product_id
-  #validates_presence_of :question_1, :if => lambda { debugger }
-  #validates_presence_of :question_1, :if => lambda { @product.try(category.question_1_is_enabled) }
-  #validates_presence_of :question_2, :if => lambda { @product.try(category.question_2_is_enabled) }
-  #validates_presence_of :question_3, :if => lambda { @product.try(category.question_3_is_enabled) }
+  validates_presence_of :question_1, :if => lambda { product.category.question_1_is_enabled }
+  validates_presence_of :question_2, :if => lambda { product.category.question_2_is_enabled }
+  validates_presence_of :question_3, :if => lambda { product.category.question_3_is_enabled }
   # question_4 can be left blank
-
-  #attr_accessor :product_id, :question_1, :question_2, :question_3, :question_4  
-
-  #def initialize(question_response_params = nil)
-    #debugger
-  #end
 
 =begin
   def initialize(question_response_params = nil)

@@ -3929,3 +3929,162 @@ Completed 200 OK in 3359ms (Views: 3356.3ms | ActiveRecord: 0.5ms)
 WARNING: Can't mass-assign protected attributes: id
 Redirected to http://test.host/shipping_details/980190962
 Completed 302 Found in 25ms
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  Processing by CategoriesController#create as HTML
+  Parameters: {"category"=>{"question_2_option_2_multiplier"=>nil, "name"=>"MyString", "question_2_option_1_multiplier"=>nil, "created_at"=>Thu Dec 23 20:25:12 UTC 2010, "question_1_name"=>nil, "updated_at"=>Thu Dec 23 20:25:12 UTC 2010, "id"=>980190962, "is_popular"=>false, "question_4_is_enabled"=>nil, "question_3_name"=>nil, "question_4_name"=>nil, "question_3_option_4_multiplier"=>nil, "question_3_is_enabled"=>nil, "question_2_name"=>nil, "question_1_option_2_multiplier"=>nil, "question_3_option_3_multiplier"=>nil, "question_3_option_1_multiplier"=>nil, "question_2_is_enabled"=>nil, "question_1_option_1_multiplier"=>nil, "question_3_option_2_multiplier"=>nil, "question_1_is_enabled"=>nil}}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mAREL (3.0ms)[0m  INSERT INTO "categories" ("question_2_is_enabled", "question_3_is_enabled", "name", "question_3_option_1_multiplier", "question_1_option_2_multiplier", "question_1_option_1_multiplier", "question_2_name", "question_3_name", "is_popular", "question_1_is_enabled", "question_3_option_4_multiplier", "question_3_option_2_multiplier", "created_at", "question_4_name", "updated_at", "question_1_name", "question_2_option_1_multiplier", "question_3_option_3_multiplier", "question_4_is_enabled", "question_2_option_2_multiplier") VALUES (NULL, NULL, 'MyString', NULL, NULL, NULL, NULL, NULL, 'f', NULL, NULL, NULL, '2010-12-23 20:25:12.000000', NULL, '2010-12-23 20:25:12.000000', NULL, NULL, NULL, NULL, NULL)
+Redirected to http://test.host/categories/980190963-mystring
+Completed 302 Found in 370ms
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  Processing by CategoriesController#destroy as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mAREL (4.0ms)[0m  [1mDELETE FROM "categories" WHERE ("categories"."id" = 980190962)[0m
+Redirected to http://test.host/categories
+Completed 302 Found in 8ms
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mQuestionOption Load (0.0ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 980190962)[0m
+Rendered categories/_question_option_fields.erb (3.0ms)
+Rendered categories/_form.html.erb (43.0ms)
+Completed 200 OK in 118ms (Views: 116.0ms | ActiveRecord: 19.0ms)
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 28ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  Processing by CategoriesController#new as HTML
+Rendered categories/_question_option_fields.erb (3.0ms)
+Rendered categories/_form.html.erb (15.0ms)
+Completed 200 OK in 32ms (Views: 32.0ms | ActiveRecord: 1.0ms)
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products".category_id = 980190962)[0m
+Completed 200 OK in 44ms (Views: 42.0ms | ActiveRecord: 1.0ms)
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  Processing by CategoriesController#update as HTML
+  Parameters: {"category"=>{"question_2_option_2_multiplier"=>nil, "name"=>"MyString", "question_2_option_1_multiplier"=>nil, "created_at"=>Thu Dec 23 20:25:12 UTC 2010, "question_1_name"=>nil, "updated_at"=>Thu Dec 23 20:25:12 UTC 2010, "id"=>980190962, "is_popular"=>false, "question_4_is_enabled"=>nil, "question_3_name"=>nil, "question_4_name"=>nil, "question_3_option_4_multiplier"=>nil, "question_3_is_enabled"=>nil, "question_2_name"=>nil, "question_1_option_2_multiplier"=>nil, "question_3_option_3_multiplier"=>nil, "question_3_option_1_multiplier"=>nil, "question_2_is_enabled"=>nil, "question_1_option_1_multiplier"=>nil, "question_3_option_2_multiplier"=>nil, "question_1_is_enabled"=>nil}, "id"=>"980190962-mystring"}
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+Redirected to http://test.host/categories/980190962-mystring
+Completed 302 Found in 6ms
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"price"=>100.0, "name"=>"MyString", "photo_file_size"=>nil, "created_at"=>Thu Dec 23 20:25:12 UTC 2010, "updated_at"=>Thu Dec 23 20:25:12 UTC 2010, "photo_file_name"=>nil, "photo_content_type"=>nil, "id"=>980190962, "photo_updated_at"=>nil, "is_popular"=>true, "category_id"=>nil, "description"=>"MyString"}}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mAREL (3.0ms)[0m  INSERT INTO "products" ("photo_content_type", "name", "photo_file_name", "is_popular", "created_at", "photo_file_size", "photo_updated_at", "description", "category_id", "updated_at", "price") VALUES (NULL, 'MyString', NULL, 't', '2010-12-23 20:25:12.000000', NULL, NULL, 'MyString', NULL, '2010-12-23 20:25:12.000000', 100.0)
+[paperclip] Saving attachments.
+Redirected to http://test.host/products/980190963-mystring
+Completed 302 Found in 19ms
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+[paperclip] Deleting attachments.
+  [1m[36mAREL (2.0ms)[0m  [1mDELETE FROM "products" WHERE ("products"."id" = 980190962)[0m
+Redirected to http://test.host/products
+Completed 302 Found in 7ms
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (13.0ms)
+Completed 200 OK in 53ms (Views: 49.0ms | ActiveRecord: 9.0ms)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Completed 200 OK in 36ms (Views: 34.0ms | ActiveRecord: 0.0ms)
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  Processing by ProductsController#new as HTML
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (10.0ms)
+Completed 200 OK in 29ms (Views: 26.0ms | ActiveRecord: 3.0ms)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+Completed 200 OK in 30ms (Views: 28.0ms | ActiveRecord: 1.0ms)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  Processing by ProductsController#update as HTML
+  Parameters: {"id"=>"980190962-mystring", "product"=>{"price"=>100.0, "name"=>"MyString", "photo_file_size"=>nil, "created_at"=>Thu Dec 23 20:25:12 UTC 2010, "updated_at"=>Thu Dec 23 20:25:12 UTC 2010, "photo_file_name"=>nil, "photo_content_type"=>nil, "id"=>980190962, "photo_updated_at"=>nil, "is_popular"=>true, "category_id"=>nil, "description"=>"MyString"}}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+WARNING: Can't mass-assign protected attributes: id
+[paperclip] Saving attachments.
+Redirected to http://test.host/products/980190962-mystring
+Completed 302 Found in 7ms
+  [1m[36mQuestionResponse Load (1.0ms)[0m  [1mSELECT "question_responses".* FROM "question_responses" WHERE ("question_responses"."id" = 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "question_responses"
+  [1m[36mQuestionResponse Load (1.0ms)[0m  [1mSELECT "question_responses".* FROM "question_responses" WHERE ("question_responses"."id" = 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "question_responses"
+  [1m[36mQuestionResponse Load (0.0ms)[0m  [1mSELECT "question_responses".* FROM "question_responses" WHERE ("question_responses"."id" = 980190962) LIMIT 1[0m
+  [1m[35mQuestionResponse Load (0.0ms)[0m  SELECT "question_responses".* FROM "question_responses" WHERE ("question_responses"."id" = 980190962) LIMIT 1
+  [1m[36mQuestionResponse Load (0.0ms)[0m  [1mSELECT "question_responses".* FROM "question_responses" WHERE ("question_responses"."id" = 980190962) LIMIT 1[0m
+  [1m[35mQuestionResponse Load (0.0ms)[0m  SELECT "question_responses".* FROM "question_responses" WHERE ("question_responses"."id" = 980190962) LIMIT 1
+  [1m[36mQuestionResponse Load (1.0ms)[0m  [1mSELECT "question_responses".* FROM "question_responses" WHERE ("question_responses"."id" = 980190962) LIMIT 1[0m
+  [1m[35mShippingDetail Load (1.0ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "shipping_details"[0m
+  Processing by ShippingDetailsController#create as HTML
+  Parameters: {"shipping_detail"=>{"city"=>"MyString", "address1"=>"MyString", "zip"=>"MyString", "created_at"=>Thu Dec 23 20:25:12 UTC 2010, "address2"=>"MyString", "product_id"=>1, "updated_at"=>Thu Dec 23 20:25:12 UTC 2010, "requires_box"=>false, "question_response_id"=>1, "payment_method_id"=>1, "id"=>980190962, "last_name"=>"MyString", "paypal_email"=>"MyString", "state"=>"MyString", "first_name"=>"MyString", "email"=>"MyString"}}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mAREL (2.0ms)[0m  INSERT INTO "shipping_details" ("address1", "updated_at", "product_id", "paypal_email", "address2", "question_response_id", "zip", "created_at", "state", "payment_method_id", "requires_box", "first_name", "email", "last_name", "city") VALUES ('MyString', '2010-12-23 20:25:12.000000', 1, 'MyString', 'MyString', 1, 'MyString', '2010-12-23 20:25:12.000000', 'MyString', 1, 'f', 'MyString', 'MyString', 'MyString', 'MyString')
+Redirected to http://test.host/shipping_details/980190963
+Completed 302 Found in 115ms
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "shipping_details"[0m
+  [1m[35mShippingDetail Load (1.0ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "shipping_details"[0m
+  Processing by ShippingDetailsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mShippingDetail Load (0.0ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  [1m[36mAREL (3.0ms)[0m  [1mDELETE FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962)[0m
+Redirected to http://test.host/shipping_details
+Completed 302 Found in 6ms
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "shipping_details"
+  [1m[36mShippingDetail Load (1.0ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  Processing by ShippingDetailsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mShippingDetail Load (1.0ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  [1m[36mPaymentMethod Load (0.0ms)[0m  [1mSELECT "payment_methods".* FROM "payment_methods"[0m
+Rendered shipping_details/_form.html.erb (21.0ms)
+Completed 200 OK in 69ms (Views: 68.0ms | ActiveRecord: 14.0ms)
+  [1m[35mShippingDetail Load (0.0ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  Processing by ShippingDetailsController#index as HTML
+  [1m[36mShippingDetail Load (0.0ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details"[0m
+Completed 200 OK in 28ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+  [1m[35mShippingDetail Load (1.0ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  Processing by ShippingDetailsController#new as HTML
+  [1m[36mPaymentMethod Load (0.0ms)[0m  [1mSELECT "payment_methods".* FROM "payment_methods"[0m
+Rendered shipping_details/_form.html.erb (14.0ms)
+Completed 200 OK in 32ms (Views: 32.0ms | ActiveRecord: 1.0ms)
+  [1m[35mShippingDetail Load (1.0ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  Processing by ShippingDetailsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mShippingDetail Load (0.0ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+Completed 200 OK in 28ms (Views: 26.0ms | ActiveRecord: 1.0ms)
+  [1m[35mShippingDetail Load (0.0ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  Processing by ShippingDetailsController#update as HTML
+  Parameters: {"shipping_detail"=>{"city"=>"MyString", "address1"=>"MyString", "zip"=>"MyString", "created_at"=>Thu Dec 23 20:25:12 UTC 2010, "address2"=>"MyString", "product_id"=>1, "updated_at"=>Thu Dec 23 20:25:12 UTC 2010, "requires_box"=>false, "question_response_id"=>1, "payment_method_id"=>1, "id"=>980190962, "last_name"=>"MyString", "paypal_email"=>"MyString", "state"=>"MyString", "first_name"=>"MyString", "email"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mShippingDetail Load (0.0ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+Redirected to http://test.host/shipping_details/980190962
+Completed 302 Found in 7ms

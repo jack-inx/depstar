@@ -6,7 +6,7 @@ gem 'mysql2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
+gem 'paperclip'#, :git => 'git://github.com/thoughtbot/paperclip.git'
 
 group :development do
 	gem 'sqlite3-ruby', :require => 'sqlite3'
