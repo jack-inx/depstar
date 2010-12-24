@@ -28,18 +28,28 @@ role :db, domain, :primary => true
 # Subversion
 #############################################################
 
-set :repository,  "https://subversion.assembla.com/svn/sparkwire/Depstar/trunk"
-set :checkout, "export"
+#set :repository,  "https://subversion.assembla.com/svn/sparkwire/Depstar/trunk"
+#set :checkout, "export"
 
-set :scm, :subversion
+#set :scm, :subversion
 
-role :web, "depstar.com"                          # Your HTTP server, Apache/etc
-role :app, "depstar.com"                          # This may be the same as your `Web` server
-role :db,  "depstar.com", :primary => true        # This is where Rails migrations will run
+#role :web, "depstar.com"                          # Your HTTP server, Apache/etc
+#role :app, "depstar.com"                          # This may be the same as your `Web` server
+#role :db,  "depstar.com", :primary => true        # This is where Rails migrations will run
 
-set :scm_command, "/usr/bin/svn"
-set :local_scm_command, "svn"
-set :use_sudo, false
+#set :scm_command, "/usr/bin/svn"
+#set :local_scm_command, "svn"
+#set :use_sudo, false
+
+#############################################################
+# Git
+#############################################################
+
+default_run_options[:pty] = true  # Must be set for the password prompt from git to work
+set :repository, "git@github.com:CharlesP/Depstar.git"  # Your clone URL
+set :scm, "git"
+set :user, "depstar"  # The server's user for deploys
+set :scm_passphrase, "QPestvRmCe"  # The deploy user's password
 
 #############################################################
 # Passenger
