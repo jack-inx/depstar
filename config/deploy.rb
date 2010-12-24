@@ -46,6 +46,7 @@ role :db, domain, :primary => true
 #############################################################
 
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
+ssh_options[:forward_agent] = true
 set :repository, "git@github.com:CharlesP/Depstar.git"  # Your clone URL
 set :scm, "git"
 set :user, "depstar"  # The server's user for deploys
