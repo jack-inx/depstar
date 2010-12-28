@@ -59,7 +59,7 @@
 					-->
 					<li class="<%= ( @products.each.first == product ? 'first' : cycle('','gray'))%> %>" >
 						<a href="#">
-							<%= link_to image_tag(product.photo.url(:small)), product %>						
+							<%= link_to image_tag(product.photo.url(:small), :class => 'product'), product %>
 						</a>
 						<ul>
 							<li><strong><%= product.name %></strong></li>

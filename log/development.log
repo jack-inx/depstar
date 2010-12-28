@@ -32379,3 +32379,386 @@ ActionController::RoutingError (No route matches "/javascripts/main.js"):
   
 
 Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Tue Dec 28 17:29:05 -0500 2010
+  Processing by AdminController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered admin/index.html.erb within layouts/application (29.2ms)
+Completed 200 OK in 36ms (Views: 35.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:29:05 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:29:06 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/home (65.0ms)
+Completed 200 OK in 218ms (Views: 69.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:29:07 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at Tue Dec 28 17:29:09 -0500 2010
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered products/index.html.erb within layouts/application (205.9ms)
+Completed 200 OK in 228ms (Views: 212.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:29:09 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/products/2-droid-2/edit" for 127.0.0.1 at Tue Dec 28 17:29:18 -0500 2010
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"2-droid-2"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 2) LIMIT 1
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (24.6ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered products/edit.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 86ms (Views: 66.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:29:18 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started POST "/products/2-droid-2" for 127.0.0.1 at Tue Dec 28 17:29:25 -0500 2010
+  Processing by ProductsController#update as HTML
+  Parameters: {"commit"=>"Update Product", "authenticity_token"=>"ryulxRyiw/56pysKv1+zO8JPZCYd++v3oYY/hGvgnv8=", "utf8"=>"✓", "id"=>"2-droid-2", "product"=>{"photo"=>#<ActionDispatch::Http::UploadedFile:0x107b2ad38 @tempfile=#<File:/var/folders/JS/JSPLQrGWEzuCJTSr+rJw7++++TI/-Tmp-/RackMultipart20101228-87424-nbr3yg-0>, @headers="Content-Disposition: form-data; name=\"product[photo]\"; filename=\"img-2.png\"\r\nContent-Type: image/png\r\n", @content_type="image/png", @original_filename="img-2.png">, "price"=>"250.0", "name"=>"DROID 2", "category_id"=>"3", "is_popular"=>"1", "description"=>""}}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 2) LIMIT 1
+[paperclip] identify -format %wx%h '/var/folders/JS/JSPLQrGWEzuCJTSr+rJw7++++TI/-Tmp-/stream20101228-87424-pkqwb-0.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::CommandNotFoundError: Paperclip::CommandNotFoundError>
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered products/_form.html.erb (48.1ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered products/edit.html.erb within layouts/application (66.2ms)
+Completed 200 OK in 284ms (Views: 74.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:29:26 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:31:04 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (75.1ms)
+Completed 200 OK in 285ms (Views: 79.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:31:04 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:32:10 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/home (167.3ms)
+Completed 200 OK in 391ms (Views: 171.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:32:10 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:34:37 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (58.4ms)
+Completed 200 OK in 86ms (Views: 62.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:34:37 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:34:52 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (1.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/home (177.0ms)
+Completed 200 OK in 220ms (Views: 183.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:34:52 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:35:08 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (60.9ms)
+Completed 200 OK in 86ms (Views: 64.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:35:09 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:36:30 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/home (61.9ms)
+Completed 200 OK in 204ms (Views: 69.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:36:30 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:37:56 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (178.1ms)
+Completed 200 OK in 231ms (Views: 203.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:37:57 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:38:51 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/home (73.5ms)
+Completed 200 OK in 110ms (Views: 77.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:38:52 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.2ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:39:03 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (77.1ms)
+Completed 200 OK in 226ms (Views: 204.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:39:52 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/home (60.7ms)
+Completed 200 OK in 87ms (Views: 64.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:40:30 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (61.3ms)
+Completed 200 OK in 202ms (Views: 64.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:40:39 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/home (171.6ms)
+Completed 200 OK in 198ms (Views: 175.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:41:30 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (60.1ms)
+Completed 200 OK in 86ms (Views: 64.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:41:41 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/home (177.1ms)
+Completed 200 OK in 216ms (Views: 181.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:43:01 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.8ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (67.9ms)
+Completed 200 OK in 105ms (Views: 73.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:43:19 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/home (64.6ms)
+Completed 200 OK in 195ms (Views: 173.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Tue Dec 28 17:43:50 -0500 2010
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (76.0ms)
+Completed 200 OK in 106ms (Views: 79.8ms | ActiveRecord: 1.6ms)
