@@ -32339,3 +32339,43 @@ ActionController::RoutingError (No route matches "/css/all.css"):
   
 
 Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:22:27 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:22:30 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/css/all.css" for 127.0.0.1 at Tue Dec 28 17:22:48 -0500 2010
+
+ActionController::RoutingError (No route matches "/css/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/main.js" for 127.0.0.1 at Tue Dec 28 17:22:48 -0500 2010
+
+ActionController::RoutingError (No route matches "/javascripts/main.js"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/main.js" for 127.0.0.1 at Tue Dec 28 17:22:57 -0500 2010
+
+ActionController::RoutingError (No route matches "/javascripts/main.js"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
