@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   validates_presence_of :price
   validates_numericality_of :price
 
-  has_attached_file :photo, :default_url => "/assets/:class/missing_:style.jpg", 
+  has_attached_file :photo, :default_url => "/assets/:class/missing_:style.gif", 
                   :styles => { :small => "125x125>" },
                   :url  => "/assets/products/:id/:style/:basename.:extension",
                   :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"

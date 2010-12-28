@@ -33,7 +33,7 @@
 	<% end %>
   
   <div class="field">
-  	<%= label_tag nil, 'How would you like to recieve your payment?' %> <br />
+  	<%= label_tag nil, 'How would you like to receive your payment?' %> <br />
 	<% PaymentMethod.all.each do |payment_method| %>
 	    <%= f.radio_button :payment_method_id, '0', options = {:onclick => "selectPaymentMethod('#{payment_method.short_code}');"} %>
 	    <%= f.label payment_method.name %> <br />

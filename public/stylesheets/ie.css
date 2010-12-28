@@ -1,0 +1,30 @@
+* html body{ width:expression(document.documentElement.clientWidth < 991 ? "991px" : "auto"); }
+* html .wrapper-t{
+	background:-9999px -9999px;	filter:progid:dximagetransform.microsoft.alphaimageloader(src='images/bg-wrapper-t.png', sizingmethod='crop');
+}
+* html .wrapper-b{
+	background:-9999px -9999px;	filter:progid:dximagetransform.microsoft.alphaimageloader(src='images/bg-wrapper-b.png', sizingmethod='crop');
+}
+* html .wrapper-c{
+	background:-9999px -9999px;	filter:progid:dximagetransform.microsoft.alphaimageloader(src='images/bg-wrapper.png', sizingmethod='scale');
+}
+* html .list-products .first{
+	background:-9999px -9999px;	filter:progid:dximagetransform.microsoft.alphaimageloader(src='images/bg-list-products-f.png', sizingmethod='crop');
+}
+* html .list-products .gray{
+	background:-9999px -9999px;	filter:progid:dximagetransform.microsoft.alphaimageloader(src='images/bg-list-products.png', sizingmethod='crop');
+}
+* html .footer-nav li{
+	z-index: expression( runtimeStyle.zIndex = 1, this == parentNode.firstChild ? (className += ' first-child') : 0 );
+}
+* html .box-pay .btn-paid span,
+* html .threecolumns .more span{
+	background:-9999px -9999px;	filter:progid:dximagetransform.microsoft.alphaimageloader(src='images/bg-btn-more-l.png', sizingmethod='crop');
+}
+* html .box-pay .btn-paid em,
+* html .threecolumns .more em{
+	background:-9999px -9999px;	filter:progid:dximagetransform.microsoft.alphaimageloader(src='images/bg-btn-more-r.png', sizingmethod='crop');
+}
+* html .product-description{
+	background:-9999px -9999px;	filter:progid:dximagetransform.microsoft.alphaimageloader(src='images/bg-product-description.png', sizingmethod='crop');
+}

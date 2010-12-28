@@ -1,3 +1,124 @@
+<div id="sidebar">
+	<h3>categories</h3>
+	<ul class="list-categories">
+		<% @categories.each do |category| %>
+			<li>
+			<%= link_to(category) do %>
+			    <span><%= category.name %></span>
+			  <% end %>
+			</li>
+		<% end %>
+		<!--
+		<li class="active"><a href="#"><span>HTC Evo 4G</span></a></li>
+		<li><a href="#"><span>Motorolla DROID phones</span></a></li>
+		<li><a href="#"><span>Blackberry  Phones</span></a></li>
+		<li><a href="#"><span>Samsung Phones</span></a></li>
+		-->
+	</ul>
+	<a class="all-categories" href="#">See all categories</a>
+</div>
+<div class="content-holder">
+	<ul class="products">
+		<li><a href="#">HOT PRODUCTS</a></li>
+		<li><a href="#">VIEW ALL PRODUCTS</a></li>
+	</ul>
+	<div class="products-holder">
+		<div class="t">
+			<div class="b">
+				<ul class="list-products">
+					
+					<!--
+					<li class="first">
+						<a href="#">
+							<img src="images/img-4.png" width="169" height="222" alt="image description" />
+						</a>
+						<ul>
+							<li><strong>Apple iPhone 4</strong></li>
+							<li>Lastest Selling</li>
+							<li>Price $300</li>
+							<li>
+								<a href="#">Sell Yours Now</a>
+							</li>
+						</ul>
+					</li>
+					-->
+					
+					<% @products.each do |product| %>
+					<!--
+					<div style="height: 220px; border: 1px solid lightgray; float: left; width: 200px; background: white; text-align: center;">
+						<div>
+							<%= link_to product.name, product %>
+						</div>
+						<div>
+							<%= link_to image_tag(product.photo.url(:small)), product %>
+						</div>
+						<div>		
+							<%= link_to "Sell yours now", product %>
+						</div>	
+					</div>
+					-->
+					<li class="<%= ( @products.each.first == product ? 'first' : cycle('','gray'))%> %>" >
+						<a href="#">
+							<%= link_to image_tag(product.photo.url(:small)), product %>						
+						</a>
+						<ul>
+							<li><strong><%= product.name %></strong></li>
+							<li>Latest Selling</li>
+							<li>Price <%= number_to_currency(product.price, :precision => 0) %></li>
+							<li>
+								<%= link_to "Sell yours now", product %>
+							</li>
+						</ul>
+					</li>
+					<% end %>
+					<!--
+					<li>
+						<a href="#">
+							<img src="images/img-3.png" width="169" height="228" alt="image description" />
+						</a>
+						<ul>
+							<li><strong>HTC Evo 4G</strong></li>
+							<li>Lastest Selling</li>
+							<li>Price $300</li>
+							<li>
+								<a href="#">Sell Yours Now</a>
+							</li>
+						</ul>
+					</li>
+					<li class="gray">
+						<a href="#">
+							<img src="images/img-2.png" width="169" height="224" alt="image description" />
+						</a>
+						<ul>
+							<li><strong>Windows 7 Phone</strong></li>
+							<li>Lastest Selling</li>
+							<li>Price $300</li>
+							<li>
+								<a href="#">Sell Yours Now</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">
+							<img src="images/img-1.png" width="169" height="246" alt="image description" />
+						</a>
+						<ul>
+							<li><strong>Blackberry Torch</strong></li>
+							<li>Lastest Selling</li>
+							<li>Price $300</li>
+							<li>
+								<a href="#">Sell Yours Now</a>
+							</li>
+						</ul>
+					</li>
+					-->
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--
 <table>
   <tr>
     <th><h2>Categories</h2></th>
@@ -38,3 +159,4 @@
 <div style='float: left; margin-top:30px;'>
 	<%= link_to 'Admin', admin_path %>
 </div>
+-->

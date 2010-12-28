@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<!--
 <p>
   <b>Name:</b>
   <%= @category.name %>
@@ -9,11 +10,12 @@
   <b>Is popular:</b>
   <%= @category.is_popular %>
 </p>
+-->
 
-<div>
+<div style='padding: 0px 20px 0px 20px; '>
 	<h2>Products</h2>
 	<% @category.products.each do |product| %>
-	<div style="height: 220px; border: 1px solid lightgray; float: left; width: 200px; background: white; text-align: center;">
+	<div style="height: 220px; float: left; width: 200px; text-align: center;">
 		<div>
 			<%= link_to product.name, product %>
 		</div>
@@ -29,5 +31,7 @@
 
 <div style='clear: both;' />
 
+<!--
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
+-->

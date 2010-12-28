@@ -1,3 +1,4 @@
+<!--
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -24,7 +25,162 @@
 	<b>Category</b>
 	<%= @product.category.try(:name) %>
 </p>
+-->
 
+<div class="product-description">
+	<!-- <form action="#"> -->		
+		<fieldset>
+			<div class="image">
+				<a href="#">
+					<%= image_tag @product.photo.url(:small) %>
+				</a>
+			</div>
+			<div class="conditions">
+				<%= form_for @question_response, :method => :get, :remote => true do |f| %>
+					<p id="notice"><%= notice %></p>
+					<%= f.hidden_field :product_id, :value => @product.id %>
+
+					<% if @product.category.try(:question_1_is_enabled) %>
+						<p>
+							<b><%= @product.category.question_1_name %> </b> <br/>
+							<%= f.radio_button(:question_1, "True") %> Yes
+							<%= f.radio_button(:question_1, "False") %> No
+						</p>
+					<% end %>
+
+					<% if @product.category.try(:question_2_is_enabled) %>
+						<p>
+							<b><%= @product.category.question_2_name %> </b> <br/>
+							<%= f.radio_button(:question_2, "True") %> Yes
+							<%= f.radio_button(:question_2, "False") %> No
+						</p>
+					<% end %>
+
+					<% if @product.category.try(:question_3_is_enabled) %>
+						<p>
+							<b><%= @product.category.question_3_name %> </b> <br/>
+							<%= f.radio_button(:question_3, "1") %> Poor <br/>
+							<%= f.radio_button(:question_3, "2") %> Fair <br/>
+							<%= f.radio_button(:question_3, "3") %> Good <br/>
+							<%= f.radio_button(:question_3, "4") %> Perfect <br/>						
+						</p>
+					<% end %>
+
+					<% if @product.category.try(:question_4_is_enabled) %>
+						<p>
+							<b><%= @product.category.question_4_name %> </b> <br/>
+							<% @product.category.question_options.each do |question_option| %>
+								<%= check_box_tag "question_response[question_4][]", question_option.id %> <%= question_option.name %> <br/>
+							<% end %>
+						</p>
+					<% end %>
+
+					<%= submit_tag "Get Quote" %>
+				<% end %>			
+				
+				<!--
+				<div class="row-1">
+					<input id="full-functional" class="check" type="checkbox" />
+					<label for="full-functional" class="label3">PHONE IS FULLY FUNCTIONAL</label>
+				</div>
+				<div class="row">
+					<h3>OVERALL CONDITION</h3>
+					<div class="row-holder">
+						<input type="radio" class="radio" name="radio-condition" id="poor" />
+						<label for="poor" class="label2">POOR</label>
+						<input type="radio" class="radio" name="radio-condition" id="fair" />
+						<label for="fair" class="label2">FAIR</label>
+						<input type="radio" class="radio" name="radio-condition" id="good" />
+						<label for="good" class="label2">GOOD</label>
+						<input type="radio" class="radio" name="radio-condition" id="perfect" />
+						<label for="perfect" class="label2">PERFECT</label>
+					</div>
+				</div>
+				<div class="row">
+					<label for="processor">PROCESSOR</label>
+					<select name="type" id="processor">
+						<option value="">Processor Type</option>
+						<option value="">Processor Type</option>
+					</select>
+					<select disabled="disabled" name="speed">
+						<option value="">Processor Speed</option>
+						<option value="">Processor Speed</option>
+					</select>
+				</div>
+				<div class="row">
+					<label for="drive">HARD DRIVE</label>
+					<select name="" id="drive">
+						<option value="">Choose One</option>
+						<option value="">Choose One</option>
+					</select>
+				</div>
+				<div class="row">
+					<label for="screen">SCREEN</label>
+					<select name="" id="screen">
+						<option value="">Choose One</option>
+						<option value="">Choose One</option>
+					</select>
+				</div>
+				<div class="row">
+					<label for="ram">RAM</label>
+					<select name="" id="ram">
+						<option value="">Choose One</option>
+						<option value="">Choose One</option>
+					</select>
+				</div>
+				<div class="row">
+					<label for="optical-drive">OPTICAL DRIVE</label>
+					<select name="" id="optical-drive">
+						<option value="">Choose One</option>
+						<option value="">Choose One</option>
+					</select>
+				</div>
+				<div class="row">
+					<label for="wi-fi">WI-FI</label>
+					<select name="" id="wi-fi">
+						<option value="">Choose One</option>
+						<option value="">Choose One</option>
+					</select>
+				</div>
+				<div class="row">
+					<h3>SYSTEM RECOVERY DISC</h3>
+					<div class="row-holder">
+						<input type="radio" class="radio" name="radio-system" id="yes" />
+						<label for="yes" class="label2">YES</label>
+						<input type="radio" class="radio" name="radio-system" id="no" />
+						<label for="no" class="label2">NO</label>
+					</div>
+				</div>
+				<div class="row">
+					<label for="i-have">I HAVE</label>
+					<select name="" id="i-have">
+						<option value="">Choose One</option>
+						<option value="">Choose One</option>
+					</select>
+				</div>
+				-->
+			</div>
+			<div class="aside">
+				<!-- 
+				<div class="box-pay">					
+					<div id='price_quote_results'>
+						<span>Fill in form to get a quote</span>
+					</div>					
+				</div>
+				-->
+				<div id='price_quote_results'>
+					
+				</div>
+				<div class="info-box">
+					<h4>HOW DO WE CALCULATE YOUR OFFER?</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in tellus mauris. Morbi ut mauris sit amet ipsum feugiat dignissim id vitae arcu. Nulla vel sapien nisl, sed fringilla nibh. Proin hendrerit, purus ac tristique ornare, nibh risus facilisis turpis.</p>
+				</div>
+			</div>
+		</fieldset>
+	<!-- </form> -->
+</div>
+
+<!-- 
 <div style="padding: 5px; margin: 1px; border: 1px solid gray; width: 550px;">
 	<%= form_for @question_response, :method => :get, :remote => true do |f| %>
 		<p id="notice"><%= notice %></p>
@@ -81,3 +237,4 @@
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+-->

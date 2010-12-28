@@ -1,6 +1,10 @@
-<% if @question_response.valid? %>
-	<%= 'Offer - ' + number_to_currency(@question_response.quote) %>
-	--> <%#= link_to 'Accept & Get Paid', new_shipping_detail_path( :product_id => params[:question_response][:id], :question_response => params[:question_response] ) %>
-	<%= link_to 'Accept & Get Paid', accept_quote_path( :question_response => (params[:question_response]) )  %>
-<% end %>
-<p id=\"error\"><%= flash[:error] %></p>
+<div class="box-pay">					
+	<% if @question_response.valid? %>
+		<span>WE'LL PAY YOU</span>
+		<strong><%= number_to_currency(@question_response.quote, :precision => 0) %></strong>
+		<%= link_to accept_quote_path( :question_response => (params[:question_response]) ), :class => 'btn-paid' do %>
+			<span>GET PAID</span><em></em>
+		<% end %>
+	<% end %>
+	<p id=\"error\"><%= flash[:error] %></p>
+</div>
