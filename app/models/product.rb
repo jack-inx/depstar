@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
   belongs_to :category
+  
+  has_many :shipping_details
 
   validates_presence_of :price
   validates_numericality_of :price

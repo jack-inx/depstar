@@ -384,6 +384,16 @@ q:after{content:''}
 	display:block;
 	margin:-95px 0 0 -15px;
 }
+
+.customer-details {
+	width:200px;
+	float:left;
+	padding:10px 0 22px 4px;
+	font-size:14px;
+	font-weight:bold;
+	line-height:20px;
+}
+
 .conditions{
 	width:221px;
 	float:left;
@@ -406,9 +416,9 @@ q:after{content:''}
 	padding:0 0 11px 17px;
 }
 .conditions label{
-	float:left;
-	width:245px;
 	padding:0 0 2px 5px;
+	display: inline-block;
+	
 }
 .conditions .label3,
 .conditions .label2{
