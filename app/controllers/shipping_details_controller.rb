@@ -44,7 +44,7 @@ class ShippingDetailsController < ApplicationController
 
     respond_to do |format|
       if @shipping_detail.save
-        format.html { redirect_to(@shipping_detail, :notice => 'Shipping detail was successfully created.') }
+        format.html { redirect_to(@shipping_detail, :notice => 'Please check your email for confirmation') }
         format.xml  { render :xml => @shipping_detail, :status => :created, :location => @shipping_detail }
       else
         format.html { render :action => "new" }
