@@ -226,6 +226,9 @@
 									<li><a href="#">Legal</a></li>
 									<li><a href="#">Privacy Policy</a></li>
 									<li><a href="#"> Contact Us</a></li>
+									<% if current_user %>
+										<li><%= link_to 'Logout', logout_url %></li>
+									<% end %>
 									<li class="by">Website Design by <a href="#">Sparkwire Solutions</a></li>
 								</ul>
 							</div>

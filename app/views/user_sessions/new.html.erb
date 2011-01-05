@@ -1,7 +1,7 @@
-<%= title "Login" %>
+<% title "Login" %>
 
 <%= form_for @user_session do |f| %>
-  <%= f.error_messages %>
+  <p id="notice"><%= notice %></p>
   <p>
     <%= f.label :username %><br />
     <%= f.text_field :username %>
@@ -12,7 +12,5 @@
   </p>
   <p><%= f.submit "Submit" %></p>
 <% end %>
-
-<div class='clear' />
 	
 

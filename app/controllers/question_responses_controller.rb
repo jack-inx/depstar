@@ -1,4 +1,6 @@
 class QuestionResponsesController < ApplicationController
+  before_filter :authorize, :except => [:show, :new, :create]
+  
   # GET /question_responses
   # GET /question_responses.xml
   def index

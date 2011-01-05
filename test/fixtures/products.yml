@@ -5,9 +5,15 @@ one:
   description: MyString
   price: 100
   is_popular: true
+  photo_file_size: 100
+  photo_updated_at: 2010-10-06 11:04:37
+  price: 1.234
 
 two:
   name: MyString
   description: MyString
   price: 200
   is_popular: false
+  photo_file_size: 100
+  photo_updated_at: 2010-10-06 11:04:37
+  price: 1.234

@@ -1,4 +1,6 @@
 class ShippingDetailsController < ApplicationController
+  before_filter :authorize, :except => [:show, :new, :create]
+  
   # GET /shipping_details
   # GET /shipping_details.xml
   def index

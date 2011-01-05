@@ -37,12 +37,14 @@
 			<% end %>
 
 			<% if @shipping_detail.product.category.try(:question_4_is_enabled) %>
+				<% unless @shipping_detail.question_response.question_4.nil? %>
 				<p>
 					<b><%= @shipping_detail.product.category.question_4_name %> </b> <br/>
-					<% @shipping_detail.product.category.question_options.each do |question_option| %>
-						<%= check_box_tag "question_response[question_4][]", question_option.id, (@shipping_detail.question_response.question_4.split(", ").include?(question_option.id.to_s) ? true : false), :disabled => true %> <%= question_option.name %> <br/>
+					<% @shipping_detail.product.category.question_options.each do |question_option| %>						
+							<%= check_box_tag "question_response[question_4][]", question_option.id, (@shipping_detail.question_response.question_4.split(", ").include?(question_option.id.to_s) ? true : false), :disabled => true %> <%= question_option.name %> <br/>
 					<% end %>
 				</p>
+				<% end %>
 			<% end %>
 		<% end %>
 	</div>

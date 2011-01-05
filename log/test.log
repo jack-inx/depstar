@@ -6165,3 +6165,604 @@ Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.6ms)
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
 Redirected to http://test.host/admin
 Completed 302 Found in 3ms
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  Processing by CategoriesController#create as HTML
+  Parameters: {"category"=>{"question_2_option_2_multiplier"=>nil, "name"=>"MyString", "question_2_option_1_multiplier"=>nil, "created_at"=>Wed Jan 05 17:39:46 UTC 2011, "question_1_name"=>nil, "updated_at"=>Wed Jan 05 17:39:46 UTC 2011, "id"=>980190962, "is_popular"=>false, "question_4_is_enabled"=>nil, "question_3_name"=>nil, "question_4_name"=>nil, "question_3_option_4_multiplier"=>nil, "question_3_is_enabled"=>nil, "question_2_name"=>nil, "question_1_option_2_multiplier"=>nil, "question_3_option_3_multiplier"=>nil, "question_3_option_1_multiplier"=>nil, "question_2_is_enabled"=>nil, "question_1_option_1_multiplier"=>nil, "question_3_option_2_multiplier"=>nil, "question_1_is_enabled"=>nil}}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "categories" ("question_3_name", "question_3_option_2_multiplier", "question_1_option_2_multiplier", "question_3_option_4_multiplier", "question_3_is_enabled", "question_2_option_2_multiplier", "question_2_option_1_multiplier", "question_1_option_1_multiplier", "question_4_name", "question_3_option_1_multiplier", "updated_at", "question_1_is_enabled", "question_2_name", "question_1_name", "question_2_is_enabled", "question_3_option_3_multiplier", "question_4_is_enabled", "is_popular", "created_at", "name") VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2011-01-05 17:39:46.000000', NULL, NULL, NULL, NULL, NULL, NULL, 'f', '2011-01-05 17:39:46.000000', 'MyString')
+Redirected to http://test.host/categories/980190963-mystring
+Completed 302 Found in 204ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  Processing by CategoriesController#destroy as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM "categories" WHERE ("categories"."id" = 980190962)[0m
+Redirected to http://test.host/categories
+Completed 302 Found in 5ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mQuestionOption Load (0.2ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 980190962)[0m
+Rendered categories/_question_option_fields.erb (2.2ms)
+Rendered categories/_form.html.erb (19.0ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 35ms (Views: 32.7ms | ActiveRecord: 8.3ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.8ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  Processing by CategoriesController#new as HTML
+Rendered categories/_question_option_fields.erb (1.4ms)
+Rendered categories/_form.html.erb (82.2ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 89ms (Views: 88.2ms | ActiveRecord: 0.4ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products".category_id = 980190962)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.9ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  Processing by CategoriesController#update as HTML
+  Parameters: {"category"=>{"question_2_option_2_multiplier"=>nil, "name"=>"MyString", "question_2_option_1_multiplier"=>nil, "created_at"=>Wed Jan 05 17:39:46 UTC 2011, "question_1_name"=>nil, "updated_at"=>Wed Jan 05 17:39:46 UTC 2011, "id"=>980190962, "is_popular"=>false, "question_4_is_enabled"=>nil, "question_3_name"=>nil, "question_4_name"=>nil, "question_3_option_4_multiplier"=>nil, "question_3_is_enabled"=>nil, "question_2_name"=>nil, "question_1_option_2_multiplier"=>nil, "question_3_option_3_multiplier"=>nil, "question_3_option_1_multiplier"=>nil, "question_2_is_enabled"=>nil, "question_1_option_1_multiplier"=>nil, "question_3_option_2_multiplier"=>nil, "question_1_is_enabled"=>nil}, "id"=>"980190962-mystring"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+Redirected to http://test.host/categories/980190962-mystring
+Completed 302 Found in 4ms
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"price"=>100.0, "name"=>"MyString", "photo_file_size"=>nil, "created_at"=>Wed Jan 05 17:39:46 UTC 2011, "updated_at"=>Wed Jan 05 17:39:46 UTC 2011, "photo_file_name"=>nil, "photo_content_type"=>nil, "id"=>980190962, "photo_updated_at"=>nil, "is_popular"=>true, "category_id"=>nil, "description"=>"MyString"}}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "products" ("is_popular", "photo_file_size", "category_id", "name", "description", "photo_updated_at", "photo_file_name", "created_at", "price", "photo_content_type", "updated_at") VALUES ('t', NULL, NULL, 'MyString', 'MyString', NULL, NULL, '2011-01-05 17:39:46.000000', 100.0, NULL, '2011-01-05 17:39:46.000000')
+[paperclip] Saving attachments.
+Redirected to http://test.host/products/980190963-mystring
+Completed 302 Found in 11ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+[paperclip] Deleting attachments.
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM "products" WHERE ("products"."id" = 980190962)[0m
+Redirected to http://test.host/products
+Completed 302 Found in 3ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (7.3ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 3.2ms)
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 0.9ms)
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  Processing by ProductsController#new as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (6.4ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 1.0ms)
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.6ms)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  Processing by ProductsController#update as HTML
+  Parameters: {"id"=>"980190962-mystring", "product"=>{"price"=>100.0, "name"=>"MyString", "photo_file_size"=>nil, "created_at"=>Wed Jan 05 17:39:46 UTC 2011, "updated_at"=>Wed Jan 05 17:39:46 UTC 2011, "photo_file_name"=>nil, "photo_content_type"=>nil, "id"=>980190962, "photo_updated_at"=>nil, "is_popular"=>true, "category_id"=>nil, "description"=>"MyString"}}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+WARNING: Can't mass-assign protected attributes: id
+[paperclip] Saving attachments.
+Redirected to http://test.host/products/980190962-mystring
+Completed 302 Found in 4ms
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "shipping_details"
+  Processing by ShippingDetailsController#create as HTML
+  Parameters: {"shipping_detail"=>{"city"=>"MyString", "address1"=>"MyString", "zip"=>"MyString", "created_at"=>Wed Jan 05 17:39:46 UTC 2011, "address2"=>"MyString", "product_id"=>1, "updated_at"=>Wed Jan 05 17:39:46 UTC 2011, "requires_box"=>false, "question_response_id"=>1, "payment_method_id"=>1, "id"=>980190962, "last_name"=>"MyString", "paypal_email"=>"MyString", "state"=>"MyString", "first_name"=>"MyString", "email"=>"MyString"}}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "shipping_details" ("paypal_email", "updated_at", "requires_box", "created_at", "product_id", "zip", "first_name", "state", "last_name", "question_response_id", "address2", "payment_method_id", "email", "address1", "city") VALUES ('MyString', '2011-01-05 17:39:46.000000', 'f', '2011-01-05 17:39:46.000000', 1, 'MyString', 'MyString', 'MyString', 'MyString', 1, 'MyString', 1, 'MyString', 'MyString', 'MyString')[0m
+Redirected to http://test.host/shipping_details/980190963
+Completed 302 Found in 13ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "shipping_details"
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "shipping_details"
+  Processing by ShippingDetailsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962)
+Redirected to http://test.host/shipping_details
+Completed 302 Found in 2ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "shipping_details"[0m
+  [1m[35mShippingDetail Load (0.9ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  Processing by ShippingDetailsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  [1m[35mPaymentMethod Load (0.2ms)[0m  SELECT "payment_methods".* FROM "payment_methods"
+Rendered shipping_details/_form.html.erb (16.5ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 3.5ms)
+  [1m[35mShippingDetail Load (0.2ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  Processing by ShippingDetailsController#index as HTML
+  [1m[36mShippingDetail Load (0.3ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.7ms)
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  Processing by ShippingDetailsController#new as HTML
+  [1m[35mPaymentMethod Load (0.2ms)[0m  SELECT "payment_methods".* FROM "payment_methods"
+Rendered shipping_details/_form.html.erb (12.1ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.6ms)
+  [1m[35mShippingDetail Load (0.2ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  Processing by ShippingDetailsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+Completed   in 8ms
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  Processing by ShippingDetailsController#update as HTML
+  Parameters: {"shipping_detail"=>{"city"=>"MyString", "address1"=>"MyString", "zip"=>"MyString", "created_at"=>Wed Jan 05 17:39:46 UTC 2011, "address2"=>"MyString", "product_id"=>1, "updated_at"=>Wed Jan 05 17:39:46 UTC 2011, "requires_box"=>false, "question_response_id"=>1, "payment_method_id"=>1, "id"=>980190962, "last_name"=>"MyString", "paypal_email"=>"MyString", "state"=>"MyString", "first_name"=>"MyString", "email"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mShippingDetail Load (0.2ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+WARNING: Can't mass-assign protected attributes: id
+Redirected to http://test.host/shipping_details/980190962
+Completed 302 Found in 4ms
+  Processing by UserSessionsController#create as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.8ms)
+  Processing by UserSessionsController#new as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.2ms)
+  Processing by UsersController#create as HTML
+Rendered users/_form.html.erb (4.9ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 102ms (Views: 13.6ms | ActiveRecord: 0.2ms)
+  Processing by UsersController#create as HTML
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "users" ("email", "last_login_ip", "persistence_token", "crypted_password", "current_login_at", "updated_at", "last_login_at", "current_login_ip", "login_count", "failed_login_count", "username", "last_request_at", "created_at", "password_salt") VALUES (NULL, NULL, NULL, NULL, NULL, '2011-01-05 17:39:47.483291', NULL, NULL, 0, 0, NULL, NULL, '2011-01-05 17:39:47.483291', NULL)
+Redirected to http://test.host/admin
+Completed 302 Found in 4ms
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" LIMIT 1[0m
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>#<User id: 1, username: "MyString", email: "MyString", crypted_password: "MyString", password_salt: "MyString", persistence_token: "MyString", login_count: 1, failed_login_count: 1, last_request_at: "2010-10-06 11:04:37", current_login_at: "2010-10-06 11:04:37", last_login_at: "2010-10-06 11:04:37", current_login_ip: "MyString", last_login_ip: "MyString", created_at: "2011-01-05 17:39:46", updated_at: "2011-01-05 17:39:46">}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered users/_form.html.erb (5.1ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 1.0ms)
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (3.4ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" LIMIT 1[0m
+  Processing by UsersController#update as HTML
+  Parameters: {"id"=>#<User id: 1, username: "MyString", email: "MyString", crypted_password: "MyString", password_salt: "MyString", persistence_token: "MyString", login_count: 1, failed_login_count: 1, last_request_at: "2010-10-06 11:04:37", current_login_at: "2010-10-06 11:04:37", last_login_at: "2010-10-06 11:04:37", current_login_ip: "MyString", last_login_ip: "MyString", created_at: "2011-01-05 17:39:46", updated_at: "2011-01-05 17:39:46">}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered users/_form.html.erb (4.4ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" LIMIT 1
+  Processing by UsersController#update as HTML
+  Parameters: {"id"=>#<User id: 1, username: "MyString", email: "MyString", crypted_password: "MyString", password_salt: "MyString", persistence_token: "MyString", login_count: 1, failed_login_count: 1, last_request_at: "2010-10-06 11:04:37", current_login_at: "2010-10-06 11:04:37", last_login_at: "2010-10-06 11:04:37", current_login_ip: "MyString", last_login_ip: "MyString", created_at: "2011-01-05 17:39:46", updated_at: "2011-01-05 17:39:46">}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://test.host/admin
+Completed 302 Found in 2ms
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  Processing by CategoriesController#create as HTML
+  Parameters: {"category"=>{"question_2_option_2_multiplier"=>nil, "name"=>"MyString", "question_2_option_1_multiplier"=>nil, "created_at"=>Wed Jan 05 17:44:59 UTC 2011, "question_1_name"=>nil, "updated_at"=>Wed Jan 05 17:44:59 UTC 2011, "id"=>980190962, "is_popular"=>false, "question_4_is_enabled"=>nil, "question_3_name"=>nil, "question_4_name"=>nil, "question_3_option_4_multiplier"=>nil, "question_3_is_enabled"=>nil, "question_2_name"=>nil, "question_1_option_2_multiplier"=>nil, "question_3_option_3_multiplier"=>nil, "question_3_option_1_multiplier"=>nil, "question_2_is_enabled"=>nil, "question_1_option_1_multiplier"=>nil, "question_3_option_2_multiplier"=>nil, "question_1_is_enabled"=>nil}}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "categories" ("question_1_option_1_multiplier", "question_3_option_3_multiplier", "question_3_is_enabled", "question_4_name", "question_3_option_4_multiplier", "question_2_option_1_multiplier", "question_1_option_2_multiplier", "question_1_name", "created_at", "question_1_is_enabled", "question_2_name", "question_2_option_2_multiplier", "is_popular", "updated_at", "question_2_is_enabled", "question_3_option_1_multiplier", "question_3_name", "question_4_is_enabled", "name", "question_3_option_2_multiplier") VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2011-01-05 17:44:59.000000', NULL, NULL, NULL, 'f', '2011-01-05 17:44:59.000000', NULL, NULL, NULL, NULL, 'MyString', NULL)
+Redirected to http://test.host/categories/980190963-mystring
+Completed 302 Found in 232ms
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  Processing by CategoriesController#destroy as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mDELETE FROM "categories" WHERE ("categories"."id" = 980190962)[0m
+Redirected to http://test.host/categories
+Completed 302 Found in 2ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mQuestionOption Load (0.2ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 980190962)[0m
+Rendered categories/_question_option_fields.erb (2.4ms)
+Rendered categories/_form.html.erb (19.8ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 39ms (Views: 37.3ms | ActiveRecord: 6.0ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.7ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  Processing by CategoriesController#new as HTML
+Rendered categories/_question_option_fields.erb (1.3ms)
+Rendered categories/_form.html.erb (84.3ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 91ms (Views: 90.2ms | ActiveRecord: 0.4ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE ("products".category_id = 980190962)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.9ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  Processing by CategoriesController#update as HTML
+  Parameters: {"category"=>{"question_2_option_2_multiplier"=>nil, "name"=>"MyString", "question_2_option_1_multiplier"=>nil, "created_at"=>Wed Jan 05 17:44:59 UTC 2011, "question_1_name"=>nil, "updated_at"=>Wed Jan 05 17:44:59 UTC 2011, "id"=>980190962, "is_popular"=>false, "question_4_is_enabled"=>nil, "question_3_name"=>nil, "question_4_name"=>nil, "question_3_option_4_multiplier"=>nil, "question_3_is_enabled"=>nil, "question_2_name"=>nil, "question_1_option_2_multiplier"=>nil, "question_3_option_3_multiplier"=>nil, "question_3_option_1_multiplier"=>nil, "question_2_is_enabled"=>nil, "question_1_option_1_multiplier"=>nil, "question_3_option_2_multiplier"=>nil, "question_1_is_enabled"=>nil}, "id"=>"980190962-mystring"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+Redirected to http://test.host/categories/980190962-mystring
+Completed 302 Found in 4ms
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"price"=>1.234, "name"=>"MyString", "photo_file_size"=>100, "created_at"=>Wed Jan 05 17:44:59 UTC 2011, "updated_at"=>Wed Jan 05 17:44:59 UTC 2011, "photo_file_name"=>"MyString", "photo_content_type"=>"MyString", "id"=>980190962, "photo_updated_at"=>Wed Oct 06 11:04:37 UTC 2010, "is_popular"=>true, "category_id"=>nil, "description"=>"MyString"}}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (8.2ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 40ms (Views: 29.0ms | ActiveRecord: 1.3ms)
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+  Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+[paperclip] Deleting attachments.
+  [1m[35mAREL (0.6ms)[0m  DELETE FROM "products" WHERE ("products"."id" = 980190962)
+Redirected to http://test.host/products
+Completed 302 Found in 37ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[36mProduct Load (1.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered products/_form.html.erb (10.1ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 25ms (Views: 19.7ms | ActiveRecord: 3.6ms)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 1.0ms)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  Processing by ProductsController#new as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered products/_form.html.erb (7.2ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 1.0ms)
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 1.1ms)
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  Processing by ProductsController#update as HTML
+  Parameters: {"id"=>"980190962-mystring", "product"=>{"price"=>1.234, "name"=>"MyString", "photo_file_size"=>100, "created_at"=>Wed Jan 05 17:44:59 UTC 2011, "updated_at"=>Wed Jan 05 17:44:59 UTC 2011, "photo_file_name"=>"MyString", "photo_content_type"=>"MyString", "id"=>980190962, "photo_updated_at"=>Wed Oct 06 11:04:37 UTC 2010, "is_popular"=>true, "category_id"=>nil, "description"=>"MyString"}}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (93.0ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 112ms (Views: 108.1ms | ActiveRecord: 1.0ms)
+  [1m[35mShippingDetail Load (0.3ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "shipping_details"[0m
+  Processing by ShippingDetailsController#create as HTML
+  Parameters: {"shipping_detail"=>{"city"=>"MyString", "address1"=>"MyString", "zip"=>"MyString", "created_at"=>Wed Jan 05 17:44:59 UTC 2011, "address2"=>"MyString", "product_id"=>1, "updated_at"=>Wed Jan 05 17:44:59 UTC 2011, "requires_box"=>false, "question_response_id"=>1, "payment_method_id"=>1, "id"=>980190962, "last_name"=>"MyString", "paypal_email"=>"MyString", "state"=>"MyString", "first_name"=>"MyString", "email"=>"MyString"}}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "shipping_details" ("requires_box", "created_at", "product_id", "first_name", "state", "updated_at", "city", "question_response_id", "zip", "payment_method_id", "address1", "email", "paypal_email", "last_name", "address2") VALUES ('f', '2011-01-05 17:44:59.000000', 1, 'MyString', 'MyString', '2011-01-05 17:44:59.000000', 'MyString', 1, 'MyString', 1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString')
+Redirected to http://test.host/shipping_details/980190963
+Completed 302 Found in 14ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "shipping_details"[0m
+  [1m[35mShippingDetail Load (0.3ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "shipping_details"[0m
+  Processing by ShippingDetailsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mShippingDetail Load (0.5ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962)[0m
+Redirected to http://test.host/shipping_details
+Completed 302 Found in 3ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "shipping_details"
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  Processing by ShippingDetailsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mShippingDetail Load (0.2ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  [1m[36mPaymentMethod Load (0.2ms)[0m  [1mSELECT "payment_methods".* FROM "payment_methods"[0m
+Rendered shipping_details/_form.html.erb (16.5ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 3.0ms)
+  [1m[36mShippingDetail Load (0.3ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  Processing by ShippingDetailsController#index as HTML
+  [1m[35mShippingDetail Load (0.3ms)[0m  SELECT "shipping_details".* FROM "shipping_details"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.7ms)
+  [1m[35mShippingDetail Load (0.2ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  Processing by ShippingDetailsController#new as HTML
+  [1m[36mPaymentMethod Load (0.2ms)[0m  [1mSELECT "payment_methods".* FROM "payment_methods"[0m
+Rendered shipping_details/_form.html.erb (11.8ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.6ms)
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  Processing by ShippingDetailsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mShippingDetail Load (0.3ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1[0m
+Completed   in 9ms
+  [1m[35mShippingDetail Load (0.2ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  Processing by ShippingDetailsController#update as HTML
+  Parameters: {"shipping_detail"=>{"city"=>"MyString", "address1"=>"MyString", "zip"=>"MyString", "created_at"=>Wed Jan 05 17:44:59 UTC 2011, "address2"=>"MyString", "product_id"=>1, "updated_at"=>Wed Jan 05 17:44:59 UTC 2011, "requires_box"=>false, "question_response_id"=>1, "payment_method_id"=>1, "id"=>980190962, "last_name"=>"MyString", "paypal_email"=>"MyString", "state"=>"MyString", "first_name"=>"MyString", "email"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+Redirected to http://test.host/shipping_details/980190962
+Completed 302 Found in 98ms
+  Processing by UserSessionsController#create as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.8ms)
+  Processing by UserSessionsController#new as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.3ms)
+  Processing by UsersController#create as HTML
+Rendered users/_form.html.erb (4.5ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 21ms (Views: 13.5ms | ActiveRecord: 0.2ms)
+  Processing by UsersController#create as HTML
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "users" ("login_count", "last_login_ip", "current_login_at", "updated_at", "username", "last_request_at", "last_login_at", "created_at", "email", "persistence_token", "password_salt", "crypted_password", "current_login_ip", "failed_login_count") VALUES (0, NULL, NULL, '2011-01-05 17:45:00.936688', NULL, NULL, NULL, '2011-01-05 17:45:00.936688', NULL, NULL, NULL, NULL, NULL, 0)[0m
+Redirected to http://test.host/admin
+Completed 302 Found in 4ms
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" LIMIT 1
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>#<User id: 1, username: "MyString", email: "MyString", crypted_password: "MyString", password_salt: "MyString", persistence_token: "MyString", login_count: 1, failed_login_count: 1, last_request_at: "2010-10-06 11:04:37", current_login_at: "2010-10-06 11:04:37", last_login_at: "2010-10-06 11:04:37", current_login_ip: "MyString", last_login_ip: "MyString", created_at: "2011-01-05 17:44:59", updated_at: "2011-01-05 17:44:59">}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_form.html.erb (4.4ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 13ms (Views: 10.2ms | ActiveRecord: 1.0ms)
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (3.6ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" LIMIT 1
+  Processing by UsersController#update as HTML
+  Parameters: {"id"=>#<User id: 1, username: "MyString", email: "MyString", crypted_password: "MyString", password_salt: "MyString", persistence_token: "MyString", login_count: 1, failed_login_count: 1, last_request_at: "2010-10-06 11:04:37", current_login_at: "2010-10-06 11:04:37", last_login_at: "2010-10-06 11:04:37", current_login_ip: "MyString", last_login_ip: "MyString", created_at: "2011-01-05 17:44:59", updated_at: "2011-01-05 17:44:59">}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_form.html.erb (4.2ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" LIMIT 1[0m
+  Processing by UsersController#update as HTML
+  Parameters: {"id"=>#<User id: 1, username: "MyString", email: "MyString", crypted_password: "MyString", password_salt: "MyString", persistence_token: "MyString", login_count: 1, failed_login_count: 1, last_request_at: "2010-10-06 11:04:37", current_login_at: "2010-10-06 11:04:37", last_login_at: "2010-10-06 11:04:37", current_login_ip: "MyString", last_login_ip: "MyString", created_at: "2011-01-05 17:44:59", updated_at: "2011-01-05 17:44:59">}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Redirected to http://test.host/admin
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  Processing by CategoriesController#create as HTML
+  Parameters: {"category"=>{"question_2_option_2_multiplier"=>nil, "name"=>"MyString", "question_2_option_1_multiplier"=>nil, "created_at"=>Wed Jan 05 17:46:16 UTC 2011, "question_1_name"=>nil, "updated_at"=>Wed Jan 05 17:46:16 UTC 2011, "id"=>980190962, "is_popular"=>false, "question_4_is_enabled"=>nil, "question_3_name"=>nil, "question_4_name"=>nil, "question_3_option_4_multiplier"=>nil, "question_3_is_enabled"=>nil, "question_2_name"=>nil, "question_1_option_2_multiplier"=>nil, "question_3_option_3_multiplier"=>nil, "question_3_option_1_multiplier"=>nil, "question_2_is_enabled"=>nil, "question_1_option_1_multiplier"=>nil, "question_3_option_2_multiplier"=>nil, "question_1_is_enabled"=>nil}}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "categories" ("is_popular", "question_2_option_1_multiplier", "question_2_option_2_multiplier", "question_3_option_3_multiplier", "question_1_option_2_multiplier", "question_3_option_4_multiplier", "updated_at", "question_3_option_1_multiplier", "question_3_name", "name", "question_1_option_1_multiplier", "question_4_name", "question_1_name", "question_4_is_enabled", "question_2_is_enabled", "question_1_is_enabled", "question_2_name", "question_3_option_2_multiplier", "created_at", "question_3_is_enabled") VALUES ('f', NULL, NULL, NULL, NULL, NULL, '2011-01-05 17:46:16.000000', NULL, NULL, 'MyString', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2011-01-05 17:46:16.000000', NULL)
+Redirected to http://test.host/categories/980190963-mystring
+Completed 302 Found in 187ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  Processing by CategoriesController#destroy as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mDELETE FROM "categories" WHERE ("categories"."id" = 980190962)[0m
+Redirected to http://test.host/categories
+Completed 302 Found in 2ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mQuestionOption Load (0.1ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 980190962)[0m
+Rendered categories/_question_option_fields.erb (2.2ms)
+Rendered categories/_form.html.erb (21.7ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 45ms (Views: 43.2ms | ActiveRecord: 6.0ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.7ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  Processing by CategoriesController#new as HTML
+Rendered categories/_question_option_fields.erb (1.4ms)
+Rendered categories/_form.html.erb (85.0ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 92ms (Views: 91.0ms | ActiveRecord: 0.4ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products".category_id = 980190962)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.8ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  Processing by CategoriesController#update as HTML
+  Parameters: {"category"=>{"question_2_option_2_multiplier"=>nil, "name"=>"MyString", "question_2_option_1_multiplier"=>nil, "created_at"=>Wed Jan 05 17:46:16 UTC 2011, "question_1_name"=>nil, "updated_at"=>Wed Jan 05 17:46:16 UTC 2011, "id"=>980190962, "is_popular"=>false, "question_4_is_enabled"=>nil, "question_3_name"=>nil, "question_4_name"=>nil, "question_3_option_4_multiplier"=>nil, "question_3_is_enabled"=>nil, "question_2_name"=>nil, "question_1_option_2_multiplier"=>nil, "question_3_option_3_multiplier"=>nil, "question_3_option_1_multiplier"=>nil, "question_2_is_enabled"=>nil, "question_1_option_1_multiplier"=>nil, "question_3_option_2_multiplier"=>nil, "question_1_is_enabled"=>nil}, "id"=>"980190962-mystring"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+Redirected to http://test.host/categories/980190962-mystring
+Completed 302 Found in 4ms
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"price"=>1.234, "name"=>"MyString", "photo_file_size"=>100, "created_at"=>Wed Jan 05 17:46:16 UTC 2011, "updated_at"=>Wed Jan 05 17:46:16 UTC 2011, "photo_file_name"=>nil, "photo_content_type"=>nil, "id"=>980190962, "photo_updated_at"=>Wed Oct 06 11:04:37 UTC 2010, "is_popular"=>true, "category_id"=>nil, "description"=>"MyString"}}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "products" ("photo_content_type", "updated_at", "created_at", "photo_file_name", "price", "photo_file_size", "description", "category_id", "name", "is_popular", "photo_updated_at") VALUES (NULL, '2011-01-05 17:46:16.000000', '2011-01-05 17:46:16.000000', NULL, 1.234, 100, 'MyString', NULL, 'MyString', 't', '2010-10-06 11:04:37.000000')
+[paperclip] Saving attachments.
+Redirected to http://test.host/products/980190963-mystring
+Completed 302 Found in 11ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+[paperclip] Deleting attachments.
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM "products" WHERE ("products"."id" = 980190962)[0m
+Redirected to http://test.host/products
+Completed 302 Found in 3ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (10.2ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 500ms (Views: 497.3ms | ActiveRecord: 3.5ms)
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 1.0ms)
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  Processing by ProductsController#new as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_form.html.erb (6.5ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 1.0ms)
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 84ms (Views: 81.6ms | ActiveRecord: 0.6ms)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  Processing by ProductsController#update as HTML
+  Parameters: {"id"=>"980190962-mystring", "product"=>{"price"=>1.234, "name"=>"MyString", "photo_file_size"=>100, "created_at"=>Wed Jan 05 17:46:16 UTC 2011, "updated_at"=>Wed Jan 05 17:46:16 UTC 2011, "photo_file_name"=>nil, "photo_content_type"=>nil, "id"=>980190962, "photo_updated_at"=>Wed Oct 06 11:04:37 UTC 2010, "is_popular"=>true, "category_id"=>nil, "description"=>"MyString"}}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+WARNING: Can't mass-assign protected attributes: id
+[paperclip] Saving attachments.
+Redirected to http://test.host/products/980190962-mystring
+Completed 302 Found in 5ms
+  [1m[36mShippingDetail Load (0.3ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "shipping_details"
+  Processing by ShippingDetailsController#create as HTML
+  Parameters: {"shipping_detail"=>{"city"=>"MyString", "address1"=>"MyString", "zip"=>"MyString", "created_at"=>Wed Jan 05 17:46:16 UTC 2011, "address2"=>"MyString", "product_id"=>1, "updated_at"=>Wed Jan 05 17:46:16 UTC 2011, "requires_box"=>false, "question_response_id"=>1, "payment_method_id"=>1, "id"=>980190962, "last_name"=>"MyString", "paypal_email"=>"MyString", "state"=>"MyString", "first_name"=>"MyString", "email"=>"MyString"}}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "shipping_details" ("email", "requires_box", "question_response_id", "address2", "payment_method_id", "updated_at", "first_name", "city", "paypal_email", "product_id", "zip", "address1", "state", "created_at", "last_name") VALUES ('MyString', 'f', 1, 'MyString', 1, '2011-01-05 17:46:16.000000', 'MyString', 'MyString', 'MyString', 1, 'MyString', 'MyString', 'MyString', '2011-01-05 17:46:16.000000', 'MyString')[0m
+Redirected to http://test.host/shipping_details/980190963
+Completed 302 Found in 12ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "shipping_details"
+  [1m[36mShippingDetail Load (0.3ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "shipping_details"
+  Processing by ShippingDetailsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962)
+Redirected to http://test.host/shipping_details
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "shipping_details"[0m
+  [1m[35mShippingDetail Load (0.4ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  Processing by ShippingDetailsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  [1m[35mPaymentMethod Load (0.2ms)[0m  SELECT "payment_methods".* FROM "payment_methods"
+Rendered shipping_details/_form.html.erb (16.8ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 3.3ms)
+  [1m[35mShippingDetail Load (0.2ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  Processing by ShippingDetailsController#index as HTML
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.6ms)
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  Processing by ShippingDetailsController#new as HTML
+  [1m[35mPaymentMethod Load (0.2ms)[0m  SELECT "payment_methods".* FROM "payment_methods"
+Rendered shipping_details/_form.html.erb (11.2ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.6ms)
+  [1m[35mShippingDetail Load (0.2ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+  Processing by ShippingDetailsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+Completed   in 9ms
+  [1m[36mShippingDetail Load (0.2ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1[0m
+  Processing by ShippingDetailsController#update as HTML
+  Parameters: {"shipping_detail"=>{"city"=>"MyString", "address1"=>"MyString", "zip"=>"MyString", "created_at"=>Wed Jan 05 17:46:16 UTC 2011, "address2"=>"MyString", "product_id"=>1, "updated_at"=>Wed Jan 05 17:46:16 UTC 2011, "requires_box"=>false, "question_response_id"=>1, "payment_method_id"=>1, "id"=>980190962, "last_name"=>"MyString", "paypal_email"=>"MyString", "state"=>"MyString", "first_name"=>"MyString", "email"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mShippingDetail Load (0.2ms)[0m  SELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 980190962) LIMIT 1
+WARNING: Can't mass-assign protected attributes: id
+Redirected to http://test.host/shipping_details/980190962
+Completed 302 Found in 4ms
+  Processing by UserSessionsController#create as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.9ms)
+  Processing by UserSessionsController#new as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.2ms)
+  Processing by UsersController#create as HTML
+Rendered users/_form.html.erb (4.5ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 121ms (Views: 12.9ms | ActiveRecord: 0.2ms)
+  Processing by UsersController#create as HTML
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "users" ("current_login_at", "created_at", "email", "username", "last_login_ip", "failed_login_count", "last_login_at", "current_login_ip", "persistence_token", "login_count", "updated_at", "password_salt", "crypted_password", "last_request_at") VALUES (NULL, '2011-01-05 17:46:19.328575', NULL, NULL, NULL, 0, NULL, NULL, NULL, 0, '2011-01-05 17:46:19.328575', NULL, NULL, NULL)
+Redirected to http://test.host/admin
+Completed 302 Found in 4ms
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" LIMIT 1[0m
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>#<User id: 1, username: "MyString", email: "MyString", crypted_password: "MyString", password_salt: "MyString", persistence_token: "MyString", login_count: 1, failed_login_count: 1, last_request_at: "2010-10-06 11:04:37", current_login_at: "2010-10-06 11:04:37", last_login_at: "2010-10-06 11:04:37", current_login_ip: "MyString", last_login_ip: "MyString", created_at: "2011-01-05 17:46:16", updated_at: "2011-01-05 17:46:16">}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered users/_form.html.erb (5.5ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 1.0ms)
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (3.4ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Completed 200 OK in 51ms (Views: 50.4ms | ActiveRecord: 0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" LIMIT 1[0m
+  Processing by UsersController#update as HTML
+  Parameters: {"id"=>#<User id: 1, username: "MyString", email: "MyString", crypted_password: "MyString", password_salt: "MyString", persistence_token: "MyString", login_count: 1, failed_login_count: 1, last_request_at: "2010-10-06 11:04:37", current_login_at: "2010-10-06 11:04:37", last_login_at: "2010-10-06 11:04:37", current_login_ip: "MyString", last_login_ip: "MyString", created_at: "2011-01-05 17:46:16", updated_at: "2011-01-05 17:46:16">}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered users/_form.html.erb (4.4ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" LIMIT 1
+  Processing by UsersController#update as HTML
+  Parameters: {"id"=>#<User id: 1, username: "MyString", email: "MyString", crypted_password: "MyString", password_salt: "MyString", persistence_token: "MyString", login_count: 1, failed_login_count: 1, last_request_at: "2010-10-06 11:04:37", current_login_at: "2010-10-06 11:04:37", last_login_at: "2010-10-06 11:04:37", current_login_ip: "MyString", last_login_ip: "MyString", created_at: "2011-01-05 17:46:16", updated_at: "2011-01-05 17:46:16">}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://test.host/admin
+Completed 302 Found in 2ms

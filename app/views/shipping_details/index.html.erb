@@ -1,4 +1,4 @@
-<h1>Listing Shipping Detail</h1>
+<h1>Shipping Requests</h1>
 
 <table>
   <tr>
@@ -11,10 +11,7 @@
     <th>Zip</th>
     <th>Email</th>
     <th>Payment method</th>
-    <th>Paypal email</th>
-    <th>Product</th>
     <th>Requires box</th>
-    <th>Question response</th>
     <th></th>
     <th></th>
     <th></th>
@@ -30,13 +27,10 @@
     <td><%= shipping_detail.state %></td>
     <td><%= shipping_detail.zip %></td>
     <td><%= shipping_detail.email %></td>
-    <td><%= shipping_detail.payment_method_id %></td>
-    <td><%= shipping_detail.paypal_email %></td>
-    <td><%= shipping_detail.product_id %></td>
-    <td><%= shipping_detail.requires_box %></td>
-    <td><%= shipping_detail.question_response_id %></td>
+    <td><%= shipping_detail.payment_method.name %></td>
+    <td><%= (shipping_detail.requires_box ? 'Yes' : 'No') %></td>
     <td><%= link_to 'Show', shipping_detail %></td>
-    <td><%= link_to 'Edit', edit_shipping_detail_path(shipping_detail) %></td>
+    <td><%#= link_to 'Edit', edit_shipping_detail_path(shipping_detail) %></td>
     <td><%= link_to 'Destroy', shipping_detail, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -44,4 +38,4 @@
 
 <br />
 
-<%= link_to 'New Shipping detail', new_shipping_detail_path %>
+<%#= link_to 'New Shipping detail', new_shipping_detail_path %>

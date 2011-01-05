@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_filter :authorize, :except => [:show, :get_quote, :accept_quote]
+  
   # GET /products
   # GET /products.xml
   def index
