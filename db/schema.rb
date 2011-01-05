@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101221203510) do
+ActiveRecord::Schema.define(:version => 20110105160613) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -117,6 +117,30 @@ ActiveRecord::Schema.define(:version => 20101221203510) do
     t.integer  "product_id"
     t.boolean  "requires_box"
     t.integer  "question_response_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_sessions", :force => true do |t|
+    t.string   "username"
+    t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.integer  "login_count",        :default => 0, :null => false
+    t.integer  "failed_login_count", :default => 0, :null => false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

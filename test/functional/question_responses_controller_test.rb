@@ -4,7 +4,7 @@ class QuestionResponsesControllerTest < ActionController::TestCase
   setup do
     @question_response = question_responses(:one)
   end
-
+=begin
   test "should get index" do
     get :index
     assert_response :success
@@ -46,4 +46,6 @@ class QuestionResponsesControllerTest < ActionController::TestCase
 
     assert_redirected_to question_responses_path
   end
+=end
+ 
 end
