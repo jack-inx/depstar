@@ -11,39 +11,22 @@
 		</div>
 		<div>		
 			<%= link_to "Sell yours now", product %>
+			<% if current_user %>
+				<br/>
+				<%= link_to 'Show', product %>
+    			<%= link_to 'Edit', edit_product_path(product) %>
+    			<%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %>
+			<% end %>
 		</div>	
 	</div>
 	<% end %>
+
 </div>
 
-<!-- 
-<h1>Listing products</h1>
+<% if current_user %>
+<div class='clear'> &nbsp; </div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Is Popular</th>
-    <th>Category</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @products.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= product.description %></td>
-    <td><%= product.is_popular %></td>
-    <td><%= product.category.try(:name) %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<div style='padding: 10px;'>
+		<%= link_to 'New Product', new_product_path %>	
+</div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Product', new_product_path %>
--->

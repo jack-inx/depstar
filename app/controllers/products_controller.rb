@@ -1,10 +1,15 @@
 class ProductsController < ApplicationController
-  before_filter :authorize, :except => [:show, :get_quote, :accept_quote]
+  before_filter :authorize, :except => [:show, :get_quote, :accept_quote, :index]
   
   # GET /products
   # GET /products.xml
   def index
-    @products = Product.all
+
+	if(params[:popular] == 'true')
+		@products = Product.all
+	else	
+		@products = Product.find_all_by_is_popular(true)
+	end
 
     respond_to do |format|
       format.html # index.html.erb

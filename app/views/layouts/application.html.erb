@@ -60,8 +60,8 @@
 									</div>
 									<div class="content-holder">
 										<ul class="products">
-											<li><a href="#">HOT PRODUCTS</a></li>
-											<li><a href="#">VIEW ALL PRODUCTS</a></li>
+											<li><%= link_to 'HOT PRODUCTS', :controller => "products", :action => "index", :popular => 'true' %><a href="#"></a></li>
+											<li><%= link_to 'VIEW ALL PRODUCTS', products_path %></li>
 										</ul>
 										<div class="products-holder">
 											<div class="t">
