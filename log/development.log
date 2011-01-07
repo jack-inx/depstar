@@ -1100,3 +1100,76 @@ Started GET "/dev" for 127.0.0.1 at Fri Jan 07 12:57:10 -0500 2011
   [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
 Rendered home/index.html.erb within layouts/home (241.0ms)
 Completed 200 OK in 319ms (Views: 268.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/corporate" for 127.0.0.1 at Fri Jan 07 12:59:24 -0500 2011
+  Processing by CorporateController#index as HTML
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered corporate/index.html.erb within layouts/application (103.0ms)
+Completed 200 OK in 175ms (Views: 173.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/go_green" for 127.0.0.1 at Fri Jan 07 12:59:24 -0500 2011
+  Processing by GoGreenController#index as HTML
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered go_green/index.html.erb within layouts/application (217.0ms)
+Completed 200 OK in 260ms (Views: 257.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories/3-cell-phones" for 127.0.0.1 at Fri Jan 07 12:59:25 -0500 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3-cell-phones"}
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered categories/show.html.erb within layouts/application (224.0ms)
+Completed 200 OK in 284ms (Views: 263.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/categories/4-laptops" for 127.0.0.1 at Fri Jan 07 12:59:26 -0500 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"4-laptops"}
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 4) LIMIT 1
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mCategory Load (2.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered categories/show.html.erb within layouts/application (102.0ms)
+Completed 200 OK in 166ms (Views: 140.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Fri Jan 07 12:59:27 -0500 2011
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (3.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (239.0ms)
+Completed 200 OK in 325ms (Views: 268.0ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Fri Jan 07 12:59:36 -0500 2011
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (4.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/home (235.0ms)
+Completed 200 OK in 316ms (Views: 265.0ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Fri Jan 07 12:59:43 -0500 2011
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (2.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (161.0ms)
+Completed 200 OK in 237ms (Views: 190.0ms | ActiveRecord: 5.0ms)
