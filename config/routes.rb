@@ -19,6 +19,10 @@ Trunk::Application.routes.draw do  #match 'get_quote' => 'price_quotes#get_quote
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
 
+  match 'corporate' => 'corporate#index'
+  match 'go_green' => 'go_green#index'
+  match 'get_a_check' => 'get_a_check#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

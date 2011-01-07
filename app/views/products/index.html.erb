@@ -1,3 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<div style='padding: 0px 20px 0px 20px; '>
+	<% @products.each do |product| %>
+	<div style="height: 220px; float: left; width: 200px; text-align: center;">
+		<div>
+			<%= link_to product.name, product %>
+		</div>
+		<div>
+			<%= link_to image_tag(product.photo.url(:small)), product %>
+		</div>
+		<div>		
+			<%= link_to "Sell yours now", product %>
+		</div>	
+	</div>
+	<% end %>
+</div>
+
+<!-- 
 <h1>Listing products</h1>
 
 <table>
@@ -27,3 +46,4 @@
 <br />
 
 <%= link_to 'New Product', new_product_path %>
+-->

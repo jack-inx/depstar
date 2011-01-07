@@ -32,11 +32,14 @@
 								</form>
 							</div>
 							<div class="nav-holder">
+								&nbsp;
+								<!--
 								<ul id="nav">
 									<li><a href="#"><span>FIND A PRODUCT</span></a></li>
 									<li><a href="#"><span>HOW IT WORKS</span></a></li>
 									<li><a href="#"><span>WHAT WE DO</span></a></li>
 								</ul>
+								-->								
 							</div>
 						</div>
 						<div class="promo">
@@ -51,17 +54,25 @@
 								<div class="column">
 									<strong class="title"><em>Corporate</em> Bulk Sell</strong>
 									<span class="text">Sed ut perspiciatis unde omnis iste sit voluptatem accusantium doloremqu</span>
-									<a class="more" href="#"><span>more</span><em></em></a>
+									<%= link_to corporate_path, :class => 'more' do %>
+										<span>more</span><em></em>
+									<% end %>
+									
 								</div>
 								<div class="column">
 									<strong class="title"><em>Go Green</em> and Recycle</strong>
 									<span class="text">Voluptatem accusantium doloremque laudantium, totam rem aperiam,</span>
-									<a class="more" href="#"><span>more</span><em></em></a>
+									
+									<%= link_to go_green_path, :class => 'more' do %>
+										<span>more</span><em></em>
+									<% end %>
 								</div>
 								<div class="column">
 									<strong class="title"><em>Get A Check</em> or Donate </strong>
 									<span class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </span>
-									<a class="more" href="#"><span>more</span><em></em></a>
+									<%= link_to get_a_check_path, :class => 'more' do %>
+										<span>more</span><em></em>
+									<% end %>
 								</div>
 							</div>
 						</div>
@@ -91,6 +102,10 @@
 								<li><a href="mailto:&#032;&#105;&#110;&#102;&#111;&#064;&#100;&#101;&#112;&#115;&#116;&#097;&#114;&#046;&#099;&#111;&#109;">&#032;&#105;&#110;&#102;&#111;&#064;&#100;&#101;&#112;&#115;&#116;&#097;&#114;&#046;&#099;&#111;&#109;</a></li>
 							</ul>
 							<ul class="footer-nav">
+								<li><%= link_to 'Corporate', corporate_path, :class => 'more' %></li>
+								<li><%= link_to 'Go Green', go_green_path, :class => 'more' %></li>
+								<li><%= link_to 'Get A Check', get_a_check_path, :class => 'more' %></li>
+								<!--
 								<li><a href="#">Search for your product</a></li>
 								<li><a href="#">Home</a></li>
 								<li><a href="#">How it works</a></li>
@@ -101,6 +116,7 @@
 								<li><a href="#">Legal</a></li>
 								<li><a href="#">Privacy Policy</a></li>
 								<li><a href="#"> Contact Us</a></li>
+								-->
 								<% if current_user %>
 									<li><%= link_to 'Logout', logout_url %></li>
 								<% end %>								
