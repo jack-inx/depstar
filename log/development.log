@@ -704,3 +704,369 @@ Started GET "/categories" for 127.0.0.1 at Fri Jan 07 12:47:57 -0500 2011
   [1m[36mAREL (6.0ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-01-07 17:47:57.789123', "updated_at" = '2011-01-07 17:47:57.789123' WHERE ("users"."id" = 2)[0m
 Rendered categories/index.html.erb within layouts/application (215.0ms)
 Completed 200 OK in 314ms (Views: 250.0ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Jan 07 12:49:54 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCategory Load (2.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (57.0ms)
+Completed   in 229ms
+
+ActionView::Template::Error (undefined local variable or method `product' for #<#<Class:0x7c41528>:0x7c3ccf8>):
+    8: 		</div>
+    9: 		<!--
+    10: 		<div>
+    11: 			<%= link_to image_tag(product.photo.url(:small)), product %>
+    12: 		</div>
+    13: 	-->
+    14: 		<div>			
+  app/views/categories/index.html.erb:11:in `_app_views_categories_index_html_erb__434222166_65131596_0'
+  app/views/categories/index.html.erb:4:in `each'
+  app/views/categories/index.html.erb:4:in `_app_views_categories_index_html_erb__434222166_65131596_0'
+  app/controllers/categories_controller.rb:9:in `index'
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (16.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (42.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Jan 07 12:50:13 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mAREL (6.0ms)[0m  UPDATE "users" SET "last_request_at" = '2011-01-07 17:50:14.196926', "updated_at" = '2011-01-07 17:50:14.197926' WHERE ("users"."id" = 2)
+Rendered categories/index.html.erb within layouts/application (239.0ms)
+Completed   in 332ms
+
+ActionView::Template::Error (undefined local variable or method `product' for #<#<Class:0x77a7500>:0x77a5f70>):
+    10: 		<div>			
+    11: 			<% if current_user %>
+    12: 				<br/>
+    13: 				<%= link_to 'Show', product %>
+    14:     			<%= link_to 'Edit', edit_product_path(product) %>
+    15:     			<%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %>
+    16: 			<% end %>
+  app/views/categories/index.html.erb:13:in `_app_views_categories_index_html_erb__434222166_62727948_0'
+  app/views/categories/index.html.erb:4:in `each'
+  app/views/categories/index.html.erb:4:in `_app_views_categories_index_html_erb__434222166_62727948_0'
+  app/controllers/categories_controller.rb:9:in `index'
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (17.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (43.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Jan 07 12:50:26 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mAREL (4.0ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-01-07 17:50:26.575634', "updated_at" = '2011-01-07 17:50:26.576634' WHERE ("users"."id" = 2)[0m
+Rendered categories/index.html.erb within layouts/application (260.0ms)
+Completed   in 346ms
+
+ActionView::Template::Error (undefined local variable or method `product' for #<#<Class:0x77ddf68>:0x77dbe68>):
+    10: 		<div>			
+    11: 			<% if current_user %>
+    12: 				<br/>
+    13: 				<%= link_to 'Show', product %>
+    14:     			<%= link_to 'Edit', edit_product_path(product) %>
+    15:     			<%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %>
+    16: 			<% end %>
+  app/views/categories/index.html.erb:13:in `_app_views_categories_index_html_erb__434222166_62832684_0'
+  app/views/categories/index.html.erb:4:in `each'
+  app/views/categories/index.html.erb:4:in `_app_views_categories_index_html_erb__434222166_62832684_0'
+  app/controllers/categories_controller.rb:9:in `index'
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (18.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (45.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Jan 07 12:50:49 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mAREL (7.0ms)[0m  UPDATE "users" SET "last_request_at" = '2011-01-07 17:50:49.577949', "updated_at" = '2011-01-07 17:50:49.578949' WHERE ("users"."id" = 2)
+Rendered categories/index.html.erb within layouts/application (220.0ms)
+Completed   in 307ms
+
+ActionView::Template::Error (undefined local variable or method `product' for #<#<Class:0x77ff118>:0x77f8c38>):
+    11: 			<% if current_user %>
+    12: 				<br/>
+    13: 				<%= link_to 'Show', category %>
+    14:     			<%= link_to 'Edit', edit_category_path(product) %>
+    15:     			<%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %>
+    16: 			<% end %>
+    17: 		</div>	
+  app/views/categories/index.html.erb:14:in `_app_views_categories_index_html_erb__434222166_62895132_0'
+  app/views/categories/index.html.erb:4:in `each'
+  app/views/categories/index.html.erb:4:in `_app_views_categories_index_html_erb__434222166_62895132_0'
+  app/controllers/categories_controller.rb:9:in `index'
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (18.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (44.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Jan 07 12:50:55 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mAREL (5.0ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-01-07 17:50:55.797305', "updated_at" = '2011-01-07 17:50:55.798305' WHERE ("users"."id" = 2)[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered categories/index.html.erb within layouts/application (182.0ms)
+Completed 200 OK in 272ms (Views: 219.0ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Jan 07 12:51:07 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCategory Load (2.0ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mAREL (5.0ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-01-07 17:51:07.629982', "updated_at" = '2011-01-07 17:51:07.630982' WHERE ("users"."id" = 2)[0m
+  [1m[35mCategory Load (2.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered categories/index.html.erb within layouts/application (309.0ms)
+Completed 200 OK in 515ms (Views: 441.0ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Jan 07 12:51:19 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mAREL (10.0ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-01-07 17:51:19.513661', "last_request_at" = '2011-01-07 17:51:19.512661' WHERE ("users"."id" = 2)[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered categories/index.html.erb within layouts/application (376.0ms)
+Completed 200 OK in 476ms (Views: 409.0ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Jan 07 12:51:27 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCategory Load (2.0ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mAREL (5.0ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-01-07 17:51:27.440115', "updated_at" = '2011-01-07 17:51:27.441115' WHERE ("users"."id" = 2)[0m
+  [1m[35mCategory Load (2.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered categories/index.html.erb within layouts/application (294.0ms)
+Completed 200 OK in 389ms (Views: 327.0ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Jan 07 12:51:41 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mAREL (4.0ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-01-07 17:51:41.465917', "updated_at" = '2011-01-07 17:51:41.466917' WHERE ("users"."id" = 2)[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered categories/index.html.erb within layouts/application (218.0ms)
+Completed 200 OK in 313ms (Views: 256.0ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Jan 07 12:51:51 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (3.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mAREL (6.0ms)[0m  UPDATE "users" SET "last_request_at" = '2011-01-07 17:51:51.687502', "updated_at" = '2011-01-07 17:51:51.688502' WHERE ("users"."id" = 2)
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered categories/index.html.erb within layouts/application (362.0ms)
+Completed 200 OK in 426ms (Views: 397.0ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Fri Jan 07 12:51:55 -0500 2011
+  Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mAREL (6.0ms)[0m  UPDATE "users" SET "updated_at" = '2011-01-07 17:51:55.377713', "last_request_at" = '2011-01-07 17:51:55.376713' WHERE ("users"."id" = 2)
+Redirected to http://127.0.0.1:3000/root
+Completed 302 Found in 178ms
+
+
+Started GET "/root" for 127.0.0.1 at Fri Jan 07 12:51:55 -0500 2011
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (261.0ms)
+Completed 200 OK in 344ms (Views: 291.0ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/categories/" for 127.0.0.1 at Fri Jan 07 12:52:01 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (3.0ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered categories/index.html.erb within layouts/application (130.0ms)
+Completed 200 OK in 195ms (Views: 172.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/categories/" for 127.0.0.1 at Fri Jan 07 12:52:16 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (3.0ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered categories/index.html.erb within layouts/application (210.0ms)
+Completed 200 OK in 275ms (Views: 251.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/categories/" for 127.0.0.1 at Fri Jan 07 12:52:22 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (2.0ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered categories/index.html.erb within layouts/application (127.0ms)
+Completed 200 OK in 191ms (Views: 168.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/categories/" for 127.0.0.1 at Fri Jan 07 12:53:20 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (2.0ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCategory Load (2.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered categories/index.html.erb within layouts/application (218.0ms)
+Completed   in 279ms
+
+ActionView::Template::Error (undefined local variable or method `category' for #<#<Class:0x780ff00>:0x780a848>):
+    56: 											<li><a href="#"><span>Samsung Phones</span></a></li>
+    57: 											-->
+    58: 										</ul>
+    59: 										<%= link_to category, 'See all categories', :class => 'all-categories' %>
+    60: 										
+    61: 									</div>
+    62: 									<div class="content-holder">
+  app/views/layouts/application.html.erb:59:in `_app_views_layouts_application_html_erb___990443151_62931168_0'
+  app/controllers/categories_controller.rb:9:in `index'
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (43.0ms)
+
+
+Started GET "/categories/" for 127.0.0.1 at Fri Jan 07 12:53:32 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (2.0ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered categories/index.html.erb within layouts/application (102.0ms)
+Completed 200 OK in 162ms (Views: 141.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/categories/" for 127.0.0.1 at Fri Jan 07 12:53:43 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (2.0ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered categories/index.html.erb within layouts/application (186.0ms)
+Completed 200 OK in 250ms (Views: 225.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Jan 07 12:53:45 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (3.0ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered categories/index.html.erb within layouts/application (130.0ms)
+Completed 200 OK in 217ms (Views: 170.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/categories/3-cell-phones" for 127.0.0.1 at Fri Jan 07 12:53:47 -0500 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3-cell-phones"}
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mCategory Load (2.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered categories/show.html.erb within layouts/application (242.0ms)
+Completed 200 OK in 312ms (Views: 287.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Jan 07 12:53:49 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (2.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered categories/index.html.erb within layouts/application (130.0ms)
+Completed 200 OK in 197ms (Views: 175.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Jan 07 12:54:43 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (2.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered categories/index.html.erb within layouts/application (98.0ms)
+Completed 200 OK in 159ms (Views: 140.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Fri Jan 07 12:54:44 -0500 2011
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (164.0ms)
+Completed 200 OK in 243ms (Views: 192.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Fri Jan 07 12:54:48 -0500 2011
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/home (163.0ms)
+Completed 200 OK in 244ms (Views: 194.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Jan 07 12:54:50 -0500 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (2.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered categories/index.html.erb within layouts/application (204.0ms)
+Completed 200 OK in 267ms (Views: 245.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/categories/3-cell-phones" for 127.0.0.1 at Fri Jan 07 12:54:52 -0500 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3-cell-phones"}
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered categories/show.html.erb within layouts/application (161.0ms)
+Completed 200 OK in 224ms (Views: 200.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/categories/9-blu-ray-players" for 127.0.0.1 at Fri Jan 07 12:54:55 -0500 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"9-blu-ray-players"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 9) LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products".category_id = 9)[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered categories/show.html.erb within layouts/application (115.0ms)
+Completed 200 OK in 261ms (Views: 158.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Fri Jan 07 12:54:58 -0500 2011
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (267.0ms)
+Completed 200 OK in 356ms (Views: 299.0ms | ActiveRecord: 4.0ms)

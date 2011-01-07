@@ -1,3 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<div style='padding: 0px 20px 0px 20px; '>
+	<% @categories.each do |category| %>
+	<div style="min-height: 50px; float: left; width: 200px; text-align: center;">
+		<div>
+			<%= link_to category.name, category %>
+		</div>
+		
+		<% if current_user %>
+		<div>
+				<br/>
+				<%= link_to 'Show', category %>
+    			<%= link_to 'Edit', edit_category_path(category) %>
+    			<%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %>			
+		</div>	
+		<% end %>
+		
+	</div>
+	<% end %>
+
+</div>
+
+<% if current_user %>
+<div class='clear'> &nbsp; </div>
+
+<div style='padding: 10px;'>
+		<%= link_to 'New Category', new_category_path %>
+</div>
+<% end %>
+
+
+<!--
 <h1>Listing categories</h1>
 
 <table>
@@ -23,3 +56,4 @@
 <br />
 
 <%= link_to 'New Category', new_category_path %>
+-->
