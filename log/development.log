@@ -7283,3 +7283,152 @@ Rendered shipping_details/_form.html.erb (185.0ms)
   [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
 Rendered shipping_details/new.html.erb within layouts/application (275.2ms)
 Completed 200 OK in 316ms (Views: 280.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/products?popular=true" for 127.0.0.1 at Mon Jan 10 17:57:25 -0500 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"popular"=>"true"}
+  [1m[36mProduct Load (1.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered products/index.html.erb within layouts/application (678.6ms)
+Completed 200 OK in 826ms (Views: 684.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at Mon Jan 10 17:57:27 -0500 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't')
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered products/index.html.erb within layouts/application (196.8ms)
+Completed 200 OK in 219ms (Views: 202.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products?popular=true" for 127.0.0.1 at Mon Jan 10 17:57:29 -0500 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"popular"=>"true"}
+  [1m[35mProduct Load (0.9ms)[0m  SELECT "products".* FROM "products"
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered products/index.html.erb within layouts/application (200.6ms)
+Completed 200 OK in 221ms (Views: 206.2ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/shipping_details" for 127.0.0.1 at Mon Jan 10 17:58:50 -0500 2011
+  Processing by ShippingDetailsController#create as HTML
+  Parameters: {"commit"=>"Get Paid", "shipping_detail"=>{"city"=>"Salem", "address1"=>"101 Test", "zip"=>"01970", "address2"=>"", "product_id"=>"1", "requires_box"=>"1", "payment_method_id"=>"1", "question_response_id"=>"30", "last_name"=>"Tester", "paypal_email"=>"", "state"=>"MA", "first_name"=>"Frank", "email"=>"test@test.com"}, "authenticity_token"=>"Y4ipbJVkmMiVH9EH9H0bvYHzNOtZWq0/ZWNCKduz/Wk=", "utf8"=>"✓"}
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "shipping_details" ("first_name", "zip", "city", "state", "paypal_email", "requires_box", "address2", "address1", "email", "payment_method_id", "product_id", "created_at", "last_name", "question_response_id", "updated_at") VALUES ('Frank', '01970', 'Salem', 'MA', '', 't', '', '101 Test', 'test@test.com', 1, 1, '2011-01-10 22:58:50.665536', 'Tester', 30, '2011-01-10 22:58:50.665536')
+Redirected to http://127.0.0.1:3000/shipping_details/3
+Completed 302 Found in 31ms
+
+
+Started GET "/shipping_details/3" for 127.0.0.1 at Mon Jan 10 17:58:50 -0500 2011
+  Processing by ShippingDetailsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mShippingDetail Load (0.3ms)[0m  [1mSELECT "shipping_details".* FROM "shipping_details" WHERE ("shipping_details"."id" = 3) LIMIT 1[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+  [1m[36mQuestionResponse Load (0.2ms)[0m  [1mSELECT "question_responses".* FROM "question_responses" WHERE ("question_responses"."id" = 30) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+  [1m[36mQuestionOption Load (0.3ms)[0m  [1mSELECT "question_options".* FROM "question_options" WHERE ("question_options".category_id = 3)[0m
+  [1m[35mPaymentMethod Load (0.2ms)[0m  SELECT "payment_methods".* FROM "payment_methods" WHERE ("payment_methods"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered shipping_details/show.html.erb within layouts/application (287.4ms)
+Completed 200 OK in 331ms (Views: 315.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Mon Jan 10 18:00:49 -0500 2011
+  Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.8ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)
+Rendered home/index.html.erb within layouts/home (107.0ms)
+Completed 200 OK in 263ms (Views: 225.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Mon Jan 10 18:07:50 -0500 2011
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (109.2ms)
+Completed 200 OK in 258ms (Views: 113.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/home/autocomplete_product_name?term=tor" for 127.0.0.1 at Mon Jan 10 18:07:54 -0500 2011
+  Processing by HomeController#autocomplete_product_name as JSON
+  Parameters: {"term"=>"tor"}
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" WHERE (LOWER(name) LIKE '%tor%') ORDER BY name ASC LIMIT 10
+Completed 200 OK in 26ms (Views: 6.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/search" for 127.0.0.1 at Mon Jan 10 18:07:56 -0500 2011
+  Processing by ProductsController#search as HTML
+  Parameters: {"name"=>"BlackBerry Torch 9800", "commit"=>"GO", "authenticity_token"=>"Y4ipbJVkmMiVH9EH9H0bvYHzNOtZWq0/ZWNCKduz/Wk=", "utf8"=>"✓"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" WHERE (name like '%BlackBerry Torch 9800%')[0m
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered products/search.html.erb within layouts/application (184.9ms)
+Completed 200 OK in 204ms (Views: 190.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Mon Jan 10 18:07:58 -0500 2011
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (1.2ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (219.6ms)
+Completed 200 OK in 262ms (Views: 224.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/home/autocomplete_product_name?term=epci" for 127.0.0.1 at Mon Jan 10 18:08:02 -0500 2011
+  Processing by HomeController#autocomplete_product_name as JSON
+  Parameters: {"term"=>"epci"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" WHERE (LOWER(name) LIKE '%epci%') ORDER BY name ASC LIMIT 10
+Completed 200 OK in 21ms (Views: 6.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/home/autocomplete_product_name?term=epc" for 127.0.0.1 at Mon Jan 10 18:08:02 -0500 2011
+  Processing by HomeController#autocomplete_product_name as JSON
+  Parameters: {"term"=>"epc"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" WHERE (LOWER(name) LIKE '%epc%') ORDER BY name ASC LIMIT 10[0m
+Completed 200 OK in 131ms (Views: 5.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/home/autocomplete_product_name?term=epic" for 127.0.0.1 at Mon Jan 10 18:08:03 -0500 2011
+  Processing by HomeController#autocomplete_product_name as JSON
+  Parameters: {"term"=>"epic"}
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" WHERE (LOWER(name) LIKE '%epic%') ORDER BY name ASC LIMIT 10
+Completed 200 OK in 26ms (Views: 5.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/search" for 127.0.0.1 at Mon Jan 10 18:08:05 -0500 2011
+  Processing by ProductsController#search as HTML
+  Parameters: {"name"=>"Samsung Epic 4G", "commit"=>"GO", "authenticity_token"=>"Y4ipbJVkmMiVH9EH9H0bvYHzNOtZWq0/ZWNCKduz/Wk=", "utf8"=>"✓"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" WHERE (name like '%Samsung Epic 4G%')[0m
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered products/search.html.erb within layouts/application (188.4ms)
+Completed 200 OK in 207ms (Views: 194.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dev" for 127.0.0.1 at Mon Jan 10 18:08:08 -0500 2011
+  Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."is_popular" = 't') LIMIT 4
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 6)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE ("products".category_id = 7)[0m
+Rendered home/index.html.erb within layouts/home (113.6ms)
+Completed 200 OK in 274ms (Views: 117.6ms | ActiveRecord: 2.2ms)
