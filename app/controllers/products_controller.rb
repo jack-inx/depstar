@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   # GET /products.xml
   def index
 
-	if(params[:popular] == 'true')
+	unless(params[:popular] == 'true')
 		@products = Product.all
 	else	
 		@products = Product.find_all_by_is_popular(true)
