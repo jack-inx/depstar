@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_filter :authorize, :except => [:show, :get_quote, :accept_quote, :index]
+  before_filter :authorize, :except => [:show, :get_quote, :accept_quote, :index, :search]
   
   # GET /products
   # GET /products.xml
@@ -15,6 +15,20 @@ class ProductsController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @products }
     end
+  end
+  
+  def search
+    
+    #debugger     
+    #@products = Product.all
+    
+    @products = Product.find(:all, :conditions => "name like '%"+params[:name]+"%'")
+    
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @products }
+    end
+    
   end
   
   def get_quote 

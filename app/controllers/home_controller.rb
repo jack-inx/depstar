@@ -1,11 +1,12 @@
-class HomeController < ApplicationController
+class HomeController < ApplicationController  
+  autocomplete :product, :name
   
-  #before_filter :authorize
-  
-  def index
+  def index     
         @categories = Category.find_all_by_is_popular(true, :limit => 5)
         
         @products = Product.find_all_by_is_popular(true, :limit => 4)
+        
+        @product = Product.new
   end
   
 end

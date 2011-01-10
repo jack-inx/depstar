@@ -11,6 +11,25 @@ function add_fields(link, association, content) {
   });
 }	
 
+$(document).ready(function() {
+	$('input.submittable').each(function(elmt) { 
+		elmt.observe('click', function(ev) {
+			this.form.request({
+				onSuccess: function(response) {eval(response)}
+			});
+		});
+	});
+		
+	$('href.submittable').each(function(elmt) { 
+		elmt.observe('click', function(ev) {
+			this.form.request({
+				onSuccess: function(response) {eval(response)}
+			});
+		});
+	});
+});
+
+/*
 document.observe('dom:loaded', function() {
 	$$('input.submittable').each(function(elmt) { 
 		elmt.observe('click', function(ev) {
@@ -28,3 +47,4 @@ document.observe('dom:loaded', function() {
 		});
 	});
 });
+*/

@@ -9,7 +9,12 @@ group :development do
 	gem 'sqlite3-ruby', :require => 'sqlite3'
 	gem 'hirb'
 	gem "nifty-generators"
+	gem 'ruby-debug'
 end
 
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
-gem "mocha", :group => :test
+gem 'mocha', :group => :test
+
+gem 'rails3-jquery-autocomplete'
+
+gem 'jquery-rails', '>= 0.2.6'

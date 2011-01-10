@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<div style='padding: 0px 20px 0px 20px; '>
+	<% @products.each do |product| %>
+	<div style="height: 220px; float: left; width: 200px; text-align: center;">
+		<div>
+			<%= link_to product.name, product %>
+		</div>
+		<div>
+			<%= link_to image_tag(product.photo.url(:small)), product %>
+		</div>
+		<div>		
+			<%= link_to "Sell yours now", product %>
+			<% if current_user %>
+				<br/>
+				<%= link_to 'Show', product %>
+    			<%= link_to 'Edit', edit_product_path(product) %>
+    			<%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %>
+			<% end %>
+		</div>	
+	</div>
+	<% end %>
+
+</div>
+
+<% if current_user %>
+<div class='clear'> &nbsp; </div>
+
+<div style='padding: 10px;'>
+		<%= link_to 'New Product', new_product_path %>	
+</div>
+<% end %>

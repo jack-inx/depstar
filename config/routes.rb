@@ -4,7 +4,8 @@ Trunk::Application.routes.draw do  #match 'get_quote' => 'price_quotes#get_quote
   resources :categories
   resources :shipping_details
   
-  resources :products  
+  resources :products
+  match 'search', :controller => "products", :action => "search"
   match 'get_quote'     => 'products#get_quote'
   match 'accept_quote'  => 'products#accept_quote'
   
@@ -14,6 +15,10 @@ Trunk::Application.routes.draw do  #match 'get_quote' => 'price_quotes#get_quote
   match 'home' => 'home#index'
   match 'dev' => 'home#index'
   match 'root' => 'home#index'
+
+  get "home/show"
+  root :to => "home#show"  
+  get 'home/autocomplete_product_name'
   
   resources :users, :user_sessions
   match 'login' => 'user_sessions#new', :as => :login
