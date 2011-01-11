@@ -14,26 +14,26 @@
 		<% if @shipping_detail.product.category.try(:question_1_is_enabled) %>
 			<p>
 				<b><%= @shipping_detail.product.category.question_1_name %> </b> <br/>
-				<%= radio_button_tag('question_response', 'question_1', (@shipping_detail.question_response.question_1 == "True" ? true : false), :disabled => true) %> Yes
-				<%= radio_button_tag('question_response', 'question_1', (@shipping_detail.question_response.question_1 == "True" ? false : true), :disabled => true) %> No
+				<%= radio_button_tag('question_response1', 'question_1', (@shipping_detail.question_response.question_1 == "True" ? true : false), :disabled => true) %> Yes
+				<%= radio_button_tag('question_response1', 'question_1', (@shipping_detail.question_response.question_1 == "True" ? false : true), :disabled => true) %> No
 			</p>
 		<% end %>
 
 		<% if @shipping_detail.product.category.try(:question_2_is_enabled) %>
 			<p>
 				<b><%= @shipping_detail.product.category.question_2_name %> </b> <br/>
-				<%= radio_button_tag('question_response', 'question_2', (@shipping_detail.question_response.question_2 == "True" ? true : false), :disabled => true) %> Yes
-				<%= radio_button_tag('question_response', 'question_2', (@shipping_detail.question_response.question_2 == "True" ? false : true), :disabled => true) %> No
+				<%= radio_button_tag('question_response2', 'question_2', (@shipping_detail.question_response.question_2 == "True" ? true : false), :disabled => true) %> Yes
+				<%= radio_button_tag('question_response2', 'question_2', (@shipping_detail.question_response.question_2 == "True" ? false : true), :disabled => true) %> No
 			</p>
 		<% end %>
 
 		<% if @shipping_detail.product.category.try(:question_3_is_enabled) %>
 			<p>
 				<b><%= @shipping_detail.product.category.question_3_name %> </b> <br/>
-				<%= radio_button_tag('question_response', 'question_3', (@shipping_detail.question_response.question_3 == "1" ? true : false), :disabled => true) %> Poor <br/>
-				<%= radio_button_tag('question_response', 'question_3', (@shipping_detail.question_response.question_3 == "2" ? true : false), :disabled => true) %> Fair <br/>
-				<%= radio_button_tag('question_response', 'question_3', (@shipping_detail.question_response.question_3 == "3" ? true : false), :disabled => true) %> Good <br/>
-				<%= radio_button_tag('question_response', 'question_3', (@shipping_detail.question_response.question_3 == "4" ? true : false), :disabled => true) %> Perfect <br/>
+				<%= radio_button_tag('question_response3', 'question_3', (@shipping_detail.question_response.question_3 == "1" ? true : false), :disabled => true) %> Poor <br/>
+				<%= radio_button_tag('question_response3', 'question_3', (@shipping_detail.question_response.question_3 == "2" ? true : false), :disabled => true) %> Fair <br/>
+				<%= radio_button_tag('question_response3', 'question_3', (@shipping_detail.question_response.question_3 == "3" ? true : false), :disabled => true) %> Good <br/>
+				<%= radio_button_tag('question_response3', 'question_3', (@shipping_detail.question_response.question_3 == "4" ? true : false), :disabled => true) %> Perfect <br/>
 			</p>
 		<% end %>
 
