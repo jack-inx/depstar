@@ -9,7 +9,7 @@
 	<div class="conditions">		
 		<h3><%= @shipping_detail.product.name %></h3>
 		
-		<h4>Amount you will receive: <%=  number_to_currency(@shipping_detail.product.question_response.quote) %>
+		<h4>Amount you will receive: <%=  number_to_currency(@shipping_detail.question_response.quote) %>
 		
 		<% if @shipping_detail.product.category.try(:question_1_is_enabled) %>
 			<p>
