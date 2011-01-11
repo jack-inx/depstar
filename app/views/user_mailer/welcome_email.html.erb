@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Welcome to depstar.com, <%= @shipping_detail.first_name %></h1>
+
+	<div class="image">						
+		<%= image_tag @shipping_detail.product.photo.url(:small) %>
+	</div>
+	<div class="conditions">		
+		<h3><%= @shipping_detail.product.name %></h3>
+		
+		<% if @shipping_detail.product.category.try(:question_1_is_enabled) %>
+			<p>
+				<b><%= @shipping_detail.product.category.question_1_name %> </b> <br/>
+				<%= radio_button_tag(:question_response, :question_1, "True", :disabled => true) %> Yes
+				<%= radio_button_tag(:question_response, :question_1, "False", :disabled => true) %> No
+			</p>
+		<% end %>
+
+		<% if @shipping_detail.product.category.try(:question_2_is_enabled) %>
+			<p>
+				<b><%= @shipping_detail.product.category.question_2_name %> </b> <br/>
+				<%= radio_button_tag(:question_response, :question_2, "True", :disabled => true) %> Yes
+				<%= radio_button_tag(:question_response, :question_2, "False", :disabled => true) %> No
+			</p>
+		<% end %>
+
+		<% if @shipping_detail.product.category.try(:question_3_is_enabled) %>
+			<p>
+				<b><%= @shipping_detail.product.category.question_3_name %> </b> <br/>
+				<%= radio_button_tag(:question_response, :question_3, "1", :disabled => true) %> Poor <br/>
+				<%= radio_button_tag(:question_response, :question_3, "2", :disabled => true) %> Fair <br/>
+				<%= radio_button_tag(:question_response, :question_3, "3", :disabled => true) %> Good <br/>
+				<%= radio_button_tag(:question_response, :question_3, "4", :disabled => true) %> Perfect <br/>						
+			</p>
+		<% end %>
+
+		<% if @shipping_detail.product.category.try(:question_4_is_enabled) %>
+			<% unless @shipping_detail.question_response.question_4.nil? %>
+			<p>
+				<b><%= @shipping_detail.product.category.question_4_name %> </b> <br/>
+				<% @shipping_detail.product.category.question_options.each do |question_option| %>						
+						<%= check_box_tag "question_response[question_4][]", question_option.id, (@shipping_detail.question_response.question_4.split(", ").include?(question_option.id.to_s) ? true : false), :disabled => true %> <%= question_option.name %> <br/>
+				<% end %>
+			</p>
+			<% end %>
+		<% end %>
+			
+	</div>
+	<div class="customer-details">
+		<p>
+		  <b>Name:</b>
+		  <%= @shipping_detail.first_name %> <%= @shipping_detail.last_name %>
+		</p>
+		
+		<p>
+		  <b>Email:</b>
+		  <%= @shipping_detail.email %>
+		</p>	
+		
+		<p>
+		  <b>Address:</b>
+		  <%= @shipping_detail.address1 %>; <%= @shipping_detail.address2 %><br/>
+		  <%= @shipping_detail.city %>, <%= @shipping_detail.state %> <%= @shipping_detail.zip %>
+		</p>
+			
+		<p>
+		  <b>Payment method:</b>
+		  <%= @shipping_detail.payment_method.name %>
+		</p>
+		
+		<% if @shipping_detail.payment_method.short_code == "paypal" %>
+		<p>
+		  <b>Paypal email:</b>
+		  <%= @shipping_detail.paypal_email %>
+		</p>
+		<% end %>
+		
+		<p>
+		  <b>Do you requires a box?</b>
+		  <%= (@shipping_detail.requires_box ? "Yes" : "No" ) %>
+		</p>
+	</div>
+
+
+
+    <p>Have a great day!</p>
+  </body>
+</html>
