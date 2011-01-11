@@ -11,7 +11,7 @@ class UserMailer < ActionMailer::Base
   def new_quote_request_email(shipping_detail)
     @shipping_detail = shipping_detail
     
-    mail(:to => 'charles.palleschi@gmail.com, charlie@reverejournal.com',
+    mail(:to => 'bijancronin@gmail.com, jacobresnek@gmail.com',
          :subject => "New Quote Request")
   end
   
