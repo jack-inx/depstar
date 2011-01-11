@@ -4,34 +4,33 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>Thanks for selecting Depstar.com, <%= @shipping_detail.first_name %></h1>
-
 	<div class="conditions">		
 		<h3><%= @shipping_detail.product.name %></h3>
+		<h4>Amount paid to user: <%=  number_to_currency(@shipping_detail.product.question_response.quote) %>		
 		
 		<% if @shipping_detail.product.category.try(:question_1_is_enabled) %>
 			<p>
 				<b><%= @shipping_detail.product.category.question_1_name %> </b> <br/>
-				<%= radio_button_tag('question_response', 'question_1', (@shipping_detail.question_response.question_1 == "True" ? true : false), :disabled => true) %> Yes
-				<%= radio_button_tag('question_response', 'question_1', (@shipping_detail.question_response.question_1 == "True" ? false : true), :disabled => true) %> No
+				<%= radio_button_tag('question_response', 'question_1', :checked => (@shipping_detail.question_response.question_1 == "True" ? "checked" : ""), :disabled => true) %> Yes
+				<%= radio_button_tag('question_response', 'question_1', :checked => (@shipping_detail.question_response.question_1 == "True" ? "" : "checked"), :disabled => true) %> No
 			</p>
 		<% end %>
 
 		<% if @shipping_detail.product.category.try(:question_2_is_enabled) %>
 			<p>
 				<b><%= @shipping_detail.product.category.question_2_name %> </b> <br/>
-				<%= radio_button_tag('question_response', 'question_2', (@shipping_detail.question_response.question_2 == "True" ? true : false), :disabled => true) %> Yes
-				<%= radio_button_tag('question_response', 'question_2', (@shipping_detail.question_response.question_2 == "True" ? false : true), :disabled => true) %> No
+				<%= radio_button_tag('question_response', 'question_2', :checked => (@shipping_detail.question_response.question_2 == "True" ? "checked" : ""), :disabled => true) %> Yes
+				<%= radio_button_tag('question_response', 'question_2', :checked => (@shipping_detail.question_response.question_2 == "True" ? "" : "checked"), :disabled => true) %> No
 			</p>
 		<% end %>
 
 		<% if @shipping_detail.product.category.try(:question_3_is_enabled) %>
 			<p>
 				<b><%= @shipping_detail.product.category.question_3_name %> </b> <br/>
-				<%= radio_button_tag('question_response', 'question_3', (@shipping_detail.question_response.question_3 == "1" ? true : false), :disabled => true) %> Poor <br/>
-				<%= radio_button_tag('question_response', 'question_3', (@shipping_detail.question_response.question_3 == "2" ? true : false), :disabled => true) %> Fair <br/>
-				<%= radio_button_tag('question_response', 'question_3', (@shipping_detail.question_response.question_3 == "3" ? true : false), :disabled => true) %> Good <br/>
-				<%= radio_button_tag('question_response', 'question_3', (@shipping_detail.question_response.question_3 == "4" ? true : false), :disabled => true) %> Perfect <br/>
+				<%= radio_button_tag('question_response', 'question_3', :checked => (@shipping_detail.question_response.question_3 == "1" ? "checked" : ""), :disabled => true) %> Poor <br/>
+				<%= radio_button_tag('question_response', 'question_3', :checked => (@shipping_detail.question_response.question_3 == "2" ? "checked" : ""), :disabled => true) %> Fair <br/>
+				<%= radio_button_tag('question_response', 'question_3', :checked => (@shipping_detail.question_response.question_3 == "3" ? "checked" : ""), :disabled => true) %> Good <br/>
+				<%= radio_button_tag('question_response', 'question_3', :checked => (@shipping_detail.question_response.question_3 == "4" ? "checked" : ""), :disabled => true) %> Perfect <br/>
 			</p>
 		<% end %>
 
@@ -77,13 +76,10 @@
 		<% end %>
 		
 		<p>
-		  <b>Do you requires a box?</b>
+		  <b>Do they requires a box?</b>
 		  <%= (@shipping_detail.requires_box ? "Yes" : "No" ) %>
 		</p>
 	</div>
 
-
-
-    <p>Have a great day!</p>
   </body>
 </html>
