@@ -453,25 +453,23 @@ q:after{content:''}
 	font-size:14px;
 	line-height:18px;
 }
-.product-description .aside{
+.product-description .aside {
 	width:226px;
 	float:right;
 }
-.box-pay{
-	width:174px;
-	height:191px;
+.box-pay {
+	width:  199px;
+	height: 202px;
 	background:url(../images/bg-box-pay.gif) no-repeat;
 	font-size:18px;
 	font-weight:bold;
-	margin:0 0 15px;
-	padding:31px 0 0 25px;
+	margin: 0px 0px 0px 0px;	
+	padding: 20px 0px;	
 	color:#484747;
 }
-.box-pay span{
-	display:block;
-	font-weight:bold;
-	font-size:18px;
-	line-height:20px;
+.box-pay span {
+	font-weight: bold;
+	font-size: 18px;
 }
 .box-pay strong{
 	font-size:72px;
