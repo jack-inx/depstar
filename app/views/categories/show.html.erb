@@ -2,6 +2,7 @@
 <p id="notice"><%= notice %></p>
 
 <div style='padding: 0px 20px 0px 20px; '>
+<!--
 	<% @category.products.each do |product| %>
 	<div style="height: 220px; float: left; width: 200px; text-align: center;">
 		<div>
@@ -10,11 +11,39 @@
 		<div>
 			<%= link_to image_tag(product.photo.url(:small)), product %>
 		</div>
-		<div>		
+		<div>
 			<%= link_to "Sell yours now", product %>
-		</div>	
+		</div>
 	</div>
 	<% end %>
+-->
+	
+	<div class="products-holder">
+		<div class="">
+			<div class="b">
+				<ul class="list-products">								
+					
+					<% @category.products.each do |product| %>
+					<div style="float: left; width: 200px; text-align: center;">
+						<li style='padding-top: 0px; height: 250px;'>
+							<a href="#">
+								<%= link_to image_tag(product.photo.url(:small)), product %>
+							</a>
+							<ul style='position: relative; top: 10px;'>
+								<li><strong><%= product.name %></strong></li>
+								<li>
+									<%= link_to "Sell yours now", product %>
+								</li>
+							</ul>
+						</li>
+					</div>
+					<% end %>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	
 </div>
 
 <!--
