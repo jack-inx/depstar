@@ -1,0 +1,18 @@
+<div id="header">
+	<div class="header-holder">
+		<h1 class="logo"><%= link_to 'Depstar', dev_path %></h1>
+			<%= form_for :product, :url => { :controller => "products", :action => "search" }, :html => { :class => 'search-form' } do |f|%>
+				<fieldset>
+					<label for="sell">SELL YOUR ITEM</label>
+					<div class="text">
+						 <%= text_field_tag 'name', '', :autocomplete => home_autocomplete_product_name_path, :value => "example: Apple iPhone 4", :class => 'cleardefault' %>
+					</div>
+					<%= f.submit :value => 'GO', :class => 'btn-search' %>
+				</fieldset>
+			<% end %>
+		<div class="chat-holder">
+			<h2><a href="#">Live Chat</a></h2>
+			<span>8am - 8pm EST</span>
+		</div>
+	</div>
+</div>

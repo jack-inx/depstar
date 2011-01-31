@@ -24,132 +24,44 @@
 			<div class="wrapper-t"></div>
 				<div class="wrapper-c">
 					<div class="wrapper-holder">
-						<div id="header">
-							<div class="header-holder">
-								<h1 class="logo"><%= link_to 'Depstar', dev_path %></h1>
-								<%= form_for :product, :url => { :controller => "products", :action => "search" }, :html => { :class => 'search-form' } do |f|%>
-									<fieldset>
-										<label for="sell">SELL YOUR ITEM</label>
-										<div class="text">
-											 <%= text_field_tag 'name', '', :autocomplete => home_autocomplete_product_name_path, :value => "example: Apple iPhone 4", :class => 'cleardefault' %>
-										</div>
-										<%= f.submit :value => 'GO', :class => 'btn-search' %>
-									</fieldset>
-								<% end %>
-							</div>
-							<div class="nav-holder">
-								&nbsp;
-								<!--
-								<ul id="nav">
-									<li><a href="#"><span>FIND A PRODUCT</span></a></li>
-									<li><a href="#"><span>HOW IT WORKS</span></a></li>
-									<li><a href="#"><span>WHAT WE DO</span></a></li>
-								</ul>
-								-->								
-							</div>
-						</div>
+						
+						<%= render "layouts/header" %>
+						
 						<div class="promo">
 							<div class="promo-holder">
-								<div class="promo-frame">								
-									<%= yield %>									
-								</div>
+								<div class="promo-frame">
+									<%= yield %>
+								</div>								
 							</div>
 						</div>
-						<div class="threecolumns">
-							<div class="threecolumns-holder">
-								<div class="column">
-									<strong class="title"><em>Corporate</em> Bulk Sell</strong>
-									<span class="text">Do you own a business? Let us get you cash for your old electronics.</span>
-									<%= link_to corporate_path, :class => 'more' do %>
-										<span>more</span><em></em>
-									<% end %>
-									
-								</div>
-								<div class="column">
-									<strong class="title"><em>Go Green</em> and Recycle</strong>
-									<span class="text">Who says it pays to be green? Depstardoes! We reward earth consciouspeople.</span>
-									
-									<%= link_to go_green_path, :class => 'more' do %>
-										<span>more</span><em></em>
-									<% end %>
-								</div>
-								<div class="column">
-									<strong class="title"><em>Get Paid</em>, Paypal or Check</strong>
-									<span class="text">Depstar pays you cash for your electronics.Get paid instantly through PayPal or requesta check.</span>
-									<%= link_to get_paid_path, :class => 'more' do %>
-										<span>more</span><em></em>
-									<% end %>
-								</div>
-							</div>
-						</div>
-						<div id="main">
+						
+						<%= render "layouts/threecolumns" %>
+						
+						<div id="main">						
 							<div id="content">
 								<h2>So what is Depstar.com all about?</h2>
-								<p>Depstar is the fastest way to get paid for your electronics. Our facility is set up to get you more for your valuables. We are a “volume based concept.”  We have the manpower to process thousands of electronics daily. Having nearly 20 years experience in the buy/sell/trade business, we are experienced beyond our competition. Not only this, but unlike the competition we issue payment the moment we receive your goods. There is no waiting period to get paid.  Your first expierence will be the beginning of an ongoing relationship. We look forward to earning your business and getting you the most amount of money as possible.Depstar is the fastest way to get paid for your electronics. Our facility is set up to get you more for your valuables. We are a “volume based concept.”  We have the manpower to process thousands of electronics daily. Having nearly 20 years experience in the buy/sell/trade business, we are experienced beyond our competition. Not only this, but unlike the competition we issue payment the moment we receive your goods. There is no waiting period to get paid.  Your first expierence will be the beginning of an ongoing relationship. We look forward to earning your business and getting you the most amount of money as possible.</p>
+								<p>Depstar is the fastest way to get paid for your electronics. Our facility is set up to get you more for your valuables. We are a “volume based concept.”  We have the manpower to process thousands of electronics daily. Having nearly 20 years experience in the buy/sell/trade business, we are experienced beyond our competition. Not only this, but unlike the competition we issue payment the moment we receive your goods. There is no waiting period to get paid.  Your first experience will be the beginning of an ongoing relationship. We look forward to earning your business and getting you the most amount of money as possible.</p>
 							</div>
 							<div class="aside">
 								<h2>Testimonials</h2>
 								<blockquote>
-									<q>&quot;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.e laudantium, totam&quot;</q>
-									<cite>John and Mary Smith, Salem, MA</cite>
+									<q>&quot;Thank you so much for honoring your price. I sent in a iPhone and got more money than I ever thought possible.Thank you again.&quot;</q>
+									<cite>Kathy from Boise, Idaho.</cite>
 								</blockquote>
 								<blockquote>
-									<q>&quot;Sed ut perspiciatis unde omnis iste natus error de omnis sit volupta ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.e laudantium.&quot;</q>
-									<cite>John and Mary Smith, Salem, MA</cite>
+									<q>&quot;Great work Depstar. I even love the name. Its a good show you guys are running there. Very impressed with the service, keep up the good work.&quot;</q>
+									<cite>Trent from Philadelphia, Pennsylvania.</cite>
 								</blockquote>
 							</div>
 						</div>
-						<div id="footer">
-						<div class="footer-info">
-							<ul class="contact">
-								<li>&copy; 2010 <a href="#">Depstar.com</a></li>
-								<li>781-555-5555</li>
-								<li>1-800-555-5555</li>
-								<li><a href="mailto:&#032;&#105;&#110;&#102;&#111;&#064;&#100;&#101;&#112;&#115;&#116;&#097;&#114;&#046;&#099;&#111;&#109;">&#032;&#105;&#110;&#102;&#111;&#064;&#100;&#101;&#112;&#115;&#116;&#097;&#114;&#046;&#099;&#111;&#109;</a></li>
-							</ul>
-							<ul class="footer-nav">
-								<li><%= link_to 'Corporate', corporate_path, :class => 'more' %></li>
-								<li><%= link_to 'Go Green', go_green_path, :class => 'more' %></li>
-								<li><%= link_to 'Get A Check', get_paid_path, :class => 'more' %></li>
-								<!--
-								<li><a href="#">Search for your product</a></li>
-								<li><a href="#">Home</a></li>
-								<li><a href="#">How it works</a></li>
-								<li><a href="#">What Depstar Does</a></li>
-								<li><a href="#">Good for the Environment</a></li>
-								<li><a href="#">Donations</a></li>
-								<li><a href="#">FAQs</a></li>
-								<li><a href="#">Legal</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#"> Contact Us</a></li>
-								-->
-								<% if current_user %>
-									<li><%= link_to 'Logout', logout_url %></li>
-								<% end %>								
-								<li class="by">Website Design by <a href="#">Sparkwire Solutions</a></li>
-							</ul>
-						</div>
-						<ul class="social-networks">
-							<li>
-								<a href="#">
-									<img src="images/bg-facebook.gif" width="30" height="32" alt="image description" />
-									Become a fan on Facebook
-								</a>
-							</li>
-							<li>
-								<a href="http://twitter.com/depstarBUYSELL">
-									<img src="images/bg-twitter.gif" width="30" height="32" alt="image description" />
-									Follow us on Twitter
-								</a>
-							</li>
-						</ul>
-					</div>
+						
+						<%= render "layouts/footer" %>
+						
 					</div>
 				</div>
 			<div class="wrapper-b"></div>
 		</div>
 	</div>
 </div>
-
 </body>
 </html>

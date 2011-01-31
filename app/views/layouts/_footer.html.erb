@@ -1,0 +1,45 @@
+<div id="footer">
+	<div class="footer-info">
+		<ul class="contact">
+			<li>&copy; 2010 <a href="#">Depstar.com</a></li>
+			<li>781-555-5555</li>
+			<li>1-800-555-5555</li>
+			<li><a href="mailto:&#032;&#105;&#110;&#102;&#111;&#064;&#100;&#101;&#112;&#115;&#116;&#097;&#114;&#046;&#099;&#111;&#109;">&#032;&#105;&#110;&#102;&#111;&#064;&#100;&#101;&#112;&#115;&#116;&#097;&#114;&#046;&#099;&#111;&#109;</a></li>
+		</ul>
+		<ul class="footer-nav">
+			<li><%= link_to 'Corporate', corporate_path, :class => 'more' %></li>
+			<li><%= link_to 'Go Green', go_green_path, :class => 'more' %></li>
+			<li><%= link_to 'Get A Check', get_paid_path, :class => 'more' %></li>
+			<!--
+			<li><a href="#">Search for your product</a></li>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">How it works</a></li>
+			<li><a href="#">What Depstar Does</a></li>
+			<li><a href="#">Good for the Environment</a></li>
+			<li><a href="#">Donations</a></li>
+			<li><a href="#">FAQs</a></li>
+			<li><a href="#">Legal</a></li>
+			<li><a href="#">Privacy Policy</a></li>
+			<li><a href="#"> Contact Us</a></li>
+			-->
+			<% if current_user %>
+				<li><%= link_to 'Logout', logout_url %></li>
+			<% end %>
+			<li class="by">Website Design by <a href="#">Sparkwire Solutions</a></li>
+		</ul>
+	</div>
+	<ul class="social-networks">
+		<li>
+			<a href="#">
+				<img src="/images/bg-facebook.gif" width="30" height="32" alt="image description" />
+				Become a fan on Facebook
+			</a>
+		</li>
+		<li>
+			<a href="http://twitter.com/depstarBUYSELL">
+				<img src="/images/bg-twitter.gif" width="30" height="32" alt="image description" />
+				Follow us on Twitter
+			</a>
+		</li>
+	</ul>
+</div>
