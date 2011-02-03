@@ -2,21 +2,6 @@
 <p id="notice"><%= notice %></p>
 
 <div style='padding: 0px 20px 0px 20px; '>
-<!--
-	<% @category.products.each do |product| %>
-	<div style="height: 220px; float: left; width: 200px; text-align: center;">
-		<div>
-			<%= link_to product.name, product %>
-		</div>
-		<div>
-			<%= link_to image_tag(product.photo.url(:small)), product %>
-		</div>
-		<div>
-			<%= link_to "Sell yours now", product %>
-		</div>
-	</div>
-	<% end %>
--->
 	
 	<div class="products-holder">
 		<div class="">
@@ -32,7 +17,7 @@
 							<ul style='position: relative; top: 10px;'>
 								<li><strong><%= product.name %></strong></li>
 								<li>
-									<%= link_to "Sell yours now", product %>
+									<%= link_to "Sell Now", product %>
 								</li>
 							</ul>
 						</li>
@@ -45,8 +30,3 @@
 	</div>
 	
 </div>
-
-<!--
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
--->

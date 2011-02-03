@@ -700,17 +700,22 @@ h4
     float:none;
     height:auto;
     padding:0 5px;
-    margin:0;
-    width:130px;
+    margin: 6px 0 0 0;
+    width: 130px;
 }
 .list-products ul strong{
     font-size:12px;
     text-transform:uppercase;
 }
 .list-products ul a{
-    background:url(../images/arrow2.gif) no-repeat 100% 50%;
-    padding:0 12px 0 0;
-    text-transform:uppercase;
+    padding: 1px 15px;
+	margin-top: 5px;
+    font-size: 14px;
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	background-color: #77A473;
 }
 .conditions{
 	width:221px;
