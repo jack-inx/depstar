@@ -33,9 +33,13 @@
 			</script>
 		<% end %>
 	<div class="image">
-		&nbsp;
+		<%= image_tag @product.photo.url(:small) %>
+		<div style='text-align: center; width: 125px;'>
+			<span class='product-title'><%= @product.name %></span>
+		</div>
 	</div>  
 	<div class="conditions">
+		<h2>Your Information</h2>
 	  	<div>	  	
 		  	<%= label_tag nil, 'How would you like to receive your payment?' %> <br />
 			
@@ -54,7 +58,7 @@
 	
 	  <p>
 	    <%= f.label :requires_box, "Would you like us to send you a prepaid box?" %>
-	    <%= f.check_box :requires_box %>
+	    <%= f.check_box :requires_box %> Yes
 	  </p>
 	  <div class="field">
 	    <%= f.label :email %><br />
@@ -145,5 +149,11 @@
 	    <%= f.submit "Get Paid" %>
 	  </div>
 	<% end %>
+	</div>
+	<div class="aside">
+		<div class="info-box">
+			<h4>HOW DO WE CALCULATE YOUR OFFER?</h4>
+			<p>Depstar calculates your offer based on several different questions we ask you. Most importantly, we get you the best value for your product. Our team is constantly updating pricing and getting you the most for your item. We always beat our competitors and get you your money faster.</p>
+		</div>
 	</div>
 </div>

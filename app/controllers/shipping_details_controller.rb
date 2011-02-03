@@ -27,6 +27,7 @@ class ShippingDetailsController < ApplicationController
   # GET /shipping_details/new.xml
   def new
     @shipping_detail = ShippingDetail.new
+    @product = Product.find(params[:product_id])
     
     respond_to do |format|
       format.html # new.html.erb

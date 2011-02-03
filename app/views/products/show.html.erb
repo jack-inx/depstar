@@ -3,11 +3,13 @@
 	<!-- <form action="#"> -->
 		<fieldset>
 			<div class="image">
-				<a href="#">
-					<%= image_tag @product.photo.url(:small) %>
-				</a>
+				<%= image_tag @product.photo.url(:small) %>
+				<div style='text-align: center; width: 125px;'>
+					<span class='product-title'><%= @product.name %></span>
+				</div>
 			</div>
 			<div class="conditions">
+				<h2>Describe Your Item</h2>
 				<%= form_for @question_response, :method => :get, :remote => true do |f| %>
 					<p id="notice"><%= notice %></p>
 					<%= f.hidden_field :product_id, :value => @product.id %>
@@ -60,7 +62,7 @@
 				
 				<div class="info-box">
 					<h4>HOW DO WE CALCULATE YOUR OFFER?</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in tellus mauris. Morbi ut mauris sit amet ipsum feugiat dignissim id vitae arcu. Nulla vel sapien nisl, sed fringilla nibh. Proin hendrerit, purus ac tristique ornare, nibh risus facilisis turpis.</p>
+					<p>Depstar calculates your offer based on several different questions we ask you. Most importantly, we get you the best value for your product. Our team is constantly updating pricing and getting you the most for your item. We always beat our competitors and get you your money faster.</p>
 				</div>
 			</div>
 		</fieldset>

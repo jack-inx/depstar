@@ -4,10 +4,12 @@
 	</div>
 	<div class="image">						
 		<%= image_tag @shipping_detail.product.photo.url(:small) %>
+		<div style='text-align: center; width: 125px;'>
+			<span class='product-title'><%= @shipping_detail.product.name %></span>
+		</div>
 	</div>
-	<div class="conditions">		
-		<h3><%= @shipping_detail.product.name %></h3>
-		<h4>Amount you will receive:</h4>
+	<div class="conditions" style="padding-top: 0px;">		
+		<h4 style="margin-top: 0px;">Amount you will receive:</h4>
 		<%=  number_to_currency(@shipping_detail.question_response.quote) %>
 			
 		<%= form_for @shipping_detail.question_response, :method => :get, :remote => true do |f| %>

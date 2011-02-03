@@ -717,8 +717,8 @@ h4
 	text-align: center;
 	background-color: #77A473;
 }
-.conditions{
-	width:221px;
+.conditions {
+	width:270px;
 	float:left;
 	padding:10px 0 22px 4px;
 	font-size:14px;
@@ -775,6 +775,11 @@ h4
 	font-size:14px;
 	line-height:18px;
 }
+.conditions h2{
+	color: #77A473;
+	font-size: 26px;
+	margin-top: 0px;
+}
 .product-description .aside{
 	width:226px;
 	float:right;
@@ -793,12 +798,11 @@ h4
 	display:block;
 	font-weight:bold;
 	font-size:18px;
-	line-height:20px;
 }
 .box-pay strong{
 	font-size:72px;
 	display:block;
-	margin:0 0 17px 9px;
+	margin:0 0 17px 0px;
 }
 .box-pay .btn-paid{
 	float:left;
@@ -1234,4 +1238,10 @@ h4
 	padding:0 6px 6px 0;
 	margin:-5px 0 0;
 	position:relative;
+}
+.product-title {
+	font-size: 15px;
+	font-weight: bold;
+	color: #333;
+	text-align: center;
 }
