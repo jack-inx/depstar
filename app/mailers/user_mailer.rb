@@ -15,11 +15,11 @@ class UserMailer < ActionMailer::Base
          :subject => "New Quote Request")
   end
   
-  def test_email
-    mail(:from => 'charles.palleschi@gmail.com',
-      :to => 'info@depstar.com',
-      :subject => "This is test email",
-      :message => "It should get delivered to recipient inbox")
+  def corporate_contact_email(corporate_message)
+    @corporate_message = corporate_message
+    
+    mail(:to => 'info@depstar.com',
+      :subject => "Depstar - Corporate Contact")
   end
     
 end

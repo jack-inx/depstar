@@ -1,24 +1,36 @@
 <% content_for :title, "Corporate - " %>
 <p id="notice"><%= notice %></p>
 
+<% if @corporate_message.errors.any? %>
+	<div id="error_explanation">
+   		<h2><%= pluralize(@corporate_message.errors.count, "error") %> prohibited this message from being sent:</h2>
+   		<ul>
+   		<% @corporate_message.errors.full_messages.each do |msg| %>
+    		<li><%= msg %></li>
+   		<% end %>
+   		</ul>
+	</div>
+<% end %>
+
 <h2>Do you own a Business?</h2>
-<p>Worried about your company’s bottom line? Let Depstar get your company extra cash. We will buy anything that is sitting in your office. Let Depstar make a bid on your company’s used electronics. We will even buy your compan’s furniture and unused custodial supplies. We buy it all. Get an offer on everything. Please fill out the form below or simply click on live chat for instant service.</p>
-<form action="#" class="sell-form">
+	<p>Worried about your company’s bottom line? Let Depstar get your company extra cash. We will buy anything that is sitting in your office. Let Depstar make a bid on your company’s used electronics. We will even buy your company’s furniture and unused custodial supplies. We buy it all. Get an offer on everything. Please fill out the form below or simply click on live chat for instant service.</p>
+
+<%= form_for @corporate_message, :url => {:action => "index"}, :html => { :class => 'sell-form'} do |f| %>
 	<fieldset>
 		<div class="text-holder">
 			<div class="text">
-				<input class="text" type="text" value="Name" />
+				<%= f.text_field :name, :value => 'Name', :class => 'text' %>
 			</div>
 			<div class="text">
-				<input class="text" type="text" value="Email" />
+				<%= f.text_field :email, :value => 'Email', :class => 'text' %>
 			</div>
 			<div class="text">
-				<input class="text" type="text" value="Phone #" />
+				<%= f.text_field :phone, :value => 'Phone', :class => 'text' %>
 			</div>
 		</div>
 		<div class="textarea">
-			<textarea cols="30" rows="20">Questions? Items you want to sell?</textarea>
+			<%= f.text_area :message, :size => "30x20", :value => "Questions? Items you want to sell?" %>
 		</div>
 		<input type="submit" class="btn-sell-form" />
 	</fieldset>
-</form>
+<% end %>
