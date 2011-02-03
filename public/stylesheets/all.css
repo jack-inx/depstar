@@ -426,6 +426,24 @@ h4
 	color:#333;
 	text-decoration:none;
 }
+.all-categories .details {    
+	background-color: #77A473;
+	width: 145px;
+	text-align: center;	
+    padding: 2px 20px;
+	margin: 0px 5px;
+}
+.all-categories il a {
+	margin-top: 5px;
+    font-size: 14px;
+	font-weight: bold;
+	color: white;
+	text-decoration: none;	
+	text-align: left;
+}
+.all-categories a:hover {
+	color: #333;
+}
 .inner .list-categories .active a,
 .inner .list-categories a:hover{
 	background:url(../images/arrow.gif) no-repeat 255px 50%;

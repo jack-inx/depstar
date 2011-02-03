@@ -1,25 +1,30 @@
 <% content_for :title, "Categories - " %>
 <p id="notice"><%= notice %></p>
 
-<div style='padding: 0px 20px 0px 20px; '>
-	<% @categories.each do |category| %>
-	<div style="min-height: 50px; float: left; width: 200px; text-align: center;">
-		<div>
-			<%= link_to category.name, category %>
+<div class='all-categories' style='padding: 0px 10px 0px 10px; '>
+	<ul>
+		<% @categories.each do |category| %>
+		<il>
+		<div style="min-height: 50px; float: left; width: 200px; text-align: center;">
+			
+			<div class='details'>
+				<%= link_to category.name, category %>
+			</div>			
+		
+			<% if current_user %>
+			<div>
+					<br/>
+					<%= link_to 'Show', category %>
+	    			<%= link_to 'Edit', edit_category_path(category) %>
+	    			<%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %>			
+			</div>	
+			<% end %>
+		
 		</div>
-		
-		<% if current_user %>
-		<div>
-				<br/>
-				<%= link_to 'Show', category %>
-    			<%= link_to 'Edit', edit_category_path(category) %>
-    			<%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %>			
-		</div>	
+		</il>
 		<% end %>
-		
-	</div>
-	<% end %>
-
+	</ul>
+	
 </div>
 
 <% if current_user %>
@@ -29,32 +34,3 @@
 		<%= link_to 'New Category', new_category_path %>
 </div>
 <% end %>
-
-
-<!--
-<h1>Listing categories</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Is popular</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= category.name %></td>
-    <td><%= category.is_popular %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Category', new_category_path %>
--->
