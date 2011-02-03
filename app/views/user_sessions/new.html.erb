@@ -1,16 +1,16 @@
 <% title "Login" %>
 
-<%= form_for @user_session do |f| %>
-  <p id="notice"><%= notice %></p>
-  <p>
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
-<% end %>
-	
-
+<div style="margin: 0px 10px;">
+	<%= form_for @user_session do |f| %>
+	  <p id="notice"><%= notice %></p>
+	  <p>
+	    <%= f.label :username %><br />
+	    <%= f.text_field :username %>
+	  </p>
+	  <p>
+	    <%= f.label :password %><br />
+	    <%= f.password_field :password %>
+	  </p>
+	  <p><%= f.submit "Submit" %></p>
+	<% end %>
+</div>
