@@ -1,5 +1,5 @@
 class ShippingDetailsController < ApplicationController
-  before_filter :authorize, :except => [:show, :new, :create]
+  before_filter :authorize, :except => [:new, :create, :confirm]
   
   # GET /shipping_details
   # GET /shipping_details.xml
@@ -20,6 +20,14 @@ class ShippingDetailsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @shipping_detail }
+    end
+  end
+  
+  def confirm
+    @shipping_detail = ShippingDetail.new(params[:shipping_detail])
+    unless @shipping_detail.valid?
+      render :action => :new
+    else       
     end
   end
 

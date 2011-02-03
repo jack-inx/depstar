@@ -3,6 +3,7 @@ Trunk::Application.routes.draw do  #match 'get_quote' => 'price_quotes#get_quote
   resources :question_response
   resources :categories
   resources :shipping_details
+  match 'shipping_details/confirm', :controller => :shipping_details, :action => :confirm
   
   resources :products
   match 'search', :controller => "products", :action => "search"
