@@ -1,6 +1,6 @@
 <%= form_for :product, :url => { :controller => "products", :action => "search" }, :html => { :class => 'cash-form' } do |f|%>	
 	<fieldset>
-		<label for="text">Get Cash Now!</label>
+		<label for="text">Start Selling Now!</label>
 		<div class="text">
 			<!-- <input id="text" type="text" value="example: Apple iPhone 4" /> -->
 			<%= text_field_tag 'name', '', :autocomplete => home_autocomplete_product_name_path, :value => "example: Apple iPhone 4", :class => 'cleardefault' %>
