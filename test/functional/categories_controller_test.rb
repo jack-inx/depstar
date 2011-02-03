@@ -1,7 +1,10 @@
 require 'test_helper'
+require 'authlogic/test_case'
 
 class CategoriesControllerTest < ActionController::TestCase
+  
   setup do
+    activate_authlogic
     @category = categories(:one)
   end
 
@@ -12,11 +15,13 @@ class CategoriesControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
+    UserSession.create(users(:one))    
     get :new
     assert_response :success
   end
 
   test "should create category" do
+    UserSession.create(users(:one))
     assert_difference('Category.count') do
       post :create, :category => @category.attributes
     end
@@ -30,16 +35,19 @@ class CategoriesControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
+    UserSession.create(users(:one))
     get :edit, :id => @category.to_param
     assert_response :success
   end
 
   test "should update category" do
+    UserSession.create(users(:one))
     put :update, :id => @category.to_param, :category => @category.attributes
     assert_redirected_to category_path(assigns(:category))
   end
 
   test "should destroy category" do
+    UserSession.create(users(:one))
     assert_difference('Category.count', -1) do
       delete :destroy, :id => @category.to_param
     end

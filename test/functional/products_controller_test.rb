@@ -1,7 +1,9 @@
 require 'test_helper'
+require 'authlogic/test_case'
 
 class ProductsControllerTest < ActionController::TestCase
   setup do
+    activate_authlogic
     @product = products(:one)
   end
 
@@ -12,11 +14,13 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
+    UserSession.create(users(:one))
     get :new
     assert_response :success
   end
 
   test "should create product" do
+    UserSession.create(users(:one))
     assert_difference('Product.count') do
       post :create, :product => @product.attributes
     end
@@ -35,16 +39,19 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
+    UserSession.create(users(:one))
     get :edit, :id => @product.to_param
     assert_response :success
   end
 
   test "should update product" do
+    UserSession.create(users(:one))
     put :update, :id => @product.to_param, :product => @product.attributes
     assert_redirected_to product_path(assigns(:product))
   end
 
   test "should destroy product" do
+    UserSession.create(users(:one))
     assert_difference('Product.count', -1) do
       delete :destroy, :id => @product.to_param
     end
