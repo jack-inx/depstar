@@ -1,12 +1,13 @@
-<form action="#" class="cash-form">
+<%= form_for :product, :url => { :controller => "products", :action => "search" }, :html => { :class => 'cash-form' } do |f|%>	
 	<fieldset>
 		<label for="text">Get Cash Now!</label>
 		<div class="text">
-			<input id="text" type="text" value="example: Apple iPhone 4" />
+			<!-- <input id="text" type="text" value="example: Apple iPhone 4" /> -->
+			<%= text_field_tag 'name', '', :autocomplete => home_autocomplete_product_name_path, :value => "example: Apple iPhone 4", :class => 'cleardefault' %>
 		</div>
-		<input type="submit" class="btn-go" />
+		<%= f.submit :class => 'btn-go' %>
 	</fieldset>
-</form>
+<% end %>
 <div id="sidebar">
 	<ul class="list-categories">
 		<% @categories.each do |category| %>
