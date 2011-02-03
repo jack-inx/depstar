@@ -4,12 +4,11 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
   def index
-
-	unless(params[:popular] == 'true')
-		@products = Product.all
-	else	
-		@products = Product.find_all_by_is_popular(true)
-	end
+	  unless(params[:popular] == 'true')
+  		@products = Product.all
+  	else	
+  		@products = Product.find_all_by_is_popular(true)
+  	end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,17 +17,12 @@ class ProductsController < ApplicationController
   end
   
   def search
-    
-    #debugger     
-    #@products = Product.all
-    
     @products = Product.find(:all, :conditions => "name like '%"+params[:name]+"%'")
     
     respond_to do |format|
       format.html
       format.xml  { render :xml => @products }
     end
-    
   end
   
   def get_quote 

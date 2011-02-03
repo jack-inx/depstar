@@ -2,26 +2,35 @@
 <p id="notice"><%= notice %></p>
 
 <div style='padding: 0px 20px 0px 20px; '>
-	<% @products.each do |product| %>
-	<div style="height: 220px; float: left; width: 200px; text-align: center;">
-		<div>
-			<%= link_to product.name, product %>
+	
+	<ul class="list-products">
+	
+		<% @products.each do |product| %>
+		<div style="height: 220px; float: left; width: 200px; text-align: center;">
+			<li style='padding-top: 0px; height: 250px;'>
+				<div>
+					<%= link_to image_tag(product.photo.url(:small)), product %>
+				</div>
+				<div>	
+					<ul style='position: relative; top: 10px;'>
+						<li><strong><%= product.name %></strong></li>
+						<li>
+							<%= link_to "Sell Now", product %>
+						</li>
+					</ul>
+					<% if current_user %>
+						<br/>
+						<%= link_to 'Show', product %>
+		    			<%= link_to 'Edit', edit_product_path(product) %>
+		    			<%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %>
+					<% end %>
+				</div>	
+			</li>
 		</div>
-		<div>
-			<%= link_to image_tag(product.photo.url(:small)), product %>
-		</div>
-		<div>		
-			<%= link_to "Sell yours now", product %>
-			<% if current_user %>
-				<br/>
-				<%= link_to 'Show', product %>
-    			<%= link_to 'Edit', edit_product_path(product) %>
-    			<%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %>
-			<% end %>
-		</div>	
-	</div>
-	<% end %>
+		<% end %>
 
+	</ul>
+	
 </div>
 
 <% if current_user %>
