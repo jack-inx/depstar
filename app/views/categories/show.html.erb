@@ -11,8 +11,11 @@
 					<% @category.products.each do |product| %>
 					<div style="float: left; width: 200px; text-align: center;">
 						<li style='padding-top: 0px; margin: 0px 0px 50px 0px;'>
-							<%= link_to image_tag(product.photo.url(:small)), product %>
 							<ul style='position: relative; top: 10px;'>
+								<li>
+									<%= image_tag(product.photo.url(:small)) %>
+									<%#= link_to image_tag(product.photo.url(:small)), product %>
+								</li>
 								<li style='min-height: 30px;'><strong><%= product.name %></strong></li>
 								<li>
 									<%= link_to "Sell Now", product %>

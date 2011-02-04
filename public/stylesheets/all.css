@@ -691,8 +691,8 @@ h4
 }
 .list-products img{
     vertical-align:top;
-    margin-left: 22px; 
-    margin-right: 22px;
+    margin-left: 0px; 
+    margin-right: 0px;
 }
 .list-products li{
     width:169px;
