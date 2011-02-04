@@ -3,7 +3,9 @@
 	<!-- <form action="#"> -->
 		<fieldset>
 			<div class="image">
-				<%= image_tag @product.photo.url(:small) %>
+				<div style='margin-bottom: 10px'>
+					<%= image_tag @product.photo.url(:small) %>
+				</div>
 				<div style='text-align: center; width: 125px;'>
 					<span class='product-title'><%= @product.name %></span>
 				</div>

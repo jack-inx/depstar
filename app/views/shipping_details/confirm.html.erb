@@ -3,7 +3,9 @@
 		<h3 id="notice"><%= notice %></h3>
 	</div>
 	<div class="image">						
-		<%= image_tag @shipping_detail.product.photo.url(:small) %>
+		<div style='margin-bottom: 10px'>
+			<%= image_tag @shipping_detail.product.photo.url(:small) %>
+		</div>
 		<div style='text-align: center; width: 125px;'>
 			<span class='product-title'><%= @shipping_detail.product.name %></span>
 		</div>
