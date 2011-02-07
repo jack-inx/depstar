@@ -749,6 +749,12 @@ h4
 	font-weight:bold;
 	line-height:20px;
 }
+.customer-details {
+	width: 225px; 
+	word-wrap: break-word;
+	float: left;
+}
+
 .product-description .conditions .row-1{
 	padding:0 0 11px;
 }
