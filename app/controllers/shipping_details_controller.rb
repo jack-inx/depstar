@@ -36,6 +36,7 @@ class ShippingDetailsController < ApplicationController
   def new
     @shipping_detail = ShippingDetail.new
     @product = Product.find(params[:product_id])
+    @question_response = QuestionResponse.find(params[:question_response_id])
     
     respond_to do |format|
       format.html # new.html.erb
