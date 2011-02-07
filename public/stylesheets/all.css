@@ -92,7 +92,7 @@ h4
 	width:330px;
 	height:70px;
 	background:url(../images/logo.gif) no-repeat;
-	margin:0 10px 0 -1px;
+	margin:0 15px 0 -1px;
 	overflow:hidden;
 	text-indent:-9999px;
 	position:relative;
@@ -104,8 +104,8 @@ h4
 }
 .search-form{
 	float:left;
-	padding:9px 0px 0 0;
-	width:490px;
+	padding:9px 10px 0 0;
+	width:497px;
 	position:relative;
 }
 .inner .search-form{
@@ -117,7 +117,7 @@ h4
 	font-weight:bold;
 	font-size:18px;
 	line-height:20px;
-	padding:8px 10px 0 0;
+	padding:8px 18px 0 0;
 }
 .inner .search-form label{
 	padding:6px 6px 0 0;
@@ -170,12 +170,9 @@ h4
 	overflow:hidden;
 }
 .chat-holder {
-	/* 
 	float:left; 
 	padding:12px 0 0 19px;
-	*/
-	background:url(../images/divider.gif) no-repeat 0 10px;	
-	padding: 4px 2px 0px 0px;
+	background:url(../images/divider.gif) no-repeat 0 10px;
 }
 .chat-holder h2{
 	margin:0 0 1px 3px;
