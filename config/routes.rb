@@ -28,6 +28,8 @@ Trunk::Application.routes.draw do  #match 'get_quote' => 'price_quotes#get_quote
   match 'corporate' => 'corporate#index'
   match 'go_green' => 'go_green#index'
   match 'get_paid' => 'get_paid#index'
+  
+  match 'privacy_policy' => 'privacy_policy#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
