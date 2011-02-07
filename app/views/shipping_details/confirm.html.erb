@@ -10,7 +10,8 @@
 			<span class='product-title'><%= @shipping_detail.product.name %></span>
 		</div>
 	</div>
-	<div class="conditions" style="padding-top: 0px;">		
+	<div class="conditions" style="padding-top: 0px;">
+		<h2>Order Confirmation</h2>
 		<h4 style="margin-top: 0px;">Amount you will receive:</h4>
 		<%=  number_to_currency(@shipping_detail.question_response.quote) %>
 			
