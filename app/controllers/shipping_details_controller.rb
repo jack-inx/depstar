@@ -25,10 +25,14 @@ class ShippingDetailsController < ApplicationController
   
   def confirm
     @shipping_detail = ShippingDetail.new(params[:shipping_detail])
-    unless @shipping_detail.valid?
+    
+    if @shipping_detail.valid?
+      UserMailer.welcome_email(@shipping_detail).deliver
+      UserMailer.new_quote_request_email(@shipping_detail).deliver
+    else  
       render :action => :new
-    else       
     end
+    
   end
 
   # GET /shipping_details/new
