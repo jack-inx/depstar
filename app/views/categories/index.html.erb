@@ -12,8 +12,7 @@
 			</div>			
 		
 			<% if current_user %>
-			<div>
-					<br/>
+			<div class='admin'>					
 					<%= link_to 'Show', category %>
 	    			<%= link_to 'Edit', edit_category_path(category) %>
 	    			<%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %>			

@@ -442,6 +442,11 @@ h4
 	text-decoration: none;	
 	text-align: left;
 }
+
+.all-categories il .admin a {
+	color: #333;
+}
+
 .all-categories a:hover {
 	color: #333;
 }
