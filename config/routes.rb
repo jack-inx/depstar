@@ -18,7 +18,7 @@ Trunk::Application.routes.draw do  #match 'get_quote' => 'price_quotes#get_quote
   match 'root' => 'home#index'
 
   get "home/show"
-  root :to => "home#show"  
+  root :to => "home#index"  
   get 'home/autocomplete_product_name'
   
   resources :users, :user_sessions
