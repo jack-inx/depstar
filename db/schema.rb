@@ -10,29 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110105160613) do
+ActiveRecord::Schema.define(:version => 20110220175818) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.boolean  "is_popular"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "question_1_is_enabled"
-    t.string   "question_1_name"
-    t.float    "question_1_option_1_multiplier"
-    t.float    "question_1_option_2_multiplier"
-    t.boolean  "question_2_is_enabled"
-    t.string   "question_2_name"
-    t.float    "question_2_option_1_multiplier"
-    t.float    "question_2_option_2_multiplier"
-    t.boolean  "question_3_is_enabled"
-    t.string   "question_3_name"
-    t.float    "question_3_option_1_multiplier"
-    t.float    "question_3_option_2_multiplier"
-    t.float    "question_3_option_3_multiplier"
-    t.float    "question_3_option_4_multiplier"
-    t.boolean  "question_4_is_enabled"
-    t.string   "question_4_name"
   end
 
   create_table "payment_methods", :force => true do |t|
@@ -68,10 +52,26 @@ ActiveRecord::Schema.define(:version => 20110105160613) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.float    "price"
+    t.boolean  "question_1_is_enabled"
+    t.string   "question_1_name"
+    t.float    "question_1_option_1_multiplier"
+    t.float    "question_1_option_2_multiplier"
+    t.boolean  "question_2_is_enabled"
+    t.string   "question_2_name"
+    t.float    "question_2_option_1_multiplier"
+    t.float    "question_2_option_2_multiplier"
+    t.boolean  "question_3_is_enabled"
+    t.string   "question_3_name"
+    t.float    "question_3_option_1_multiplier"
+    t.float    "question_3_option_2_multiplier"
+    t.float    "question_3_option_3_multiplier"
+    t.float    "question_3_option_4_multiplier"
+    t.boolean  "question_4_is_enabled"
+    t.string   "question_4_name"
   end
 
   create_table "question_options", :force => true do |t|
-    t.integer  "category_id"
+    t.integer  "product_id"
     t.string   "name"
     t.float    "multiplier"
     t.datetime "created_at"

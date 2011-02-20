@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  category_id: 1
+  product_id: 1
   name: MyString
   multiplier: 1.5
 
 two:
-  category_id: 1
+  product_id: 1
   name: MyString
   multiplier: 1.5

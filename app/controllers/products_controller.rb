@@ -25,9 +25,9 @@ class ProductsController < ApplicationController
     end
   end
   
-  def get_quote 
+  def get_quote
     @question_response = QuestionResponse.new(params[:question_response])
-        
+       
     if @question_response.valid?
       flash[:error] = nil
     else

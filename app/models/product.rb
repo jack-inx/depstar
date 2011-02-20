@@ -13,6 +13,9 @@ class Product < ActiveRecord::Base
 
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
+
+  has_many :question_options
+  accepts_nested_attributes_for :question_options, :allow_destroy => true
   
   def to_param
     "#{self.id}-#{self.name.parameterize}"

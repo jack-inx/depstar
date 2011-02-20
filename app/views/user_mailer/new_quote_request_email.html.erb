@@ -8,25 +8,25 @@
 		<h3><%= @shipping_detail.product.name %></h3>
 		<h4>Amount paid to user: <%=  number_to_currency(@shipping_detail.question_response.quote) %>		
 		
-		<% if @shipping_detail.product.category.try(:question_1_is_enabled) %>
+		<% if @shipping_detail.product.try(:question_1_is_enabled) %>
 			<p>
-				<b><%= @shipping_detail.product.category.question_1_name %> </b> <br/>
+				<b><%= @shipping_detail.product.question_1_name %> </b> <br/>
 				<%= radio_button_tag('question_response1', 'question_1', :checked => (@shipping_detail.question_response.question_1 == "True" ? "checked" : ""), :disabled => true) %> Yes
 				<%= radio_button_tag('question_response1', 'question_1', :checked => (@shipping_detail.question_response.question_1 == "True" ? "" : "checked"), :disabled => true) %> No
 			</p>
 		<% end %>
 
-		<% if @shipping_detail.product.category.try(:question_2_is_enabled) %>
+		<% if @shipping_detail.product.try(:question_2_is_enabled) %>
 			<p>
-				<b><%= @shipping_detail.product.category.question_2_name %> </b> <br/>
+				<b><%= @shipping_detail.product.question_2_name %> </b> <br/>
 				<%= radio_button_tag('question_response2', 'question_2', :checked => (@shipping_detail.question_response.question_2 == "True" ? "checked" : ""), :disabled => true) %> Yes
 				<%= radio_button_tag('question_response2', 'question_2', :checked => (@shipping_detail.question_response.question_2 == "True" ? "" : "checked"), :disabled => true) %> No
 			</p>
 		<% end %>
 
-		<% if @shipping_detail.product.category.try(:question_3_is_enabled) %>
+		<% if @shipping_detail.product.try(:question_3_is_enabled) %>
 			<p>
-				<b><%= @shipping_detail.product.category.question_3_name %> </b> <br/>
+				<b><%= @shipping_detail.product.question_3_name %> </b> <br/>
 				<%= radio_button_tag('question_response3', 'question_3', :checked => (@shipping_detail.question_response.question_3 == "1" ? "checked" : ""), :disabled => true) %> Poor <br/>
 				<%= radio_button_tag('question_response3', 'question_3', :checked => (@shipping_detail.question_response.question_3 == "2" ? "checked" : ""), :disabled => true) %> Fair <br/>
 				<%= radio_button_tag('question_response3', 'question_3', :checked => (@shipping_detail.question_response.question_3 == "3" ? "checked" : ""), :disabled => true) %> Good <br/>
@@ -34,10 +34,10 @@
 			</p>
 		<% end %>
 
-		<% if @shipping_detail.product.category.try(:question_4_is_enabled) %>
+		<% if @shipping_detail.product.try(:question_4_is_enabled) %>
 			<% unless @shipping_detail.question_response.question_4.nil? %>
 			<p>
-				<b><%= @shipping_detail.product.category.question_4_name %> </b> <br/>
+				<b><%= @shipping_detail.product.question_4_name %> </b> <br/>
 				<% @shipping_detail.product.category.question_options.each do |question_option| %>						
 						<%= check_box_tag "question_response[question_4][]", question_option.id, (@shipping_detail.question_response.question_4.split(", ").include?(question_option.id.to_s) ? true : false), :disabled => true %> <%= question_option.name %> <br/>
 				<% end %>

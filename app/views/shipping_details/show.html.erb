@@ -14,25 +14,25 @@
 			
 		<%= form_for @shipping_detail.question_response, :method => :get, :remote => true do |f| %>
 
-			<% if @shipping_detail.product.category.try(:question_1_is_enabled) %>
+			<% if @shipping_detail.product.try(:question_1_is_enabled) %>
 				<p>
-					<b><%= @shipping_detail.product.category.question_1_name %> </b> <br/>
+					<b><%= @shipping_detail.product.question_1_name %> </b> <br/>
 					<%= f.radio_button(:question_1, "True", :disabled => true) %> Yes
 					<%= f.radio_button(:question_1, "False", :disabled => true) %> No
 				</p>
 			<% end %>
 
-			<% if @shipping_detail.product.category.try(:question_2_is_enabled) %>
+			<% if @shipping_detail.product.try(:question_2_is_enabled) %>
 				<p>
-					<b><%= @shipping_detail.product.category.question_2_name %> </b> <br/>
+					<b><%= @shipping_detail.product.question_2_name %> </b> <br/>
 					<%= f.radio_button(:question_2, "True", :disabled => true) %> Yes
 					<%= f.radio_button(:question_2, "False", :disabled => true) %> No
 				</p>
 			<% end %>
 
-			<% if @shipping_detail.product.category.try(:question_3_is_enabled) %>
+			<% if @shipping_detail.product.try(:question_3_is_enabled) %>
 				<p>
-					<b><%= @shipping_detail.product.category.question_3_name %> </b> <br/>
+					<b><%= @shipping_detail.product.question_3_name %> </b> <br/>
 					<%= f.radio_button(:question_3, "1", :disabled => true) %> Poor <br/>
 					<%= f.radio_button(:question_3, "2", :disabled => true) %> Fair <br/>
 					<%= f.radio_button(:question_3, "3", :disabled => true) %> Good <br/>
@@ -40,11 +40,11 @@
 				</p>
 			<% end %>
 
-			<% if @shipping_detail.product.category.try(:question_4_is_enabled) %>
+			<% if @shipping_detail.product.try(:question_4_is_enabled) %>
 				<% unless @shipping_detail.question_response.question_4.nil? %>
 				<p>
-					<b><%= @shipping_detail.product.category.question_4_name %> </b> <br/>
-					<% @shipping_detail.product.category.question_options.each do |question_option| %>						
+					<b><%= @shipping_detail.product.question_4_name %> </b> <br/>
+					<% @shipping_detail.product.question_options.each do |question_option| %>						
 							<%= check_box_tag "question_response[question_4][]", question_option.id, (@shipping_detail.question_response.question_4.split(", ").include?(question_option.id.to_s) ? true : false), :disabled => true %> <%= question_option.name %> <br/>
 					<% end %>
 				</p>

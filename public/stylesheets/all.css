@@ -749,6 +749,7 @@ h4
 	font-size:14px;
 	font-weight:bold;
 	line-height:20px;
+	min-height: 360px;
 }
 .customer-details {
 	width: 225px; 
@@ -1275,4 +1276,8 @@ h4
 	font-weight: bold;
 	color: #333;
 	text-align: center;
+}
+.condition_details {
+	color: gray;
+	font-size: .6em;
 }
