@@ -35,10 +35,10 @@
 					<% if @product.try(:question_3_is_enabled) %>
 						<p>
 							<b><%= @product.question_3_name %> </b> <br/>
-							<%= f.radio_button(:question_3, "1") %> Poor <span class='condition_details'>Horrible Shape, Deep Scratches And Dents</span> <br/>
-							<%= f.radio_button(:question_3, "2") %> Fair <span class='condition_details'>Heavy Scratches</span> <br/>
-							<%= f.radio_button(:question_3, "3") %> Good <span class='condition_details'>Very Light Use Maybe A Light Scratch Or Two</span> <br/>
-							<%= f.radio_button(:question_3, "4") %> Perfect <span class='condition_details'>Perfect Condition No Signs Of Use</span> <br/>
+							<%= f.radio_button(:question_3, "1") %> Poor <span class='condition_details'>Horrible Shape, Many Scratches</span> <br/>
+							<%= f.radio_button(:question_3, "2") %> Fair <span class='condition_details'>Some Scratches</span> <br/>
+							<%= f.radio_button(:question_3, "3") %> Good <span class='condition_details'>Very Light Use</span> <br/>
+							<%= f.radio_button(:question_3, "4") %> Perfect <span class='condition_details'>Excellent Condition </span> <br/>
 						</p>
 					<% end %>
 
