@@ -3,7 +3,7 @@ class Product < ActiveRecord::Base
   
   has_many :shipping_details
 
-  validates_presence_of :price
+  validates_presence_of :price, :category_id
   validates_numericality_of :price
 
   has_attached_file :photo, :default_url => "/assets/:class/missing_:style.gif", 
