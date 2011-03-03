@@ -2,16 +2,23 @@
 <p id="notice"><%= notice %></p>
 
 <div style='padding: 0px 20px 0px 20px; '>
-	
+	<% if @products.size == 0 %>
+	<div class='search_no_items_found'>
+		We are sorry that the item has not been added to our system yet.<br/>
+		<%= mail_to "offers@depstar.com", "Email", :subject => "Instant offer request" %> us for an instant offer<br/>
+		or<br/>
+		<a href="https://livechat.boldchat.com/aid/140369408601088650/bc.chat?cwdid=2429043129259919230" target="_blank" onclick="window.open((window.pageViewer && pageViewer.link || function(link){return link;})(this.href + (this.href.indexOf('?')>=0 ? '&amp;' : '?') + 'url=' + escape(document.location.href)), 'Chat2325828698917037556', 'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=640,height=480');return false;">Click here</a> for live support!<br/>
+		Thank you for choosing Depstar<br/>
+	</div>
+	<% end %>
 	<ul class="list-products">
-	
+		
 		<% @products.each do |product| %>
 		<div style="float: left; width: 200px; text-align: center;">
 			<li style='padding-top: 0px; margin: 0px 0px 50px 0px;'>
 				<div>	
 					<ul style='position: relative; top: 10px;'>
 						<li>
-							<%#= link_to image_tag(product.photo.url(:small)), product %>
 							<%= image_tag(product.photo.url(:small)) %>
 						</li>
 						<li style='min-height: 30px;'><strong><%= product.name %></strong></li>

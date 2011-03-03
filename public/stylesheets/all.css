@@ -1281,3 +1281,11 @@ h4
 	color: gray;
 	font-size: .85em;
 }
+
+.search_no_items_found {
+	color: gray;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 50px;
+}
