@@ -1,12 +1,12 @@
 <% content_for :title, @category.name + " - " %>
 <p id="notice"><%= notice %></p>
 
-<div style='padding: 0px 20px 0px 20px; '>
+<div style='padding: 0px 20px 0px 20px;'>
 	
 	<div class="products-holder">
 		<div class="">
-			<div class="b">
-				<ul class="list-products">								
+			<div class="b" style='padding-bottom: 30px;'>
+				<ul class="list-products">
 					
 					<% @category.products.each do |product|  %>
 					<div style="float: left; width: 200px; text-align: center;">
@@ -22,13 +22,13 @@
 							</ul>
 						</li>
 					</div>
-					<% end %>
+					<% end %>	
+					
+				</ul>				
+				<div style='clear: both;'>&nbsp;</div>			
 
-				</ul>
-				
-				<div style='clear: both;'>&nbsp;</div>
-				
 			</div>
+			
 		</div>
 	</div>
 	
