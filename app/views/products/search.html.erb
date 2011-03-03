@@ -11,32 +11,33 @@
 		Thank you for choosing Depstar<br/>
 	</div>
 	<% end %>
-	<ul class="list-products">
+	<div class="b" style='padding-bottom: 40px;'>
+		<ul class="list-products">
 		
-		<% @products.each do |product| %>
-		<div style="float: left; width: 200px; text-align: center;">
-			<li style='padding-top: 0px; margin: 0px 0px 50px 0px;'>
-				<div>	
-					<ul style='position: relative; top: 10px;'>
-						<li>
-							<%= image_tag(product.photo.url(:small)) %>
-						</li>
-						<li style='min-height: 30px;'><strong><%= product.name %></strong></li>
-						<li>
-							<%= link_to "Sell Now", product %>
-						</li>
-					</ul>
-					<% if current_user %>
-						<br/>
-						<%= link_to 'Show', product %>
-		    			<%= link_to 'Edit', edit_product_path(product) %>
-		    			<%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %>
-					<% end %>
-				</div>	
-			</li>
-		</div>
-		<% end %>
+			<% @products.each do |product| %>
+			<div style="float: left; width: 200px; text-align: center;">
+				<li style='padding-top: 0px; margin: 0px 0px 50px 0px;'>
+					<div>	
+						<ul style='position: relative; top: 10px;'>
+							<li>
+								<%= image_tag(product.photo.url(:small)) %>
+							</li>
+							<li style='min-height: 30px;'><strong><%= product.name %></strong></li>
+							<li>
+								<%= link_to "Sell Now", product %>
+							</li>
+						</ul>
+						<% if current_user %>
+							<br/>
+							<%= link_to 'Show', product %>
+			    			<%= link_to 'Edit', edit_product_path(product) %>
+			    			<%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %>
+						<% end %>
+					</div>	
+				</li>
+			</div>
+			<% end %>
 
-	</ul>
-	
+		</ul>
+	</div>
 </div>
