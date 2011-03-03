@@ -1,6 +1,9 @@
 <div class="product-description">
 	<%= form_for @shipping_detail do |f| %>
-	  <% if @shipping_detail.errors.any? %>
+		<% if flash[:error] %>
+			<p id='flash_error'><%= flash[:error] %></p>
+		<% end %>
+		<% if @shipping_detail.errors.any? %>
 	    <div id="error_explanation">
 	      <h2><%= pluralize(@shipping_detail.errors.count, "error") %> prohibited this shipping_detail from being saved:</h2>
 	
@@ -11,7 +14,7 @@
 	      </ul>
 	    </div>
 	  <% end %>
-		<%# debugger %>
+
 	  <%= f.hidden_field :product_id, :value => params[:shipping_detail][:product_id] %>
 	  <%= f.hidden_field :question_response_id, :value => params[:shipping_detail][:question_response_id] %>
 	
@@ -40,7 +43,7 @@
 			<span class='product-title'><%= @product.name %></span>
 		</div>
 	</div>  
-	<div class="conditions">
+	<div class="conditions">		
 		<h2>Your Information</h2>
 	  	<div>	  	
 		  	<%= label_tag nil, 'How would you like to receive your payment?' %> <br />
@@ -150,6 +153,57 @@
 	    <%= f.label :zip %><br />
 	    <%= f.text_field :zip, :maxlength=>'5' %>
 	  </div>
+		<div class="field">
+			<h5> Terms of service </h5>
+			<%= text_area_tag :tos, 'Privacy Policy
+
+This privacy policy sets out how Depstar uses and protects any information that you give Depstar when you use this website. Depstar is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement. Depstar may change this policy from time to time by updating this page. You should check this page from time to time to ensure that you are happy with any changes. This policy is effective January 1, 2011.
+
+What we collect
+
+We may collect the following information:
+name and address
+contact information including email address
+demographic information such as post code, preferences and interests
+other information relevant to customer order
+What we do with the information we gather
+We require this information to understand your needs and provide you with a better service, and in particular for the following reasons: Internal record keeping.
+
+We may use the information to improve our products and services.
+We may periodically send promotional emails about new products, special offers or other information which we think you may find interesting using the email address which you have provided. You also have the option to opt out at anytime.
+From time to time, we may also use your information to contact you for market research purposes. We may contact you by email, phone, fax or mail. We may use the information to customize the website according to your interests.
+
+Security
+We are committed to ensuring that your information is secure. In order to prevent unauthorized access or disclosure we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online.
+
+Links to other websites
+Our website may contain links to other websites of interest. However, once you have used these links to leave our site, you should note that we do not have any control over that other website. Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst visiting such sites and such sites are not governed by this privacy statement. You should exercise caution and look at the privacy statement applicable to the website in question.
+
+Selling a phone, laptop or ipod device containing personal information
+We recommend you erasing all data off your device prior to sending in.
+
+The first thing Depstar does is erase all personal data
+Your information is safe. Your cash offer is good. Your payment is honored upon delivery of your item. No items will be returned, so be sure you want to sell. We are not responsible for delivery of your item. All items are trackable and listed in our system. You must be the owner of the item(s) sent in. It must have been obtained legitimately. You must be 18 or older to use our site.
+
+Terms of Use
+
+Welcome to our website. If you continue to browse and use this website you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Depstar’s relationship with you in relation to this website.The term ‘Depstar’ or ‘us’ or ‘we’ refers to the owner of the website whose registered office is based in the United States of America. The term ‘you’ refers to the user or viewer of our website.The use of this website is subject to the following terms of use:
+
+The content of the pages of this website is for your general information and use only. It is subject to change without notice.
+
+Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law. You agree to hold Depstar and all of its owners harmless of all and any lawsuit''s. You agree to indemnify Depstar.
+
+Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements.
+
+This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.
+
+All trade marks reproduced in this website which are not the property of, or licensed to, the operator are acknowledged on the website. Unauthorised use of this website may give rise to a claim for damages and/or be a criminal offense.
+
+From time to time this website may also include links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content of the linked website(s).
+You may not create a link to this website from another website or document without Depstar’s prior written consent.', :size => "15x10", :disabled => true %> <br />
+			 <%= label_tag "Do you agree to the" %> <%= link_to 'terms of service', privacy_policy_path %>?<br />
+			 <%= check_box_tag 'tos', 'yes', false, :class => 'accept_tos' %>
+		</div>
 	
 	  <div class="actions">
 	    <%= f.submit "Get Paid" %>

@@ -62,16 +62,21 @@ class ShippingDetailsController < ApplicationController
     @shipping_detail = ShippingDetail.new(params[:shipping_detail])
     @product = Product.find(params[:shipping_detail][:product_id])
     @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
+    @tos = params[:tos]
     
     respond_to do |format|
-      if @shipping_detail.save
+      if @tos.nil?
+        flash[:error] = "You must first agree to the terms of service"
+        format.html { render :action => "new", :product_id => @product.id, :question_response_id => @question_response.id, :notice => "You must first agree to the terms of service" }
+        format.xml  { render :xml => @shipping_detail.errors, :status => :unprocessable_entity }
+      elsif @shipping_detail.save
         UserMailer.welcome_email(@shipping_detail).deliver
         UserMailer.new_quote_request_email(@shipping_detail).deliver
         
         format.html { redirect_to(@shipping_detail, :notice => 'Please check your email for confirmation') }
         format.xml  { render :xml => @shipping_detail, :status => :created, :location => @shipping_detail }
       else
-        format.html { render :action => "new", :product_id => 1, :question_response_id => 57 }
+        format.html { render :action => "new", :product_id => @product.id, :question_response_id => @question_response.id }
         format.xml  { render :xml => @shipping_detail.errors, :status => :unprocessable_entity }
       end
     end

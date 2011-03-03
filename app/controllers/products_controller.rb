@@ -44,10 +44,9 @@ class ProductsController < ApplicationController
     @question_response = QuestionResponse.new(params[:question_response])
     
     @question_4_params = params[:question_response][:question_4]
-	@question_4 = @question_4_params.join(", ") if @question_4_params
+	  @question_4 = @question_4_params.join(", ") if @question_4_params
     
     @question_response.question_4 = @question_4
-    logger.debug "The object is #{@question_response.question_4}"
     
     if @question_response.save
       redirect_to new_shipping_detail_path(:shipping_detail => {:question_response_id => @question_response.id, :product_id => @question_response.product_id})
