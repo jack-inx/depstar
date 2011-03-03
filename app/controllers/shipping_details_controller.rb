@@ -1,5 +1,5 @@
 class ShippingDetailsController < ApplicationController
-  before_filter :authorize, :except => [:new, :create, :confirm]
+  before_filter :authorize, :except => [:new, :create, :confirm, :show]
   
   # GET /shipping_details
   # GET /shipping_details.xml
@@ -25,6 +25,9 @@ class ShippingDetailsController < ApplicationController
   
   def confirm
     @shipping_detail = ShippingDetail.new(params[:shipping_detail])
+    @product = @shipping_detail.product
+    @question_response = @shipping_detail.question_response    
+    #debugger 
     
     if @shipping_detail.valid?
       UserMailer.welcome_email(@shipping_detail).deliver
@@ -38,10 +41,10 @@ class ShippingDetailsController < ApplicationController
   # GET /shipping_details/new
   # GET /shipping_details/new.xml
   def new
-    @shipping_detail = ShippingDetail.new
-    @product = Product.find(params[:product_id])
-    @question_response = QuestionResponse.find(params[:question_response_id])
-    
+    @shipping_detail = ShippingDetail.new    
+    @product = Product.find(params[:shipping_detail][:product_id])
+    @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @shipping_detail }
@@ -57,7 +60,9 @@ class ShippingDetailsController < ApplicationController
   # POST /shipping_details.xml
   def create
     @shipping_detail = ShippingDetail.new(params[:shipping_detail])
-
+    @product = Product.find(params[:shipping_detail][:product_id])
+    @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
+    
     respond_to do |format|
       if @shipping_detail.save
         UserMailer.welcome_email(@shipping_detail).deliver
@@ -66,7 +71,7 @@ class ShippingDetailsController < ApplicationController
         format.html { redirect_to(@shipping_detail, :notice => 'Please check your email for confirmation') }
         format.xml  { render :xml => @shipping_detail, :status => :created, :location => @shipping_detail }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "new", :product_id => 1, :question_response_id => 57 }
         format.xml  { render :xml => @shipping_detail.errors, :status => :unprocessable_entity }
       end
     end

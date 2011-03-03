@@ -3,6 +3,7 @@
 one:
   first_name: MyString
   last_name: MyString
+  phone: MyString
   address1: MyString
   address2: MyString
   city: MyString
@@ -18,6 +19,7 @@ one:
 two:
   first_name: MyString
   last_name: MyString
+  phone: MyString
   address1: MyString
   address2: MyString
   city: MyString

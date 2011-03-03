@@ -50,7 +50,7 @@ class ProductsController < ApplicationController
     logger.debug "The object is #{@question_response.question_4}"
     
     if @question_response.save
-      redirect_to new_shipping_detail_path(:question_response_id => @question_response.id, :product_id => @question_response.product_id)
+      redirect_to new_shipping_detail_path(:shipping_detail => {:question_response_id => @question_response.id, :product_id => @question_response.product_id})
     else
       redirect_to product_path(params[:question_response][:product_id])
     end

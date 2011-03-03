@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110220175818) do
+ActiveRecord::Schema.define(:version => 20110303205108) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(:version => 20110220175818) do
     t.integer  "question_response_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "phone"
   end
 
   create_table "user_sessions", :force => true do |t|
