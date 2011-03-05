@@ -1296,4 +1296,6 @@ h4
 
 .accept_tos {
 	display: inline;
+	vertical-align: top;
+	margin: 4px 0px 0px 0px;
 }

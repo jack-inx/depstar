@@ -201,9 +201,9 @@ All trade marks reproduced in this website which are not the property of, or lic
 
 From time to time this website may also include links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content of the linked website(s).
 You may not create a link to this website from another website or document without Depstar’s prior written consent.', :size => "15x10", :disabled => true %> <br />			 
-			<div style='width: 300px'>
-				<%= label_tag "Do you agree to the" %> <%= link_to 'terms of service', privacy_policy_path %>?
+			<div style='width: 300px; vertical-align: top;'>
 				<%= check_box_tag 'tos', 'yes', false, :class => 'accept_tos' %>
+				<%= label_tag "Do you agree to the" %> <%= link_to 'terms of service', privacy_policy_path %>?				
 			</div>
 		</div>
 	
