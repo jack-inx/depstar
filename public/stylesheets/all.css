@@ -1289,3 +1289,11 @@ h4
 	font-weight: bold;
 	line-height: 50px;
 }
+
+#tos_text {
+	width: 300px;
+}
+
+.accept_tos {
+	display: inline;
+}
