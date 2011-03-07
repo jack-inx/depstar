@@ -1,7 +1,7 @@
 <div class="box-pay">					
 	<% if @question_response.valid? %>
 		<span>WE'LL PAY YOU</span>
-		<span><strong><%= number_to_currency(@question_response.quote, :precision => 0) %></strong></span>
+		<span><strong><%= number_to_currency(@question_response.quote, :precision => 0, :delimiter => "") %></strong></span>
 		<% if show_next_button == true %>
 		<div style='margin: 0px 25px'>
 		<%= link_to accept_quote_path( :question_response => (params[:question_response]) ), :class => 'btn-paid' do %>
