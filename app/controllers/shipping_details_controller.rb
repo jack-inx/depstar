@@ -14,13 +14,18 @@ class ShippingDetailsController < ApplicationController
 
   # GET /shipping_details/1
   # GET /shipping_details/1.xml
-  def show
+  def show    
     @shipping_detail = ShippingDetail.find(params[:id])
-
+    
+    
     respond_to do |format|
-      format.html # show.html.erb
+      unless flash[:notice] == "Please check your email for confirmation" || !current_user.nil?
+        format.html { redirect_to(login_path) }
+      else
+          format.html # show.html.erb
+      end
       format.xml  { render :xml => @shipping_detail }
-    end
+    end    
   end
   
   def confirm
