@@ -6,9 +6,6 @@
     <th>Last name</th>
     <th>Zip</th>
     <th>Email</th>
-    <th>Payment method</th>
-    <th>Requires box</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -18,8 +15,6 @@
     <td><%= shipping_detail.first_name %></td>
     <td><%= shipping_detail.last_name %></td>    
     <td><%= shipping_detail.email %></td>
-    <td><%= shipping_detail.payment_method.name %></td>
-    <td><%= (shipping_detail.requires_box ? 'Yes' : 'No') %></td>
     <td><%= link_to 'Show', shipping_detail %></td>
     <td><%#= link_to 'Edit', edit_shipping_detail_path(shipping_detail) %></td>
     <td><%= link_to 'Destroy', shipping_detail, :confirm => 'Are you sure?', :method => :delete %></td>
