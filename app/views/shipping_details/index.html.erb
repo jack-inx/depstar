@@ -15,7 +15,7 @@
 	<% @shipping_details.each do |shipping_detail| %>
 	  <tr>
 	    <td><%= truncate(shipping_detail.full_name, :length => 30, :omission => '...') %></td>
-	    <td><%= truncate(shipping_detail.email, :length => 45, :omission => '...') %></td>
+	    <td><%= truncate(shipping_detail.email, :length => 35, :omission => '...') %></td>
 	    <td><%= shipping_detail.city %>, <%= shipping_detail.state %></td>
 			<td><%= number_to_currency(shipping_detail.question_response.quote) unless shipping_detail.question_response.nil? %></td>
 	    <td><%= shipping_detail.created_at.strftime("%Y-%m-%d %H:%M") %></td>
