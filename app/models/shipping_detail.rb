@@ -9,4 +9,8 @@ class ShippingDetail < ActiveRecord::Base
       :message => "must be a valid telephone number.",
       :with => /^[\(\)0-9\- \+\.]{10,20}$/
 
+  def full_name
+    first_name + ' ' + last_name
+  end
+
 end

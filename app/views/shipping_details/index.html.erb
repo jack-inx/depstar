@@ -1,23 +1,27 @@
-<h1>Shipping Requests</h1>
+<div style='margin: 5px; '>
+	<h1>Shipping Requests</h1>
 
-<table>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-  </tr>
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Email</th>
+	    <th>Location</th>
+	    <th>Quote</th>
+	    <th>Created</th>
+	    <th></th>
+	    <th></th>
+	  </tr>
 
-<% @shipping_details.each do |shipping_detail| %>
-  <tr>
-    <td><%= shipping_detail.first_name %></td>
-    <td><%= shipping_detail.last_name %></td>    
-    <td><%= shipping_detail.email %></td>
-    <td><%= link_to 'Show', shipping_detail %></td>
-    <td><%= link_to 'Destroy', shipping_detail, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
+	<% @shipping_details.each do |shipping_detail| %>
+	  <tr>
+	    <td><%= truncate(shipping_detail.full_name, :length => 30, :omission => '...') %></td>
+	    <td><%= truncate(shipping_detail.email, :length => 45, :omission => '...') %></td>
+	    <td><%= shipping_detail.city %>, <%= shipping_detail.state %></td>
+			<td><%= number_to_currency(shipping_detail.question_response.quote) unless shipping_detail.question_response.nil? %></td>
+	    <td><%= shipping_detail.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+	    <td><%= link_to 'Show', shipping_detail %></td>
+	    <td><%= link_to 'Destroy', shipping_detail, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>
