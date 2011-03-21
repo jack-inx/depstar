@@ -12,8 +12,11 @@ class UserMailer < ActionMailer::Base
   def new_quote_request_email(shipping_detail)
     @shipping_detail = shipping_detail
     
-    mail(:to => 'bijancronin@gmail.com, jacobresnek@gmail.com',
-         :subject => "New Quote Request")
+    if RAILS_ENV == 'development'
+      mail(:to => 'charles.palleschi@sparkwiresolutions.com', :subject => "New Quote Request")
+    else
+      mail(:to => 'bijancronin@gmail.com, jacobresnek@gmail.com', :subject => "New Quote Request")
+    end
   end
   
   def corporate_contact_email(corporate_message)
