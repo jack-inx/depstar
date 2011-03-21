@@ -50,7 +50,6 @@ ssh_options[:forward_agent] = true
 set :repository, "git@github.com:CharlesP/Depstar.git"  # Your clone URL
 set :scm, "git"
 set :user, "depstar"  # The server's user for deploys
-set :scm_passphrase, "QPestvRmCe"  # The deploy user's password
 
 #############################################################
 # Passenger
