@@ -1298,3 +1298,8 @@ h4
 	vertical-align: top;
 	margin: 4px 0px 0px 0px;
 }
+
+.limited-time-offer {
+	color: red;
+	text-align: center;
+}
