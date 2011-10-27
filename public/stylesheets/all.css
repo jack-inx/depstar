@@ -1317,3 +1317,13 @@ h4
 	text-align: center;
 	color: #333;	
 }
+
+.home-page-lower-links ul {
+	float: left;
+	list-style:none;
+}
+
+.home-page-lower-links h3 {
+	margin: 0px;
+	padding: 0px 0px 0px 20px;
+}
