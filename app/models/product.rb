@@ -16,6 +16,8 @@ class Product < ActiveRecord::Base
 
   has_many :question_options
   accepts_nested_attributes_for :question_options, :allow_destroy => true
+
+  self.per_page = 10
   
   def to_param
     "#{self.id}-#{self.name.parameterize}"

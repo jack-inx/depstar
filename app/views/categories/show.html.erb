@@ -6,9 +6,11 @@
 	<div class="products-holder">
 		<div class="">
 			<div class="b" style='padding-bottom: 30px;'>
+				<div class="apple_pagination">				    
+			    <%= will_paginate @products, :container => false %>
+			  </div>
 				<ul class="list-products">
-					
-					<% @category.products.each do |product|  %>
+					<% @products.each do |product| %>
 					<div style="float: left; width: 200px; text-align: center;">
 						<li style='padding-top: 0px; margin: 0px 0px 50px 0px; clear: both;'>
 							<ul style='position: relative; top: 10px;'>
@@ -22,11 +24,12 @@
 							</ul>
 						</li>
 					</div>
-					<% end %>	
-					
-				</ul>				
+					<% end %>						
+				</ul>								
 				<div style='clear: both;'>&nbsp;</div>			
-
+				<div class="apple_pagination">				    
+			    <%= will_paginate @products, :container => false %>
+			  </div>
 			</div>
 			
 		</div>

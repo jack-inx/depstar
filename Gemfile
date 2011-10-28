@@ -18,3 +18,5 @@ gem 'mocha', :group => :test
 gem 'rails3-jquery-autocomplete'
 
 gem 'jquery-rails', '>= 0.2.6'
+
+gem 'will_paginate', '~> 3.0'
