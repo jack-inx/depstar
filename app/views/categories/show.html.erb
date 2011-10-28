@@ -6,9 +6,11 @@
 	<div class="products-holder">
 		<div class="">
 			<div class="b" style='padding-bottom: 30px;'>
+				<% if @products.count > 10 %>
 				<div class="apple_pagination">				    
 			    <%= will_paginate @products, :container => false %>
 			  </div>
+				<% end %>
 				<ul class="list-products">
 					<% @products.each do |product| %>
 					<div style="float: left; width: 200px; text-align: center;">
@@ -26,10 +28,12 @@
 					</div>
 					<% end %>						
 				</ul>								
-				<div style='clear: both;'>&nbsp;</div>			
+				<div style='clear: both;'>&nbsp;</div>
+				<% if @products.count > 10 %>
 				<div class="apple_pagination">				    
 			    <%= will_paginate @products, :container => false %>
 			  </div>
+				<% end %>
 			</div>
 			
 		</div>
