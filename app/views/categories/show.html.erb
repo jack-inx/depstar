@@ -6,7 +6,7 @@
 	<div class="products-holder">
 		<div class="">
 			<div class="b" style='padding-bottom: 30px;'>
-				<% if @products.count > 10 %>
+				<% if @products.count > @products.per_page %>
 				<div class="apple_pagination">				    
 			    <%= will_paginate @products, :container => false %>
 			  </div>
@@ -29,7 +29,7 @@
 					<% end %>						
 				</ul>								
 				<div style='clear: both;'>&nbsp;</div>
-				<% if @products.count > 10 %>
+				<% if @products.count > @products.per_page %>
 				<div class="apple_pagination">				    
 			    <%= will_paginate @products, :container => false %>
 			  </div>
