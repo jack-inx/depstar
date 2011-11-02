@@ -6,9 +6,13 @@
 	<div class="products-holder">
 		<div class="">
 			<div class="b" style='padding-bottom: 30px;'>
+				<h2 style='color: gray; float: left;'>Select Your Product</h2>
 				<% if @products.count > @products.per_page %>
-				<div class="apple_pagination">				    
+				<div class="custom_pagination">
 			    <%= will_paginate @products, :container => false %>
+					<div class="page_info">
+			      <%= page_entries_info @products %>
+			    </div>
 			  </div>
 				<% end %>
 				<ul class="list-products">
@@ -29,11 +33,6 @@
 					<% end %>						
 				</ul>								
 				<div style='clear: both;'>&nbsp;</div>
-				<% if @products.count > @products.per_page %>
-				<div class="apple_pagination">				    
-			    <%= will_paginate @products, :container => false %>
-			  </div>
-				<% end %>
 			</div>
 			
 		</div>
