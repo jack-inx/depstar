@@ -1,5 +1,5 @@
 .custom_pagination {
-	background: white;
+/*	background: white;*/
   cursor: default;
 	color: gray;
 	float: right;
@@ -30,8 +30,8 @@
 	}
   .custom_pagination a {
     text-decoration: none;
-		color: gray;
-/*    color: #105cb6;*/
+/*		color: gray;*/
+		color: #105cb6;
 /*    border: 1px solid #9aafe5; */
 		}
     .custom_pagination a:hover, .custom_pagination a:focus 
