@@ -1,9 +1,9 @@
 <% content_for :title, "Sell " + @category.name + " - " %>
 <p id="notice"><%= notice %></p>
 
-<div style='padding: 0px 20px 0px 20px;'>
+<div>
 	
-	<div class="products-holder">
+	<div style='padding: 0px 20px 0px 20px;' class="products-holder">
 		<div class="">
 			<div class="b" style='padding-bottom: 30px;'>
 				<h2 style='color: gray; float: left;'>Select Your Product</h2>
@@ -17,7 +17,7 @@
 				<% end %>
 				<ul class="list-products">
 					<% @products.each do |product| %>
-					<div style="float: left; width: 200px; text-align: center;">
+					<div style="float: left; width: 155px; padding: 0px 5px; text-align: center;">
 						<li style='padding-top: 0px; margin: 0px 0px 50px 0px; clear: both;'>
 							<ul style='position: relative; top: 10px;'>
 								<li style='min-height: 90px;'>
@@ -32,7 +32,7 @@
 					</div>
 					<% end %>						
 				</ul>				
-				<div style='clear: both;'>&nbsp;</div>
+				<!-- <div style='clear: both;'>&nbsp;</div> -->
 				<% if @products.count > @products.per_page %>
 				<div class="custom_pagination">
 			    <%= will_paginate @products, :container => false %>

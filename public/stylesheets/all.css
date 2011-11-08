@@ -386,7 +386,7 @@ h4
 	width:100%;
 }
 #sidebar{
-	width:279px;
+	width:200px;
 	float:left;
 }
 #sidebar h3{
@@ -480,7 +480,7 @@ h4
 }
 .content-holder{
 	float:left;
-	width:667px;
+	width:746px;
 	margin:-5px 0 0;
 }
 .products{
@@ -541,7 +541,7 @@ h4
 	float:left;
 	width:446px;
 	text-align:center;
-	padding:23px 29px 0;
+	padding:23px 29px 0px 60px;
 	overflow:hidden;
 	font-size:23px;
 	line-height:26px;
@@ -684,11 +684,12 @@ h4
 }
 .list-products{
     padding:0;
-    margin:0 0 -34px;
+    margin:0;
     position:relative;
     list-style:none;
-    width:676px;
+    width:746px;
     overflow:hidden;
+		clear: both;
 }
 .list-products img{
     vertical-align:top;
