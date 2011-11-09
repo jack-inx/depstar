@@ -5,7 +5,7 @@
 				<fieldset>
 					<label for="sell">SELL YOUR ITEM</label>
 					<div class="text">
-						 <%= text_field_tag 'name', '', :autocomplete => home_autocomplete_product_name_path, :value => "example: Apple iPhone 4", :class => 'cleardefault' %>
+						<%= autocomplete_field_tag 'name', '', home_autocomplete_product_name_path, :size => 75, :value => "example: Apple iPhone 4", :class => 'cleardefault' %>
 					</div>
 					<%= f.submit :value => 'GO', :class => 'btn-search' %>
 				</fieldset>
