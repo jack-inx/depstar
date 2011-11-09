@@ -20,4 +20,4 @@ en:
 
         multi_page: "Displaying %{plural} %{from} - %{to} of %{total} in total"
         # multi_page_html: "Displaying %{plural} <b class='range'>%{from}&nbsp;-&nbsp;%{to}</b> of <b class='total'>in total"
-        multi_page_html: "Showing <b class='range'>%{from}&nbsp;</b> of <b class='range'>&nbsp;%{to}</b> products"
+        multi_page_html: "Showing <b class='range'>%{to}&nbsp;</b> of <b class='range'>&nbsp;%{count}</b> products"
