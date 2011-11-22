@@ -525,7 +525,7 @@ h4
 }
 .products-holder .b{
 	float:left;
-	margin-bottom:-8px;
+/*	margin-bottom:-8px;*/
 	width:100%;
 	overflow:hidden;
 	position:relative;
@@ -535,7 +535,7 @@ h4
 .products-box{
 	width:100%;
 	overflow:hidden;
-	padding:5px 0 0;
+	padding:0px 0 0;
 }
 .steps{
 	float:left;
