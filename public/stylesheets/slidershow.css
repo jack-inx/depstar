@@ -71,12 +71,13 @@
     margin-top:-43px;
     cursor:pointer;
     z-index:5000;
+		display: none; /* Requested by the client */
 }
 
-#slideshow .previous{ background-position:left top;left:0;}
-#slideshow .previous:hover{ background-position:left bottom;}
+#slideshow .previous{ background-position:left top;left:0; }
+#slideshow .previous:hover{ background-position:left bottom; }
 
-#slideshow .next{ background-position:right top;right:0;}
+#slideshow .next{ background-position:right top;right:0; }
 #slideshow .next:hover{ background-position:right bottom;}
 
 /*
