@@ -4,9 +4,9 @@ $(window).load(function(){
 	// all the images are loaded before the
 	// auto-advance begins.
 
-	var timeOut = null;
+	var timeOut = 8000;
 
-	$('#slideshow .arrow').click(function(e,simulated){
+	$('#slides .arrow').click(function(e,simulated){
 		
 		// The simulated parameter is set by the
 		// trigger method.
@@ -25,10 +25,10 @@ $(window).load(function(){
 	(function autoAdvance(){
 		
 		// Simulating a click on the next arrow.
-		$('#slideshow .next').trigger('click',[true]);
+		$('#slides .next').trigger('click',[true]);
 		
 		// Schedulling a time out in 5 seconds.
-		timeOut = setTimeout(autoAdvance,4000);		
+		timeOut = setTimeout(autoAdvance,6000);		
 	})();
 
 });

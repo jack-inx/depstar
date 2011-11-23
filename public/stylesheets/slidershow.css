@@ -1,3 +1,49 @@
+/*
+	Pagination
+*/
+
+
+.pagination {
+	margin: 0 -10px 0 0 ;
+	width:75px;
+	z-index:500;
+	float:right;
+/*	list-style-image:url('/images/pagination.png');*/
+}
+
+.pagination li {
+	float:left;
+	margin:0 1px;
+	list-style:none;
+}
+
+.pagination li a {
+	display:block;
+	width:12px;
+	height:10;
+	margin-top: -18px;
+/*	padding-bottom: 11px;*/
+	padding-top:12px;
+	background-image:url(/images/pagination.png);
+	background-position:0 0;
+	float:right;
+	overflow:hidden;
+	z-index: 100;
+/*	top: 70%;*/
+	position: relative;
+}
+
+.pagination li.current a {
+	background-position:0 -12px;
+}
+
+#slides
+{
+	float: left; 
+	width: 584px; 
+	height: 260px;
+}
+
 #slideshow{
 	height: 298px;
 	width: 584px;

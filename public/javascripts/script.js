@@ -53,7 +53,7 @@ $(window).load(function(){
 			var next = slides.eq(nextIndex);
 			
 			// if(supportCanvas){
-			// 
+			// 				
 			// 				// This browser supports canvas, fade it into view:
 			// 
 			// 				canvas.fadeIn(function(){
