@@ -529,7 +529,7 @@ h4
 	width:100%;
 	overflow:hidden;
 	position:relative;
-	min-height: 290px;
+	min-height: 310px;
 	background:url(../images/bg-content-b.gif) no-repeat 0 100%;
 }
 .products-box{
@@ -1334,6 +1334,15 @@ h4
 {
 	z-index:10 !important     
 }
+/*
+.slides_container
+{
+	border-top-left-radius: 40px 50px;
+	border-bottom-right-radius: 10% 5%;
+	border-top-right-radius: 10px;
+	border-left: 1px solid #99cccc;
+	border-top: 1px solid #99cccc;
+}*/
 
 /*
 	Pagination
