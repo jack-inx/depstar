@@ -529,7 +529,7 @@ h4
 	width:100%;
 	overflow:hidden;
 	position:relative;
-	min-height: 455px;
+	min-height: 290px;
 	background:url(../images/bg-content-b.gif) no-repeat 0 100%;
 }
 .products-box{
@@ -656,11 +656,12 @@ h4
 	background:url(../images/arrow4.gif) no-repeat 100% 50%;
 	padding:0 12px 0 0;
 }
-.product-description{
+.product-description {
 	width:100%;
 	overflow:hidden;
 	padding:25px 0 0;
 	margin:0 0 -10px;
+	min-height: 470px;
 	position:relative;
 	background:url(../images/bg-product-description.png) no-repeat;
 }
