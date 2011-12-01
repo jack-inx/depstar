@@ -15,7 +15,7 @@ en:
           other: "Displaying all %{count} %{plural}"
         single_page_html:
           zero:  "No %{plural} found"
-          one:   "Displaying <b>1</b> %{name}"
+          one:   "Displaying <b>1</b> product"
           #other: "Displaying <b>all&nbsp;%{count}</b> %{plural}"
           other: "Showing <b class='range'>1&nbsp;-&nbsp;%{count}</b> of <b class='range'>%{count}</b> products"
           
