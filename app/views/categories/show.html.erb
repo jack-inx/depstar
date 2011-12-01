@@ -7,7 +7,7 @@
 		<div class="">
 			<div class="b" style='padding-bottom: 0px;'>
 				<h2 style='color: gray; float: left;'>Select Your Product</h2>
-				<% if @products.count > @products.per_page %>
+				<% if @products.count > 0 %>
 				<div class="custom_pagination">
 			    <%= will_paginate @products, :container => false %>
 					<div class="page_info">

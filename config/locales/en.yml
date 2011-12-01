@@ -16,8 +16,9 @@ en:
         single_page_html:
           zero:  "No %{plural} found"
           one:   "Displaying <b>1</b> %{name}"
-          other: "Displaying <b>all&nbsp;%{count}</b> %{plural}"
-
+          #other: "Displaying <b>all&nbsp;%{count}</b> %{plural}"
+          other: "Showing <b class='range'>1&nbsp;-&nbsp;%{count}</b> of <b class='range'>%{count}</b> products"
+          
         multi_page: "Displaying %{plural} %{from} - %{to} of %{total} in total"
         # multi_page_html: "Displaying %{plural} <b class='range'>%{from}&nbsp;-&nbsp;%{to}</b> of <b class='total'>in total"
-        multi_page_html: "Showing <b class='range'>%{from}&nbsp;-&nbsp;%{to}&nbsp;</b> of <b class='range'>&nbsp;%{count}</b> products"
+        multi_page_html: "Showing <b class='range'>%{from}&nbsp;-&nbsp;%{to}</b> of <b class='range'>%{count}</b> products"
