@@ -12,8 +12,15 @@
 	</div>
 	<% end %>
 	<div class="b" style='padding-bottom: 0px; width: 746px; '>
+		<% if @products.count > 0 %>
+		<div class="custom_pagination">
+			<%= will_paginate @products, :params=>{:name=> params[:name]}, :container => false %>
+			<div class="page_info">
+	      <%= page_entries_info @products %>
+	    </div>
+	  </div>
+		<% end %>
 		<ul class="list-products">
-		
 			<% @products.each do |product| %>
 			<div style="float: left; width: 150px; text-align: center;">
 				<li style='padding-top: 0px; margin: 0px 0px 50px 0px;'>
@@ -39,5 +46,14 @@
 			<% end %>
 
 		</ul>
+		<% if @products.count > 0 %>
+		<div class="custom_pagination">
+			<%= will_paginate @products, :params=>{:name=> params[:name]}, :container => false %>
+			<div class="page_info">
+	      <%= page_entries_info @products %>
+	    </div>
+	  </div>
+		<% end %>
+		
 	</div>
 </div>
