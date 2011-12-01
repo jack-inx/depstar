@@ -11,7 +11,8 @@
 		Thank you for choosing Depstar<br/>
 	</div>
 	<% end %>
-	<div class="b" style='padding-bottom: 0px; width: 746px; '>
+	<div class="b" style='padding-bottom: 0px; width: 746px;'>
+		<h2 style='color: gray; float: left;'>Select Your Product</h2>
 		<% if @products.count > 0 %>
 		<div class="custom_pagination">
 			<%= will_paginate @products, :params=>{:name=> params[:name]}, :container => false %>
