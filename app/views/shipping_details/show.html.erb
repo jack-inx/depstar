@@ -2,6 +2,9 @@
 	<div style="width: 100%; padding: 0px 50px;">
 		<h3 id="notice"><%= notice %></h3>
 	</div>
+	<div>
+		<%= image_tag @sellcell_tracking_code unless @sellcell_tracking_code.nil? %>
+	</div>
 	<div class="image">						
 		<%= image_tag @shipping_detail.product.photo.url(:small) %>
 		<div style='text-align: center; width: 125px;'>

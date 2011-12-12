@@ -17,6 +17,16 @@ class ShippingDetailsController < ApplicationController
   def show    
     @shipping_detail = ShippingDetail.find(params[:id])
     
+    @sellcell_tracking_code = nil
+    if current_user.nil? # Only show tracking pixel for users that are not logged in
+      # Begin sellcell.com tracking code
+      @basket_total = @shipping_detail.question_response.quote.to_s
+      @transaction_id = @shipping_detail.id.to_s
+      @tracking_string = @shipping_detail.product.to_param
+    
+      @sellcell_tracking_code = "https://spear.directtrack.com/i_sale/spear/81/:prod:" + @basket_total + ":qty:1/" + @transaction_id + "/" + @tracking_string + "&sale_status_sale_pend"
+      # End sellcell.com tracking code
+    end
     
     respond_to do |format|
       unless flash[:notice] == "Please check your email for confirmation" || !current_user.nil?
