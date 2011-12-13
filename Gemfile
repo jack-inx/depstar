@@ -20,3 +20,5 @@ gem 'jquery-rails'
 gem 'rails3-jquery-autocomplete'
 
 gem 'will_paginate', '~> 3.0'
+
+gem 'capistrano-ext'

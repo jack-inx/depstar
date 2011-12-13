@@ -24,3 +24,6 @@ production:
     password: pids6b45zn
     socket: /tmp/mysql.sock
     host: 127.0.0.1
+  
+staging:
+  production
