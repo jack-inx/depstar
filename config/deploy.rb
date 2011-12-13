@@ -1,11 +1,14 @@
-set :application, "production"
+#set :application, "production"
+set :application, "depstar"
 set :deploy_to, "/home/depstar/rails_apps/#{application}"
+
 
 set :stages, %w(staging production)
 set :default_stage, "production" # "staging"
 require 'capistrano/ext/multistage'
-set :deploy_to, "/var/www/#{application}/staging"
-set :rails_env, "staging"
+
+#set :deploy_to, "/home/depstar/rails_apps/#{application}/staging"
+#set :rails_env, "staging"
 
 #############################################################
 # Bundler
