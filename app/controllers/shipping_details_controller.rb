@@ -24,7 +24,7 @@ class ShippingDetailsController < ApplicationController
       @transaction_id = @shipping_detail.id.to_s
       @tracking_string = @shipping_detail.product.to_param
     
-      @sellcell_tracking_code = "https://spear.directtrack.com/i_sale/spear/81/:prod:" + @basket_total + ":qty:1/" + @transaction_id + "/" + @tracking_string + "&sale_status_sale_pend"
+      @sellcell_tracking_code = "https://spear.directtrack.com/i_sale/spear/81/:prod:" + @basket_total + ":qty:1/" + @transaction_id + "/" + @tracking_string + "&sale_status=sale_pend"
       # End sellcell.com tracking code
     end
     
