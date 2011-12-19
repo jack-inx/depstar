@@ -9,7 +9,7 @@ class QuestionResponse < ActiveRecord::Base
   # question_4 can be left blank
   
   def quote
-    product.price * multiplier
+    (product.price.to_f * multiplier.to_f).round
   end
   
   private

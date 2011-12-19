@@ -26,15 +26,15 @@ class Product < ActiveRecord::Base
   end
   
   def price_poor
-    self.price.to_f * self.question_3_option_1_multiplier.to_f
+    (self.price.to_f * self.question_3_option_1_multiplier.to_f).round
   end
   
   def price_good
-    self.price.to_f * self.question_3_option_3_multiplier.to_f
+    (self.price.to_f * self.question_3_option_3_multiplier.to_f).round
   end
   
   def price_excellent
-    self.price.to_f * self.question_3_option_4_multiplier.to_f
+    (self.price.to_f * self.question_3_option_4_multiplier.to_f).round
   end
   
 end
