@@ -10,11 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219144331) do
+ActiveRecord::Schema.define(:version => 20111219153848) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.boolean  "is_popular"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "manufacturers", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -69,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20111219144331) do
     t.boolean  "question_4_is_enabled"
     t.string   "question_4_name"
     t.string   "manufacturer"
+    t.integer  "manufacturer_id"
   end
 
   create_table "question_options", :force => true do |t|

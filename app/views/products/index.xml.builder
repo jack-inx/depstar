@@ -4,7 +4,7 @@ xml.products do
     xml.product do
       #debugger
       xml.id product.id
-      xml.manufacturer product.manufacturer
+      xml.manufacturer (product.manufacturer.nil? ? nil : product.manufacturer.name)
       xml.name product.name
       #xml.description product.description
       xml.deeplink polymorphic_url(product)
