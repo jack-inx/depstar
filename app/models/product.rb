@@ -6,9 +6,10 @@ class Product < ActiveRecord::Base
   validates_presence_of :price, :category_id
   validates_numericality_of :price
 
-  has_attached_file :photo, :default_url => "/assets/:class/missing_:style.gif", 
-                  :styles => { :small => "125x125>" },
-                  :url  => "/assets/products/:id/:style/:basename.:extension",
+  has_attached_file :photo,
+                  :default_url => "http://depstar.com/assets/:class/missing_:style.gif", 
+                  :styles => { :thumb => "100x100#", :small => "125x125>" },
+                  :url  => "http://depstar.com/assets/products/:id/:style/:basename.:extension",
                   :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
 
   validates_attachment_size :photo, :less_than => 5.megabytes
@@ -21,6 +22,18 @@ class Product < ActiveRecord::Base
   
   def to_param
     "#{self.id}-#{self.name.parameterize}"
+  end
+  
+  def price_poor
+    self.price.to_f * self.question_3_option_1_multiplier.to_f
+  end
+  
+  def price_good
+    self.price.to_f * self.question_3_option_3_multiplier.to_f
+  end
+  
+  def price_excellent
+    self.price.to_f * self.question_3_option_4_multiplier.to_f
   end
   
 end

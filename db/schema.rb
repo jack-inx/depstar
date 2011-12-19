@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110303205108) do
+ActiveRecord::Schema.define(:version => 20111219144331) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20110303205108) do
     t.float    "question_3_option_4_multiplier"
     t.boolean  "question_4_is_enabled"
     t.string   "question_4_name"
+    t.string   "manufacturer"
   end
 
   create_table "question_options", :force => true do |t|
