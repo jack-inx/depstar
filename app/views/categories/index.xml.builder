@@ -1,11 +1,13 @@
 xml.instruct!
-xml.categories do
+xml.response do
   xml.total @categories.count
   xml.returned @categories.count
-  @categories.each do |category|
-    xml.category do
-      xml.id category.id
-      xml.name category.name
+  xml.categories do
+    @categories.each do |category|
+      xml.category do
+        xml.id category.id
+        xml.name category.name
+      end
     end
   end
 end

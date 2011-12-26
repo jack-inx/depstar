@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
-  before_filter :authorize, :except => [:index, :show]
-    
+  before_filter :authorize, :except => [:index, :show, :grades]
+  before_filter :xml_authorize, :include => [:index, :grades]
+
   # GET /categories
   # GET /categories.xml
   def index
@@ -21,6 +22,22 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @category }
+    end
+  end
+  
+  def grades
+    # @categories = Category.all
+    # debugger 
+    
+    unless params[:id].nil?
+      @product = Category.find(params[:id]).products.first
+    else
+      @product = nil
+    end
+    
+    respond_to do |format|
+      #format.html # show.html.erb
+      format.xml #{ render :xml => @category }
     end
   end
 
