@@ -22,4 +22,12 @@ class ApplicationController < ActionController::Base
     @current_user = current_user_session && current_user_session.record
   end
   
+  def xml_authorize
+    if request.format == Mime::XML
+      authenticate_or_request_with_http_basic do |username, password|
+        (username == 'depstar1' && password == 'wonderland') || (username == 'depstar2' && password == 'maverick')
+      end
+    end
+  end
+  
 end
