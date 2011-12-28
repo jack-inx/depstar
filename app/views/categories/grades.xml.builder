@@ -65,22 +65,41 @@ xml.response do
       end
     end
 
-
     if @product.question_4_is_enabled
-      xml.question do
-        xml.text @product.question_4_name
-        xml.required 'false'
-        xml.id 'question_3'
-        xml.answers do
-          @product.question_options.each do |question_option|
+      @product.question_options.each do |question_option|
+        xml.question do
+          xml.text question_option.name
+          xml.required 'false'
+          xml.id 'option_' + question_option.id.to_s
+          xml.answers do
             xml.answer do
-              xml.text question_option.name
-              xml.id 'option_' + question_option.id.to_s
+              xml.text 'Yes'
+              xml.id 'option_answer_' + question_option.id.to_s + '_1'
+            end
+            xml.answer do
+              xml.text 'No'
+              xml.id 'option_answer_' + question_option.id.to_s + '_2'
             end
           end
         end
       end
     end
+    
+    # if @product.question_4_is_enabled
+    #       xml.question do
+    #         xml.text @product.question_4_name
+    #         xml.required 'false'
+    #         xml.id 'question_4'
+    #         xml.answers do
+    #           @product.question_options.each do |question_option|
+    #             xml.answer do
+    #               xml.text question_option.name
+    #               xml.id 'option_' + question_option.id.to_s
+    #             end
+    #           end
+    #         end
+    #       end
+    #     end
 
 
   end
