@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
   # GET /categories.xml
   def index
     @categories = Category.all
+    @usell_categories = Category.group('usell_category_code').all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,11 +27,9 @@ class CategoriesController < ApplicationController
   end
   
   def grades
-    # @categories = Category.all
-    # debugger 
     
     unless params[:id].nil?
-      @product = Category.find(params[:id]).products.first
+      @product = Product.find(:all, :include => [:category], :conditions=> ['categories.usell_category_code = ?', params[:id]]).first
     else
       @product = nil
     end
