@@ -8,7 +8,7 @@ xml.response do
         xml.id product.id
         xml.manufacturer (product.manufacturer.nil? ? nil : product.manufacturer.name)
         xml.name product.name
-        xml.category (product.category.nil? ? 0 : product.category.id)
+        xml.category ((product.category.nil? || product.category.usell_category_code.nil?) ? 0 : product.category.usell_category_code)
         xml.url polymorphic_url(product)
         xml.deeplink polymorphic_url(product)
         xml.thumbnail_URL product.photo.url(:original)
