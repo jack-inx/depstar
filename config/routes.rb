@@ -36,4 +36,6 @@ Trunk::Application.routes.draw do  #match 'get_quote' => 'price_quotes#get_quote
   match 'get_paid' => 'get_paid#index'
   
   match 'privacy_policy' => 'privacy_policy#index'
+  
+  match 'contact' => 'contact#index'
 end
