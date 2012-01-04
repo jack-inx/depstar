@@ -7,8 +7,8 @@ class ProductsController < ApplicationController
   def index
 	  if params[:popular] == 'true'
   		@products = Product.find_all_by_is_popular(true)
-  	elsif !params[:category_id].nil?
-  	  @products = Category.find(params[:category_id]).products
+  	elsif !params[:category_id].nil?  	  
+  	  @products = Category.find_by_usell_category_code(params[:category_id]).products
   	else
   		@products = Product.all
   	end
