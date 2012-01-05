@@ -31,9 +31,9 @@
 			<p>
 				<b><%= @shipping_detail.product.question_3_name %> </b> <br/>
 				<%= radio_button_tag('question_response3', 'question_3', (@shipping_detail.question_response.question_3 == "1" ? true : false), :disabled => true) %> Poor <br/>
-				<%= radio_button_tag('question_response3', 'question_3', (@shipping_detail.question_response.question_3 == "2" ? true : false), :disabled => true) %> Fair <br/>
-				<%= radio_button_tag('question_response3', 'question_3', (@shipping_detail.question_response.question_3 == "3" ? true : false), :disabled => true) %> Good <br/>
-				<%= radio_button_tag('question_response3', 'question_3', (@shipping_detail.question_response.question_3 == "4" ? true : false), :disabled => true) %> Perfect <br/>
+				<%= radio_button_tag('question_response3', 'question_3', (@shipping_detail.question_response.question_3 == "2" ? true : false), :disabled => true) %> Good <br/>
+				<%= radio_button_tag('question_response3', 'question_3', (@shipping_detail.question_response.question_3 == "3" ? true : false), :disabled => true) %> Excellent <br/>
+				<%= radio_button_tag('question_response3', 'question_3', (@shipping_detail.question_response.question_3 == "4" ? true : false), :disabled => true) %> New <br/>
 			</p>
 		<% end %>
 
