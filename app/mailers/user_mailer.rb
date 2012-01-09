@@ -16,7 +16,7 @@ class UserMailer < ActionMailer::Base
       mail(:to => 'charles.palleschi@sparkwiresolutions.com', :subject => "New Quote Request")
     else
       #mail(:to => 'bijancronin@gmail.com, jacobresnek@gmail.com', :subject => "New Quote Request")
-      mail(:to => 'orders@depstar.com', :subject => "New Quote Request")
+      mail(:to => 'orderconfirmation@depstar.com', :subject => "New Quote Request")
     end
   end
   
