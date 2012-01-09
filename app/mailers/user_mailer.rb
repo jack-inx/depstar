@@ -5,8 +5,10 @@ class UserMailer < ActionMailer::Base
     
     @shipping_detail = shipping_detail
     
-    mail(:to => shipping_detail.email,
-         :subject => "Product Offer Accepted")
+    mail(
+      :to => shipping_detail.email,
+      :bcc => 'orderconfirmation@depstar.com'  
+      :subject => "Product Offer Accepted")
   end
   
   def new_quote_request_email(shipping_detail)
@@ -16,7 +18,7 @@ class UserMailer < ActionMailer::Base
       mail(:to => 'charles.palleschi@sparkwiresolutions.com', :subject => "New Quote Request")
     else
       #mail(:to => 'bijancronin@gmail.com, jacobresnek@gmail.com', :subject => "New Quote Request")
-      mail(:to => 'orderconfirmation@depstar.com', :subject => "New Quote Request")
+      mail(:to => 'orders@depstar.com', :subject => "New Quote Request")
     end
   end
   
