@@ -7,7 +7,7 @@ class UserMailer < ActionMailer::Base
     
     mail(
       :to => shipping_detail.email,
-      :bcc => 'orderconfirmation@depstar.com'  
+      :bcc => 'orderconfirmation@depstar.com',  
       :subject => "Product Offer Accepted")
   end
   
