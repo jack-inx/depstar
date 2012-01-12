@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_filter :authorize, :except => [:show, :get_quote, :accept_quote, :index, :search]
-  before_filter :xml_authorize, :include => [:index]
+  before_filter :authorize, :except => [:show, :get_quote, :accept_quote, :index, :search, :offer]
+  before_filter :xml_authorize, :include => [:index, :offer]
   
   # GET /products
   # GET /products.xml
