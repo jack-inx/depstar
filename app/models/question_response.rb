@@ -18,7 +18,7 @@ class QuestionResponse < ActiveRecord::Base
     @multiplier = 1
     #debugger
     
-    unless question_1.blank?      
+    unless question_1.blank? or @product.question_1_option_1_multiplier.nil?
       if question_1 == "True"
         @multiplier *= @product.question_1_option_1_multiplier
       elsif question_1 == "False"
@@ -26,7 +26,7 @@ class QuestionResponse < ActiveRecord::Base
       end
     end
         
-    unless question_2.blank?      
+    unless question_2.blank? or @product.question_2_option_1_multiplier.nil?
       if question_2 == "True"
         @multiplier *= @product.question_2_option_1_multiplier
       elsif question_2 == "False"
@@ -34,7 +34,7 @@ class QuestionResponse < ActiveRecord::Base
       end      
     end
         
-    unless question_3.blank?      
+    unless question_3.blank? or @product.question_3_option_1_multiplier.nil?
       if question_3 == "1"
         @multiplier *= @product.question_3_option_1_multiplier
       elsif question_3 == "2"
@@ -48,7 +48,7 @@ class QuestionResponse < ActiveRecord::Base
 
     @product.question_options.each do |question_option|
 
-      unless question_4.blank?                
+      unless question_4.blank?
         unless question_4.include?(question_option.id.to_s())
           @multiplier *= question_option.multiplier
         end
