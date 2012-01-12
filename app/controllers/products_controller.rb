@@ -5,8 +5,6 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
   def index
-    
-    
 	  if params[:popular] == 'true'
   		@products = Product.find_all_by_is_popular(true)
   	elsif !params[:category_id].nil?
@@ -38,15 +36,53 @@ class ProductsController < ApplicationController
     end
   end
   
+  def offer
+    
+    @options = []
+
+    if params[:option_2] == 'option_answer_2_1'
+      @options.push(2)
+    end    
+    if params[:option_3] == 'option_answer_3_1'
+      @options.push(3)
+    end
+    if params[:option_4] == 'option_answer_4_1'
+      @options.push(4)
+    end
+    
+    @product = Product.find(params[:id])
+    @question_response = QuestionResponse.new(:product_id => params[:id], 
+      :question_1 => (params[:question_1] == 'answer_1' ? 'True' : 'False'), 
+      :question_2 => (params[:question_2] == 'answer_5' ? 'True' : 'False'),
+      :question_3 => (case params[:question_3] 
+                        when 'answer_5' 
+                          '1' 
+                        when 'answer_6' 
+                          '2'
+                        when 'answer_7' 
+                          '3'
+                        when 'answer_8' 
+                          '4'
+                        else
+                          '0'
+                      end),
+      :question_4 => @options)
+    
+    respond_to do |format|
+      format.html # offer.html.erb
+      format.xml  # offer.xml.builder
+    end
+  end
+  
   def get_quote
     @question_response = QuestionResponse.new(params[:question_response])
-       
+    
     if @question_response.valid?
       flash[:error] = nil
     else
       flash[:error] = "Please answer all questions"
     end
-    
+#debugger    
     respond_to do |format|
       format.js
       format.xml  { render :xml => @question_response }
@@ -72,7 +108,11 @@ class ProductsController < ApplicationController
   # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
-    @question_response = QuestionResponse.new
+    if params[:question_response].nil?
+      @question_response = QuestionResponse.new  
+    else
+      @question_response = QuestionResponse.new(params[:question_response])
+    end
     
     respond_to do |format|
       format.html # show.html.erb

@@ -37,7 +37,7 @@
 							<b><%= @product.question_3_name %> </b> <br/>
 							<%= f.radio_button(:question_3, "1") %> Poor <span class='condition_details'>Heavy scratches, bad nicks or dents</span> <br/>
 							<%= f.radio_button(:question_3, "2") %> Good <span class='condition_details'>Some light scratches or minor nicks</span> <br/>
-							<%= f.radio_button(:question_3, "3") %> Excellent <span class='condition_details'>Looks almost perfect</span> <br/>
+							<%= f.radio_button(:question_3, "3") %> Excellent <span class='condition_details'>Looks perfect</span> <br/>
 							<%= f.radio_button(:question_3, "4") %> New <span class='condition_details'>Must come complete with all original accessories and packaging. Phone is Brand New</span> <br/>
 						</p>
 					<% end %>
@@ -46,7 +46,7 @@
 						<p>
 							<b><%= @product.question_4_name %> </b> <br/>
 							<% @product.question_options.each do |question_option| %>
-								<%= check_box_tag "question_response[question_4][]", question_option.id %> <%= question_option.name %> <br/>
+								<%= check_box_tag "question_response[question_4][" + question_option.id.to_s + "]", question_option.id %> <%= question_option.name %> <br/>
 							<% end %>
 						</p>
 					<% end %>
