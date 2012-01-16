@@ -60,6 +60,9 @@ class ShippingDetailsController < ApplicationController
     @product = Product.find(params[:shipping_detail][:product_id])
     @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
 
+    @shipping_detail.uuid = params[:uuid] unless params[:uuid].nil?
+    @shipping_detail.referer = params[:ref] unless params[:ref].nil?
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @shipping_detail }
