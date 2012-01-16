@@ -46,7 +46,7 @@
 						<p>
 							<b><%= @product.question_4_name %> </b> <br/>
 							<% @product.question_options.each do |question_option| %>
-								<%= check_box_tag "question_response[question_4][" + question_option.id.to_s + "]", question_option.id %> <%= question_option.name %> <br/>
+								<%= check_box_tag "question_response[question_4][]", question_option.id %> <%= question_option.name %> <br/>
 							<% end %>
 						</p>
 					<% end %>
