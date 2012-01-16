@@ -43,11 +43,12 @@ class ShippingDetailsController < ApplicationController
     @shipping_details_total = ShippingDetail.count
     @shipping_details = ShippingDetail.find(
       :all,
+      :select => 'shipping_details.*, COUNT(*) AS orders_count', 
+      :order => "created_at desc",
       :conditions => 'UUID IS NOT NULL',
-      :order => "created_at desc"
+      :group => 'uuid'
     )
-    #:select => 'shipping_details.*, COUNT(*) AS orders_count', 
-      #:group => 'uuid'    
+          
     respond_to do |format|
       #format.html # orders.html.erb
       format.xml # orders.xml.builder
