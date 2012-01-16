@@ -35,10 +35,10 @@
 					<% if @product.try(:question_3_is_enabled) %>
 						<p>
 							<b><%= @product.question_3_name %> </b> <br/>
-							<%= f.radio_button(:question_3, "1") %> Poor <span class='condition_details'>Heavy scratches, bad nicks or dents</span> <br/>
-							<%= f.radio_button(:question_3, "2") %> Good <span class='condition_details'>Some light scratches or minor nicks</span> <br/>
-							<%= f.radio_button(:question_3, "3") %> Excellent <span class='condition_details'>Looks perfect</span> <br/>
-							<%= f.radio_button(:question_3, "4") %> New <span class='condition_details'>Must come complete with all original accessories and packaging. Phone is Brand New</span> <br/>
+							<%= f.radio_button(:question_3, "1") %> Poor <span class='condition_details'>Heavy scratches, bad nicks or dents, phone looks really used.</span> <br/>
+							<%= f.radio_button(:question_3, "2") %> Average <span class='condition_details'>Some scratches, dings or dents. (Most Customers)</span> <br/>
+							<%= f.radio_button(:question_3, "3") %> Good <span class='condition_details'>Some light surface marks. Light wear and tear.</span> <br/>
+							<%= f.radio_button(:question_3, "4") %> Excellent <span class='condition_details'>Perfect, like New condition no imperfections.</span> <br/>
 						</p>
 					<% end %>
 

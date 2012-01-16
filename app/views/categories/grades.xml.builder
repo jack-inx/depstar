@@ -50,7 +50,7 @@ xml.response do
             xml.id 'answer_5'
           end
           xml.answer do
-            xml.text 'Fair'
+            xml.text 'Average'
             xml.id 'answer_6'
           end
           xml.answer do
@@ -58,7 +58,7 @@ xml.response do
             xml.id 'answer_7'
           end
           xml.answer do
-            xml.text 'Perfect'
+            xml.text 'Excellent'
             xml.id 'answer_8'
           end
         end
