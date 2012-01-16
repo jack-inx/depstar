@@ -8691,3 +8691,267 @@ Rendered layouts/_header.html.erb (2.1ms)
 Rendered layouts/_threecolumns.html.erb (1.5ms)
 Rendered layouts/_footer.html.erb (2.7ms)
 Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.2ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "failed_login_count" = 0, "current_login_ip" = '0.0.0.0', "login_count" = 2, "current_login_at" = '2012-01-16 21:34:11.950014', "last_request_at" = '2012-01-16 21:34:11.988378', "updated_at" = '2012-01-16 21:34:11.990064' WHERE ("users"."id" = 1)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  Processing by CategoriesController#create as HTML
+  Parameters: {"category"=>{"usell_category_code"=>nil, "name"=>"MyString", "created_at"=>Mon Jan 16 21:34:11 UTC 2012, "updated_at"=>Mon Jan 16 21:34:11 UTC 2012, "id"=>980190962, "is_popular"=>false}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "categories" ("name", "usell_category_code", "is_popular", "updated_at", "created_at") VALUES ('MyString', NULL, 'f', '2012-01-16 21:34:11.000000', '2012-01-16 21:34:11.000000')[0m
+Redirected to http://test.host/categories/980190963-mystring
+Completed 302 Found in 639ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "failed_login_count" = 0, "current_login_ip" = '0.0.0.0', "login_count" = 2, "current_login_at" = '2012-01-16 21:34:12.890818', "last_request_at" = '2012-01-16 21:34:12.891335', "updated_at" = '2012-01-16 21:34:12.892854' WHERE ("users"."id" = 1)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+  Processing by CategoriesController#destroy as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mAREL (0.1ms)[0m  [1mDELETE FROM "categories" WHERE ("categories"."id" = 980190962)[0m
+Redirected to http://test.host/categories
+Completed 302 Found in 4ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "failed_login_count" = 0, "current_login_ip" = '0.0.0.0', "login_count" = 2, "current_login_at" = '2012-01-16 21:34:13.058731', "last_request_at" = '2012-01-16 21:34:13.059224', "updated_at" = '2012-01-16 21:34:13.060160' WHERE ("users"."id" = 1)[0m
+  Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+Rendered categories/_form.html.erb (116.7ms)
+Rendered layouts/_inner_head.html.erb (9.0ms)
+Rendered layouts/_header.html.erb (3.2ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered layouts/_threecolumns.html.erb (419.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2012-01-16 21:34:14.381401', "updated_at" = '2012-01-16 21:34:14.383004' WHERE ("users"."id" = 1)
+Rendered layouts/_footer.html.erb (19.4ms)
+Completed 200 OK in 1320ms (Views: 1317.1ms | ActiveRecord: 8.8ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE (usell_category_code IS NOT NULL) GROUP BY usell_category_code[0m
+Rendered layouts/_inner_head.html.erb (4.0ms)
+Rendered layouts/_header.html.erb (2.4ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered layouts/_threecolumns.html.erb (1.7ms)
+Rendered layouts/_footer.html.erb (2.3ms)
+Completed 200 OK in 46ms (Views: 43.8ms | ActiveRecord: 0.9ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "failed_login_count" = 0, "current_login_ip" = '0.0.0.0', "login_count" = 2, "current_login_at" = '2012-01-16 21:34:14.516448', "last_request_at" = '2012-01-16 21:34:14.516936', "updated_at" = '2012-01-16 21:34:14.517930' WHERE ("users"."id" = 1)[0m
+  Processing by CategoriesController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered categories/_form.html.erb (4.5ms)
+Rendered layouts/_inner_head.html.erb (4.0ms)
+Rendered layouts/_header.html.erb (2.3ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered layouts/_threecolumns.html.erb (1.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mAREL (0.6ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2012-01-16 21:34:14.594332', "updated_at" = '2012-01-16 21:34:14.594865' WHERE ("users"."id" = 1)[0m
+Rendered layouts/_footer.html.erb (11.9ms)
+Completed 200 OK in 73ms (Views: 70.1ms | ActiveRecord: 2.1ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 980190962)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products".category_id = 980190962) LIMIT 12 OFFSET 0[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products" WHERE ("products".category_id = 980190962)
+Rendered layouts/_inner_head.html.erb (3.9ms)
+Rendered layouts/_header.html.erb (2.3ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered layouts/_threecolumns.html.erb (1.9ms)
+Rendered layouts/_footer.html.erb (3.6ms)
+Completed 200 OK in 47ms (Views: 42.1ms | ActiveRecord: 1.1ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mAREL (30.2ms)[0m  UPDATE "users" SET "failed_login_count" = 0, "current_login_ip" = '0.0.0.0', "login_count" = 2, "current_login_at" = '2012-01-16 21:34:14.660689', "last_request_at" = '2012-01-16 21:34:14.661219', "updated_at" = '2012-01-16 21:34:14.662185' WHERE ("users"."id" = 1)
+  Processing by CategoriesController#update as HTML
+  Parameters: {"category"=>{"usell_category_code"=>nil, "name"=>"MyString", "created_at"=>Mon Jan 16 21:34:11 UTC 2012, "updated_at"=>Mon Jan 16 21:34:11 UTC 2012, "id"=>980190962, "is_popular"=>false}, "id"=>"980190962-mystring"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 980190962) LIMIT 1
+WARNING: Can't mass-assign protected attributes: id
+Redirected to http://test.host/categories/980190962-mystring
+Completed 302 Found in 5ms
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers" WHERE ("manufacturers"."id" = 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "manufacturers"
+  Processing by ManufacturersController#create as HTML
+  Parameters: {"manufacturer"=>{"name"=>"MyString", "created_at"=>Mon Jan 16 21:34:11 UTC 2012, "updated_at"=>Mon Jan 16 21:34:11 UTC 2012, "id"=>980190962}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 2ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "manufacturers"
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers" WHERE ("manufacturers"."id" = 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "manufacturers"
+  Processing by ManufacturersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 2ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "manufacturers"
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers" WHERE ("manufacturers"."id" = 980190962) LIMIT 1[0m
+  Processing by ManufacturersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1
+Redirected to http://test.host/login
+Completed 302 Found in 2ms
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers" WHERE ("manufacturers"."id" = 980190962) LIMIT 1[0m
+  Processing by ManufacturersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1
+Redirected to http://test.host/login
+Completed 302 Found in 2ms
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers" WHERE ("manufacturers"."id" = 980190962) LIMIT 1[0m
+  Processing by ManufacturersController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1
+Redirected to http://test.host/login
+Completed 302 Found in 2ms
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers" WHERE ("manufacturers"."id" = 980190962) LIMIT 1[0m
+  Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1
+Redirected to http://test.host/login
+Completed 302 Found in 2ms
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers" WHERE ("manufacturers"."id" = 980190962) LIMIT 1[0m
+  Processing by ManufacturersController#update as HTML
+  Parameters: {"id"=>"980190962", "manufacturer"=>{"name"=>"MyString", "created_at"=>Mon Jan 16 21:34:11 UTC 2012, "updated_at"=>Mon Jan 16 21:34:11 UTC 2012, "id"=>980190962}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1
+Redirected to http://test.host/login
+Completed 302 Found in 2ms
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "failed_login_count" = 0, "current_login_ip" = '0.0.0.0', "login_count" = 2, "current_login_at" = '2012-01-16 21:34:14.955884', "last_request_at" = '2012-01-16 21:34:14.956434', "updated_at" = '2012-01-16 21:34:14.957512' WHERE ("users"."id" = 1)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+  Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"question_2_option_2_multiplier"=>nil, "price"=>1.234, "name"=>"MyString", "manufacturer_id"=>nil, "question_2_option_1_multiplier"=>nil, "photo_file_size"=>100, "created_at"=>Mon Jan 16 21:34:11 UTC 2012, "question_1_name"=>nil, "updated_at"=>Mon Jan 16 21:34:11 UTC 2012, "photo_file_name"=>nil, "photo_content_type"=>nil, "id"=>980190962, "photo_updated_at"=>Wed Oct 06 11:04:37 UTC 2010, "manufacturer"=>nil, "is_popular"=>true, "category_id"=>nil, "question_4_is_enabled"=>nil, "question_3_name"=>nil, "question_4_name"=>nil, "question_3_option_4_multiplier"=>nil, "question_3_is_enabled"=>nil, "question_2_name"=>nil, "question_1_option_2_multiplier"=>nil, "description"=>"MyString", "question_3_option_3_multiplier"=>nil, "question_3_option_1_multiplier"=>nil, "question_2_is_enabled"=>nil, "question_1_option_1_multiplier"=>nil, "question_3_option_2_multiplier"=>nil, "question_1_is_enabled"=>nil}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mManufacturer Load (0.2ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered products/_question_option_fields.erb (2.8ms)
+Rendered products/_form.html.erb (52.1ms)
+Rendered layouts/_inner_head.html.erb (5.5ms)
+Rendered layouts/_header.html.erb (2.3ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered layouts/_threecolumns.html.erb (1.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2012-01-16 21:34:15.086849', "updated_at" = '2012-01-16 21:34:15.087313' WHERE ("users"."id" = 1)
+Rendered layouts/_footer.html.erb (13.1ms)
+Completed 200 OK in 121ms (Views: 97.4ms | ActiveRecord: 37.2ms)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "failed_login_count" = 0, "current_login_ip" = '0.0.0.0', "login_count" = 2, "current_login_at" = '2012-01-16 21:34:15.107547', "last_request_at" = '2012-01-16 21:34:15.108051', "updated_at" = '2012-01-16 21:34:15.109002' WHERE ("users"."id" = 1)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+[paperclip] Scheduling attachments for deletion.
+  [1m[35mAREL (0.2ms)[0m  DELETE FROM "products" WHERE ("products"."id" = 980190962)
+[paperclip] Deleting attachments.
+Redirected to http://test.host/products
+Completed 302 Found in 6ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "failed_login_count" = 0, "current_login_ip" = '0.0.0.0', "login_count" = 2, "current_login_at" = '2012-01-16 21:34:15.140851', "last_request_at" = '2012-01-16 21:34:15.141393', "updated_at" = '2012-01-16 21:34:15.142454' WHERE ("users"."id" = 1)
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mManufacturer Load (0.2ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mQuestionOption Load (0.2ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".product_id = 980190962)
+Rendered products/_question_option_fields.erb (9.6ms)
+Rendered products/_form.html.erb (34.1ms)
+Rendered layouts/_inner_head.html.erb (3.7ms)
+Rendered layouts/_header.html.erb (2.1ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered layouts/_threecolumns.html.erb (1.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2012-01-16 21:34:15.390668', "updated_at" = '2012-01-16 21:34:15.391108' WHERE ("users"."id" = 1)[0m
+Rendered layouts/_footer.html.erb (136.3ms)
+Completed 200 OK in 239ms (Views: 234.7ms | ActiveRecord: 5.7ms)
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"
+Rendered layouts/_inner_head.html.erb (4.0ms)
+Rendered layouts/_header.html.erb (2.2ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered layouts/_threecolumns.html.erb (1.5ms)
+Rendered layouts/_footer.html.erb (2.1ms)
+Completed 200 OK in 80ms (Views: 77.6ms | ActiveRecord: 1.6ms)
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "failed_login_count" = 0, "current_login_ip" = '0.0.0.0', "login_count" = 2, "current_login_at" = '2012-01-16 21:34:15.499759', "last_request_at" = '2012-01-16 21:34:15.500265', "updated_at" = '2012-01-16 21:34:15.501187' WHERE ("users"."id" = 1)
+  Processing by ProductsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+Rendered products/_question_option_fields.erb (1.8ms)
+Rendered products/_form.html.erb (17.1ms)
+Rendered layouts/_inner_head.html.erb (4.1ms)
+Rendered layouts/_header.html.erb (2.5ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered layouts/_threecolumns.html.erb (1.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2012-01-16 21:34:15.549681', "updated_at" = '2012-01-16 21:34:15.550176' WHERE ("users"."id" = 1)[0m
+Rendered layouts/_footer.html.erb (12.2ms)
+Completed 200 OK in 45ms (Views: 41.1ms | ActiveRecord: 2.7ms)
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"980190962-mystring"}
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+Rendered layouts/_inner_head.html.erb (4.2ms)
+Rendered layouts/_header.html.erb (2.1ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered layouts/_threecolumns.html.erb (1.5ms)
+Rendered layouts/_footer.html.erb (3.1ms)
+Completed 200 OK in 59ms (Views: 56.3ms | ActiveRecord: 0.9ms)
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "users" SET "failed_login_count" = 0, "current_login_ip" = '0.0.0.0', "login_count" = 2, "current_login_at" = '2012-01-16 21:34:15.629731', "last_request_at" = '2012-01-16 21:34:15.630203', "updated_at" = '2012-01-16 21:34:15.631069' WHERE ("users"."id" = 1)[0m
+  Processing by ProductsController#update as HTML
+  Parameters: {"id"=>"980190962-mystring", "product"=>{"question_2_option_2_multiplier"=>nil, "price"=>1.234, "name"=>"MyString", "manufacturer_id"=>nil, "question_2_option_1_multiplier"=>nil, "photo_file_size"=>100, "created_at"=>Mon Jan 16 21:34:11 UTC 2012, "question_1_name"=>nil, "updated_at"=>Mon Jan 16 21:34:11 UTC 2012, "photo_file_name"=>nil, "photo_content_type"=>nil, "id"=>980190962, "photo_updated_at"=>Wed Oct 06 11:04:37 UTC 2010, "manufacturer"=>nil, "is_popular"=>true, "category_id"=>nil, "question_4_is_enabled"=>nil, "question_3_name"=>nil, "question_4_name"=>nil, "question_3_option_4_multiplier"=>nil, "question_3_is_enabled"=>nil, "question_2_name"=>nil, "question_1_option_2_multiplier"=>nil, "description"=>"MyString", "question_3_option_3_multiplier"=>nil, "question_3_option_1_multiplier"=>nil, "question_2_is_enabled"=>nil, "question_1_option_1_multiplier"=>nil, "question_3_option_2_multiplier"=>nil, "question_1_is_enabled"=>nil}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 980190962) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mManufacturer Load (0.2ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mQuestionOption Load (0.2ms)[0m  SELECT "question_options".* FROM "question_options" WHERE ("question_options".product_id = 980190962)
+Rendered products/_question_option_fields.erb (1.8ms)
+Rendered products/_form.html.erb (18.7ms)
+Rendered layouts/_inner_head.html.erb (4.1ms)
+Rendered layouts/_header.html.erb (2.5ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered layouts/_threecolumns.html.erb (1.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2012-01-16 21:34:15.833363', "updated_at" = '2012-01-16 21:34:15.833863' WHERE ("users"."id" = 1)[0m
+Rendered layouts/_footer.html.erb (11.3ms)
+Completed 200 OK in 195ms (Views: 186.3ms | ActiveRecord: 2.8ms)
+  Processing by UserSessionsController#create as HTML
+Rendered layouts/_inner_head.html.erb (4.0ms)
+Rendered layouts/_header.html.erb (2.1ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5
+Rendered layouts/_threecolumns.html.erb (1.5ms)
+Rendered layouts/_footer.html.erb (3.4ms)
+Completed 200 OK in 73ms (Views: 72.0ms | ActiveRecord: 0.2ms)
+  Processing by UserSessionsController#new as HTML
+Rendered layouts/_inner_head.html.erb (3.9ms)
+Rendered layouts/_header.html.erb (2.1ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."is_popular" = 't') LIMIT 5[0m
+Rendered layouts/_threecolumns.html.erb (1.4ms)
+Rendered layouts/_footer.html.erb (3.1ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.2ms)

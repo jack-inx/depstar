@@ -1,5 +1,6 @@
 class ShippingDetailsController < ApplicationController
-  before_filter :authorize, :except => [:new, :create, :confirm, :show]
+  before_filter :authorize, :except => [:new, :create, :confirm, :show, :orders]
+  before_filter :xml_authorize, :include => [:orders]
   
   # GET /shipping_details
   # GET /shipping_details.xml
@@ -36,6 +37,21 @@ class ShippingDetailsController < ApplicationController
       end
       format.xml  { render :xml => @shipping_detail }
     end    
+  end
+  
+  def orders
+    @shipping_details_total = ShippingDetail.count
+    @shipping_details = ShippingDetail.find(
+      :all,
+      :conditions => 'UUID IS NOT NULL',
+      :order => "created_at desc"
+    )
+    #:select => 'shipping_details.*, COUNT(*) AS orders_count', 
+      #:group => 'uuid'    
+    respond_to do |format|
+      #format.html # orders.html.erb
+      format.xml # orders.xml.builder
+    end
   end
   
   def confirm

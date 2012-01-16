@@ -23,6 +23,8 @@ Trunk::Application.routes.draw do  #match 'get_quote' => 'price_quotes#get_quote
   
   match 'question_responses' => 'products#get_quote'
   
+  match 'orders' => 'shipping_details#orders'
+  
   match 'admin' => 'admin#index'
   match 'home' => 'home#index'
   match 'dev' => 'home#index'

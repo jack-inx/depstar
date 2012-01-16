@@ -1279,9 +1279,18 @@ h4
 	color: #333;
 	text-align: center;
 }
+.condition_header {
+	float: left;
+	clear: both;
+}
 .condition_details {
 	color: gray;
 	font-size: .85em;
+	padding-left: 8px;
+	width: 176px;
+	float: right;
+	clear: right;
+	padding-bottom: 5px;
 }
 
 .search_no_items_found {
