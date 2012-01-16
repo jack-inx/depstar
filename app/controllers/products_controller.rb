@@ -67,6 +67,12 @@ class ProductsController < ApplicationController
                           '0'
                       end),
       :question_4 => @options)
+      
+      if @question_response.save
+        @product_link = new_shipping_detail_url(:shipping_detail => {:question_response_id => @question_response.id, :product_id => @question_response.product_id})
+      else
+        @product_link = product_path(params[:question_response][:product_id])
+      end
     
     respond_to do |format|
       format.html # offer.html.erb
