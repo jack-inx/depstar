@@ -56,6 +56,9 @@ class ProductsController < ApplicationController
     #   @options.push(4)
     # end
     
+    @product = Product.find(params[:id]) #.question_options[0].id
+    @x = 0
+    
     # Add all options
     params.each do |param|
       key = param[0]
@@ -63,9 +66,10 @@ class ProductsController < ApplicationController
       
       if key.start_with?('option')        
         if value.end_with?('1') == true
-          @options.push(key.last)
-          #logger.debug key.last + ' -- true'
+          @current_question_option_id = @product.question_options[@x].id
+          @options.push(@current_question_option_id)
         end
+        @x = @x + 1
       end
        
     end

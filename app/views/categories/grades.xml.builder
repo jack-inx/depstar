@@ -69,7 +69,7 @@ xml.response do
       @product.question_options.each do |question_option|
         xml.question do
           xml.text question_option.name
-          xml.required 'false'
+          xml.required 'true'
           xml.id 'option_' + question_option.id.to_s
           xml.answers do
             xml.answer do
