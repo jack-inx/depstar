@@ -40,14 +40,34 @@ class ProductsController < ApplicationController
     
     @options = []
 
-    if params[:option_2] == 'option_answer_2_1'
-      @options.push(2)
-    end    
-    if params[:option_3] == 'option_answer_3_1'
-      @options.push(3)
-    end
-    if params[:option_4] == 'option_answer_4_1'
-      @options.push(4)
+    # if params[:option_1] == 'option_answer_1_1'
+    #   @options.push(2)
+    # end
+    # if params[:option_2] == 'option_answer_2_1'
+    #   @options.push(2)
+    # end    
+    # if params[:option_3] == 'option_answer_3_1'
+    #   @options.push(3)
+    # end
+    # if params[:option_4] == 'option_answer_4_1'
+    #   @options.push(4)
+    # end
+    # if params[:option_5] == 'option_answer_5_1'
+    #   @options.push(4)
+    # end
+    
+    # Add all options
+    params.each do |param|
+      key = param[0]
+      value = param[1]
+      
+      if key.start_with?('option')        
+        if value.end_with?('1') == true
+          @options.push(key.last)
+          #logger.debug key.last + ' -- true'
+        end
+      end
+       
     end
     
     @product = Product.find(params[:id])
