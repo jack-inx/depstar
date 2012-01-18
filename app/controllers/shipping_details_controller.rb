@@ -40,13 +40,36 @@ class ShippingDetailsController < ApplicationController
   end
   
   def orders
-    @shipping_details_total = ShippingDetail.count
+    @conditions = 'UUID IS NOT NULL'
+    @limit = 25
+    
+    @shipping_details_total = @shipping_details = ShippingDetail.find(
+      :all,
+      :select => 'shipping_details.*, COUNT(*) AS orders_count', 
+      :order => "created_at desc",
+      :conditions => @conditions,
+      :group => 'uuid'
+    ).count
+
+    unless params[:start].nil?
+      @conditions = @conditions + (' and created_at > ' + params[:start])
+    end
+
+    unless params[:end].nil?
+      @conditions = @conditions + (' and created_at < ' + params[:end])
+    end
+    
+    unless params[:limit].nil?
+      @limit = params[:limit]
+    end
+    
     @shipping_details = ShippingDetail.find(
       :all,
       :select => 'shipping_details.*, COUNT(*) AS orders_count', 
       :order => "created_at desc",
-      :conditions => 'UUID IS NOT NULL',
-      :group => 'uuid'
+      :conditions => @conditions,
+      :group => 'uuid',
+      :limit => @limit
     )
           
     respond_to do |format|
