@@ -38,23 +38,8 @@ class ProductsController < ApplicationController
   
   def offer
     
-    @options = []
-
-    # if params[:option_1] == 'option_answer_1_1'
-    #   @options.push(2)
-    # end
-    # if params[:option_2] == 'option_answer_2_1'
-    #   @options.push(2)
-    # end    
-    # if params[:option_3] == 'option_answer_3_1'
-    #   @options.push(3)
-    # end
-    # if params[:option_4] == 'option_answer_4_1'
-    #   @options.push(4)
-    # end
-    # if params[:option_5] == 'option_answer_5_1'
-    #   @options.push(4)
-    # end
+    #@options = []
+    @options = ''
     
     @product = Product.find(params[:id]) #.question_options[0].id
     @x = 0
@@ -67,7 +52,8 @@ class ProductsController < ApplicationController
       if key.start_with?('option')        
         if value.end_with?('1') == true
           @current_question_option_id = @product.question_options[@x].id
-          @options.push(@current_question_option_id)
+          #@options.push(@current_question_option_id)
+          @options = @options + @current_question_option_id.to_s
         end
         @x = @x + 1
       end
@@ -102,6 +88,8 @@ class ProductsController < ApplicationController
     else
       @product_link = product_path(params[:question_response][:product_id])
     end
+    
+    debugger
     
     respond_to do |format|
       format.html # offer.html.erb

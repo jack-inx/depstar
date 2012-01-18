@@ -103,6 +103,8 @@ class ShippingDetailsController < ApplicationController
     @shipping_detail.uuid = params[:uuid] unless params[:uuid].nil?
     @shipping_detail.referer = params[:ref] unless params[:ref].nil?
 
+    debugger
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @shipping_detail }
