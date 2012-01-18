@@ -100,9 +100,6 @@ class ShippingDetailsController < ApplicationController
     @product = Product.find(params[:shipping_detail][:product_id])
     @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
 
-    logger.debug 'params[:uuid] - ' + params[:uuid]
-    logger.debug 'params - ' + params.to_s
-    
     @shipping_detail.uuid = params[:uuid] unless params[:uuid].nil?
     @shipping_detail.referer = params[:ref] unless params[:ref].nil?
 
