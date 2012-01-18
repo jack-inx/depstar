@@ -125,6 +125,8 @@ class ShippingDetailsController < ApplicationController
     @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
     @tos = params[:tos]
     
+    debugger
+    
     respond_to do |format|
       if @tos.nil?
         flash[:error] = "You must first agree to the terms of service"

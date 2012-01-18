@@ -17,6 +17,9 @@
 
 	  <%= f.hidden_field :product_id, :value => params[:shipping_detail][:product_id] %>
 	  <%= f.hidden_field :question_response_id, :value => params[:shipping_detail][:question_response_id] %>
+		
+		<%= f.hidden_field :uuid, :value => params[:uuid] %>
+		<%= f.hidden_field :referer, :value => params[:ref] %>
 	
 	  	<% content_for :javascript do %>
 	  	 	<script type="text/javascript">
