@@ -1,6 +1,6 @@
 class ShippingDetailsController < ApplicationController
-  before_filter :authorize, :except => [:new, :create, :confirm, :show, :orders]
-  before_filter :xml_authorize, :include => [:orders]
+  before_filter :authorize, :except => [:new, :create, :confirm, :show, :orders, :order_details]
+  before_filter :xml_authorize, :include => [:orders, :order_details]
   
   # GET /shipping_details
   # GET /shipping_details.xml
