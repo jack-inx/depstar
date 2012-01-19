@@ -78,6 +78,25 @@ class ShippingDetailsController < ApplicationController
     end
   end
   
+  def order_details
+    @uuid = params[:id]
+    @conditions = 'UUID LIKE ' + @uuid
+    
+    @shipping_details = ShippingDetail.find_all_by_uuid(
+      @uuid#,
+      #:select => 'shipping_details.*, COUNT(*) AS orders_count', 
+      #:order => "created_at desc",
+      #:conditions => @conditions,
+      #:group => 'uuid'
+    )
+    
+    #debugger
+    
+    respond_to do |format|
+      format.xml # order_details.xml.builder
+    end
+  end
+  
   def confirm
     @shipping_detail = ShippingDetail.new(params[:shipping_detail])
     @product = @shipping_detail.product
@@ -103,8 +122,6 @@ class ShippingDetailsController < ApplicationController
     @shipping_detail.uuid = params[:uuid] unless params[:uuid].nil?
     @shipping_detail.referer = params[:ref] unless params[:ref].nil?
 
-    debugger
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @shipping_detail }
@@ -123,8 +140,6 @@ class ShippingDetailsController < ApplicationController
     @product = Product.find(params[:shipping_detail][:product_id])
     @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
     @tos = params[:tos]
-    
-    debugger
     
     respond_to do |format|
       if @tos.nil?
