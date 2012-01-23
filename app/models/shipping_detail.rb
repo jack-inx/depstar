@@ -13,4 +13,36 @@ class ShippingDetail < ActiveRecord::Base
     first_name + ' ' + last_name
   end
 
+  def status
+    case self.status_code
+      when 0
+        'AwaitingRecept'
+      when 1
+        'Recieved'
+      when 2
+        'Paid'
+      when 3
+        'Returned'
+      when 4
+        'Recyled'
+      when 5
+        'Cancelled'
+      when 6
+        'Requote'
+      else
+        ''
+    end
+    
+  end
+  
+  def final_offer_or_default
+    if !self.final_offer.nil?
+      self.final_offer
+    elsif !self.question_response.nil? && !self.question_response.quote.nil?
+      self.question_response.quote
+    else
+      0
+    end
+  end
+
 end

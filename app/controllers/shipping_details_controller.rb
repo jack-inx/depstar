@@ -17,6 +17,7 @@ class ShippingDetailsController < ApplicationController
   # GET /shipping_details/1.xml
   def show    
     @shipping_detail = ShippingDetail.find(params[:id])
+    @user = current_user
     
     @sellcell_tracking_code = nil
     if current_user.nil? # Only show tracking pixel for users that are not logged in
@@ -83,14 +84,8 @@ class ShippingDetailsController < ApplicationController
     @conditions = 'UUID LIKE ' + @uuid
     
     @shipping_details = ShippingDetail.find_all_by_uuid(
-      @uuid#,
-      #:select => 'shipping_details.*, COUNT(*) AS orders_count', 
-      #:order => "created_at desc",
-      #:conditions => @conditions,
-      #:group => 'uuid'
+      @uuid
     )
-    
-    #debugger
     
     respond_to do |format|
       format.xml # order_details.xml.builder
@@ -101,7 +96,6 @@ class ShippingDetailsController < ApplicationController
     @shipping_detail = ShippingDetail.new(params[:shipping_detail])
     @product = @shipping_detail.product
     @question_response = @shipping_detail.question_response    
-    #debugger 
     
     if @shipping_detail.valid?
       UserMailer.welcome_email(@shipping_detail).deliver
@@ -131,6 +125,10 @@ class ShippingDetailsController < ApplicationController
   # GET /shipping_details/1/edit
   def edit
     @shipping_detail = ShippingDetail.find(params[:id])
+    @product = @shipping_detail.product
+    @question_response = @shipping_detail.question_response
+    @user = current_user
+    
   end
 
   # POST /shipping_details

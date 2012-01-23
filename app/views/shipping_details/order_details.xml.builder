@@ -10,18 +10,18 @@ xml.response do
         xml.email shipping_detail.email
         xml.id shipping_detail.id
         xml.initial_total_offer shipping_detail.question_response.quote
-        xml.final_total_offer shipping_detail.question_response.quote
+        xml.final_total_offer shipping_detail.final_offer_or_default
         xml.offers do
           xml.offer do
             xml.offer_id shipping_detail.id
             xml.category shipping_detail.product.category.usell_category_code
             xml.initial_offer shipping_detail.question_response.quote
-            xml.final_offer shipping_detail.question_response.quote
+            xml.final_offer shipping_detail.final_offer_or_default
             xml.initial_product_id shipping_detail.product.id
             xml.initial_name shipping_detail.product.name
             xml.final_product_id shipping_detail.product.id
             xml.final_name shipping_detail.product.name
-            xml.status 'AWAITING_RECEIPT'
+            xml.status shipping_detail.status
           end
         end
       end

@@ -93,6 +93,28 @@
 		  <b>Do you requires a box?</b>
 		  <%= (@shipping_detail.requires_box ? "Yes" : "No" ) %>
 		</p>
+		
+		<% unless @user.nil? %>
+		<p>
+			<b>Status</b>
+			<%= @shipping_detail.status %>
+	  </p>
+		<p>
+	    <%#= f.label :final_offer %><br />
+			<b>Final Offer</b>
+	    <%= @shipping_detail.final_offer %>
+	  </p>
+		<p>
+	    <b>Notes</b>
+	    <%= @shipping_detail.notes %>
+	  </p>
+		<p>
+	    <b>Referrer</b>
+	    <%= @shipping_detail.referer %>
+	  </p>
+		<% end %>
+		
+		
 	</div>
 	<!-- Google Code for Product Request Conversion Page -->
 	<script type="text/javascript">
