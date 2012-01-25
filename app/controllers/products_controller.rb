@@ -27,7 +27,6 @@ class ProductsController < ApplicationController
   end
   
   def search
-    #debugger
     @products = Product.where("name like '%"+params[:name]+"%'").paginate(:page => params[:page])
     
     respond_to do |format|
@@ -88,8 +87,6 @@ class ProductsController < ApplicationController
     else
       @product_link = product_path(params[:question_response][:product_id])
     end
-    
-    debugger
     
     respond_to do |format|
       format.html # offer.html.erb

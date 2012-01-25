@@ -16,7 +16,7 @@ class ShippingDetail < ActiveRecord::Base
   def status
     case self.status_code
       when 0
-        'AwaitingRecept'
+        'AwaitingReceipt'
       when 1
         'Recieved'
       when 2
