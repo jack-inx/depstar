@@ -24,7 +24,7 @@ class ShippingDetail < ActiveRecord::Base
       when 3
         'Returned'
       when 4
-        'Recyled'
+        'Recycled'
       when 5
         'Cancelled'
       when 6
