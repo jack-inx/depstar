@@ -123,7 +123,6 @@ class ShippingDetailsController < ApplicationController
       @uuid = params[:uuid]
     end
 
-    logger.debug 'UUID - ' + @uuid
     @shipping_detail.uuid = @uuid unless @uuid.nil?
     @shipping_detail.referer = params[:ref] unless params[:ref].nil?
 
