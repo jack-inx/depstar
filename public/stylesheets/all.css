@@ -1345,6 +1345,19 @@ h4
 {
 	z-index:10 !important     
 }
+
+.contact_us h2
+{
+	color: #ff9900;
+	font-size: 22px;
+}
+
+.contact_us .departments
+{
+	width: 200px;
+	text-align: center;
+}
+
 /*
 .slides_container
 {
