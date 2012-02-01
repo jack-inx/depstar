@@ -1,4 +1,47 @@
 <div style='padding: 10px;' class='contact_us'>
+	<p id="notice"><%= notice %></p>
+	
+	<% if @contact_message.errors.any? %>
+		<div id="error_explanation">
+	   		<h2><%= pluralize(@contact_message.errors.count, "error") %> prohibited this message from being sent:</h2>
+	   		<ul>
+	   		<% @contact_message.errors.full_messages.each do |msg| %>
+	    		<li><%= msg %></li>
+	   		<% end %>
+	   		</ul>
+		</div>
+	<% end %>
+
+	<div class='contact_form'>
+		<h2>Contact Us</h2>
+		
+		<%= form_for @contact_message, :url => {:action => "index"}, :html => { :class => 'sell-form'} do |f| %>
+			<fieldset>
+				<div class="text-holder">
+					<div class="text">
+						<%= f.text_field :name, :value => 'Name', :class => 'text' %>
+					</div>
+					<div class="text">
+						<%= f.text_field :email, :value => 'Email', :class => 'text' %>
+					</div>
+					<div class="text">
+						<%= f.text_field :phone, :value => 'Phone', :class => 'text' %>
+					</div>
+					<div class="select">
+						<%= f.label :subject, :class => 'label' %>
+						<%= f.select :subject, options_for_select(['General', 'Order Inquiry']) %>
+					</div>
+				</div>
+				
+				<div class="textarea">
+					<%= f.text_area :message, :size => "10x10", :value => "  Message" %>
+				</div>
+				
+				<input type="submit" class="btn-sell-form" />
+			</fieldset>
+		<% end %>
+
+	</div>
 	
 	<div class='departments'>
 		<h2>Departments</h2>
@@ -12,21 +55,40 @@
 		<h4>Wholesale:</h4>
 		<span>wholesale@depstar.com</span>
 
-		<h4>Corporate</h4>
+		<h4>Corporate:</h4>
 		<span>corporate@depstar.com</span>
 
-		<h4>Media</h4>
+		<h4>Media:</h4>
 		<span>media@depstar.com</span>
 
-		<h4>General</h4>
+		<h4>General:</h4>
 		<span>general@depstar.com</span>
 	
-		<h3>Mailing Address</h3>	
+		<h3>Mailing Address:</h3>	
 		<p>
 			Depstar.com <br/>
 			PO Box 52604 <br/>
 			Boston, MA 02205
 		</p>
+		
+		<h3>Follow Us!</h3>
+		<ul class="social-networks">
+			<li>
+				<a href="http://www.youtube.com/depstartv" target="_blank">
+					<img src="/images/youtube.png" width="32" height="32" alt="Depstar YouTube" />
+				</a>
+			</li>
+			<li>
+				<a href="http://www.facebook.com/pages/Depstar/109849125756594" target="_blank">
+					<img src="/images/bg-facebook.gif" width="30" height="32" alt="Depstar Facebook" />
+				</a>			
+			</li>
+			<li>
+				<a href="http://twitter.com/#!/depstar_com" target="_blank">
+					<img src="/images/bg-twitter.gif" width="30" height="32" alt="Depstar Twitter" />
+				</a>
+			</li>
+		</ul>
 	</div>
 	
 </div>

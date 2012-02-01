@@ -1250,7 +1250,7 @@ h4
 .footer-info .social-networks,
 .business .social-networks{padding:16px 16px 0 0;}
 .green-page .social-networks{padding:15px 15px 0 0;}
-.social-networks{
+.social-networks {
 	padding:24px 48px 0 0;
 	margin:0;
 	list-style:none;
@@ -1346,16 +1346,93 @@ h4
 	z-index:10 !important     
 }
 
+.contact_us .social-networks li
+{
+	float: left;
+	width: 30px;
+}
+
+.contact_us .social-networks
+{
+	width: 150px;
+	padding: 5px 0px 5px;
+}
+
 .contact_us h2
 {
 	color: #ff9900;
-	font-size: 22px;
+	font-size: 28px;
+}
+
+.contact_us h4
+{
+	font-weight: bold;
 }
 
 .contact_us .departments
 {
 	width: 200px;
 	text-align: center;
+	float: right;
+	margin-right: 75px;
+}
+
+.contact_us label
+{
+	font-size: 15px;
+}
+
+.contact_us select
+{
+	margin-top: -2px;
+}
+
+.contact_us .select
+{
+	width: 175px;
+	margin: 0px 0px 10px 0px;
+}
+
+.contact_us .contact_form
+{
+	width: 300px;
+	text-align: center;
+	float: left;
+	margin-left: 75px;
+}
+
+.contact_us .contact_form .sell-form
+{
+	padding: 0px 0px 10px;
+}
+
+.contact_us .contact_form .text input
+{
+	width: 180px;
+}
+
+.contact_us .contact_form .text
+{
+	width: 200px;
+}
+
+.contact_us .contact_form .textarea
+{
+	width: 205px;
+	padding: 6px 0 6px 3px;
+}
+
+.contact_us .contact_form textarea
+{
+	width: 200px;
+	padding: 0;
+	margin: 0;
+}
+
+
+.contact_us .contact_form .btn-sell-form
+{
+	clear: both;
 }
 
 .order_complete
@@ -1366,6 +1443,7 @@ h4
 	background-repeat: no-repeat;
 	background-position:center;
 	height: 400px;
+	
 }
 
 .order_complete h1

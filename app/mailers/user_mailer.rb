@@ -17,7 +17,6 @@ class UserMailer < ActionMailer::Base
     if RAILS_ENV == 'development'
       mail(:to => 'charles.palleschi@sparkwiresolutions.com', :subject => "New Quote Request")
     else
-      #mail(:to => 'bijancronin@gmail.com, jacobresnek@gmail.com', :subject => "New Quote Request")
       mail(:to => 'orders@depstar.com', :subject => "New Quote Request")
     end
   end
@@ -28,5 +27,12 @@ class UserMailer < ActionMailer::Base
     mail(:to => 'info@depstar.com',
       :subject => "Depstar - Corporate Contact")
   end
+    
+  def contact_email(contact_message)
+    @contact_message = contact_message
+    
+    mail(:to => 'info@depstar.com',
+      :subject => "Depstar - Contact")
+  end  
     
 end
