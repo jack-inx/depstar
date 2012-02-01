@@ -5,9 +5,9 @@
 	  <tr>
 	    <th>Name</th>
 	    <th>Email</th>
-	    <th>Location</th>
 	    <th>Quote</th>
 		  <th>Status</th>
+			<th>Referrer</th>
 	    <th>Created</th>
 	    <th></th>
 			<th></th>
@@ -18,9 +18,9 @@
 	  <tr>
 	    <td><%= truncate(shipping_detail.full_name, :length => 30, :omission => '...') %></td>
 	    <td><%= truncate(shipping_detail.email, :length => 35, :omission => '...') %></td>
-	    <td><%= shipping_detail.city %>, <%= shipping_detail.state %></td>
 			<td><%= number_to_currency(shipping_detail.question_response.quote) unless shipping_detail.question_response.nil? %></td>
 	    <td><%= shipping_detail.status %></td>
+			<td><%= shipping_detail.referer %></td>
 			<td><%= shipping_detail.created_at.strftime("%Y-%m-%d %H:%M") %></td>
 	    <td><%= link_to 'Edit', edit_shipping_detail_path(shipping_detail) %></td>
 			<td><%= link_to 'Show', shipping_detail %></td>
