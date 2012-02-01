@@ -1379,7 +1379,9 @@ h4
 
 .contact_us label
 {
-	font-size: 15px;
+	font-size: 14px;
+	margin-right: 5px;
+	color: #4E4E4E;
 }
 
 .contact_us select
