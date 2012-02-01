@@ -239,13 +239,17 @@ Definitions
 		    {:prompt => 'Select one'} %>
 	  </div>
 		<div class="field">
+	    <%= f.label :serial %><br />
+	    <%= f.text_field :serial %>
+	  </div>
+		<div class="field">
 	    <%= f.label :final_offer %><br />
 	    <%= f.text_field :final_offer %>
 	  </div>
 		<div class="field">
 			<%= f.label :referer %><br />
 		  <%= f.text_field :referer, :disabled => true %>
-		  </div>
+		</div>
 		<div class="field">
 	    <%= f.label :notes %><br />
 	    <%= f.text_area :notes %>
