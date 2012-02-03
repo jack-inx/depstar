@@ -1380,8 +1380,9 @@ h4
 .contact_us label
 {
 	font-size: 14px;
-	margin-right: 5px;
+	margin: 0px 5px 7px 12px;
 	color: #4E4E4E;
+	float: left;
 }
 
 .contact_us select
@@ -1429,6 +1430,7 @@ h4
 	width: 200px;
 	padding: 0;
 	margin: 0;
+	resize: none;
 }
 
 
