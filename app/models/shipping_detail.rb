@@ -45,4 +45,14 @@ class ShippingDetail < ActiveRecord::Base
     end
   end
 
+  def offer_or_default
+    if !self.offer.nil?
+      self.offer
+    elsif !self.question_response.nil? && !self.question_response.quote.nil?
+      self.question_response.quote
+    else
+      0
+    end
+  end
+  
 end

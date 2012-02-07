@@ -149,6 +149,10 @@ class ShippingDetailsController < ApplicationController
     @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
     @tos = params[:tos]
     
+    # Take a snapshot of the initial offer
+    @shipping_detail.offer = @question_response.quote unless @question_response.nil?
+    @shipping_detail.final_offer = @question_response.quote unless @question_response.nil?
+    
     respond_to do |format|
       if @tos.nil?
         flash[:error] = "You must first agree to the terms of service"
