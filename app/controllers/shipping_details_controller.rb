@@ -114,15 +114,15 @@ class ShippingDetailsController < ApplicationController
     @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
 
     @uuid = nil
-    
-    if !cookies[:uuid].nil?
-      @uuid = cookies[:uuid]
-    elsif cookies[:uuid].nil? && !params[:uuid].nil?
-      # Required by uSell intergration -- Set a 30 day cookie
+
+    # Required by uSell intergration -- Set a 30 day cookie
+    if !params[:uuid].nil? # Always transfer to new UUID if uSell provides one
       cookies[:uuid] = { :value => params[:uuid], :expires => 30.day.from_now }
       @uuid = params[:uuid]
+    elsif !cookies[:uuid].nil? # If a new UUID is not provided, use the ID from the cookie
+      @uuid = cookies[:uuid]
     end
-
+    
     @shipping_detail.uuid = @uuid unless @uuid.nil?
     @shipping_detail.referer = params[:ref] unless params[:ref].nil?
 
