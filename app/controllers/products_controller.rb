@@ -5,17 +5,16 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
   def index
-	  if params[:popular] == 'true'
+    if params[:popular] == 'true'
   		@products = Product.find_all_by_is_popular(true)
   	elsif !params[:category_id].nil?
-      Category.find_all_by_usell_category_code(params[:category_id]).each do |category|
+      Category.find_all_by_usell_category_code(params[:category_id]).each do |category|        
         if @products.nil?
           @products = category.products
         else
-          @products.push(category.products)
+          @products += category.products
         end
       end
-	  
   	else
   		@products = Product.all
   	end
