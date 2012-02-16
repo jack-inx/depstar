@@ -1,3 +1,9 @@
+<% content_for :javascript do %>
+<script type="text/javascript">
+	window.removeEventListener("load", initPage, false);
+</script>
+<% end %>
+
 <%= form_for @product, :html => { :multipart => true } do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
@@ -56,11 +62,20 @@
     <%= f.label :question_1_option_1_multiplier, "Option 1 Multiplier" %><br />
     <%= f.text_field :question_1_option_1_multiplier %>
     </div>
+    <div class="field">
+    <%= f.label :question_1_option_1_price, "Option 1 Price" %><br />
+    <%= f.text_field :question_1_option_1_price %>
+    </div>
 
     <div class="field">
     <%= f.label :question_1_option_2_multiplier, "Option 2 Multiplier" %><br />
     <%= f.text_field :question_1_option_2_multiplier %>
     </div>
+    <div class="field">
+    <%= f.label :question_1_option_2_price, "Option 2 Price" %><br />
+    <%= f.text_field :question_1_option_2_price %>
+    </div>
+
   </div>
 
   <div style="padding: 5px; margin: 5px; border: 1px solid gray; width: 300px;">
@@ -78,10 +93,18 @@
     <%= f.label :question_2_option_1_multiplier, "Option 1 Multiplier" %><br />
     <%= f.text_field :question_2_option_1_multiplier %>
     </div>
+    <div class="field">
+    <%= f.label :question_2_option_1_price, "Option 1 Price" %><br />
+    <%= f.text_field :question_2_option_1_price %>
+    </div>
 
     <div class="field">
     <%= f.label :question_2_option_2_multiplier, "Option 2 Multiplier" %><br />
     <%= f.text_field :question_2_option_2_multiplier %>
+    </div>
+    <div class="field">
+    <%= f.label :question_2_option_2_price, "Option 2 Price" %><br />
+    <%= f.text_field :question_2_option_2_price %>
     </div>
   </div>
 

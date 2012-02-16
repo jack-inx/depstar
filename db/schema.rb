@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120207192209) do
+ActiveRecord::Schema.define(:version => 20120216020515) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -77,6 +77,10 @@ ActiveRecord::Schema.define(:version => 20120207192209) do
     t.string   "question_4_name"
     t.string   "manufacturer"
     t.integer  "manufacturer_id"
+    t.integer  "question_1_option_1_price"
+    t.integer  "question_1_option_2_price"
+    t.integer  "question_2_option_1_price"
+    t.integer  "question_2_option_2_price"
   end
 
   create_table "question_options", :force => true do |t|
