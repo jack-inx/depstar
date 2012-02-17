@@ -1,3 +1,9 @@
+<% content_for :javascript do %>
+<script type="text/javascript">
+	window.removeEventListener("load", initPage, false);
+</script>
+<% end %>
+
 <div class="product-description">
 	<%= form_for @shipping_detail do |f| %>
 		<% if flash[:error] %>
