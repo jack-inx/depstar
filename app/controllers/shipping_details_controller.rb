@@ -5,8 +5,7 @@ class ShippingDetailsController < ApplicationController
   # GET /shipping_details
   # GET /shipping_details.xml
   def index  
-    @shipping_details = ShippingDetail.paginate(:page => params[:page])
-    # @shipping_details = ShippingDetail.find(:all, :order => "created_at desc")
+    @shipping_details = ShippingDetail.paginate(:page => params[:page], :order => "created_at desc")
 
     respond_to do |format|
       format.html # index.html.erb
