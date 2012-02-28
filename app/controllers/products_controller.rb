@@ -35,11 +35,10 @@ class ProductsController < ApplicationController
   end
   
   def offer
-    
-    #@options = []
     @options = ''
+    @params_to_pass_to_shipping_details = {}
     
-    @product = Product.find(params[:id]) #.question_options[0].id
+    @product = Product.find(params[:id])
     @x = 0
     
     # Add all options
@@ -50,12 +49,14 @@ class ProductsController < ApplicationController
       if key.start_with?('option')        
         if value.end_with?('1') == true
           @current_question_option_id = @product.question_options[@x].id
-          #@options.push(@current_question_option_id)
           @options = @options + @current_question_option_id.to_s
         end
         @x = @x + 1
       end
-       
+      
+      if key.start_with?('option') or key.start_with?('question')
+        @params_to_pass_to_shipping_details[key] = value
+      end
     end
     
     @product = Product.find(params[:id])
@@ -75,17 +76,29 @@ class ProductsController < ApplicationController
                           '0'
                       end),
       :question_4 => @options)
-      
-    if @question_response.save
-      @product_link = new_shipping_detail_url(
-        :shipping_detail => {
-          :question_response_id => @question_response.id, 
-          :product_id => @question_response.product_id
-        }
-      )
+
+    if @question_response.valid?
+      @params_to_pass_to_shipping_details['product_id'] = @product.id
+      @product_link = new_shipping_detail_url(@params_to_pass_to_shipping_details)
+      # @product_link = new_shipping_detail_url(
+      #   :shipping_detail => {
+      #     :product_id => @product.id
+      #   }
+      # )
     else
       @product_link = product_path(params[:question_response][:product_id])
     end
+    
+    # if @question_response.save
+    #   @product_link = new_shipping_detail_url(
+    #     :shipping_detail => {
+    #       :question_response_id => @question_response.id, 
+    #       :product_id => @question_response.product_id
+    #     }
+    #   )
+    # else
+    #   @product_link = product_path(params[:question_response][:product_id])
+    # end
     
     respond_to do |format|
       format.html # offer.html.erb

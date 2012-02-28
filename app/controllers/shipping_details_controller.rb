@@ -109,10 +109,60 @@ class ShippingDetailsController < ApplicationController
   # GET /shipping_details/new
   # GET /shipping_details/new.xml
   def new
-    @shipping_detail = ShippingDetail.new    
-    @product = Product.find(params[:shipping_detail][:product_id])
-    @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
+    @shipping_detail = ShippingDetail.new
+    @options = ''
+    
+    #debugger
+    unless params[:shipping_detail].nil?
+      @product = Product.find(params[:shipping_detail][:product_id])
+      @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])    
+    else
+      
+      @params_to_pass_to_shipping_details = {}
 
+      @product = Product.find(params['product_id'])
+      @x = 0
+
+      # Add all options
+      params.each do |param|
+       key = param[0]
+       value = param[1]
+
+       if key.start_with?('option')        
+         if value.end_with?('1') == true
+           @current_question_option_id = @product.question_options[@x].id
+           @options = @options + @current_question_option_id.to_s
+         end
+         @x = @x + 1
+       end
+
+       if key.start_with?('option') or key.start_with?('question')
+         @params_to_pass_to_shipping_details[key] = value
+       end
+      end
+
+      @question_response = QuestionResponse.new(:product_id => params['product_id'], 
+       :question_1 => (params[:question_1] == 'answer_1' ? 'True' : 'False'), 
+       :question_2 => (params[:question_2] == 'answer_5' ? 'True' : 'False'),
+       :question_3 => (case params[:question_3] 
+                         when 'answer_5' 
+                           '1' 
+                         when 'answer_6' 
+                           '2'
+                         when 'answer_7' 
+                           '3'
+                         when 'answer_8' 
+                           '4'
+                         else
+                           '0'
+                       end),
+       :question_4 => @options)
+      
+      if @question_response.valid?
+        @question_response.save
+      end
+    end
+    
     @uuid = nil
 
     # Required by uSell intergration -- Set a 30 day cookie
