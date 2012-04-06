@@ -2,6 +2,7 @@ require 'test_helper'
 require 'authlogic/test_case'
 
 class ProductsControllerTest < ActionController::TestCase
+  
   setup do
     activate_authlogic
     @product = products(:one)
