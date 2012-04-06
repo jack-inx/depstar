@@ -65,6 +65,20 @@
 			</p>
 	  </div>
 	  
+		<ul>
+	  <% @shipping_detail.devices.each do |device| %>
+			<li> <%= device.product.name %>
+				<ul>
+					<li>final_offer - <%= device.final_offer %></li>
+					<li>status_code - <%= device.status_code %></li>
+					<li>notes - <%= device.notes %></li>
+					<li>offer - <%= device.offer %></li>
+					<li>serial - <%= device.serial %></li>
+				</ul>
+			</li>
+    <% end %>
+		</ul>
+				
 	  <div id="paypal_email" class="field" style='display: none;'>
 	    <%= f.label :paypal_email %><br />
 	    <%= f.text_field :paypal_email %>

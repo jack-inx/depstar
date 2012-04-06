@@ -1,6 +1,7 @@
 class QuestionResponse < ActiveRecord::Base
   belongs_to :product
   has_many :shipping_details
+  has_many :devices
 
   validates_presence_of :product_id
   validates_presence_of :question_1, :if => lambda { product.question_1_is_enabled }

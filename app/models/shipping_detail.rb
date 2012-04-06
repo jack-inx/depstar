@@ -2,8 +2,11 @@ class ShippingDetail < ActiveRecord::Base
   belongs_to :payment_method
   belongs_to :product
   belongs_to :question_response
+  
+  #has_and_belongs_to_many :devices
+	has_many :devices
 	
-  validates_presence_of :first_name, :last_name, :address1, :city, :state, :zip, :email, :payment_method_id, :product_id
+  validates_presence_of :first_name, :last_name, :address1, :city, :state, :zip, :email, :payment_method_id #, :product_id
 
   validates_format_of :phone,
       :message => "must be a valid telephone number.",

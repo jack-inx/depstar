@@ -113,7 +113,6 @@ class ShippingDetailsController < ApplicationController
     @shipping_detail = ShippingDetail.new
     @options = ''
     
-    #debugger
     unless params[:shipping_detail].nil?
       @product = Product.find(params[:shipping_detail][:product_id])
       @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])    
@@ -174,6 +173,17 @@ class ShippingDetailsController < ApplicationController
       @uuid = cookies[:uuid]
     end
     
+    @device = Device.new(:product_id => params['product_id'],
+      :question_response_id => @question_response.id
+      )
+      
+    if @device.valid?
+      @device.save
+    end
+    
+    # Assume just 1 device per shipping details
+    @shipping_detail.devices[1] = @device
+    
     @shipping_detail.uuid = @uuid unless @uuid.nil?
     @shipping_detail.referer = params[:ref] unless params[:ref].nil?
 
@@ -196,13 +206,24 @@ class ShippingDetailsController < ApplicationController
   # POST /shipping_details.xml
   def create
     @shipping_detail = ShippingDetail.new(params[:shipping_detail])
+    
     @product = Product.find(params[:shipping_detail][:product_id])
     @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
+    
     @tos = params[:tos]
     
+    @device = Device.new(:product => @product, :question_response => @question_response)
+    if @device.valid?
+      @device.save
+    end
+    
     # Take a snapshot of the initial offer
-    @shipping_detail.offer = @question_response.quote unless @question_response.nil?
-    @shipping_detail.final_offer = @question_response.quote unless @question_response.nil?
+    #@shipping_detail.offer = @question_response.quote unless @question_response.nil?
+    #@shipping_detail.final_offer = @question_response.quote unless @question_response.nil?    
+    @device.offer         = @question_response.quote unless @question_response.nil?
+    @device.final_offer   = @question_response.quote unless @question_response.nil?
+    
+    @shipping_detail.devices[0] = @device
     
     respond_to do |format|
       if @tos.nil?

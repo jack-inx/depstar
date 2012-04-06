@@ -3,6 +3,8 @@ class Product < ActiveRecord::Base
   belongs_to :manufacturer
   
   has_many :shipping_details
+  
+  has_many :devices
 
   validates_presence_of :price, :category_id
   validates_numericality_of :price
