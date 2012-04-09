@@ -35,7 +35,7 @@ class QuestionResponse < ActiveRecord::Base
   
   def multiplier    
     @multiplier = 1
-    #debugger
+    @product = product
     
     unless question_1.blank? or @product.question_1_option_1_multiplier.nil?
       if question_1 == "True"

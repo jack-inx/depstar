@@ -97,7 +97,7 @@ class ShippingDetailsController < ApplicationController
     # @uuid = params[:uuid]
     # @product = Product.find(params[:shipping_detail][:product_id])
     # @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
-    @uuid = 'test'
+    @uuid = params[:subject]
     
     respond_to do |format|
       format.xml # submit_external_order.xml.builder
@@ -281,4 +281,5 @@ class ShippingDetailsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
 end
