@@ -1,6 +1,6 @@
 class ShippingDetailsController < ApplicationController
-  before_filter :authorize, :except => [:new, :create, :confirm, :show, :orders, :order_details]
-  before_filter :xml_authorize, :include => [:orders, :order_details]
+  before_filter :authorize, :except => [:new, :create, :confirm, :show, :orders, :order_details, :submit_external_order]
+  before_filter :xml_authorize, :include => [:orders, :order_details, :submit_external_order]
   
   # GET /shipping_details
   # GET /shipping_details.xml
@@ -90,6 +90,17 @@ class ShippingDetailsController < ApplicationController
     
     respond_to do |format|
       format.xml # order_details.xml.builder
+    end
+  end
+  
+  def submit_external_order
+    # @uuid = params[:uuid]
+    # @product = Product.find(params[:shipping_detail][:product_id])
+    # @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
+    @uuid = 'test'
+    
+    respond_to do |format|
+      format.xml # submit_external_order.xml.builder
     end
   end
   

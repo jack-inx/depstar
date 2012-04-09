@@ -1,4 +1,4 @@
-Trunk::Application.routes.draw do  #match 'get_quote' => 'price_quotes#get_quote'
+Trunk::Application.routes.draw do
   
   resources :question_response
   resources :categories
@@ -25,6 +25,7 @@ Trunk::Application.routes.draw do  #match 'get_quote' => 'price_quotes#get_quote
   match 'question_responses' => 'products#get_quote'
   
   match 'orders' => 'shipping_details#orders'
+  match 'orders/submit' => 'shipping_details#submit_external_order'
   match 'orders/:id' => 'shipping_details#order_details'
   
   match 'admin' => 'admin#index'

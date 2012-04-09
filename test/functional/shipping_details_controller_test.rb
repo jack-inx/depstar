@@ -1,12 +1,39 @@
 require 'test_helper'
 require 'authlogic/test_case'
+require 'net/http'
+require 'http_authentication'
 
 class ShippingDetailsControllerTest < ActionController::TestCase
+  http_basic_authenticate_with :name => "depstar", :password => "wonderland", :only => :submit_external_order
   
   setup do
     activate_authlogic
     @shipping_detail = shipping_details(:one)
   end
+  
+  test "send test order" do
+    
+    @request.env['HTTP_ACCEPT'] = 'application/xml'
+    get 'submit_external_order'
+    
+    #assert_select 'success', /status/  
+    
+    puts @response.body
+    
+    # url = URI.parse('http://127.0.0.1:3000/orders/submit.xml')
+    #     request = Net::HTTP::Post.new(url.path)
+    #     request.body = "<?xml version='1.0' encoding='UTF-8'?><somedata><name>Test Name 1</name><description>Some data for Unit testing</description></somedata>"
+    #     response = Net::HTTP.start(url.host, url.port) {|http| http.request(request)}
+    #     
+    # url = URI.parse('http://127.0.0.1:3000/orders/submit.xml')
+    # response = Net::HTTP::Post.new(url.path)
+
+    #Note this test PASSES!
+    #assert_equal 'success', response.get_fields('status')
+    #debugger
+    
+  end
+  
 =begin
   test "should get index" do
     UserSession.create(users(:one))
