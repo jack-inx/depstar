@@ -15,6 +15,7 @@ Trunk::Application.routes.draw do  #match 'get_quote' => 'price_quotes#get_quote
   end
   
   match 'products/:id/offer' => 'products#offer'
+  match 'products/:id/checkout' => 'products#checkout'
   
   resources :manufacturers
   match 'search', :controller => "products", :action => "search"
