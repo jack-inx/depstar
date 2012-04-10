@@ -15,7 +15,6 @@ Trunk::Application.routes.draw do
   end
   
   match 'products/:id/offer' => 'products#offer'
-  match 'products/:id/checkout' => 'products#checkout'
   
   resources :manufacturers
   match 'search', :controller => "products", :action => "search"
@@ -26,6 +25,7 @@ Trunk::Application.routes.draw do
   
   match 'orders' => 'shipping_details#orders'
   match 'orders/submit' => 'shipping_details#submit_external_order'
+  match 'orders/checkout' => 'shipping_details#checkout'
   match 'orders/:id' => 'shipping_details#order_details'
   
   match 'admin' => 'admin#index'
