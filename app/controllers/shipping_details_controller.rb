@@ -94,10 +94,10 @@ class ShippingDetailsController < ApplicationController
   end
   
   def submit_external_order
-    # @uuid = params[:uuid]
-    # @product = Product.find(params[:shipping_detail][:product_id])
-    # @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
-    @uuid = params[:subject]
+    # Testing from the command line
+    # echo '<customer><uuid>191231-98adfa91-asd82-9afsd</uuid></customer>' | curl -X POST -H 'Content-type: text/xml' -d @- http://127.0.0.1:3000/orders/submit.xml --basic -u "depstar1:wonderland"
+    
+    @uuid = params[:customer][:uuid] unless params[:customer].nil?
     
     respond_to do |format|
       format.xml # submit_external_order.xml.builder
@@ -107,7 +107,6 @@ class ShippingDetailsController < ApplicationController
   def checkout
   
     respond_to do |format|
-      format.html # checkout.html.erb
       format.xml  # checkout.xml.builder
     end
   end

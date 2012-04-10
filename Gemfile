@@ -8,7 +8,7 @@ gem 'paperclip'
 group :development do
 	gem 'sqlite3-ruby', :require => 'sqlite3'
 	gem 'hirb'
-	gem "nifty-generators"
+	gem 'nifty-generators'	
 	gem 'ruby-debug'
 end
 
