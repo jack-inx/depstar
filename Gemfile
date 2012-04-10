@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1'
-gem 'mysql2', '0.3.2'
+gem 'mysql2', '0.3.11', :git => 'git://github.com/brianmario/mysql2.git'
 
 gem 'paperclip'
 

@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/brianmario/mysql2.git
+  revision: cd443a94ecab37fb72bc9b9bf9f6f7537d03b838
+  specs:
+    mysql2 (0.3.11)
+
+GIT
   remote: git://github.com/odorcicd/authlogic.git
   revision: a087ad0cba3c165ba22fcf176c28b6f7517931e8
   branch: rails3
@@ -72,7 +78,6 @@ GEM
     mocha (0.10.5)
       metaclass (~> 0.0.1)
     multi_json (1.2.0)
-    mysql2 (0.3.2)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -149,7 +154,7 @@ DEPENDENCIES
   hirb
   jquery-rails
   mocha
-  mysql2 (= 0.3.2)
+  mysql2 (= 0.3.11)!
   nifty-generators
   paperclip
   rails (= 3.1)
