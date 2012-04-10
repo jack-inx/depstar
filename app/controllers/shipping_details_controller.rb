@@ -1,6 +1,6 @@
 class ShippingDetailsController < ApplicationController
-  before_filter :authorize, :except => [:new, :create, :confirm, :show, :orders, :order_details, :submit_external_order]
-  before_filter :xml_authorize, :include => [:orders, :order_details, :submit_external_order]
+  before_filter :authorize, :except => [:new, :create, :confirm, :show, :orders, :order_details, :submit_external_order, :checkout]
+  before_filter :xml_authorize, :include => [:orders, :order_details, :submit_external_order, :checkout]
   
   # GET /shipping_details
   # GET /shipping_details.xml
@@ -101,6 +101,14 @@ class ShippingDetailsController < ApplicationController
     
     respond_to do |format|
       format.xml # submit_external_order.xml.builder
+    end
+  end
+  
+  def checkout
+  
+    respond_to do |format|
+      format.html # checkout.html.erb
+      format.xml  # checkout.xml.builder
     end
   end
   

@@ -106,14 +106,6 @@ class ProductsController < ApplicationController
     end
   end
   
-  # def checkout
-  # 
-  #   respond_to do |format|
-  #     format.html # checkout.html.erb
-  #     format.xml  # checkout.xml.builder
-  #   end
-  # end
-  
   def get_quote
     @question_response = QuestionResponse.new(params[:question_response])
     
