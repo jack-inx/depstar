@@ -21,8 +21,9 @@
 	    </div>
 	  <% end %>
 
-	  <%= f.hidden_field :product_id, :value => @product.id %>
-		<%= f.hidden_field :question_response_id, :value => @question_response.id %>
+		<% #debugger %>
+	  <%= f.hidden_field :product_id, :value => @product.id unless @product.nil? %>
+		<%= f.hidden_field :question_response_id, :value => @question_response.id unless @question_response.nil? %>
 		
 		<%= f.hidden_field :uuid, :value => @shipping_detail.uuid %>
 		<%= f.hidden_field :referer, :value => @shipping_detail.referer %>
@@ -46,10 +47,10 @@
 		<% end %>
 	<div class="image">
 		<div style='margin-bottom: 10px'>
-			<%= image_tag @product.photo.url(:small) %>
+			<%= image_tag @product.photo.url(:small) unless @product.nil? %>
 		</div>
 		<div style='text-align: center; width: 125px;'>
-			<span class='product-title'><%= @product.name %></span>
+			<span class='product-title'><%= @product.name unless @product.nil? %></span>
 		</div>
 	</div>  
 	<div class="conditions">		
@@ -65,19 +66,23 @@
 			</p>
 	  </div>
 	  
-		<ul>
-	  <% @shipping_detail.devices.each do |device| %>
-			<li> <%= device.product.name %>
-				<ul>
-					<li>final_offer - <%= device.final_offer %></li>
-					<li>status_code - <%= device.status_code %></li>
-					<li>notes - <%= device.notes %></li>
-					<li>offer - <%= device.offer %></li>
-					<li>serial - <%= device.serial %></li>
-				</ul>
-			</li>
-    <% end %>
-		</ul>
+		<% unless @user.nil? %>
+		
+			<ul>
+		  <% @shipping_detail.devices.each do |device| %>
+				<li> <%= device.product.name %>
+					<ul>
+						<li>final_offer - <%= device.final_offer %></li>
+						<li>status_code - <%= device.status_code %></li>
+						<li>notes - <%= device.notes %></li>
+						<li>offer - <%= device.offer %></li>
+						<li>serial - <%= device.serial %></li>
+					</ul>
+				</li>
+	    <% end %>
+			</ul>
+		
+		<% end %>
 				
 	  <div id="paypal_email" class="field" style='display: none;'>
 	    <%= f.label :paypal_email %><br />
@@ -288,7 +293,7 @@ Definitions
 	</div>
 	<div class="aside">
 		<div id='price_quote_results' style='text-align: center;'>
-			<%= render 'products/offer', :show_next_button => false %>
+			<%= render 'products/offer', :show_next_button => false unless @product.nil? %>
 		</div>
 		
 		<div class="info-box">

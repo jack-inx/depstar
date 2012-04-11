@@ -96,8 +96,80 @@ class ShippingDetailsController < ApplicationController
   def submit_external_order
     # Testing from the command line
     # echo '<customer><uuid>191231-98adfa91-asd82-9afsd</uuid></customer>' | curl -X POST -H 'Content-type: text/xml' -d @- http://127.0.0.1:3000/orders/submit.xml --basic -u "depstar1:wonderland"
+    # echo '<customer><uuid>191231-98adfa91-asd82-9afsd</uuid><first>Charles</first><last>Palleschi</last><email>charles@depstar.com</email><phone>6171234567</phone><paypal_email>charles_paypal@depstar.com</paypal_email><shipping_option_selected>1</shipping_option_selected><payment_option_selected>1</payment_option_selected><shipping_address><address1>447 Broadway</address1><address2>2nd Floor</address2><city>Boston</city><state>MA</state><zip>02129</zip></shipping_address><billing_address /><offers><offer><initial_product_id>1</initial_product_id><initial_offer>108.50</initial_offer><category_id>2</category_id><questions><question><question_id>question_1</question_id><answer_id>answer_1</answer_id></question><question><question_id>question_2</question_id><answer_id>answer_2</answer_id></question></questions></offer><offer><initial_product_id>4</initial_product_id><initial_offer>45.12</initial_offer><category_id>3</category_id><questions><question><question_id>question_1</question_id><answer_id>answer_3</answer_id></question><question><question_id>question_2</question_id><answer_id>answer_5</answer_id></question></questions></offer></offers></customer>' | curl -X POST -H 'Content-type: text/xml' -d @- http://127.0.0.1:3000/orders/submit.xml --basic -u "depstar1:wonderland"    
     
-    @uuid = params[:customer][:uuid] unless params[:customer].nil?
+    unless params[:customer].nil?
+      @uuid = params[:customer][:uuid] unless params[:customer].nil?
+      
+      if params[:customer][:payment_option_selected] = 4
+        @payment_method_id = PaymentMethod.find_by_short_code('check').id # Check
+      else
+        @payment_method_id = PaymentMethod.find_by_short_code('paypal').id # Paypal
+      end
+      
+      @shipping_detail = ShippingDetail.new()
+      @shipping_detail.first_name = params[:customer][:first]
+      @shipping_detail.last_name = params[:customer][:last]
+      @shipping_detail.address1 = params[:customer][:shipping_address][:address1]
+      @shipping_detail.address2 = params[:customer][:shipping_address][:address2]      
+      @shipping_detail.city = params[:customer][:shipping_address][:city]
+      @shipping_detail.state = params[:customer][:shipping_address][:state]
+      @shipping_detail.zip = params[:customer][:shipping_address][:zip]
+      @shipping_detail.email = params[:customer][:email]
+      @shipping_detail.payment_method_id = @payment_method_id
+      @shipping_detail.paypal_email = params[:customer][:paypay_email] unless params[:customer][:paypay_email].nil?
+      #@shipping_detail.product_id # No longer used 
+      @shipping_detail.requires_box = 1
+      #@shipping_detail.question_response_id # No longer used   
+      @shipping_detail.phone = params[:customer][:phone] unless params[:customer][:phone].nil?
+      @shipping_detail.uuid = @uuid
+      @shipping_detail.referer = 'usell'
+      #@shipping_detail.offer =  # No longer used 
+      #@shipping_detail.final_offer =  # No longer used 
+      
+      params[:customer][:offers][:offer].each do |offer|
+        @question_response = QuestionResponse.new()
+
+        offer[:questions][:question].each do |question|
+          
+          if question[:question_id] == 'question_1'
+            @question_response.question_1 = (question[:answer_id] == 'question_1' ? 1 : 0)
+          elsif question[:question_id] == 'question_2'
+            @question_response.question_2 = (question[:answer_id] == 'question_3' ? 1 : 0)
+          elsif question[:question_id] == 'question_3'
+            @question_response.question_3 = (case question[:answer_id]
+                                       when 'answer_5' 
+                                         1 
+                                       when 'answer_6' 
+                                         2
+                                       when 'answer_7' 
+                                         3
+                                       when 'answer_8' 
+                                         4
+                                       else
+                                         0
+                                     end)
+            
+          end
+          
+          # TODO - Do we need question 4 ?
+          #@question_response.question_4 = 
+          
+        end
+        
+        @device = Device.new()
+        @device.product_id = offer[:initial_product_id]
+        @device.question_response_id = @question_response.id
+        @device.final_offer = offer[:initial_offer]
+        @device.offer = offer[:initial_offer]
+        
+        @shipping_detail.devices.push(@device)
+        
+      end
+      
+      @shipping_detail.save
+      
+    end
     
     respond_to do |format|
       format.xml # submit_external_order.xml.builder
@@ -191,7 +263,7 @@ class ShippingDetailsController < ApplicationController
       @uuid = cookies[:uuid]
     end
     
-    @device = Device.new(:product_id => params['product_id'],
+    @device = Device.new(:product_id => params['shipping_detail']['product_id'],
       :question_response_id => @question_response.id
       )
       
@@ -200,8 +272,7 @@ class ShippingDetailsController < ApplicationController
     end
     
     # Assume just 1 device per shipping details
-    @shipping_detail.devices[1] = @device
-    
+    @shipping_detail.devices[0] = @device
     @shipping_detail.uuid = @uuid unless @uuid.nil?
     @shipping_detail.referer = params[:ref] unless params[:ref].nil?
 
