@@ -195,7 +195,10 @@ class ShippingDetailsController < ApplicationController
   def customers
     @error = nil
     
-    if ShippingDetail.find(:first, :conditions => ['id = ?', params[:id]] ) # Don't throw exception of record not found
+    # Don't throw exception of record not found
+    # Use referer = 'usell' here - This will only work with orders with uSell
+    # We don't want them to get snoopy on other customers
+    if ShippingDetail.find(:first, :conditions => ['referer = ? AND id = ?', 'usell', params[:id]])
       @shipping_detail = ShippingDetail.find(params[:id])
     else
       @error = 'Customer not found'
