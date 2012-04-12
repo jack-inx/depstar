@@ -10,7 +10,14 @@ class ShippingDetail < ActiveRecord::Base
 
   validates_format_of :phone,
       :message => "must be a valid telephone number.",
-      :with => /^[\(\)0-9\- \+\.]{10,20}$/
+      :with => /^[\(\)0-9\- \+\.]{10,20}$/,
+      :if => :require_phone_validation?
+  
+  attr_accessor :type  
+  def require_phone_validation?
+    # Only for uSell orders phone numbers are optional
+    self.referer != 'usell'
+  end
 
   def full_name
     first_name + ' ' + last_name

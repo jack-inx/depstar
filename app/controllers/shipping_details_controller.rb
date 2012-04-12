@@ -95,8 +95,7 @@ class ShippingDetailsController < ApplicationController
   
   def submit_external_order
     # Testing from the command line
-    # echo '<customer><uuid>191231-98adfa91-asd82-9afsd</uuid></customer>' | curl -X POST -H 'Content-type: text/xml' -d @- http://127.0.0.1:3000/orders/submit.xml --basic -u "depstar1:wonderland"
-    # echo '<customer><uuid>191231-98adfa91-asd82-9afsd</uuid><first>Charles</first><last>Palleschi</last><email>charles@depstar.com</email><phone>6171234567</phone><paypal_email>charles_paypal@depstar.com</paypal_email><shipping_option_selected>1</shipping_option_selected><payment_option_selected>1</payment_option_selected><shipping_address><address1>447 Broadway</address1><address2>2nd Floor</address2><city>Boston</city><state>MA</state><zip>02129</zip></shipping_address><billing_address /><offers><offer><initial_product_id>1</initial_product_id><initial_offer>108.50</initial_offer><category_id>2</category_id><questions><question><question_id>question_1</question_id><answer_id>answer_1</answer_id></question><question><question_id>question_2</question_id><answer_id>answer_2</answer_id></question></questions></offer><offer><initial_product_id>4</initial_product_id><initial_offer>45.12</initial_offer><category_id>3</category_id><questions><question><question_id>question_1</question_id><answer_id>answer_3</answer_id></question><question><question_id>question_2</question_id><answer_id>answer_5</answer_id></question></questions></offer></offers></customer>' | curl -X POST -H 'Content-type: text/xml' -d @- http://127.0.0.1:3000/orders/submit.xml --basic -u "depstar1:wonderland"    
+    # echo '<customer><uuid>191231-98adfa91-asd82-9afsd</uuid><first_name>Charles</first_name><last_name>Palleschi</last_name><email>charles@depstar.com</email><phone>6171234567</phone><paypal_email>charles_paypal@depstar.com</paypal_email><shipping_option_selected>1</shipping_option_selected><payment_option_selected>1</payment_option_selected><shipping_address><address1>447 Broadway</address1><address2>2nd Floor</address2><city>Boston</city><state>MA</state><zip>02129</zip></shipping_address><billing_address /><offers><offer><initial_product_id>1</initial_product_id><initial_offer>108.50</initial_offer><category_id>2</category_id><questions><question><question_id>question_1</question_id><answer_id>answer_1</answer_id></question><question><question_id>question_2</question_id><answer_id>answer_2</answer_id></question></questions></offer><offer><initial_product_id>4</initial_product_id><initial_offer>45.12</initial_offer><category_id>3</category_id><questions><question><question_id>question_1</question_id><answer_id>answer_3</answer_id></question><question><question_id>question_2</question_id><answer_id>answer_5</answer_id></question></questions></offer></offers></customer>' | curl -X POST -H 'Content-type: text/xml' -d @- http://127.0.0.1:3000/orders/submit.xml --basic -u "depstar1:wonderland"    
     @status = 'failure'
     
     unless params[:customer].nil?
@@ -109,8 +108,8 @@ class ShippingDetailsController < ApplicationController
       end
       
       @shipping_detail = ShippingDetail.new()
-      @shipping_detail.first_name = params[:customer][:first]
-      @shipping_detail.last_name = params[:customer][:last]
+      @shipping_detail.first_name = params[:customer][:first_name]
+      @shipping_detail.last_name = params[:customer][:last_name]
       @shipping_detail.address1 = params[:customer][:shipping_address][:address1]
       @shipping_detail.address2 = params[:customer][:shipping_address][:address2]      
       @shipping_detail.city = params[:customer][:shipping_address][:city]
@@ -129,10 +128,24 @@ class ShippingDetailsController < ApplicationController
       #@shipping_detail.final_offer =  # No longer used 
       
       params[:customer][:offers][:offer].each do |offer|
+        #puts 'DEBUG 2 - ' + params[:customer][:offers][:offer].inspect
+        #puts 'DEBUG 3 - ' + params[:customer][:offers].size.inspect
+        
+        # It should work without this but in the case there is just 1 <offer> 
+        # rails does a .each on it's elements (not the list of offers)
+        # this will prevent that from happening
+        if params[:customer][:offers][:offer].include?(:initial_offer)
+          offer = params[:customer][:offers][:offer]
+        end
+        # puts 'DEBUG - ' + params[:customer][:offers].inspect
+        # puts 'DEBUG 2- ' + params[:customer][:offers].size.inspect
+        # puts 'DEBUG 3- ' + params[:customer][:offers][:offer].size.inspect
+        # puts 'DEBUG 4- ' + params[:customer][:offers][:offer].include?(:initial_offer).inspect
+        
         @question_response = QuestionResponse.new()
-
+        
         offer[:questions][:question].each do |question|
-          
+                          
           if question[:question_id] == 'question_1'
             @question_response.question_1 = (question[:answer_id] == 'question_1' ? 1 : 0)
           elsif question[:question_id] == 'question_2'
@@ -150,12 +163,12 @@ class ShippingDetailsController < ApplicationController
                                        else
                                          0
                                      end)
-            
-          end
           
+          end
+        
           # TODO - Do we need question 4 ?
           #@question_response.question_4 = 
-          
+        
         end
         
         @device = Device.new()
