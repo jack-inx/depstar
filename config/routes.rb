@@ -28,6 +28,8 @@ Trunk::Application.routes.draw do
   match 'orders/checkout' => 'shipping_details#checkout'
   match 'orders/:id' => 'shipping_details#order_details'
   
+  match 'customers/:id' => 'shipping_details#customers'
+  
   match 'admin' => 'admin#index'
   match 'home' => 'home#index'
   match 'dev' => 'home#index'

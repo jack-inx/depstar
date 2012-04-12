@@ -1,6 +1,6 @@
 class ShippingDetailsController < ApplicationController
-  before_filter :authorize, :except => [:new, :create, :confirm, :show, :orders, :order_details, :submit_external_order, :checkout]
-  before_filter :xml_authorize, :include => [:orders, :order_details, :submit_external_order, :checkout]
+  before_filter :authorize, :except => [:new, :create, :confirm, :show, :orders, :order_details, :submit_external_order, :checkout, :customers]
+  before_filter :xml_authorize, :include => [:orders, :order_details, :submit_external_order, :checkout, :customers]
   
   # GET /shipping_details
   # GET /shipping_details.xml
@@ -118,7 +118,7 @@ class ShippingDetailsController < ApplicationController
       @shipping_detail.zip = params[:customer][:shipping_address][:zip]
       @shipping_detail.email = params[:customer][:email]
       @shipping_detail.payment_method_id = @payment_method_id
-      @shipping_detail.paypal_email = params[:customer][:paypay_email] unless params[:customer][:paypay_email].nil?
+      @shipping_detail.paypal_email = params[:customer][:paypal_email] unless params[:customer][:paypal_email].nil?
       #@shipping_detail.product_id # No longer used 
       @shipping_detail.requires_box = 1
       #@shipping_detail.question_response_id # No longer used   
@@ -186,9 +186,23 @@ class ShippingDetailsController < ApplicationController
   end
   
   def checkout
-  
+    
     respond_to do |format|
       format.xml  # checkout.xml.builder
+    end
+  end
+  
+  def customers
+    @error = nil
+    
+    if ShippingDetail.find(:first, :conditions => ['id = ?', params[:id]] ) # Don't throw exception of record not found
+      @shipping_detail = ShippingDetail.find(params[:id])
+    else
+      @error = 'Customer not found'
+    end
+    
+    respond_to do |format|
+      format.xml  # customers.xml.builder
     end
   end
   
