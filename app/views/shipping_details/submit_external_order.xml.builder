@@ -1,7 +1,8 @@
 xml.instruct!
 xml.response do
     xml.uuid @uuid
-    xml.status 'success'
-    xml.customer_id 213412 # CP TODO
-    xml.order_id 75413  # CP TODO
+    xml.status @status
+    xml.errors @error unless @error.nil? 
+    xml.customer_id @customer_id
+    xml.order_id @order_id
 end

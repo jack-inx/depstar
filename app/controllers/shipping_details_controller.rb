@@ -97,6 +97,7 @@ class ShippingDetailsController < ApplicationController
     # Testing from the command line
     # echo '<customer><uuid>191231-98adfa91-asd82-9afsd</uuid></customer>' | curl -X POST -H 'Content-type: text/xml' -d @- http://127.0.0.1:3000/orders/submit.xml --basic -u "depstar1:wonderland"
     # echo '<customer><uuid>191231-98adfa91-asd82-9afsd</uuid><first>Charles</first><last>Palleschi</last><email>charles@depstar.com</email><phone>6171234567</phone><paypal_email>charles_paypal@depstar.com</paypal_email><shipping_option_selected>1</shipping_option_selected><payment_option_selected>1</payment_option_selected><shipping_address><address1>447 Broadway</address1><address2>2nd Floor</address2><city>Boston</city><state>MA</state><zip>02129</zip></shipping_address><billing_address /><offers><offer><initial_product_id>1</initial_product_id><initial_offer>108.50</initial_offer><category_id>2</category_id><questions><question><question_id>question_1</question_id><answer_id>answer_1</answer_id></question><question><question_id>question_2</question_id><answer_id>answer_2</answer_id></question></questions></offer><offer><initial_product_id>4</initial_product_id><initial_offer>45.12</initial_offer><category_id>3</category_id><questions><question><question_id>question_1</question_id><answer_id>answer_3</answer_id></question><question><question_id>question_2</question_id><answer_id>answer_5</answer_id></question></questions></offer></offers></customer>' | curl -X POST -H 'Content-type: text/xml' -d @- http://127.0.0.1:3000/orders/submit.xml --basic -u "depstar1:wonderland"    
+    @status = 'failure'
     
     unless params[:customer].nil?
       @uuid = params[:customer][:uuid] unless params[:customer].nil?
@@ -167,8 +168,16 @@ class ShippingDetailsController < ApplicationController
         
       end
       
-      @shipping_detail.save
+      if @shipping_detail.save
+        @status = 'success'
+        @order_id = @shipping_detail.id
+        @customer_id = @shipping_detail.id       
+      else
+        @error = @shipping_detail.errors.inspect
+      end
       
+    else 
+      @error = 'Malformed XML request - <customer/> not found'
     end
     
     respond_to do |format|
