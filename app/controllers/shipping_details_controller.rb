@@ -145,11 +145,11 @@ class ShippingDetailsController < ApplicationController
         @question_response = QuestionResponse.new()
         
         offer[:questions][:question].each do |question|
-                          
+
           if question[:question_id] == 'question_1'
-            @question_response.question_1 = (question[:answer_id] == 'question_1' ? 1 : 0)
+            @question_response.question_1 = (question[:answer_id] == 'answer_1' ? 1 : 0)
           elsif question[:question_id] == 'question_2'
-            @question_response.question_2 = (question[:answer_id] == 'question_3' ? 1 : 0)
+            @question_response.question_2 = (question[:answer_id] == 'answer_3' ? 1 : 0)
           elsif question[:question_id] == 'question_3'
             @question_response.question_3 = (case question[:answer_id]
                                        when 'answer_5' 
@@ -163,28 +163,32 @@ class ShippingDetailsController < ApplicationController
                                        else
                                          0
                                      end)
-          
           end
-        
+            
           # TODO - Do we need question 4 ?
           #@question_response.question_4 = 
-        
         end
         
-        @device = Device.new()
-        @device.product_id = offer[:initial_product_id]
-        @device.question_response_id = @question_response.id
-        @device.final_offer = offer[:initial_offer]
-        @device.offer = offer[:initial_offer]
+        @question_response.product_id = offer[:initial_product_id]
+        if @question_response.save
+          @device = Device.new()
+          @device.product_id = offer[:initial_product_id]
+          @device.question_response_id = @question_response.id
+          @device.final_offer = offer[:initial_offer]
+          @device.offer = offer[:initial_offer]
         
-        @shipping_detail.devices.push(@device)
+          @shipping_detail.devices.push(@device)
+        end
         
       end
       
       if @shipping_detail.save
         @status = 'success'
         @order_id = @shipping_detail.id
-        @customer_id = @shipping_detail.id       
+        @customer_id = @shipping_detail.id     
+        
+        UserMailer.welcome_email(@shipping_detail).deliver
+        UserMailer.new_quote_request_email(@shipping_detail).deliver 
       else
         @error = @shipping_detail.errors.inspect
       end

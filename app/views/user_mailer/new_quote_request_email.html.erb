@@ -4,48 +4,50 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
+	<% @shipping_detail.devices.each do |device| %>
 	<div class="conditions">		
-		<h3><%= @shipping_detail.product.name %></h3>
-		<h4>Amount paid to user: <%=  number_to_currency(@shipping_detail.question_response.quote) %>		
+		<h3><%= device.product.name %></h3>
+		<h4>Amount paid to user: <%=  number_to_currency(device.offer) %>		
 		
-		<% if @shipping_detail.product.try(:question_1_is_enabled) %>
+		<% if device.product.try(:question_1_is_enabled) %>
 			<p>
-				<b><%= @shipping_detail.product.question_1_name %> </b> <br/>
-				<%= radio_button_tag('question_response1', 'question_1', (@shipping_detail.question_response.question_1 == "True" ? true : false), :disabled => true) %> Yes
-				<%= radio_button_tag('question_response1', 'question_1', (@shipping_detail.question_response.question_1 == "True" ? false : true), :disabled => true) %> No
+				<b><%= device.product.question_1_name %> </b> <br/>
+				<%= radio_button_tag('question_response1_' + device.question_response.id.to_s , 'question_1', (device.question_response.question_1 == "1" ? true : false), :disabled => true) %> Yes
+				<%= radio_button_tag('question_response1' + device.question_response.id.to_s, 'question_1', (device.question_response.question_1 == "1" ? false : true), :disabled => true) %> No
 			</p>
 		<% end %>
 
-		<% if @shipping_detail.product.try(:question_2_is_enabled) %>
+		<% if device.product.try(:question_2_is_enabled) %>
 			<p>
-				<b><%= @shipping_detail.product.question_2_name %> </b> <br/>
-				<%= radio_button_tag('question_response2', 'question_2', (@shipping_detail.question_response.question_2 == "True" ? true : false), :disabled => true) %> Yes
-				<%= radio_button_tag('question_response2', 'question_2', (@shipping_detail.question_response.question_2 == "True" ? false : true), :disabled => true) %> No
+				<b><%= device.product.question_2_name %> </b> <br/>
+				<%= radio_button_tag('question_response2_' + device.question_response.id.to_s, 'question_2', (device.question_response.question_2 == "1" ? true : false), :disabled => true) %> Yes
+				<%= radio_button_tag('question_response2_' + device.question_response.id.to_s, 'question_2', (device.question_response.question_2 == "1" ? false : true), :disabled => true) %> No
 			</p>
 		<% end %>
 
-		<% if @shipping_detail.product.try(:question_3_is_enabled) %>
+		<% if device.product.try(:question_3_is_enabled) %>
 			<p>
-				<b><%= @shipping_detail.product.question_3_name %> </b> <br/>
-				<%= radio_button_tag('question_response3', 'question_3', (@shipping_detail.question_response.question_3 == "1" ? true : false), :disabled => true) %> Heavy Wear <br/>
-				<%= radio_button_tag('question_response3', 'question_3', (@shipping_detail.question_response.question_3 == "2" ? true : false), :disabled => true) %> Average Wear <br/>
-				<%= radio_button_tag('question_response3', 'question_3', (@shipping_detail.question_response.question_3 == "3" ? true : false), :disabled => true) %> Light Wear <br/>
-				<%= radio_button_tag('question_response3', 'question_3', (@shipping_detail.question_response.question_3 == "4" ? true : false), :disabled => true) %> Like New <br/>
+				<b><%= device.product.question_3_name %> </b> <br/>
+				<%= radio_button_tag('question_response3_' + device.question_response.id.to_s, 'question_3', (device.question_response.question_3 == "1" ? true : false), :disabled => true) %> Heavy Wear <br/>
+				<%= radio_button_tag('question_response3_' + device.question_response.id.to_s, 'question_3', (device.question_response.question_3 == "2" ? true : false), :disabled => true) %> Average Wear <br/>
+				<%= radio_button_tag('question_response3_' + device.question_response.id.to_s, 'question_3', (device.question_response.question_3 == "3" ? true : false), :disabled => true) %> Light Wear <br/>
+				<%= radio_button_tag('question_response3_' + device.question_response.id.to_s, 'question_3', (device.question_response.question_3 == "4" ? true : false), :disabled => true) %> Like New <br/>
 			</p>
 		<% end %>
 
-		<% if @shipping_detail.product.try(:question_4_is_enabled) %>
-			<% unless @shipping_detail.question_response.question_4.nil? %>
+		<% if device.product.try(:question_4_is_enabled) %>
+			<% unless device.question_response.question_4.nil? %>
 			<p>
-				<b><%= @shipping_detail.product.question_4_name %> </b> <br/>
-				<% @shipping_detail.product.question_options.each do |question_option| %>						
-						<%= check_box_tag "question_response[question_4][]", question_option.id, (@shipping_detail.question_response.question_4.split(", ").include?(question_option.id.to_s) ? true : false), :disabled => true %> <%= question_option.name %> <br/>
+				<b><%= device.product.question_4_name %> </b> <br/>
+				<% device.product.question_options.each do |question_option| %>						
+						<%= check_box_tag "question_response[question_4_" + device.question_response.id.to_s + "][]", question_option.id, (device.question_response.question_4.split(", ").include?(question_option.id.to_s) ? true : false), :disabled => true %> <%= question_option.name %> <br/>
 				<% end %>
 			</p>
 			<% end %>
 		<% end %>
 			
 	</div>
+	<% end %>
 	<div class="customer-details">
 		<p>
 		  <b>Name:</b>
