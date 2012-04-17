@@ -6,44 +6,7 @@
 
 <div class="product-description">
 	<%= form_for @shipping_detail do |f| %>
-		<% if flash[:error] %>
-			<p id='flash_error'><%= flash[:error] %></p>
-		<% end %>
-		<% if @shipping_detail.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(@shipping_detail.errors.count, "error") %> prohibited this shipping_detail from being saved:</h2>
-	
-	      <ul>
-	      <% @shipping_detail.errors.full_messages.each do |msg| %>
-	        <li><%= msg %></li>
-	      <% end %>
-	      </ul>
-	    </div>
-	  <% end %>
-
-	  <%= f.hidden_field :product_id, :value => @product.id unless @product.nil? %>
-		<%= f.hidden_field :question_response_id, :value => @question_response.id unless @question_response.nil? %>
 		
-		<%= f.hidden_field :uuid, :value => @shipping_detail.uuid %>
-		<%= f.hidden_field :referer, :value => @shipping_detail.referer %>
-	
-	  	<% content_for :javascript do %>
-	  	 	<script type="text/javascript">
-	  	 		function selectPaymentMethod(sender)
-	    		{
-					if(sender == "paypal")
-					{
-						$("#paypal_email").css("display", "block");
-					}
-					else
-					{
-						$("#paypal_email").css("display", "none");
-					}
-					
-	    			return;
-				}
-			</script>
-		<% end %>
 	<div class="image">
 		<div style='margin-bottom: 10px'>
 			<%= image_tag @product.photo.url(:small) unless @product.nil? %>
