@@ -77,6 +77,30 @@
 						<li>notes - <%= device.notes %></li>
 						<li>offer - <%= device.offer %></li>
 						<li>serial - <%= device.serial %></li>
+						<div class="field">
+					    <%= f.label :status_code %><br />
+					    <%= f.select :status_code, [
+						    ['Awaiting Receipt', 0], 
+						    ['Received', 1],
+						    ['Paid', 2],
+								['Returned', 3],
+						    ['Recycled', 4],
+						    ['Cancelled', 5],		    
+								['ReQuote', 6]],
+						    {:prompt => 'Select one'} %>
+					  </div>
+						<div class="field">
+					    <%= f.label :serial %><br />
+					    <%= f.text_field :serial %>
+					  </div>
+						<div class="field">
+					    <%= f.label :offer %><br />
+					    <%= f.text_field :offer, :disabled => true %>
+					  </div>
+						<div class="field">
+					    <%= f.label :final_offer %><br />
+					    <%= f.text_field :final_offer %>
+					  </div>
 					</ul>
 				</li>
 	    <% end %>
@@ -250,31 +274,7 @@ Definitions
 			</div>
 		</div>
 	
-		<% unless @user.nil? %>
-	  <div class="field">
-	    <%= f.label :status_code %><br />
-	    <%= f.select :status_code, [
-		    ['Awaiting Receipt', 0], 
-		    ['Received', 1],
-		    ['Paid', 2],
-				['Returned', 3],
-		    ['Recycled', 4],
-		    ['Cancelled', 5],		    
-				['ReQuote', 6]],
-		    {:prompt => 'Select one'} %>
-	  </div>
-		<div class="field">
-	    <%= f.label :serial %><br />
-	    <%= f.text_field :serial %>
-	  </div>
-		<div class="field">
-	    <%= f.label :offer %><br />
-	    <%= f.text_field :offer, :disabled => true %>
-	  </div>
-		<div class="field">
-	    <%= f.label :final_offer %><br />
-	    <%= f.text_field :final_offer %>
-	  </div>
+		<% unless @user.nil? %>	  
 		<div class="field">
 			<%= f.label :referer %><br />
 		  <%= f.text_field :referer, :disabled => true %>
