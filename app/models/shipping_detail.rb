@@ -64,5 +64,22 @@ class ShippingDetail < ActiveRecord::Base
       0
     end
   end
+
+  def initial_total_offer
+    initial_total_offer = 0
+    self.devices.each do |device|
+      initial_total_offer += device.offer
+    end
   
+    initial_total_offer
+  end
+  
+  def final_total_offer
+    final_total_offer = 0
+    self.devices.each do |device|
+      final_total_offer += device.final_offer
+    end
+  
+    final_total_offer
+  end
 end

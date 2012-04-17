@@ -87,7 +87,7 @@ class ShippingDetailsController < ApplicationController
     @shipping_details = ShippingDetail.find_all_by_uuid(
       @uuid
     )
-    
+    #debugger
     respond_to do |format|
       format.xml # order_details.xml.builder
     end

@@ -12,19 +12,21 @@ xml.response do
           xml.date_submited shipping_detail.created_at
           xml.email shipping_detail.email
           xml.id shipping_detail.id
-          xml.initial_total_offer shipping_detail.offer_or_default
-          xml.final_total_offer shipping_detail.final_offer_or_default
+          xml.initial_total_offer shipping_detail.initial_total_offer
+          xml.final_total_offer shipping_detail.final_total_offer
           xml.offers do
-            xml.offer do
-              xml.offer_id shipping_detail.id
-              xml.category shipping_detail.product.category.usell_category_code
-              xml.initial_offer shipping_detail.offer_or_default
-              xml.final_offer shipping_detail.final_offer_or_default
-              xml.initial_product_id shipping_detail.product.id
-              xml.initial_name shipping_detail.product.name
-              xml.final_product_id shipping_detail.product.id
-              xml.final_name shipping_detail.product.name
-              xml.status shipping_detail.status
+            shipping_detail.devices.each do |device|
+              xml.offer do
+                xml.offer_id device.id
+                xml.category device.product.category.usell_category_code unless shipping_detail.product.nil?
+                xml.initial_offer device.offer_or_default
+                xml.final_offer device.final_offer_or_default
+                xml.initial_product_id device.product.id
+                xml.initial_name device.product.name
+                xml.final_product_id device.product.id
+                xml.final_name device.product.name
+                xml.status device.status
+              end
             end
           end
         end
