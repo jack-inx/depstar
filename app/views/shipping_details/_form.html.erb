@@ -53,7 +53,7 @@
 			<span class='product-title'><%= @product.name unless @product.nil? %></span>
 		</div>
 	</div>  
-	<div class="conditions" style="float: left; width: 250px;">		
+	<div class="conditions" style="float: left; width: 250px; clear: right;">		
 		<h2>Your Information</h2>
 	  	<div>	  	
 		  	<%= label_tag nil, 'How would you like to receive your payment?' %> <br />
@@ -291,7 +291,7 @@ Definitions
 
 	<% end %>
 	</div>
-	<div class="aside" style='float: right; width: 150px;'>
+	<div class="aside" style='float: right; width: 150px; '>
 		<div id='price_quote_results' style='text-align: center;'>
 			<%= render 'products/offer', :show_next_button => false unless @product.nil? %>
 		</div>
