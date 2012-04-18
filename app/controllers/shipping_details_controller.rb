@@ -127,7 +127,7 @@ class ShippingDetailsController < ApplicationController
       #@shipping_detail.offer =  # No longer used 
       #@shipping_detail.final_offer =  # No longer used 
       
-      params[:customer][:offers][:offer].each do |offer|
+      params[:customer][:offers][:offer].each_with_index do |offer, index|
         #puts 'DEBUG 2 - ' + params[:customer][:offers][:offer].inspect
         #puts 'DEBUG 3 - ' + params[:customer][:offers].size.inspect
         
@@ -135,12 +135,18 @@ class ShippingDetailsController < ApplicationController
         # rails does a .each on it's elements (not the list of offers)
         # this will prevent that from happening
         if params[:customer][:offers][:offer].include?(:initial_offer)
-          offer = params[:customer][:offers][:offer]
+          #next if offer = params[:customer][:offers][:offer]
+                    
+          offer = params[:customer][:offers][:offer]          
+        
+          next if index != 0
+          #puts 'DEBUG 5- ' + index.inspect
         end
-        # puts 'DEBUG - ' + params[:customer][:offers].inspect
-        # puts 'DEBUG 2- ' + params[:customer][:offers].size.inspect
-        # puts 'DEBUG 3- ' + params[:customer][:offers][:offer].size.inspect
-        # puts 'DEBUG 4- ' + params[:customer][:offers][:offer].include?(:initial_offer).inspect
+        #puts 'DEBUG - ' + params[:customer][:offers].inspect
+        #puts 'DEBUG 2- ' + params[:customer][:offers].size.inspect # = 1 when there is 1 offer
+        #puts 'DEBUG 3- ' + params[:customer][:offers][:offer].size.inspect
+        #puts 'DEBUG 4- ' + params[:customer][:offers][:offer].include?(:initial_offer).inspect
+        
         
         @question_response = QuestionResponse.new()
         
