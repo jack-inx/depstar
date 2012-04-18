@@ -155,7 +155,7 @@
 
     <div class="question_options admin_details">
       <%= f.fields_for :question_options do |builder| %>
-        <%= render "question_option_fields", :f => builder %>      
+        <%= render "question_option_fields", :f => builder %>
       <% end %>
       <p><%= link_to_add_fields "Add Question Option", f, :question_options %></p>
     </div>

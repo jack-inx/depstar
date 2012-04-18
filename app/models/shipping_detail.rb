@@ -6,6 +6,8 @@ class ShippingDetail < ActiveRecord::Base
   #has_and_belongs_to_many :devices
 	has_many :devices
 	
+	accepts_nested_attributes_for :devices, :allow_destroy => true
+	
   validates_presence_of :first_name, :last_name, :address1, :city, :state, :zip, :email, :payment_method_id #, :product_id
 
   validates_format_of :phone,

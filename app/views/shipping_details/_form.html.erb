@@ -12,7 +12,6 @@
 		<% if @shipping_detail.errors.any? %>
 	    <div id="error_explanation">
 	      <h2><%= pluralize(@shipping_detail.errors.count, "error") %> prohibited this shipping_detail from being saved:</h2>
-	
 	      <ul>
 	      <% @shipping_detail.errors.full_messages.each do |msg| %>
 	        <li><%= msg %></li>
@@ -60,52 +59,18 @@
 			
 		  	<p>
 		  		<% PaymentMethod.all.each do |payment_method| %>
-			    <%= f.radio_button :payment_method_id, payment_method.id, options = {:onclick => "selectPaymentMethod('#{payment_method.short_code}');"} %>
-			    <%= f.label payment_method.name %>
-			<% end %>
-			</p>
-	  </div>
+			    	<%= f.radio_button :payment_method_id, payment_method.id, options = {:onclick => "selectPaymentMethod('#{payment_method.short_code}');"} %>
+			    	<%= f.label payment_method.name %>
+					<% end %>
+				</p>
+	  	</div>
 	  
 		<% unless @user.nil? %>
-		
-			<ul>
-		  <% @shipping_detail.devices.each do |device| %>
-				<li> <%= device.product.name %>
-					<ul>
-						<li>final_offer - <%= device.final_offer %></li>
-						<li>status_code - <%= device.status_code %></li>
-						<li>notes - <%= device.notes %></li>
-						<li>offer - <%= device.offer %></li>
-						<li>serial - <%= device.serial %></li>
-						<div class="field">
-					    <%= f.label :status_code %><br />
-					    <%= f.select :status_code, [
-						    ['Awaiting Receipt', 0], 
-						    ['Received', 1],
-						    ['Paid', 2],
-								['Returned', 3],
-						    ['Recycled', 4],
-						    ['Cancelled', 5],		    
-								['ReQuote', 6]],
-						    {:prompt => 'Select one'} %>
-					  </div>
-						<div class="field">
-					    <%= f.label :serial %><br />
-					    <%= f.text_field :serial %>
-					  </div>
-						<div class="field">
-					    <%= f.label :offer %><br />
-					    <%= f.text_field :offer, :disabled => true %>
-					  </div>
-						<div class="field">
-					    <%= f.label :final_offer %><br />
-					    <%= f.text_field :final_offer %>
-					  </div>
-					</ul>
-				</li>
-	    <% end %>
-			</ul>
-		
+			
+			<%= f.fields_for :devices do |builder| %>
+				<%= render "device_fields", :f => builder %>
+			<% end %>
+
 		<% end %>
 				
 	  <div id="paypal_email" class="field" style='display: none;'>

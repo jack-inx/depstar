@@ -5,6 +5,10 @@ class Device < ActiveRecord::Base
   belongs_to :product
   belongs_to :question_response
 
+  def name
+    self.product.name unless product.nil?
+  end
+
   def status
     case self.status_code
       when 0
