@@ -12,8 +12,14 @@ xml.response do
           xml.date_submited shipping_detail.created_at
           xml.email shipping_detail.email
           xml.id shipping_detail.id
-          xml.initial_total_offer shipping_detail.initial_total_offer
-          xml.final_total_offer shipping_detail.final_total_offer
+          if shipping_detail.devices.count == 0
+            xml.initial_total_offer shipping_detail.offer_or_default
+            xml.final_total_offer shipping_detail.final_offer_or_default
+          else
+            xml.initial_total_offer shipping_detail.initial_total_offer
+            xml.final_total_offer shipping_detail.final_total_offer
+          end
+          
           xml.offers do
             shipping_detail.devices.each do |device|
               xml.offer do
