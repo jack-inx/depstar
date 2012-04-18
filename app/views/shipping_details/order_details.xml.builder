@@ -28,6 +28,21 @@ xml.response do
                 xml.status device.status
               end
             end
+            
+            if shipping_detail.devices.count == 0
+              xml.offer do
+                xml.offer_id shipping_detail.id
+                xml.category shipping_detail.product.category.usell_category_code unless shipping_detail.product.nil?
+                xml.initial_offer shipping_detail.offer_or_default
+                xml.final_offer shipping_detail.final_offer_or_default
+                xml.initial_product_id shipping_detail.product.id
+                xml.initial_name shipping_detail.product.name
+                xml.final_product_id shipping_detail.product.id
+                xml.final_name shipping_detail.product.name
+                xml.status shipping_detail.status
+              end
+            end
+            
           end
         end
       end
