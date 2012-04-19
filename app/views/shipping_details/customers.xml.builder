@@ -1,7 +1,7 @@
 xml.instruct!
 xml.response do
   unless @error.nil?
-    xml.response @error
+    xml.error @error
   else
     xml.customer do
       xml.name @shipping_detail.full_name
