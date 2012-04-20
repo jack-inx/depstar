@@ -7,7 +7,7 @@ xml.response do
         xml.order do
           xml.uuid shipping_detail.uuid
           xml.num_orders shipping_detail.orders_count
-          xml.recent_order_date shipping_detail.created_at.strftime("%Y-%m-%d %H:%M:%S")
+          xml.recent_order_date shipping_detail.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%Y-%m-%d %H:%M:%S")
         end
       end
     end

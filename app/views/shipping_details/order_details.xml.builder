@@ -8,8 +8,8 @@ xml.response do
       @shipping_details.each do |shipping_detail|
         xml.order do
           xml.name shipping_detail.first_name + ' ' + shipping_detail.last_name
-          xml.date_updated shipping_detail.updated_at
-          xml.date_submitted shipping_detail.created_at
+          xml.date_updated shipping_detail.updated_at.in_time_zone("Eastern Time (US & Canada)")
+          xml.date_submitted shipping_detail.created_at.in_time_zone("Eastern Time (US & Canada)")
           xml.email shipping_detail.email
           xml.id shipping_detail.id
           if shipping_detail.devices.count == 0
