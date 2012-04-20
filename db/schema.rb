@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406190925) do
+ActiveRecord::Schema.define(:version => 20120420194746) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20120406190925) do
     t.integer  "product_id"
     t.integer  "question_response_id"
     t.float    "final_offer"
-    t.integer  "status_code"
+    t.integer  "status_code",          :default => 0, :null => false
     t.string   "notes"
     t.text     "serial"
     t.float    "offer"

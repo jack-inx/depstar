@@ -182,7 +182,8 @@ class ShippingDetailsController < ApplicationController
           @device.question_response_id = @question_response.id
           @device.final_offer = offer[:initial_offer]
           @device.offer = offer[:initial_offer]
-        
+          @device.status_code = 0
+          
           @shipping_detail.devices.push(@device)
         end
         
@@ -315,6 +316,7 @@ class ShippingDetailsController < ApplicationController
     @device = Device.new(:product_id => params['shipping_detail']['product_id'],
       :question_response_id => @question_response.id
       )
+    @device.status_code = 0
       
     if @device.valid?
       @device.save
@@ -351,6 +353,7 @@ class ShippingDetailsController < ApplicationController
     @tos = params[:tos]
     
     @device = Device.new(:product => @product, :question_response => @question_response)
+    @device.status_code = 0  
     if @device.valid?
       @device.save
     end
