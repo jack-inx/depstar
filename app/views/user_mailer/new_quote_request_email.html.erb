@@ -6,7 +6,7 @@
   <body>
 	<% @shipping_detail.devices.each do |device| %>
 	<div class="conditions">		
-		<h3><%= device.product.name %></h3>
+		<h3><%= device.product.name unless device.product.nil? %></h3>
 		<h4>Amount paid to user: <%=  number_to_currency(device.offer) %>		
 		
 		<% if device.product.try(:question_1_is_enabled) %>

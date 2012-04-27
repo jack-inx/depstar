@@ -4,9 +4,9 @@ class QuestionResponse < ActiveRecord::Base
   has_many :devices
 
   validates_presence_of :product_id
-  validates_presence_of :question_1, :if => lambda { product.question_1_is_enabled }
-  validates_presence_of :question_2, :if => lambda { product.question_2_is_enabled }
-  validates_presence_of :question_3, :if => lambda { product.question_3_is_enabled }
+  validates_presence_of :question_1, :if => lambda { product.question_1_is_enabled unless product.nil? }
+  validates_presence_of :question_2, :if => lambda { product.question_2_is_enabled unless product.nil? }
+  validates_presence_of :question_3, :if => lambda { product.question_3_is_enabled unless product.nil? }
   # question_4 can be left blank
   
   def quote
