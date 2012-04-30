@@ -15,16 +15,16 @@
 		<% if device.product.try(:question_1_is_enabled) %>
 			<p>
 				<b><%= device.product.question_1_name %> </b> <br/>
-				<%= radio_button_tag('question_response1_' + device.question_response.id.to_s, 'question_1', (device.question_response.question_1 == "1" ? true : false), :disabled => true) %> Yes
-				<%= radio_button_tag('question_response1_' + device.question_response.id.to_s, 'question_1', (device.question_response.question_1 == "1" ? false : true), :disabled => true) %> No
+				<%= radio_button_tag('question_response1_' + device.question_response.id.to_s, 'question_1', (device.question_response.question_1 == "True" ? true : false), :disabled => true) %> Yes
+				<%= radio_button_tag('question_response1_' + device.question_response.id.to_s, 'question_1', (device.question_response.question_1 == "True" ? false : true), :disabled => true) %> No
 			</p>
 		<% end %>
 
 		<% if device.product.try(:question_2_is_enabled) %>
 			<p>
 				<b><%= device.product.question_2_name %> </b> <br/>
-				<%= radio_button_tag('question_response2_' + device.question_response.id.to_s, 'question_2', (device.question_response.question_2 == "1" ? true : false), :disabled => true) %> Yes
-				<%= radio_button_tag('question_response2_' + device.question_response.id.to_s, 'question_2', (device.question_response.question_2 == "1" ? false : true), :disabled => true) %> No
+				<%= radio_button_tag('question_response2_' + device.question_response.id.to_s, 'question_2', (device.question_response.question_2 == "True" ? true : false), :disabled => true) %> Yes
+				<%= radio_button_tag('question_response2_' + device.question_response.id.to_s, 'question_2', (device.question_response.question_2 == "True" ? false : true), :disabled => true) %> No
 			</p>
 		<% end %>
 
