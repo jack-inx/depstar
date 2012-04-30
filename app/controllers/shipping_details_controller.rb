@@ -101,7 +101,7 @@ class ShippingDetailsController < ApplicationController
     unless params[:customer].nil?
       @uuid = params[:customer][:uuid] unless params[:customer].nil?
       
-      if params[:customer][:payment_option_selected] == 4
+      if params[:customer][:payment_option_selected] == "4"
         @payment_method_id = PaymentMethod.find_by_short_code('check').id # Check
       else
         @payment_method_id = PaymentMethod.find_by_short_code('paypal').id # Paypal
