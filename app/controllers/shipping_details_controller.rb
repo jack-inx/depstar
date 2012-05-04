@@ -153,9 +153,11 @@ class ShippingDetailsController < ApplicationController
         offer[:questions][:question].each do |question|
 
           if question[:question_id] == 'question_1'
-            @question_response.question_1 = (question[:answer_id] == 'answer_1' ? 1 : 0)
+          begin
+            @question_response.question_1 = (question[:answer_id] == 'answer_1' ? 'True' : 'False')
+          end
           elsif question[:question_id] == 'question_2'
-            @question_response.question_2 = (question[:answer_id] == 'answer_3' ? 1 : 0)
+            @question_response.question_2 = (question[:answer_id] == 'answer_3' ? 'True' : 'False')
           elsif question[:question_id] == 'question_3'
             @question_response.question_3 = (case question[:answer_id]
                                        when 'answer_5' 

@@ -80,25 +80,9 @@ class ProductsController < ApplicationController
     if @question_response.valid?
       @params_to_pass_to_shipping_details['product_id'] = @product.id
       @product_link = new_shipping_detail_url(@params_to_pass_to_shipping_details)
-      # @product_link = new_shipping_detail_url(
-      #   :shipping_detail => {
-      #     :product_id => @product.id
-      #   }
-      # )
     else
       @product_link = product_path(params[:question_response][:product_id])
     end
-    
-    # if @question_response.save
-    #   @product_link = new_shipping_detail_url(
-    #     :shipping_detail => {
-    #       :question_response_id => @question_response.id, 
-    #       :product_id => @question_response.product_id
-    #     }
-    #   )
-    # else
-    #   @product_link = product_path(params[:question_response][:product_id])
-    # end
     
     respond_to do |format|
       format.html # offer.html.erb
