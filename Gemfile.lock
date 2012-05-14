@@ -1,11 +1,6 @@
 GIT
-  remote: git://github.com/brianmario/mysql2.git
-  revision: cd443a94ecab37fb72bc9b9bf9f6f7537d03b838
-  specs:
-    mysql2 (0.3.11)
-
-PATH
-  remote: ~/.rvm/gems/ruby-1.9.3-p194/gems/stamps-0.2.0/
+  remote: git://github.com/CharlesP/stamps.git
+  revision: 12cec43d851525e8f7bd5808487f82a0a481e0f4
   specs:
     stamps (0.2.0)
       hashie (~> 1.0.0)
@@ -13,6 +8,12 @@ PATH
       json (~> 1.5.1)
       multi_json (~> 1.0)
       savon (>= 0.8.6)
+
+GIT
+  remote: git://github.com/brianmario/mysql2.git
+  revision: cd443a94ecab37fb72bc9b9bf9f6f7537d03b838
+  specs:
+    mysql2 (0.3.11)
 
 GEM
   remote: http://rubygems.org/

@@ -25,4 +25,4 @@ gem 'capistrano-ext'
 
 # Edited local gem
 # s.add_runtime_dependency('multi_json', '~> 1.0')
-gem 'stamps', :path => "~/.rvm/gems/ruby-1.9.3-p194/gems/stamps-0.2.0/"
+gem 'stamps', :git => 'git://github.com/CharlesP/stamps.git'
