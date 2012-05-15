@@ -26,3 +26,4 @@ gem 'capistrano-ext'
 # Edited local gem
 # s.add_runtime_dependency('multi_json', '~> 1.0')
 gem 'stamps', :git => 'git://github.com/CharlesP/stamps.git'
+gem 'rubygems-bundler'
