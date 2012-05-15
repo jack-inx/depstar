@@ -1,3 +1,5 @@
+$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+
 #set :application, "production"
 set :application, "depstar"
 set :deploy_to, "/home/depstar/rails_apps/#{application}"
@@ -22,6 +24,15 @@ set :bundle_flags,    "--deployment --quiet"
 set :bundle_without,  [:development, :test]
 set :bundle_cmd,      "bundle" # e.g. "/opt/ruby/bin/bundle"
 set :bundle_roles,    {:except => {:no_release => true}} # e.g. [:app, :batch]
+
+#############################################################
+# RVM
+#############################################################
+
+require "rvm/capistrano"
+
+set :rvm_ruby_string, '1.9.3'
+set :rvm_type, :user  # Don't use system-wide RVM
 
 #############################################################
 # Servers
