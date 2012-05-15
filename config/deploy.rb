@@ -32,6 +32,15 @@ require "rvm/capistrano"
 #set :rvm_ruby_string, '1.9.3'
 #set :rvm_type, :user  # Don't use system-wide RVM
 
+namespace :rvm do
+  desc 'Trust rvmrc file'
+  task :trust_rvmrc do
+    run "rvm rvmrc trust #{current_release}"
+  end
+end
+
+after "deploy:update_code", "rvm:trust_rvmrc"
+
 #############################################################
 # Servers
 #############################################################
