@@ -104,7 +104,7 @@
 			<%#= Stamps.account %>
 			<%#= standardized_address.inspect %>
 			<%#= purchase.inspect %>
-			<%= link_to "Create label", {:action => 'create_label', :id => @shipping_detail}, :target => '_blank' %>
+			
 			<%
 				# stamp = Stamps.create!(
 				# 				    :rate          => rates.first,
@@ -120,20 +120,25 @@
 				# 						:tracking_number => true
 				# 				)
 			%>
-			
+			<% unless standardized_address.nil? or standardized_address[:address].nil? %>		
+			<%= link_to "Create label", {:action => 'create_label', :id => @shipping_detail}, :target => '_blank' %>
 			<h3>Validated Address</h3>
 			<ul>
-				<li><%= standardized_address[:address][:full_name] %></li>
-				<li><%= standardized_address[:address][:address1] %></li>
-				<% unless standardized_address[:address][:address2].nil? %>
-					<li><%= standardized_address[:address][:address2] %></li>
-				<% end %>
-				<li><%= standardized_address[:address][:city] %></li>
-				<li><%= standardized_address[:address][:state] %></li>
-				<li><%= standardized_address[:address][:zip_code] %></li>
-				<li>address_match - <%= standardized_address[:address_match] %></li>
-				<li>city_state_zip_ok - <%= standardized_address[:city_state_zip_ok] %></li>
-			</ul>				
+					<li><%= standardized_address[:address][:full_name] %></li>
+					<li><%= standardized_address[:address][:address1] %></li>
+					<% unless standardized_address[:address][:address2].nil? %>
+						<li><%= standardized_address[:address][:address2] %></li>
+					<% end %>
+					<li><%= standardized_address[:address][:city] %></li>
+					<li><%= standardized_address[:address][:state] %></li>
+					<li><%= standardized_address[:address][:zip_code] %></li>
+					<li>address_match - <%= standardized_address[:address_match] %></li>
+					<li>city_state_zip_ok - <%= standardized_address[:city_state_zip_ok] %></li>
+			</ul>
+			<% else %>
+				<h2>Address failed validation</h2>
+			<% end %>
+							
 		</div>
 		<% end %>
 		
