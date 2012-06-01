@@ -11,7 +11,8 @@ group :development do
  	gem 'hirb'
  	gem 'nifty-generators'
 end
- 
+
+gem 'linecache19'  
 gem 'authlogic'#, :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 gem 'mocha', :group => :test
 
