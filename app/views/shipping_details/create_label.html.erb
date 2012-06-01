@@ -1,9 +1,13 @@
 <% if @stamp[:valid?] = 'false' %>
 	<h3>Errors from Stamps.com</h3>
 	<ul>
-	<% @stamp[:errors].each do |error| %>
-		<li><%= error %></li><br>
-	<% end %>
+	<% unless @stamp[:errors].nil? %>
+		<% @stamp[:errors].each do |error| %>
+			<li><%= error %></li><br>
+		<% end %>
+	<% else %>
+		<%= @stamp.inspect %>
+	<% end %>		
 	</ul>
 <% else %>
 	<%#= link_to 'Label', stamp[:url], :target => '_blank' %>
