@@ -464,7 +464,7 @@ class ShippingDetailsController < ApplicationController
   	#      print 'this is false'
   	#    end
   	#    
-    if stamp[:valid?] = false or stamp[:valid?] = 'false' 
+    if stamp[:valid?] == false or stamp[:valid?] == 'false' 
       @stamp = stamp
       render #:layout => false
     else

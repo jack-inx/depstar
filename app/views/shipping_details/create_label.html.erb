@@ -1,4 +1,4 @@
-<% if @stamp[:valid?] = 'false' %>
+<% if @stamp[:valid?] == false or @stamp[:valid?] == 'false' %>
 	<h3>Errors from Stamps.com</h3>
 	<ul>
 	<% unless @stamp[:errors].nil? %>
