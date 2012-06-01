@@ -100,7 +100,7 @@
 				# )
 			%>
 			<%#= rates.first.inspect %>
-			Available Postage: <%= Stamps.account[:postage_balance][:available_postage] %><br>
+			Available Postage: <%= Stamps.account[:postage_balance][:available_postage] unless Stamps.nil? or Stamps.account.nil? or Stamps.account[:postage_balance].nil? %><br>
 			<%#= Stamps.account %>
 			<%#= standardized_address.inspect %>
 			<%#= purchase.inspect %>
