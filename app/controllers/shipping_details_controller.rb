@@ -457,13 +457,20 @@ class ShippingDetailsController < ApplicationController
   		:transaction_id => '1234567890ABCDEF',
   		:tracking_number => true
     )
-  	
-    if stamp[:valid?] = false
-      render :layout => false
+  	# print stamp[:valid?]
+  	#    print 'test'
+  	#    print stamp.inspect
+  	#    if stamp[:valid?] = 'false'
+  	#      print 'this is false'
+  	#    end
+  	#    
+    if stamp[:valid?] = false or stamp[:valid?] = 'false' 
+      @stamp = stamp
+      render #:layout => false
     else
-      redirect_to stamp[:url]
+      redirect_to stamp[:url] unless stamp[:url].nil?
     end
-    
+    # redirect_to '/'
   end
   
 end
