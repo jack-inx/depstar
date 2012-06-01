@@ -423,7 +423,7 @@ class ShippingDetailsController < ApplicationController
   		:from_zip_code => '02205',
   		:to_zip_code   => @shipping_detail.zip,
   		:weight_oz     => '2.0',
-  		:ship_date      => ship_date,
+  		#:ship_date      => ship_date,
   		:package_type   => 'Large Envelope or Flat',
   		:service_type   => 'US-FC'  # Flat-rate
   	)
