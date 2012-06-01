@@ -9,9 +9,15 @@ gem 'paperclip'
 group :development do
  	gem 'sqlite3-ruby', :require => 'sqlite3'
  	gem 'hirb'
- 	gem 'nifty-generators'	
-# 	gem 'ruby-debug'
+ 	gem 'nifty-generators'
+	#gem 'ruby-debug'
 end
+
+# group :development do
+#   gem 'linecache19', '0.5.13'
+#   gem 'ruby-debug-base19', '0.11.26'
+#   gem 'ruby-debug19', :require => 'ruby-debug'
+# end
  
 gem 'authlogic'#, :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 gem 'mocha', :group => :test
@@ -24,6 +30,4 @@ gem 'will_paginate', '~> 3.0'
 gem 'capistrano-ext'
 
 # Edited local gem
-# s.add_runtime_dependency('multi_json', '~> 1.0')
 gem 'stamps', :git => 'git://github.com/CharlesP/stamps.git'
-#gem 'rubygems-bundler'

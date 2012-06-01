@@ -46,4 +46,17 @@ Trunk::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  Stamps.configure do |config|
+	  #config.integration_id = '904e44fc-b53f-44ae-bf2a-2d265241e389'
+	  config.username       = 'jacobresnek'
+	  config.password       = 'jake1878'
+	  #config.username       = 'depstar'
+	  #config.password       = 'postage1'
+		#config.log_messages   = true
+		# config.endpoint				= 'https://swsim.testing.stamps.com/swsim/SwsimV22.asmx'
+		# config.namespace			=	'http://stamps.com/xml/namespace/2012/04/swsim/swsimv22'
+		config.endpoint				= 'https://swsim.testing.stamps.com/swsim/swsimv12.asmx'
+		config.namespace			=	'http://stamps.com/xml/namespace/2010/11/swsim/swsimv12'
+	end
 end

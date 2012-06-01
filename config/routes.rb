@@ -15,6 +15,7 @@ Trunk::Application.routes.draw do
   end
   
   match 'products/:id/offer' => 'products#offer'
+  match 'create_label' => 'shipping_details#create_label'
   
   resources :manufacturers
   match 'search', :controller => "products", :action => "search"

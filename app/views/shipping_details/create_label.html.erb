@@ -1,0 +1,10 @@
+<% if stamp[:valid?] = false %>
+	<h3>Errors from Stamps.com</h3>
+	<ul>
+	<% stamp[:errors].each do |error| %>
+		<li><%= error %></li>
+	<% end %>
+	</ul>
+<% else %>
+	<%= link_to 'Label', stamp[:url], :target => '_blank' %>
+<% end %>

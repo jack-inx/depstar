@@ -414,4 +414,56 @@ class ShippingDetailsController < ApplicationController
     end
   end
   
+  def create_label
+    @shipping_detail = ShippingDetail.find(params[:id])
+    
+    ship_date = Date.today.strftime('%Y-%m-%d')
+
+  	rates = Stamps.get_rates(
+  		:from_zip_code => '02205',
+  		:to_zip_code   => @shipping_detail.zip,
+  		:weight_oz     => '2.0',
+  		:ship_date      => ship_date,
+  		:package_type   => 'Large Envelope or Flat',
+  		:service_type   => 'US-FC'  # Flat-rate
+  	)
+  	rates.first[:ship_date] = ship_date
+
+    standardized_address = Stamps.clean_address(
+    :address => {
+      :full_name   => @shipping_detail.full_name,
+      :address1    => @shipping_detail.address1,
+      :address2    => @shipping_detail.address2,
+      :city        => @shipping_detail.city,
+      :state       => @shipping_detail.state,
+      :zip_code    => @shipping_detail.zip
+    })
+
+    # purchase = Stamps.purchase_postage(
+    # 	:amount	=> 100,
+    # 	:control_total => 0
+    # )
+    
+    stamp = Stamps.create!(
+      :rate          => rates.first,
+  		:to						 => standardized_address[:address],
+      :from => {
+        :full_name   => 'Depstar.com',
+        :address1    => 'PO Box 55923',
+        :city        => 'Boston',
+        :state       => 'MA',
+        :zip_code    => '02205'
+      },
+  		:transaction_id => '1234567890ABCDEF',
+  		:tracking_number => true
+    )
+  	
+    if stamp[:valid?] = false
+      render :layout => false
+    else
+      redirect_to stamp[:url]
+    end
+    
+  end
+  
 end
