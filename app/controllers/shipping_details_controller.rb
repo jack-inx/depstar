@@ -428,7 +428,8 @@ class ShippingDetailsController < ApplicationController
   		:service_type   => 'US-FC'  # Flat-rate
   	)
   	rates.first[:ship_date] = ship_date unless rates.nil? or rates.first.nil? or rates.first[:ship_date].nil?
-
+    @rates = rates
+    
     standardized_address = Stamps.clean_address(
     :address => {
       :full_name   => @shipping_detail.full_name,
