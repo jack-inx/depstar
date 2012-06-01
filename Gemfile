@@ -10,14 +10,7 @@ group :development do
  	gem 'sqlite3-ruby', :require => 'sqlite3'
  	gem 'hirb'
  	gem 'nifty-generators'
-	#gem 'ruby-debug'
 end
-
-# group :development do
-#   gem 'linecache19', '0.5.13'
-#   gem 'ruby-debug-base19', '0.11.26'
-#   gem 'ruby-debug19', :require => 'ruby-debug'
-# end
  
 gem 'authlogic'#, :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 gem 'mocha', :group => :test
