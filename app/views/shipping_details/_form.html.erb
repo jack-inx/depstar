@@ -103,7 +103,7 @@
 			Available Postage: <%= Stamps.account[:postage_balance][:available_postage] unless Stamps.nil? or Stamps.account.nil? or Stamps.account[:postage_balance].nil? or Stamps.account[:postage_balance][:available_postage].nil? %><br>
 			<%#= Stamps.account %>
 			<%#= standardized_address.inspect %>
-			<%#= purchase.inspect %>
+			<%= @purchase.inspect %>
 			
 			<%
 				# stamp = Stamps.create!(

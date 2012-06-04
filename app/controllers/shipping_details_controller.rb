@@ -342,6 +342,11 @@ class ShippingDetailsController < ApplicationController
     @question_response = @shipping_detail.question_response
     @user = current_user
     
+    # @purchase = Stamps.purchase_postage(
+    #   :amount => 100,
+    #   :control_total => 200
+    # )
+    
   end
 
   # POST /shipping_details
@@ -417,7 +422,7 @@ class ShippingDetailsController < ApplicationController
   def create_label
     @shipping_detail = ShippingDetail.find(params[:id])
     
-    ship_date = Date.today.strftime('%Y-%m-%d')
+    ship_date = Date.tomorrow.strftime('%Y-%m-%d')
 
   	rates = Stamps.get_rates(
   		:from_zip_code => '02205',
@@ -425,17 +430,15 @@ class ShippingDetailsController < ApplicationController
   		:weight_oz     => '2.0',
   		:package_type   => 'Large Envelope or Flat',
   		:service_type   => 'US-FC',  # Flat-rate
-  		:ship_date      => Date.today.strftime('%Y-%m-%d') #'2100-01-01'  	
+  		:ship_date      => Date.tomorrow.strftime('%Y-%m-%d')
   	)
+  	
+  	#print '---' + rates.first.inspect + '---'
   	unless rates.nil?
   	  unless rates.first.nil?
-        #unless rates.first[:ship_date].nil?
-        #print '---' + rates.first.inspect + '---'
         rates.first[:ship_date] = ship_date
-        #end
   	  end
   	end
-  	# unless  or  #or 
     @rates = rates
     
     standardized_address = Stamps.clean_address(
@@ -448,15 +451,15 @@ class ShippingDetailsController < ApplicationController
       :zip_code    => @shipping_detail.zip
     })
 
-    # purchase = Stamps.purchase_postage(
-    # 	:amount	=> 100,
-    # 	:control_total => 0
-    # )
+    # @purchase = Stamps.purchase_postage(
+    #       :amount => 200.3800,
+    #       :control_total => 0.3800
+    #     )
     
     # stamp = ''
     stamp = Stamps.create!(
       :rate          => rates.first,
-          :to            => standardized_address[:address],
+      :to            => standardized_address[:address],
       :from => {
         :full_name   => 'Depstar.com',
         :address1    => 'PO Box 55923',
@@ -464,8 +467,8 @@ class ShippingDetailsController < ApplicationController
         :state       => 'MA',
         :zip_code    => '02205'
       },
-          :transaction_id => '1234567890ABCDEF',
-          :tracking_number => true
+      :transaction_id => '1234567890ABCDEF',
+      :tracking_number => true
     )
     # print stamp[:valid?]
     #    print 'test'
