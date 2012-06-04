@@ -350,8 +350,8 @@ class ShippingDetailsController < ApplicationController
     
     unless Stamps.nil?
       unless Stamps.account.nil?
-        Stamps.account[:postage_balance].nil?
-          Stamps.account[:postage_balance][:available_postage].nil?
+        unless Stamps.account[:postage_balance].nil?
+          unless Stamps.account[:postage_balance][:available_postage].nil?
             @available_postage = Stamps.account[:postage_balance][:available_postage]
           end
         end
