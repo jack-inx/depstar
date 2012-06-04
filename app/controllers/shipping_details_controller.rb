@@ -347,6 +347,16 @@ class ShippingDetailsController < ApplicationController
     #   :control_total => 200
     # )
     
+    
+    unless Stamps.nil?
+      unless Stamps.account.nil?
+        Stamps.account[:postage_balance].nil?
+          Stamps.account[:postage_balance][:available_postage].nil?
+            @available_postage = Stamps.account[:postage_balance][:available_postage]
+          end
+        end
+      end
+    end
   end
 
   # POST /shipping_details
