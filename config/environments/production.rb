@@ -48,7 +48,7 @@ Trunk::Application.configure do
   config.active_support.deprecation = :notify
   
   Stamps.configure do |config|
-	  #config.integration_id = '904e44fc-b53f-44ae-bf2a-2d265241e389'
+	  config.integration_id = '904e44fc-b53f-44ae-bf2a-2d265241e389'
 	  config.username       = 'jacobresnek'
 	  config.password       = 'jake1878'
 	  #config.username       = 'depstar'
