@@ -348,6 +348,7 @@ class ShippingDetailsController < ApplicationController
     # )
     
     stamps_local = Stamps.clone # Make local copy
+    print 'stamps_local.inspect ---- ' + stamps_local.inspect + '----'
     unless stamps_local.blank?
       unless stamps_local.account.blank?
         unless stamps_local.account[:valid?] == false
