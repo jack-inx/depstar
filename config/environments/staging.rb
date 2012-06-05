@@ -19,7 +19,7 @@ Trunk::Application.configure do
   # just comment this out and Rails will serve the files
 
   # See everything in the log (default is :info)
-  # config.log_level = :debug
+  config.log_level = :debug
 
   # Use a different logger for distributed setups
   # config.logger = SyslogLogger.new
@@ -39,7 +39,7 @@ Trunk::Application.configure do
 
   # Enable threaded mode
   # config.threadsafe!
-
+  
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
@@ -59,4 +59,6 @@ Trunk::Application.configure do
 		config.endpoint				= 'https://swsim.testing.stamps.com/swsim/swsimv12.asmx'
 		config.namespace			=	'http://stamps.com/xml/namespace/2010/11/swsim/swsimv12'
 	end
+	
+  config.whiny_nils = true
 end
