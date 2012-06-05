@@ -347,18 +347,15 @@ class ShippingDetailsController < ApplicationController
     #   :control_total => 200
     # )
     
-    
-    unless Stamps.nil?
-      unless Stamps.account.nil?
-        stamps_account = Stamps.account
-        unless stamps_account[:postage_balance].nil?
-          postage_balance = stamps_account[:postage_balance]
-          unless postage_balance[:available_postage].nil?
-            @available_postage = Stamps.account[:postage_balance][:available_postage]
-          end
+    stamps_local = Stamps.clone # Make local copy
+    unless stamps_local.blank?
+      unless stamps_local.account.blank?
+        unless stamps_local.account[:valid?] == false
+          @available_postage = stamps_local.account[:postage_balance][:available_postage]
         end
       end
     end
+    
   end
 
   # POST /shipping_details
