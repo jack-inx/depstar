@@ -54,9 +54,9 @@ Trunk::Application.configure do
 	  #config.username       = 'depstar'
 	  #config.password       = 'postage1'
 		#config.log_messages   = true
-		# config.endpoint				= 'https://swsim.testing.stamps.com/swsim/SwsimV22.asmx'
-		# config.namespace			=	'http://stamps.com/xml/namespace/2012/04/swsim/swsimv22'
-		config.endpoint				= 'https://swsim.testing.stamps.com/swsim/swsimv12.asmx'
-		config.namespace			=	'http://stamps.com/xml/namespace/2010/11/swsim/swsimv12'
+		config.endpoint       = 'https://swsim.stamps.com/swsim/swsimv12.asmx'
+		config.namespace      = 'http://stamps.com/xml/namespace/2010/11/swsim/swsimv12'    
+    # config.endpoint       = 'https://swsim.testing.stamps.com/swsim/swsimv12.asmx'
+    # config.namespace      = 'http://stamps.com/xml/namespace/2010/11/swsim/swsimv12'
 	end
 end
