@@ -37,4 +37,3 @@ Trunk::Application.configure do
   end
     
 end
-

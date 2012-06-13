@@ -58,6 +58,9 @@
 		
 		<% unless @user.nil? %>
 		<div>
+			<%= link_to "Create label", {:action => 'create_label', :id => @shipping_detail}, :target => '_blank' %>
+			<br>
+			
 			<%
 				# Stamps.configure do |config|
 				# 				  config.integration_id = '904e44fc-b53f-44ae-bf2a-2d265241e389'
@@ -84,22 +87,21 @@
 			# 			)
 			# 			rates.first[:ship_date] = ship_date
 
-			standardized_address = Stamps.clean_address(
-			  :address => {
-					      :full_name   => @shipping_detail.full_name,
-					      :address1    => @shipping_detail.address1,
-					      :address2    => @shipping_detail.address2,
-					      :city        => @shipping_detail.city,
-					      :state       => @shipping_detail.state,
-					      :zip_code    => @shipping_detail.zip
-					    })
+			# standardized_address = Stamps.clean_address(
+			#   :address => {
+			# 		      :full_name   => @shipping_detail.full_name,
+			# 		      :address1    => @shipping_detail.address1,
+			# 		      :address2    => @shipping_detail.address2,
+			# 		      :city        => @shipping_detail.city,
+			# 		      :state       => @shipping_detail.state,
+			# 		      :zip_code    => @shipping_detail.zip
+			# 		    })
 			
 				# purchase = Stamps.purchase_postage(
 				# 	:amount	=> 100,
 				# 	:control_total => 0
 				# )
 			%>
-
 			<%
 			# 		  Stamps.configure do |config|
 			#   config.integration_id = '904e44fc-b53f-44ae-bf2a-2d265241e389'
@@ -115,15 +117,13 @@
 			# 	config.namespace			=	'http://stamps.com/xml/namespace/2010/11/swsim/swsimv12'
 			# end
 			%>
-
 			<%#= rates.first.inspect %>
 			<%#= Stamps.account %>
-			Available Postage: <%= @available_postage %>
+			<!-- Available Postage:  --> <%#= @available_postage %>
 			<%#= Stamps.account[:postage_balance][:available_postage] unless Stamps.nil? or Stamps.account.nil? or Stamps.account[:postage_balance].nil? or Stamps.account[:postage_balance][:available_postage].nil? %><br>
 			<%#= Stamps.account %>
 			<%#= standardized_address.inspect %>
 			<%#= @purchase.inspect %>
-			
 			<%
 				# stamp = Stamps.create!(
 				# 				    :rate          => rates.first,
@@ -139,25 +139,26 @@
 				# 						:tracking_number => true
 				# 				)
 			%>
-			<% unless standardized_address.nil? or standardized_address[:address].nil? %>		
-			<%= link_to "Create label", {:action => 'create_label', :id => @shipping_detail}, :target => '_blank' %>
+			<% if false %>
+			<%# unless standardized_address.nil? or standardized_address[:address].nil? %>		
+			<%#= link_to "Create label", {:action => 'create_label', :id => @shipping_detail}, :target => '_blank' %>
 			<h3>Validated Address</h3>
 			<ul>
-					<li><%= standardized_address[:address][:full_name] %></li>
-					<li><%= standardized_address[:address][:address1] %></li>
-					<% unless standardized_address[:address][:address2].nil? %>
-						<li><%= standardized_address[:address][:address2] %></li>
-					<% end %>
-					<li><%= standardized_address[:address][:city] %></li>
-					<li><%= standardized_address[:address][:state] %></li>
-					<li><%= standardized_address[:address][:zip_code] %></li>
-					<li>address_match - <%= standardized_address[:address_match] %></li>
-					<li>city_state_zip_ok - <%= standardized_address[:city_state_zip_ok] %></li>
+					<li><%#= standardized_address[:address][:full_name] %></li>
+					<li><%#= standardized_address[:address][:address1] %></li>
+					<%# unless standardized_address[:address][:address2].nil? %>
+						<li><%#= standardized_address[:address][:address2] %></li>
+					<%# end %>
+					<li><%#= standardized_address[:address][:city] %></li>
+					<li><%#= standardized_address[:address][:state] %></li>
+					<li><%#= standardized_address[:address][:zip_code] %></li>
+					<li>address_match - <%#= standardized_address[:address_match] %></li>
+					<li>city_state_zip_ok - <%#= standardized_address[:city_state_zip_ok] %></li>
 			</ul>
-			<% else %>
-				<h2>Address failed validation</h2>
+			<%# else %>
+				<!-- <h2>Address failed validation</h2> -->
 			<% end %>
-							
+			
 		</div>
 		<% end %>
 		
