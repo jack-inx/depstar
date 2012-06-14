@@ -479,7 +479,7 @@ class ShippingDetailsController < ApplicationController
         :state       => 'MA',
         :zip_code    => '02205'
       },
-      :transaction_id => '1234567890ABCDEF',
+      :transaction_id => @shipping_detail.id,
       :tracking_number => true
     )
     # print stamp[:valid?]
