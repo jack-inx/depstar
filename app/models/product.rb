@@ -26,9 +26,24 @@ class Product < ActiveRecord::Base
   def to_param
     "#{self.id}-#{self.name.parameterize}"
   end
+
+  def price_broken
+    
+    if !self.question_1_option_1_price.nil? 
+      @price = self.question_1_option_1_price # Broken price is enabled
+    else
+      @price = (self.price.to_f * self.question_3_option_1_multiplier.to_f)
+    end
+    
+    @price.round
+  end
   
   def price_poor
     (self.price.to_f * self.question_3_option_1_multiplier.to_f).round
+  end
+
+  def price_average
+    (self.price.to_f * self.question_3_option_2_multiplier.to_f).round
   end
   
   def price_good
