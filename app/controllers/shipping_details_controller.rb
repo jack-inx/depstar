@@ -489,13 +489,16 @@ class ShippingDetailsController < ApplicationController
     #      print 'this is false'
     #    end
        
-    if stamp[:valid?] == false or stamp[:valid?] == 'false' 
-      @stamp = stamp
-      render #:layout => false
-    else
-      redirect_to stamp[:url] unless stamp[:url].nil?
-    end
-    # redirect_to '/'
+    # if stamp[:valid?] == false or stamp[:valid?] == 'false' 
+    #   @stamp = stamp
+    #   render #:layout => false
+    # else
+    #   redirect_to stamp[:url] unless stamp[:url].nil?
+    # end
+    
+    @stamp = stamp
+    render :layout => false
+    
   end
   
 end
