@@ -58,8 +58,8 @@
 		
 		<% unless @user.nil? %>
 		<div>
-			<%= link_to "Create Return Label", {:action => 'create_label', :id => @shipping_detail}, :target => '_blank' %>
-			<br>
+			<%= link_to "Create Return Label", {:action => 'create_return_label', :id => @shipping_detail}, :target => '_blank' %></br>
+			<%= link_to "Create Shipping Label", {:action => 'create_shipping_label', :id => @shipping_detail}, :target => '_blank' %></br>
 			
 			<%
 				# Stamps.configure do |config|

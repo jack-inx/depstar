@@ -31,6 +31,15 @@ GEM
       rack-cache (~> 1.1)
       rack-test (~> 0.6.1)
       sprockets (~> 2.1.2)
+    active_shipping (0.9.14)
+      active_utils (>= 1.0.1)
+      activesupport (>= 2.3.5)
+      builder
+      i18n
+      json (>= 1.5.1)
+    active_utils (1.0.3)
+      activesupport (>= 2.3.11)
+      i18n
     activemodel (3.2.0)
       activesupport (= 3.2.0)
       builder (~> 3.0.0)
@@ -155,6 +164,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  active_shipping
   authlogic
   capistrano-ext
   hirb

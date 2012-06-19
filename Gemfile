@@ -23,3 +23,5 @@ gem 'capistrano-ext'
 
 # Edited local gem
 gem 'stamps', :git => 'git://github.com/CharlesP/stamps.git'
+
+gem 'active_shipping'
