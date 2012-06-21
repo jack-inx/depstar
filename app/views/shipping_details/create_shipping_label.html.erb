@@ -1,3 +1,41 @@
-<%= @usps.inspect %>
-</br></br>
-<%#= @response.inspect %>
+<%#= @rates.first.inspect %>
+<% if @stamp[:valid?] == false or @stamp[:valid?] == 'false' %>
+	<h3>Errors from Stamps.com</h3>
+	<ul>
+	<% unless @stamp[:errors].nil? %>
+		<% @stamp[:errors].each do |error| %>
+			<li><%= error %></li><br>
+		<% end %>
+	<% else %>
+		<%= @stamp.inspect %>
+	<% end %>		
+	</ul>
+<% else %>
+	<script type="text/javascript">
+	        function PrintWindow()
+	        {                     
+	           window.print();            
+	           CheckWindowState(); 
+	        }
+
+	        function CheckWindowState()
+	        {            
+	            if(document.readyState=="complete")
+	            {
+	                window.close();  
+	            }
+	            else
+	            {            
+	                setTimeout("CheckWindowState()", 2000)
+	            }
+	        }    
+
+	       PrintWindow();
+	</script>
+	<style type="text/css">
+	  body {
+	    margin: 0px;
+		}
+	  </style>
+	<%= image_tag @stamp[:url], :size => '762x1200' %>
+<% end %>
