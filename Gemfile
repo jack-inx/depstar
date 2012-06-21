@@ -24,4 +24,4 @@ gem 'capistrano-ext'
 # Edited local gem
 gem 'stamps', :git => 'git://github.com/CharlesP/stamps.git'
 
-gem 'active_shipping'
+gem 'awesome-usps', :git => 'git://github.com/CharlesP/awesome-usps.git'

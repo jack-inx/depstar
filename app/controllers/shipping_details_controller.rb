@@ -1,7 +1,6 @@
 class ShippingDetailsController < ApplicationController
-  require 'active_shipping'
-  include ActiveMerchant::Shipping
-
+  include AwesomeUSPS
+  
   before_filter :authorize, :except => [:new, :create, :confirm, :show, :orders, :order_details, :submit_external_order, :checkout, :customers]
   before_filter :xml_authorize, :include => [:orders, :order_details, :submit_external_order, :checkout, :customers]
   
@@ -434,58 +433,52 @@ class ShippingDetailsController < ApplicationController
     end
   end
   
-  def create_shipping_label
-    # Package up a poster and a Wii for your nephew.
-    packages = [
-      Package.new(  100,                        # 100 grams
-        [93,10],                    # 93 cm long, 10 cm diameter
-        :cylinder => true),         # cylinders have different volume calculations
-      
-      Package.new(  (7.5 * 16),                 # 7.5 lbs, times 16 oz/lb.
-        [15, 10, 4.5],              # 15x10x4.5 inches
-        :units => :imperial)        # not grams, not centimetres
-    ]
+  def create_return_label
+    shipping_detail = ShippingDetail.find(params[:id])
+    print shipping_detail.inspect
     
+    usps = USPS.new('835DEPST0103')
     
-        # You live in Beverly Hills, he lives in Ottawa
-        origin = Location.new(      :country => 'US',
-                                    :state => 'CA',
-                                    :city => 'Beverly Hills',
-                                    :zip => '90210')
+    customer_address = Location.new( 
+      :name => shipping_detail.full_name,  
+      :address1 => shipping_detail.address1,
+      :address2 => shipping_detail.address2, 
+      :state => shipping_detail.state,
+      :city => shipping_detail.city, 
+      :zip5 => shipping_detail.zip
+    )
     
-        destination = Location.new( :country => 'CA',
-                                    :province => 'ON',
-                                    :city => 'Ottawa',
-                                    :postal_code => 'K1P 1J1')
+    service_type = "Priority"
+    customer = customer_address #Location.new( :name=> shipping_detail.full_name,  :address1 => shipping_detail.address1, :address2 => shipping_detail.address2, :state => shipping_detail.state, :city => shipping_detail.city, :zip5 => shipping_detail.zip)
+    #customer = Location.new( :name=> "Charles Palleschi",  :address1 => "59 Rumney Rd.", :address2 => "59 Rumney Rd", :state => 'MA', :city => 'Revere', :zip5 => '02151')
+    retailer = Location.new( :name=> "Depstar.com",  :address1 => "PO Box 55923", :address2 =>"Unit #1", :state => 'MA', :city => 'Boston', :zip5 => '02205', :zip4 => '5923')
+    permit_number = "104001"
+    post_office = Location.new( :state => 'MA', :city => 'Boston', :zip5 => '02205')
+    postage_delivery_unit =  Location.new( :name => 'Boston Post Office', :address2 =>"25 Dorchester Ave RM 1", :state => 'MA', :city => 'Boston', :zip5 => '02205', :zip4 => '9761')
+    ounces = "1"
+    options = {} #{:RMA => "13456", :insurance => "500", :confirmation => "true"}
+    image_type = "PDF" # or "TIF"
     
-    #     # Find out how much it'll be.
-    #     ups = UPS.new(:login => 'auntjudy', :password => 'secret', :key => 'xml-access-key')
-    #     response = ups.find_rates(origin, destination, packages)
-    # 
-    #     ups_rates = response.rates.sort_by(&:price).collect {|rate| [rate.service_name, rate.price]}
-    #     # => [["UPS Standard", 3936],
-    #     #     ["UPS Worldwide Expedited", 8682],
-    #     #     ["UPS Saver", 9348],
-    #     #     ["UPS Express", 9702],
-    #     #     ["UPS Worldwide Express Plus", 14502]]
-  
-      # Check out USPS for comparison...
-      #usps = USPS.new(:login => 'developer-key')
-      usps = USPS.new(:login => '835DEPST0103', :password => '007ZM02BM149')
-      response = usps.find_rates(origin, destination, packages)
-  
-      usps_rates = response.rates.sort_by(&:price).collect {|rate| [rate.service_name, rate.price]}
-      # => [["USPS Priority Mail International", 4110],
-      #     ["USPS Express Mail International (EMS)", 5750],
-      #     ["USPS Global Express Guaranteed Non-Document Non-Rectangular", 9400],
-      #     ["USPS GXG Envelopes", 9400],
-      #     ["USPS Global Express Guaranteed Non-Document Rectangular", 9400],
-      #     ["USPS Global Express Guaranteed", 9400]]
+    image = usps.merch_return(
+      service_type,
+      customer,
+      retailer, 
+      permit_number, 
+      post_office, 
+      postage_delivery_unit, 
+      ounces, 
+      image_type)
+
+    unless image.kind_of?(String)
+      send_data Base64.decode64(image[:label]), :type => image[:image_type], :disposition => "inline"
+    else
+      @usps = image
+      render
+    end
     
-    render
   end
   
-  def create_return_label
+  def create_shipping_label
     @shipping_detail = ShippingDetail.find(params[:id])
     
     ship_date = Date.tomorrow.strftime('%Y-%m-%d')

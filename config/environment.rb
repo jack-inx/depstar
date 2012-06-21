@@ -5,3 +5,5 @@ require File.expand_path('../application', __FILE__)
 Trunk::Application.initialize!
 
 ActionMailer::Base.delivery_method = :smtp
+
+require 'net/http'
