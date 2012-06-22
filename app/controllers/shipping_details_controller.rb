@@ -441,8 +441,8 @@ class ShippingDetailsController < ApplicationController
     
     customer_address = Location.new( 
       :name => shipping_detail.full_name,  
-      :address1 => shipping_detail.address1,
-      :address2 => shipping_detail.address2, 
+      :address1 => shipping_detail.address2, # Secondary address unit designator and number (such as an apartment or suite number (APT 202, STE 100)).
+      :address2 => shipping_detail.address1, # Address of customer returning the package.
       :state => shipping_detail.state,
       :city => shipping_detail.city, 
       :zip5 => shipping_detail.zip
@@ -451,7 +451,7 @@ class ShippingDetailsController < ApplicationController
     service_type = "Priority"
     customer = customer_address #Location.new( :name=> shipping_detail.full_name,  :address1 => shipping_detail.address1, :address2 => shipping_detail.address2, :state => shipping_detail.state, :city => shipping_detail.city, :zip5 => shipping_detail.zip)
     #customer = Location.new( :name=> "Charles Palleschi",  :address1 => "59 Rumney Rd.", :address2 => "59 Rumney Rd", :state => 'MA', :city => 'Revere', :zip5 => '02151')
-    retailer = Location.new( :name=> "Depstar.com",  :address1 => "PO Box 55923", :address2 =>"Unit #1", :state => 'MA', :city => 'Boston', :zip5 => '02205', :zip4 => '5923')
+    retailer = Location.new( :name=> "Depstar.com",  :address1 => "", :address2 =>"PO Box 55923", :state => 'MA', :city => 'Boston', :zip5 => '02205', :zip4 => '5923')
     permit_number = "104001"
     post_office = Location.new( :state => 'MA', :city => 'Boston', :zip5 => '02205')
     postage_delivery_unit =  Location.new( :name => 'Boston Post Office', :address2 =>"25 Dorchester Ave RM 1", :state => 'MA', :city => 'Boston', :zip5 => '02205', :zip4 => '9761')
