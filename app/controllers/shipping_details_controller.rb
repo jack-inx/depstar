@@ -434,6 +434,9 @@ class ShippingDetailsController < ApplicationController
   end
   
   def create_return_label
+    # USPS Spec
+    # https://www.usps.com/webtools/_pdf/Electronic-Merchandise-Return-v10-0c.pdf
+    
     shipping_detail = ShippingDetail.find(params[:id])
     print shipping_detail.inspect
     
