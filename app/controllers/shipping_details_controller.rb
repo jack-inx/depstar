@@ -482,6 +482,8 @@ class ShippingDetailsController < ApplicationController
   end
   
   def create_shipping_label
+    # http://www.stamps.com/pdk/downloads/files/Stamps.com_SWSIM_Reference.pdf
+    
     @shipping_detail = ShippingDetail.find(params[:id])
     
     ship_date = Date.tomorrow.strftime('%Y-%m-%d')
@@ -492,8 +494,19 @@ class ShippingDetailsController < ApplicationController
   		:weight_oz     => '2.0',
   		:package_type   => 'Large Envelope or Flat',
   		:service_type   => 'US-FC',  # Flat-rate
-  		:ship_date      => Date.tomorrow.strftime('%Y-%m-%d')
+  		:ship_date      => Date.tomorrow.strftime('%Y-%m-%d'),
+  	  :add_ons       => {
+        :add_on => [
+          { :type => 'SC-A-HP' }
+        ]
+      }
   	)
+  	
+  	# SC-A-HP  Stamps.com Hidden Postage Specifying Hidden Postage will generate a shipping 
+    # label indicium that does not show the actual 
+    # postage amount.  This option is useful for 
+    # customers who wish to hide the actual postage 
+    # amount from the recipients of packages.
   	
   	#print '---' + rates.first.inspect + '---'
   	unless rates.nil?
