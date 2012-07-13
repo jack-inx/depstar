@@ -489,17 +489,12 @@ class ShippingDetailsController < ApplicationController
     ship_date = Date.tomorrow.strftime('%Y-%m-%d')
 
   	rates = Stamps.get_rates(
-  		:from_zip_code => '02205',
-  		:to_zip_code   => @shipping_detail.zip,
-  		:weight_oz     => '2.0',
+  		:from_zip_code  => '02205',
+  		:to_zip_code    => @shipping_detail.zip,
+  		:weight_oz      => '2.0',
   		:package_type   => 'Large Envelope or Flat',
   		:service_type   => 'US-FC',  # Flat-rate
-  		:ship_date      => Date.tomorrow.strftime('%Y-%m-%d'),
-  	  :add_ons       => {
-        :add_on => [
-          { :type => 'SC-A-HP' }
-        ]
-      }
+  		:ship_date      => Date.tomorrow.strftime('%Y-%m-%d')
   	)
   	
   	# SC-A-HP  Stamps.com Hidden Postage Specifying Hidden Postage will generate a shipping 
@@ -508,7 +503,6 @@ class ShippingDetailsController < ApplicationController
     # customers who wish to hide the actual postage 
     # amount from the recipients of packages.
   	
-  	#print '---' + rates.first.inspect + '---'
   	unless rates.nil?
   	  unless rates.first.nil?
         rates.first[:ship_date] = ship_date
@@ -533,7 +527,20 @@ class ShippingDetailsController < ApplicationController
     
     # stamp = ''
     stamp = Stamps.create!(
-      :rate          => rates.first,
+      :rate          => {
+        :from_zip_code  => '02205',
+    		:to_zip_code    => @shipping_detail.zip,
+    		:weight_oz      => '2.0',
+    		:package_type   => 'Large Envelope or Flat',
+    		:service_type   => 'US-FC',  # Flat-rate
+    		:ship_date      => Date.tomorrow.strftime('%Y-%m-%d'),
+        :add_ons       => {
+          :add_on => [
+            { :type => 'SC-A-HP' }
+          ]
+        }
+      },
+      #:rate          => rates.first,
       :to            => standardized_address[:address],
       :from => {
         :full_name   => 'Depstar.com',
