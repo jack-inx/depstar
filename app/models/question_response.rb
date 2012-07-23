@@ -12,7 +12,7 @@ class QuestionResponse < ActiveRecord::Base
   def quote
     if @product.nil?
       @price = 0
-      return
+      return false
     end
     
     @price = (@product.price.to_f * multiplier.to_f).round
