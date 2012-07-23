@@ -10,7 +10,8 @@ class QuestionResponse < ActiveRecord::Base
   # question_4 can be left blank
   
   def quote
-    @price = (product.price.to_f * multiplier.to_f).round
+    @price = 0 
+    @price = (product.price.to_f * multiplier.to_f).round unless product.price.nil?
 
     unless question_1.blank?
       if !@product.question_1_option_1_price.nil? and question_1 == "True"
