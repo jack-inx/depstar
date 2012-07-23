@@ -7,8 +7,8 @@ class ShippingDetailsController < ApplicationController
   # GET /shipping_details
   # GET /shipping_details.xml
   def index
-    @shipping_details = ShippingDetail.all(:order => "created_at desc")
-    #@shipping_details = ShippingDetail.paginate(:page => params[:page], :order => "created_at desc")
+    #@shipping_details = ShippingDetail.all(:order => "created_at desc")
+    @shipping_details = ShippingDetail.paginate(:page => params[:page], :per_page => 500, :order => "created_at desc")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -497,12 +497,6 @@ class ShippingDetailsController < ApplicationController
   		:ship_date      => Date.tomorrow.strftime('%Y-%m-%d')
   	)
   	
-  	# SC-A-HP  Stamps.com Hidden Postage Specifying Hidden Postage will generate a shipping 
-    # label indicium that does not show the actual 
-    # postage amount.  This option is useful for 
-    # customers who wish to hide the actual postage 
-    # amount from the recipients of packages.
-  	
   	unless rates.nil?
   	  unless rates.first.nil?
         rates.first[:ship_date] = ship_date
@@ -525,7 +519,12 @@ class ShippingDetailsController < ApplicationController
     #       :control_total => 0.3800
     #     )
     
-    # stamp = ''
+  	# SC-A-HP  Stamps.com Hidden Postage Specifying Hidden Postage will generate a shipping 
+    # label indicium that does not show the actual 
+    # postage amount.  This option is useful for 
+    # customers who wish to hide the actual postage 
+    # amount from the recipients of packages.
+    
     stamp = Stamps.create!(
       :rate          => {
         :from_zip_code  => '02205',
