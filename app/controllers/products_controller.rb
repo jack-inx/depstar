@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
       end
       
       if key.start_with?('option') or key.start_with?('question')
-        @params_to_pass_to_shipping_details[key] = value
+        @params_to_pass_to_shipping_details[key] = value unless @params_to_pass_to_shipping_details.nil?
       end
     end
     
