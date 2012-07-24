@@ -10,7 +10,7 @@ class QuestionResponse < ActiveRecord::Base
   # question_4 can be left blank
   
   def quote
-    if product.nil?
+    if product.nil? or product.price.nil?
       @price = 0
       return false
     end
