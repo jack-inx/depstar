@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
   
   def offer
     @options = ''
-    @params_to_pass_to_shipping_detailspass_to_shipping_details = {}
+    @params_to_pass_to_shipping_details = {}
     
     @product = Product.find(params[:id])
     @x = 0
@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
       end
       
       if key.start_with?('option') or key.start_with?('question')
-        @params_to_pass_to_shipping_details[key] = value unless @params_to_pass_to_shipping_details.nil?
+        @params_to_pass_to_shipping_details[key] = value
       end
     end
     
