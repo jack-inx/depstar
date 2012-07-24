@@ -70,7 +70,7 @@ class ShippingDetail < ActiveRecord::Base
   def initial_total_offer
     initial_total_offer = 0
     self.devices.each do |device|
-      initial_total_offer += device.offer
+      initial_total_offer += device.offer unless device.offer.nil?
     end
   
     initial_total_offer
