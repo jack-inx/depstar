@@ -7,16 +7,22 @@
 	<meta name="keywords" content="Depstar, cell phone recycling, recycling cell phones, sell cell phones, electronics recycling, recycle electronics, sell electronics, cash for electronics" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
 	<meta name="google-site-verification" content="YzkaLPzHonlFj-UFHnN7NMnzJWeZ2Mx5SyuPznDeC-E" />
-	<%= stylesheet_link_tag :all %>
+	
+	<!-- <link rel="stylesheet" href="css/all.css" type="text/css" media="all" /> -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,300italic,700' rel='stylesheet' type='text/css' />
+	<link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css' />
+	<script type="text/javascript" src="js/jcf.js"></script>
+	<script type="text/javascript" src="js/jcf.select.js"></script>
+	<script type="text/javascript" src="js/placeholder.js"></script>
+
+	<%#= stylesheet_link_tag :all %>
+	<%= stylesheet_link_tag("all") %>
 	<%= javascript_include_tag :defaults %>
 	<%= javascript_include_tag 'jquery-1.4.4.min.js', 'jquery-ui-1.8.7.custom.min.js', 'autocomplete-rails.js' %>
 	<%= javascript_include_tag 'util-functions.js', 'clear-default-text.js'  %>
 	<%= stylesheet_link_tag 'jquery-ui-1.8.7.custom.css' %>
 	<%= csrf_meta_tag %>
 	<%= yield :javascript %>
-	<script type="text/javascript" src="js/main.js" ></script>
-	<!--[if lt IE 7]><script type="text/javascript" src="js/png.js" ></script><![endif]-->
-	<!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="css/ie.css" media="screen"/><![endif]-->
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
@@ -30,56 +36,267 @@
 	  })();
 
 	</script>
+	
+
 </head>
 <body>
 	<div id="wrapper">
-	<div class="w1">
-		<div class="w2">
-			<div>
-				<h1 class='as-seen-on' target="_blank">as featured on<a href="http://money.cnn.com/2011/10/12/technology/iphone_4s/index.htm?source=cnn_bin&hpt=hp_bn5" target="_blank"><img src='/images/cnnmoney_logo.gif' height="40px" style="margin-left: 10px; margin-top: -5px;"></a></h1>
-			</div>
-			<div class="wrapper-t"></div>
-				<div class="wrapper-c">
-					<div class="wrapper-holder">
-						
-						<%= render "layouts/header" %>
-						
-						<div class="promo">
-							<!-- <h2 class='limited-time-offer'>Accessory Bundle ~ Limited Time Offer ~ Details After Check Out! $107.95 Value FREE!</h2> -->							
-							<div class="promo-holder">
-								<div class="promo-frame">
-									<%= yield %>
-								</div>								
-							</div>
-						</div>
-						
-						<%= render "layouts/threecolumns" %>
-						
-						<div id="main">						
-							<div id="content">
-								<h2>So what is Depstar.com all about?</h2>
-								<p>Depstar is driven by one very basic idea: provide the most superior re-commerce service on the Internet. Whether you want to get money for your old iPhone or your broken iPad, we provide the fastest and most secure way to get paid for your used electronics. Our superior service is twofold: first, unlike our competitors there is no “waiting period” for payment: the minute a member of our staff receives your product, we issue payment immediately; second, Depstar boasts a payback rate nearly 10% higher than our leading five online competitors, meaning we pay you more for your used electronics than they do—guaranteed. That combination—a more instantaneous payment on the one hand, and a higher payback rate on the other—is helping Depstar become your one-stop shop for superior re-commerce service on the internet. Begin using us now. Get a quote and decide for yourself.</p>
-								<br/><br/>
-							</div>
-							<div class="aside">
-								<h2>Testimonials</h2>
-								<blockquote>
-									<q>&quot;Got paid as quoted. I sent in an iPhone and received payment the same day. Would definitely use again. Thanks!&quot;</q>
-									<cite>Natalie from Boston, Massachusetts</cite>
-								</blockquote>
-								<blockquote>
-									<q>&quot;Depstar paid me $35 more for my broken iPhone 4 than Gazelle. Service was fast and easy, would recommend to anyone!&quot;</q>
-									<cite>John from San Diego, California</cite>
-								</blockquote>
-							</div>
-						</div>						
-						<%= render "layouts/footer" %>
-						
+		
+		<%= render "layouts/header" %>
+		
+		<div id="main">
+			<div class="holder">
+				<div class="product">
+					<h2>Sell your iPhone, iPad and more for cash.</h2>
+					<form action="#" class="product-search">
+						<fieldset>
+							<select>
+								<option>Select a Product</option>
+								<option>Select a Product</option>
+							</select>
+							<input type="submit" value="go" class="btn-go" />
+						</fieldset>
+					</form>
+				</div>
+				<div class="banner">
+					<img src="images/img1.png" alt="" width="334" height="238" />
+				</div>
+				<div class="workflow">
+					<div class="text">
+						<p>It's simple to <span>go green </span>and get green now!</p>
+					</div>
+					<span class="arrows">Arrow</span>
+					<ul>
+						<li>
+							<img src="images/img7.png" height="66" width="80" alt="" class="icon" />
+							<h2>Quote</h2>
+							<p>Submit your item for a quote...</p>
+						</li>
+						<li>
+							<img src="images/img8.png" height="69" width="80" alt="" class="icon" />
+							<h2>Ship</h2>
+							<p>Free Priority Shipping...</p>
+						</li>
+						<li>
+							<img src="images/img9.png" height="68" width="68" alt="" class="icon" />
+							<h2>Cash</h2>
+							<p>Hassle free, have funds...</p>
+						</li>
+					</ul>
+				</div>
+				<div class="featured">
+					<div class="box">
+						<img src="images/img2.png" alt="" class="alignleft" width="99" height="109" />
+						<h2>About<br /> Depstar</h2>
+						<p>Learn about us and our commitment to a hassle-free Customer experience.</p>
+					</div>
+					<div class="box">
+						<img src="images/img3.png" alt="" class="alignleft" width="90" height="124" />
+						<h2>We buy broken iPhones</h2>
+						<p>We'll purchase any model iPhone no matter what condition it is in.</p>
+					</div>
+					<div class="box box2">
+						<img src="images/img4.png" width="141" height="129" alt="" class="alignleft" />
+						<h2>Corporate Buy Back Program</h2>
+						<p>We do bulk purchase programs for any size business. </p>
 					</div>
 				</div>
-			<div class="wrapper-b"></div>
+				<div class="popular-category">
+					<h2><strong>Popular Categories</strong></h2>
+					<div class="holder">
+						<ul>
+							<li><a href="#">Apple iPhone</a></li>
+							<li><a href="#">Apple TV</a></li>
+							<li><a href="#">Apple Display</a></li>
+						</ul>
+						<ul>
+							<li><a href="#">Motorola Cell Phone</a></li>
+							<li><a href="#">Nokia Cell Phone</a></li>
+							<li><a href="#">Apple iPad</a></li>
+						</ul>
+						<ul>
+							<li><a href="#">Apple Laptops</a></li>
+							<li><a href="#">Blackberry Cell Phone</a></li>
+							<li><a href="#">Samsung Cell Phone</a></li>
+						</ul>
+						<ul>
+							<li><a href="#">Apple Desktops</a></li>
+							<li><a href="#">HTC Cell Phone</a></li>
+							<li><a href="#">LG Cell Phone</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="sponsors">
+				<div class="frame">
+					<h3>As seen on</h3>
+					<ul>
+						<li><a href="#"><img src="images/sponsor1.png" alt="" /></a></li>
+						<li><a href="#"><img src="images/sponsor2.png" alt="" /></a></li>
+						<li><a href="#"><img src="images/sponsor3.png" alt="" /></a></li>
+						<li><a href="#"><img src="images/sponsor4.png" alt="" /></a></li>
+						<li><a href="#"><img src="images/sponsor5.png" alt="" /></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="holder">
+				<div class="threecolumn">
+					<div class="holder">
+						<div class="frame">
+							<div class="main">
+								<div class="inner">
+									<div class="inner-frame">
+										<div class="content">
+											<div class="testimonial">
+												<h2>Reviews</h2>
+												<ul>
+													<li>
+														<blockquote>
+															<q>"I like the free shipping and the fact that Depstar sends the packing materials to me." </q>
+															<cite>- July 2012</cite>
+														</blockquote>
+													</li>
+													<li>
+														<blockquote>
+															<q>"They  shipped me the prepaid envelope right away and within two days I had the money in my account!"</q>
+															<cite>- June 2012</cite>
+														</blockquote>
+													</li>
+													<li>
+														<blockquote>
+															<q>"A first rate experience!  A pre-addressed envelope came with my kit.  I was paid the same day my item was received and got way more money with Depstar than I did with Gazelle!"</q>
+															<cite>- February 2012</cite>
+														</blockquote>
+													</li>
+												</ul>
+											</div>
+											<div class="selling-box">
+												<h2>Selling Now</h2>
+												<h3>Look who is getting cash for their cell phones and electronics...</h3>
+												<ul>
+													<li>
+														<img src="images/img5.png" height="61" width="48" class="alignleft" alt="" />
+														<h4>Annelise <span>received</span> <span class="price">$129.00</span> <span>for:</span></h4>
+														<p>Toshiba Thrive 10.1-Inch 16GB Android Tablet </p>
+													</li>
+													<li>
+														<img src="images/img5.png" height="61" width="48" class="alignleft" alt="" />
+														<h4>Annelise <span>received</span> <span class="price">$129.00</span> <span>for:</span></h4>
+														<p>Toshiba Thrive 10.1-Inch 16GB Android Tablet </p>
+													</li>
+													<li>
+														<img src="images/img5.png" height="61" width="48" class="alignleft" alt="" />
+														<h4>Annelise <span>received</span> <span class="price">$129.00</span> <span>for:</span></h4>
+														<p>Toshiba Thrive 10.1-Inch 16GB Android Tablet </p>
+													</li>
+												</ul>
+											</div>
+											<div class="post">
+												<h2>Depstar Blog</h2>
+												<ul>
+													<li>
+														<span class="alignleft"><img src="images/img6.jpg" height="50" width="61" alt="" /></span>
+														<h3><a href="#">HTC One X – Full Hands-On Phone Review</a></h3>
+														<span class="meta">Posted by Matt on <em class="date">7/11/2012</em></span>
+													</li>
+													<li>
+														<span class="alignleft"><img src="images/img6.jpg" height="50" width="61" alt="" /></span>
+														<h3><a href="#">HTC One X – Full Hands-On Phone Review</a></h3>
+														<span class="meta">Posted by Matt on <em class="date">7/11/2012</em></span>
+													</li>
+													<li>
+														<span class="alignleft"><img src="images/img6.jpg" height="50" width="61" alt="" /></span>
+														<h3><a href="#">HTC One X – Full Hands-On Phone Review</a></h3>
+														<span class="meta">Posted by Matt on <em class="date">7/11/2012</em></span>
+													</li>
+													<li>
+														<span class="alignleft"><img src="images/img6.jpg" height="50" width="61" alt=""/></span>
+														<h3><a href="#">HTC One X – Full Hands-On Phone Review</a></h3>
+														<span class="meta">Posted by Matt on <em class="date">7/11/2012</em></span>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="popular-searches">
+					<div class="holder">
+						<div class="frame">
+							<h2><strong>Popular Searches</strong></h2>
+							<div class="links-area">
+								<ul>
+									<li><a href="/">Sell Electronics</a></li>
+									<li><a href="/">Sell Used Electronics</a></li>	
+									<li><a href="/">Sell Cell Phone</a></li>
+									<li><a href="/">Sell My Phone</a></li>
+									<li><a href="/categories/1-iphones">Sell My iPhone</a></li>
+									<li><a href="/categories/1-iphones">Sell iPhone</a></li>
+									<li><a href="/search?name=iphone%203g">Sell iPhone 3G</a></li>
+									<li><a href="/search?name=iphone%203gs">Sell iPhone 3GS</a></li>
+									<li><a href="/search?name=iphone%204">Sell iPhone 4</a></li>
+									<li><a href="/search?name=iphone%204s">Sell iPhone 4S</a></li>
+								</ul>
+								<ul>
+									<li><a href="/categories/3-ipad">Sell iPad</a></li>
+									<li><a href="/categories/5-ipods">Sell iPod</a></li>
+									<li><a href="/categories/2-laptops">Sell MacBook</a></li>
+									<li><a href="/categories/8-blackberry">Sell Blackberry</a></li>
+									<li><a href="/categories/10-android">Sell Droid</a></li>
+									<li><a href="/">Sell Broken Electronics</a></li>
+									<li><a href="/">Sell Broken Cell Phone</a></li>
+									<li><a href="/">Sell Broken Phone</a></li>
+									<li><a href="/">Sell Broken iPhone</a></li>
+									<li><a href="/">Sell My Broken iPhone</a></li>
+								</ul>
+								<ul>	
+									<li><a href="/search?name=iphone%203g">Sell Broken iPhone 3G</a></li>
+									<li><a href="/search?name=iphone%203gs">Sell Broken iPhone 3GS</a></li>
+									<li><a href="/search?name=iphone%204">Sell Broken iPhone 4</a></li>
+									<li><a href="/search?name=iphone%204s">Sell Broken iPhone 4S</a></li>
+									<li><a href="/categories/3-ipad">Sell Broken iPad</a></li>
+									<li><a href="/categories/5-ipods">Sell broken iPod</a></li>
+									<li><a href="/categories/2-laptops">Sell Broken MacBook</a></li>
+									<li><a href="/categories/8-blackberry">Sell Broken Blackberry</a></li>
+									<li><a href="/categories/10-android">Sell Broken Droid</a></li>
+									<li><a href="/">Recycle Electronics</a></li>
+								</ul>
+								<ul>
+									<li><a href="/">Recycle Used Electronics</a></li>
+									<li><a href="/">Recycle Cell Phone</a></li>
+									<li><a href="/">Recycle My Cell Phone</a></li>
+									<li><a href="/categories/1-iphones">Recycle iPhone</a></li>
+									<li><a href="/categories/1-iphones">Recycle My iPhone</a></li>
+									<li><a href="/categories/5-ipods">Recycle iPod</a></li>
+									<li><a href="/categories/3-ipad">Recycle iPad</a></li>
+									<li><a href="/categories/2-laptops">Recycle MacBook</a></li>
+									<li><a href="/categories/8-blackberry">Recycle Droid</a></li>
+									<li><a href="/categories/10-android">Recycle Broken iPhone</a></li>
+								</ul>
+								<ul>
+									<li><a href="/categories/1-iphones">Recycle My iPhone</a></li>
+									<li><a href="/categories/3-ipad">Recycle My iPad</a></li>
+									<li><a href="/categories/5-ipods">Recycle My iPod</a></li>
+									<li><a href="/categories/2-laptops">Recycle My MacBook</a></li>
+									<li><a href="/categories/1-iphones">Trade In iPhone</a></li>
+									<li><a href="/categories/1-iphones">Trade In My iPhone</a></li>
+									<li><a href="/categories/3-ipad">Trade In iPad</a></li>
+									<li><a href="/categories/3-ipad">Trade in My iPad</a></li>
+									<li><a href="/categories/2-laptops">Trade In MacBook</a></li>
+									<li><a href="/categories/2-laptops">Trade In My MacBook</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
+		
+		<%= render "layouts/footer" %>
+		
 	</div>
-</div>
 </body>
 </html>
