@@ -33,7 +33,7 @@ Trunk::Application.configure do
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   config.action_controller.asset_host = "http://dev.depstar.com"
-  config.action_controller.relative_url_root = "dev.depstar.com/"
+  #config.action_controller.relative_url_root = "dev.depstar.com/"
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
