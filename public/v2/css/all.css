@@ -2,11 +2,14 @@ body{
 	margin:0;
 	color:#8f8f8f;
 	font:300 12px/15px 'Open Sans', Arial, Helvetica, sans-serif;
-	background:#fdfdfd url(../images/bg-body.gif);
+	background:#fff url(../images/bg-body.gif) repeat-x;
 	min-width:1000px;
 	-webkit-text-size-adjust:100%;
 }
-.inner{color:#525252;}
+.inner{
+	color:#525252;
+	background:#fdfdfd url(../images/bg-body-inner.gif);
+}
 img{
 	border-style:none;
 	vertical-align:top;
@@ -15,7 +18,7 @@ a{
 	text-decoration:none;
 	color:#ce9001;
 }
-a:hover{text-decoration:underline;}
+a:hover{text-decoration:none;}
 q{quotes:none;}
 q:before,
 q:after{content:"";}
@@ -1110,13 +1113,10 @@ form,fieldset{
 .steps-area .contact-form .row-submit{padding:21px 0 0;}
 .steps-area .contact-form .submit{float:left;}
 .steps-area .contact-form p .notice{
-	text-decoration:underline;
 	color:#3f67ac;
 	font-size:13px;
 	line-height:16px;
 }
-.steps-area .contact-form p .notice:hover,
-.checkout-content .info .price a:hover{text-decoration:none;}
 .steps-area .contact-form input[type=submit]{
 	text-align:left;
 	text-indent:23px;
@@ -1166,7 +1166,6 @@ form,fieldset{
 	padding:0 0 13px;
 }
 .checkout-content .info .price a{
-	text-decoration:underline;
 	color:#3f67ac;
 	font-size:12px;
 	line-height:15px;
@@ -1262,13 +1261,11 @@ form,fieldset{
 .steps-area .text-block a.edit{
 	float:right;
 	color:#5679b6;
-	text-decoration:underline;
 	font-size:13px;
 	line-height:16px;
 	font-weight:300;
 	margin:6px 0 0;
 }
-.steps-area .text-block a.edit:hover{text-decoration:none;}
 .steps-area .text-block p{margin:0;}
 .steps-area .box,
 .steps-area .container{
@@ -1366,11 +1363,7 @@ form,fieldset{
 	box-shadow:none;
 }
 .steps-area .container p{margin:0;}
-.steps-area .container p a{
-	text-decoration:underline;
-	color:#4a70b1;
-}
-.steps-area .container p a:hover{text-decoration:none;}
+.steps-area .container p a{color:#4a70b1;}
 .steps-area .forget-list{
 	margin:0;	padding:8px 0 10px;	list-style:none;
 	overflow:hidden;
