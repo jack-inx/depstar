@@ -2,18 +2,14 @@
 <div id="header">
 	<div class="upper-header">
 		<ul class="social-networks">
-			<li class="twitter"><a href="http://twitter.com/#!/depstar_com" target="_blank">twitter</a></li>
-			<li class="youtube"><a href="http://www.youtube.com/depstartv" target="_blank">youtube</a></li>
+			<li class="twitter"><a href="#">twitter</a></li>
+			<li class="youtube"><a href="#">youtube</a></li>
 			<li class="bba"><a href="#">better business</a></li>
 		</ul>
-		<span class="facebook">
-			<a href="http://www.facebook.com/pages/Depstar/109849125756594" target="_blank">
-				<img src="images/facebook.png" width="60" height="28" alt="" />
-			</a>
-		</span>
+		<span class="facebook"><img src="images/facebook.png" width="60" height="28" alt="" /></span>
 	</div>
 	<div class="header-info">
-		<h1 class="logo"><%= link_to 'depstar.com', root_path %></h1>
+		<h1 class="logo"><a href="#">depstar.com</a></h1>
 		<div class="panel">
 			<%= form_for :product, :url => { :controller => "products", :action => "search" }, :html => { :class => 'search-item' } do |f|%>
 				<fieldset>
