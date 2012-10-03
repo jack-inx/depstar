@@ -1,49 +1,67 @@
 <% content_for :title, "Sell " + @category.name + " - " %>
 <p id="notice"><%= notice %></p>
 
-<div>
-	
-	<div style='padding: 0px 20px 0px 20px;' class="products-holder">
-		<div class="">
-			<div class="b" style='padding-bottom: 0px;'>
-				<% if @products.count > 0 %>
-				<h2 style='color: gray; float: left;'>Select Your Product</h2>
-				<div class="custom_pagination">
-			    <%= will_paginate @products, :container => false %>
-					<div class="page_info">
-			      <%= page_entries_info @products %>
-			    </div>
-			  </div>
-				<% end %>
-				<ul class="list-products">
-					<% @products.each do |product| %>
-					<div style="float: left; width: 150px; padding: 0px 5px; text-align: center; min-height: 239px;">
-						<li style='padding-top: 0px; margin: 0px 0px 50px 0px; clear: both;'>
-							<ul style='position: relative; top: 10px;'>
-								<li style='min-height: 90px;'>
-									<%= image_tag(product.photo.url(:small)) %>
-								</li>
-								<li style='min-height: 30px;'><strong><%= product.name %></strong></li>
-								<li>
-									<%= link_to "Sell Now", product %>
-								</li>
-							</ul>
-						</li>
-					</div>
-					<% end %>						
-				</ul>				
-				<!-- <div style='clear: both;'>&nbsp;</div> -->
-				<% if @products.count > @products.per_page %>
-				<div class="custom_pagination">
-			    <%= will_paginate @products, :container => false %>
-					<div class="page_info">
-			      <%= page_entries_info @products %>
-			    </div>
-			  </div>
-				<% end %>
+
+
+<div id="main">
+	<div class="holder">
+		<div class="product">
+			<h2>Sell your Blackberry cell phone <span>Choose your carrier</span></h2>
+			<ul class="carrier">
+				<li>
+					<a href="#"><span><img src="/images/logo1.png" alt="image description" width="146" height="66" /></span></a>
+				</li>
+				<li>
+					<a href="#"><span><img src="/images/logo2.png" alt="image description" width="118" height="66" /></span></a>
+				</li>
+				<li>
+					<a href="#"><span><img src="/images/logo3.png" alt="image description" width="161" height="67" /></span></a>
+				</li>
+				<li>
+					<a href="#"><span><img src="/images/logo4.png" alt="image description" width="170" height="28" /></span></a>
+				</li>
+			</ul>
+			<div class="items-holder">				
+				<table class="sell-table">
+					<thead>
+						<tr>
+							<td colspan="5">These are the AT&amp;T Blackberry phones we currently buy: </td>
+						</tr>
+					</thead>
+					<tbody>
+						<% @products.each_slice(5) do |slice| -%>
+						<tr>
+							<% @counter = 0 %>
+							<% slice.each do |product| %>
+								<% @counter += 1 %>
+							<td width=177px>
+								<%= link_to image_tag(product.photo.url(:small)), product %>
+								<p><%= product.name %></p><%= link_to "Sell Now", product, :class => "sell" %>
+							</td>							
+							<% end %>
+							<% for i in @counter..4 %>
+								<td></td>
+							<% end %>
+							</tr>
+							<% end %>
+							<!-- 
+							<tr>
+								<td><a href="#"><img src="images/img-phone1.png" alt="image description" width="90" height="161" /></a><p>Blackberry RIM Bold 9700</p> <a href="#" class="sell">Sell Now</a></td>
+								<td><a href="#"><img src="images/img-phone2.png" alt="image description" width="93" height="161" /></a><p>Blackberry RIM Bold 9900</p> <a href="#" class="sell">Sell Now</a></td>
+								<td><a href="#"><img src="images/img-phone3.png" alt="image description" width="90" height="160" /></a><p>Blackberry RIM Curve 9360</p> <a href="#" class="sell">Sell Now</a></td>
+								<td><a href="#"><img src="images/img-phone4.png" alt="image description" width="76" height="166" /></a><p>Blackberry RIM Pearl 3G 9100</p> <a href="#" class="sell">Sell Now</a></td>
+								<td><a href="#"><img src="images/img-phone5.png" alt="image description" width="67" height="159" /></a><p>Blackberry RIM Torch 9800</p> <a href="#" class="sell">Sell Now</a></td>
+							</tr>
+							<tr>
+								<td><a href="#"><img src="images/img-phone6.png" alt="image description" width="68" height="159" /></a><p>Blackberry RIM Torch 9810</p> <a href="#" class="sell">Sell Now</a></td>
+								<td><a href="#"><img src="images/img-phone7.png" alt="image description" width="84" height="160" /></a><p>Blackberry RIM Torch 9860</p> <a href="#" class="sell">Sell Now</a></td>
+								<td></td>
+								<td></td>
+								<td></td>
+						</tr> -->
+					</tbody>
+				</table>
 			</div>
-			
 		</div>
 	</div>
-	
 </div>

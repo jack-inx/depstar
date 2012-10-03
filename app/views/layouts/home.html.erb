@@ -52,8 +52,14 @@
 					<form action="#" class="product-search">
 						<fieldset>
 							<select>
-								<option>Select a Product</option>
-								<option>Select a Product</option>
+								<% @products.each do |product| %>
+									<option>
+									<%= link_to(product) do %>
+									    <span><%= product.name %></span>
+									  <% end %>
+									</option>
+								<% end %>
+								<!-- <option>Select a Product</option> -->						
 							</select>
 							<input type="submit" value="go" class="btn-go" />
 						</fieldset>
@@ -105,22 +111,23 @@
 				<div class="popular-category">
 					<h2><strong>Popular Categories</strong></h2>
 					
-					<!-- <div class="holder"> -->
-					<%# @categories.each_slice(6) do |slice| -%>
-						<!-- <ul> -->
-							<%# slice.each do |category| %>
-								<!-- <li> -->
-								<%#= link_to(category) do %>
-								    <%#= category.name %>
-								  <%# end %>
-								<!-- </li> -->
-							<%# end %>
-					
-						<!-- </ul> -->
-					<%# end %>
-					<!-- </div> -->
-					
 					<div class="holder">
+					<% @categories.each_slice(4) do |slice| -%>
+						<ul>
+							<% slice.each do |category| %>
+								<li>
+								<%= link_to(category) do %>
+								    <%= category.name %>
+								  <% end %>
+								</li>
+							<% end %>
+					
+						</ul>
+					<% end %>
+					</div> 
+					
+<!-- 					
+						<div class="holder">
 						<ul>
 							<li><a href="#">Apple iPhone</a></li>
 							<li><a href="#">Apple TV</a></li>
@@ -142,7 +149,7 @@
 							<li><a href="#">LG Cell Phone</a></li>
 						</ul>
 					</div>
-				
+	 -->			
 				
 				</div>
 			</div>

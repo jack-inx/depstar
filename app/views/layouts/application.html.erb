@@ -1,68 +1,13 @@
 <%= render 'layouts/inner_head' %>
 <body>
 	<div id="wrapper">
-	<div class="w1">
-		<div class="w2">
-			<div class="wrapper-t"></div>
-				<div class="wrapper-c">
-					<div class="wrapper-holder">
-						
 						<%= render 'layouts/header' %>
 						
-						<div class="inner promo">
-							<div class="promo-holder">
-								<div class="promo-frame">
-									<!-- 
-									<div class="content-header"></div>
-									-->
-									<div id="sidebar">
-										<h3>&nbsp;</h3>
-										<ul class="list-categories">
-											<% Category.find_all_by_is_popular(true, :limit => 5).each do |category| %>
-												<li>
-												<%= link_to(category) do %>
-												    <span><%= category.name %></span>
-												  <% end %>
-												</li>
-											<% end %>
-											<!--
-											<li class="active"><a href="#"><span>iPhones</span></a></li>
-											<li><a href="#"><span>HTC Evo 4G</span></a></li>
-											<li><a href="#"><span>Motorolla DROID phones</span></a></li>
-											<li><a href="#"><span>Blackberry  Phones</span></a></li>
-											<li><a href="#"><span>Samsung Phones</span></a></li>
-											-->
-										</ul>
-										<%= link_to 'See all categories', categories_path, :class => 'all-categories' %>
-									</div>
-									
-									
-									
-									<div class="content-holder">
-										<ul class="products">&nbsp;
-										</ul>
-										<div class="products-holder">
-											<div class="t">
-												<div class="b">
 													<%= yield %>
-													<div style='clear: both;' />
-																									
-													</div>
-
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<%= render "layouts/threecolumns" %>
+													
+						<%#= render "layouts/threecolumns" %>
 						<%= render "layouts/footer" %>
+					
 					</div>
-				</div>
-			<div class="wrapper-b"></div>
-		</div>
-	</div>
-</div>
-</body>
-</html>
+				</body>
+				</html>
