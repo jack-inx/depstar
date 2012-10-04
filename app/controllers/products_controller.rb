@@ -124,6 +124,7 @@ class ProductsController < ApplicationController
   # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
+    
     if params[:question_response].nil?
       @question_response = QuestionResponse.new  
     else

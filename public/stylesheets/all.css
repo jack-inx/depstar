@@ -816,6 +816,9 @@ form,fieldset{
 	font-size:18px;
 	line-height:21px;
 }
+.aside-block .product-image {
+	margin-bottom: 40px;
+}
 .aside-block img{margin:0 0 -34px;}
 .aside-block .btn{
 	color:#fff;

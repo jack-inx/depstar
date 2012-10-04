@@ -49,21 +49,31 @@
 			<div class="holder">
 				<div class="product">
 					<h2>Sell your iPhone, iPad and more for cash.</h2>
-					<form action="#" class="product-search">
+					<!-- <form action="#" class="product-search"> -->
+						<%= form_tag('/products/show', :method => :get, :class => 'product-search') do %>
+						<%#= form_tag(product_path(:product_id), :method => :get, :class => 'product-search') do %>
+						<%#= form_tag( products_path, :method => "get", :class => "product-search", :id => 'product[product_id]') do |f| %>
+						<%#= form_tag( :id => 'form_id', :controller => 'products', :action => 'show', :id=>'2') do |f| %>
 						<fieldset>
-							<select>
-								<% @products.each do |product| %>
-									<option>
-									<%= link_to(product) do %>
-									    <span><%= product.name %></span>
-									  <% end %>
-									</option>
-								<% end %>
+							<%#= select_tag('id', @products.collect {|p| [ p.name, p.id ] }) %>
+							<%= select_tag('id', options_for_select(@products.collect {|p| [ p.name, p.id ] }) ) %>
+							<!-- <select> -->
+								<%# @products.each do |product| %>
+									<!-- <option> -->
+									<%#= link_to(product) do %>
+									    <!-- <span> -->
+												<%#= product.name.truncate(20, :omission => '...') %>
+											<!-- </span> -->
+									  <%# end %>
+									<!-- </option> -->
+								<%# end %>
 								<!-- <option>Select a Product</option> -->						
 							</select>
-							<input type="submit" value="go" class="btn-go" />
+							<%= submit_tag 'go', :class => 'btn-go' %>
+							<!-- <input type="submit" value="go" class="btn-go" /> -->
 						</fieldset>
-					</form>
+					<% end %>
+					<!-- </form> -->
 				</div>
 				<div class="banner">
 					<img src="images/img1.png" alt="" width="334" height="238" />

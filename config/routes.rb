@@ -9,11 +9,12 @@ Trunk::Application.routes.draw do
   
   resources :shipping_details
   match 'shipping_details/confirm', :controller => :shipping_details, :action => :confirm
-  
+
+  match 'products/show/' => 'products#show' # For the homepage form
   resources :products do
     resources :question_responses
   end
-  
+
   match 'products/:id/offer' => 'products#offer'
   match 'create_return_label' => 'shipping_details#create_return_label'
   match 'create_shipping_label' => 'shipping_details#create_shipping_label'
