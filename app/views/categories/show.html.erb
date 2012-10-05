@@ -3,9 +3,9 @@
 
 
 
-<div id="main">
+<!-- <div id="main">
 	<div class="holder">
-		<div class="product">
+		<div class="product"> -->
 			<!-- <h2>Sell your Blackberry cell phone <span>Choose your carrier</span></h2>
 						<ul class="carrier">
 							<li>
@@ -21,48 +21,36 @@
 								<a href="#"><span><img src="/images/logo4.png" alt="image description" width="170" height="28" /></span></a>
 							</li>
 						</ul> -->
-			<div class="items-holder">				
+			<!-- <div class="items-holder">				
 				<table class="sell-table">
 					<thead>
 						<tr>
-							<!-- <td colspan="5">These are the AT&amp;T Blackberry phones we currently buy: </td> -->
-							<td colspan="5">These are the <%= @category.name %> we currently buy: </td>
+							<td colspan="5">These are the <%#= @category.name %> we currently buy: </td>
 						</tr>
 					</thead>
 					<tbody>
-						<% @products.each_slice(5) do |slice| -%>
+						<%# @products.each_slice(5) do |slice| -%>
 						<tr>
-							<% @counter = 0 %>
-							<% slice.each do |product| %>
-								<% @counter += 1 %>
+							<%# @counter = 0 %>
+							<%# slice.each do |product| %>
+								<%# @counter += 1 %>
 							<td width=177px>
-								<%= link_to image_tag(product.photo.url(:small)), product %>
-								<p><%= product.name %></p><%= link_to "Sell Now", product, :class => "sell" %>
+								<%#= link_to image_tag(product.photo.url(:small)), product %>
+								<p><%#= product.name %></p><%#= link_to "Sell Now", product, :class => "sell" %>
 							</td>							
-							<% end %>
-							<% for i in @counter..4 %>
+							<%# end %>
+							<%# for i in @counter..4 %>
 								<td></td>
-							<% end %>
+							<%# end %>
 							</tr>
-							<% end %>
-							<!-- 
-							<tr>
-								<td><a href="#"><img src="images/img-phone1.png" alt="image description" width="90" height="161" /></a><p>Blackberry RIM Bold 9700</p> <a href="#" class="sell">Sell Now</a></td>
-								<td><a href="#"><img src="images/img-phone2.png" alt="image description" width="93" height="161" /></a><p>Blackberry RIM Bold 9900</p> <a href="#" class="sell">Sell Now</a></td>
-								<td><a href="#"><img src="images/img-phone3.png" alt="image description" width="90" height="160" /></a><p>Blackberry RIM Curve 9360</p> <a href="#" class="sell">Sell Now</a></td>
-								<td><a href="#"><img src="images/img-phone4.png" alt="image description" width="76" height="166" /></a><p>Blackberry RIM Pearl 3G 9100</p> <a href="#" class="sell">Sell Now</a></td>
-								<td><a href="#"><img src="images/img-phone5.png" alt="image description" width="67" height="159" /></a><p>Blackberry RIM Torch 9800</p> <a href="#" class="sell">Sell Now</a></td>
-							</tr>
-							<tr>
-								<td><a href="#"><img src="images/img-phone6.png" alt="image description" width="68" height="159" /></a><p>Blackberry RIM Torch 9810</p> <a href="#" class="sell">Sell Now</a></td>
-								<td><a href="#"><img src="images/img-phone7.png" alt="image description" width="84" height="160" /></a><p>Blackberry RIM Torch 9860</p> <a href="#" class="sell">Sell Now</a></td>
-								<td></td>
-								<td></td>
-								<td></td>
-						</tr> -->
+							<%# end %>
+							
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
 </div>
+              --> 
+
+
