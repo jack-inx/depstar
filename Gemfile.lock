@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/CharlesP/awesome-usps.git
-  revision: 01c70165ac18941f802304a71b5c977b7892b779
+  revision: 610257ea05c7771dbd9d6b7b92231168d5fbb243
   specs:
     awesome-usps (1.0.0)
       activesupport
@@ -101,11 +101,11 @@ GEM
     nokogiri (1.5.5)
     nokogiri (1.5.5-x86-mingw32)
     nori (1.1.3)
-    paperclip (3.2.0)
+    paperclip (3.3.0)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
-      cocaine (>= 0.0.2)
+      cocaine (~> 0.4.0)
       mime-types
     polyglot (0.3.3)
     rack (1.4.1)

@@ -32,7 +32,7 @@ Trunk::Application.routes.draw do
   match 'orders/:id' => 'shipping_details#order_details'
   
   match 'customers/:id' => 'shipping_details#customers'
-  
+
   match 'admin' => 'admin#index'
   match 'home' => 'home#index'
   match 'dev' => 'home#index'
@@ -49,8 +49,10 @@ Trunk::Application.routes.draw do
   match 'corporate' => 'corporate#index'
   match 'go_green' => 'go_green#index'
   match 'get_paid' => 'get_paid#index'
+  match 'how_it_works' => 'how_it_works#index'
   
   match 'privacy_policy' => 'privacy_policy#index'
   
   match 'contact' => 'contact#index'
+
 end

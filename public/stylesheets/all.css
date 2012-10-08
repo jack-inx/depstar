@@ -1474,8 +1474,8 @@ form,fieldset{
 	color:#3b3b3b;
 	padding:3px 5px;
 }
-.product-search .btn-go{
-	background:url(../images/btn-go.png) no-repeat;
+.product-search .btn-go {
+	background:url(/images/btn-go.png) no-repeat;
 	width:105px;
 	height:65px;
 	cursor:pointer;
