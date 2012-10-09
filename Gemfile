@@ -15,6 +15,7 @@ gem 'authlogic'#, :git => 'git://github.com/odorcicd/authlogic.git', :branch => 
 gem 'mocha', :group => :test
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'rails3-jquery-autocomplete'
 
 gem 'will_paginate', '~> 3.0'
