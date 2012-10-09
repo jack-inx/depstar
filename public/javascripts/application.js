@@ -1,8 +1,3 @@
-//= require jquery
-//= require jquery_ujs
-//= require jquery-ui
-//= require autocomplete-rails
-
 function remove_fields(link) {
   $(link).previous("input[type=hidden]").value = "1";
   $(link).up(".fields").hide();
