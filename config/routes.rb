@@ -1,5 +1,6 @@
 Trunk::Application.routes.draw do
   
+  match 'categories/show/' => 'categories#show' # For the homepage form
   resources :question_response
   resources :categories
   
@@ -11,6 +12,7 @@ Trunk::Application.routes.draw do
   match 'shipping_details/confirm', :controller => :shipping_details, :action => :confirm
 
   match 'products/show/' => 'products#show' # For the homepage form
+  
   resources :products do
     resources :question_responses
   end

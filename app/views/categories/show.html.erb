@@ -3,9 +3,9 @@
 
 
 
-<!-- <div id="main">
+<div id="main">
 	<div class="holder">
-		<div class="product"> -->
+		<div class="product">
 			<!-- <h2>Sell your Blackberry cell phone <span>Choose your carrier</span></h2>
 						<ul class="carrier">
 							<li>
@@ -21,7 +21,7 @@
 								<a href="#"><span><img src="/images/logo4.png" alt="image description" width="170" height="28" /></span></a>
 							</li>
 						</ul> -->
-			<!-- <div class="items-holder">				
+			<div class="items-holder">				
 				<table class="sell-table">
 					<thead>
 						<tr>
@@ -29,21 +29,21 @@
 						</tr>
 					</thead>
 					<tbody>
-						<%# @products.each_slice(5) do |slice| -%>
+						<% @products.each_slice(5) do |slice| -%>
 						<tr>
-							<%# @counter = 0 %>
-							<%# slice.each do |product| %>
-								<%# @counter += 1 %>
+							<% @counter = 0 %>
+							<% slice.each do |product| %>
+								<% @counter += 1 %>
 							<td width=177px>
-								<%#= link_to image_tag(product.photo.url(:small)), product %>
-								<p><%#= product.name %></p><%#= link_to "Sell Now", product, :class => "sell" %>
+								<%= link_to image_tag(product.photo.url(:small)), product %>
+								<p><%= product.name %></p><%= link_to "Sell Now", product, :class => "sell" %>
 							</td>							
-							<%# end %>
-							<%# for i in @counter..4 %>
+							<% end %>
+							<% for i in @counter..4 %>
 								<td></td>
-							<%# end %>
+							<% end %>
 							</tr>
-							<%# end %>
+						<% end %>
 							
 					</tbody>
 				</table>
@@ -51,6 +51,5 @@
 		</div>
 	</div>
 </div>
-              --> 
 
 

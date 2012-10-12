@@ -9,13 +9,13 @@
 				<div class="product">
 					<h2>Sell your iPhone, iPad and more for cash.</h2>
 					<!-- <form action="#" class="product-search"> -->
-						<%= form_tag('/products/show', :method => :get, :class => 'product-search') do %>
+						<%= form_tag('/categories/show', :method => :get, :class => 'product-search') do %>
 						<%#= form_tag(product_path(:product_id), :method => :get, :class => 'product-search') do %>
 						<%#= form_tag( products_path, :method => "get", :class => "product-search", :id => 'product[product_id]') do |f| %>
 						<%#= form_tag( :id => 'form_id', :controller => 'products', :action => 'show', :id=>'2') do |f| %>
 						<fieldset>
 							<%#= select_tag('id', @products.collect {|p| [ p.name, p.id ] }) %>
-							<%= select_tag('id', options_for_select(@products.collect {|p| [ p.name, p.id ] }) ) %>
+							<%= select_tag('id', options_for_select(@categories.collect {|p| [ p.name, p.id ] }) ) %>
 							<!-- <select> -->
 								<%# @products.each do |product| %>
 									<!-- <option> -->
