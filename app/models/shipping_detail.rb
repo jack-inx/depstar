@@ -8,7 +8,7 @@ class ShippingDetail < ActiveRecord::Base
 	
 	accepts_nested_attributes_for :devices, :allow_destroy => true
 	
-  validates_presence_of :first_name, :last_name, :address1, :city, :state, :zip, :email, :payment_method_id #, :product_id
+  validates_presence_of :first_name, :last_name, :address1, :city, :state, :zip, :email, :payment_method_id, if: :on_shipping_step?
 
   validates_format_of :phone,
       :message => "must be a valid telephone number.",

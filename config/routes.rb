@@ -8,6 +8,11 @@ Trunk::Application.routes.draw do
     get :grades, :on => :member
   end
   
+  # checkout wizard
+  #resources :users
+  resources :checkout_steps
+  #root to: 'users#index'
+  
   resources :shipping_details
   match 'shipping_details/confirm', :controller => :shipping_details, :action => :confirm
 
@@ -56,5 +61,5 @@ Trunk::Application.routes.draw do
   match 'privacy_policy' => 'privacy_policy#index'
   
   match 'contact' => 'contact#index'
-
+  
 end

@@ -19,8 +19,9 @@ gem 'jquery-ui-rails'
 gem 'rails3-jquery-autocomplete'
 
 gem 'will_paginate', '~> 3.0'
-
 gem 'capistrano-ext'
+
+gem 'wicked'
 
 # Edited local gem
 gem 'stamps', :git => 'git://github.com/CharlesP/stamps.git'

@@ -17,6 +17,7 @@
 								<h2>My Phone is...</h2>
 							</div>
 							<form class="phone-status" action="#">
+								<%#= form_for @shipping_detail, :html => { :class => 'phone-status' }, url: wizard_path do |f| %>
 								<fieldset>
 									<ul class="tabset">
 										<li class="active">
@@ -31,6 +32,7 @@
 									</ul>
 								</fieldset>
 							</form>
+							<% #end %>
 							<div class="tab-list">
 								<div class="tab" id="mtab1">
 									<div class="information">
@@ -48,7 +50,7 @@
 											
 											
 											<div class="payment-block">
-												<a href="#">
+												<a href="/checkout_steps/email">
 												<img src="/images/img-payment1.png" alt="image description" width="62" height="39" />
 												<div class="info">
 													<h5>Paypal</h5>
@@ -58,7 +60,7 @@
 											</div>
 											
 											<div class="payment-block">
-												<a href="#">
+												<a href="/checkout_steps/email">
 												<img src="/images/img-payment2.png" alt="image description" width="59" height="35" />
 												<div class="info">
 													<h5>Check</h5>
@@ -86,7 +88,7 @@
 										<div class="wrapper">
 											
 											<div class="payment-block">
-												<a href="#">
+												<a href="/checkout_steps/email">
 												<img src="/images/img-payment1.png" alt="image description" width="62" height="39" />
 												<div class="info">
 													<h5>Paypal</h5>
@@ -96,7 +98,7 @@
 											</div>
 											
 											<div class="payment-block">
-												<a href="#">
+												<a href="/checkout_steps/email">
 												<img src="/images/img-payment2.png" alt="image description" width="59" height="35" />
 												<div class="info">
 													<h5>Check</h5>
@@ -124,7 +126,7 @@
 										<div class="wrapper">
 											
 											<div class="payment-block">
-												<a href="#">
+												<a href="/checkout_steps/email">
 												<img src="/images/img-payment1.png" alt="image description" width="62" height="39" />
 												<div class="info">
 													<h5>Paypal</h5>
@@ -134,7 +136,7 @@
 											</div>
 											
 											<div class="payment-block">
-												<a href="#">
+												<a href="/checkout_steps/email">
 												<img src="/images/img-payment2.png" alt="image description" width="59" height="35" />
 												<div class="info">
 													<h5>Check</h5>
