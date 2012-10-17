@@ -7,18 +7,24 @@ class ShippingDetail < ActiveRecord::Base
 	has_many :devices
 	
 	accepts_nested_attributes_for :devices, :allow_destroy => true
+	attr_accessor :should_validate
 	
   validates_presence_of :first_name, :last_name, :address1, :city, :state, :zip, :email, :payment_method_id, if: :on_shipping_step?
 
   validates_format_of :phone,
       :message => "must be a valid telephone number.",
       :with => /^[\(\)0-9\- \+\.]{10,20}$/,
+      #:if => :on_shipping_step?
       :if => :require_phone_validation?
   
   attr_accessor :type  
   def require_phone_validation?
     # Only for uSell orders phone numbers are optional
-    self.referer != 'usell'
+    self.referer != 'usell' && self.should_validate
+  end
+
+  def on_shipping_step?
+    self.should_validate
   end
 
   def full_name

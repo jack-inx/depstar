@@ -20,9 +20,19 @@ class CheckoutStepsController < ApplicationController
   end
   
   def update
+    logger.debug "Step -- " + step.inspect
+    
+    @shipping_detail = ShippingDetail.new()
+    
+    @shipping_detail.should_validate = false
+    case step
+    when :shipping
+      @shipping_detail.should_validate = true
+    end
+    
     #@shipping_detail = current_shipping_details
-    #@shipping_detail.attributes = params[:shipping_detail]
-    @shipping_detail = User.new(params[:shipping_detail])
+    @shipping_detail.update_attributes(params[:shipping_detail])
+    #@shipping_detail = ShippingDetail.new(params[:shipping_detail])
     render_wizard @shipping_detail
     #next_step
   end

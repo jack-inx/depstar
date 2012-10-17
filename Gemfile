@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 gem 'mysql2'#, '0.3.11', :git => 'git://github.com/brianmario/mysql2.git'
 
 group :development do
+ 	#gem 'ruby-debug'
  	gem 'sqlite3-ruby', :require => 'sqlite3'
  	gem 'hirb'
  	gem 'nifty-generators'
