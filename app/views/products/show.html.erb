@@ -16,23 +16,24 @@
 							<div class="heading">
 								<h2>My Phone is...</h2>
 							</div>
-							<form class="phone-status" action="#">
-								<%#= form_for @shipping_detail, :html => { :class => 'phone-status' }, url: wizard_path do |f| %>
+							<!-- <form class="phone-status" action="/"> -->
+								<%= form_tag '/checkout_steps/product', :id=>'select_product', :html => { :class => 'phone-status' }, :method => :put do |f| %>
 								<fieldset>
 									<ul class="tabset">
 										<li class="active">
-											<a href="#mtab1"><label for="r1"><input type="radio" name="rad" id="r1" checked="checked" /><strong>Flawless</strong> Looks like it has never been used</label></a>
+											<a href="#mtab1"><label for="r1"><input type="radio" name="condition" id="r1" checked="checked" value="Flawless" /><strong>Flawless</strong> Looks like it has never been used</label></a>
 										</li>
 										<li>
-											<a href="#mtab2"><label for="r2"><input type="radio" name="rad" id="r2" /><strong>Used</strong>Normal signs of use</label></a>
+											<a href="#mtab2"><label for="r2"><input type="radio" name="condition" id="r2" value="Used" /><strong>Used</strong>Normal signs of use</label></a>
 										</li>
 										<li>
-											<a href="#mtab3"><label for="r3"><input type="radio" name="rad" id="r3" /><strong>Broken</strong>Does not turn on or is broken..</label></a>
+											<a href="#mtab3"><label for="r3"><input type="radio" name="condition" id="r3" value="Broken" /><strong>Broken</strong>Does not turn on or is broken..</label></a>
 										</li>
 									</ul>
 								</fieldset>
-							</form>
-							<% #end %>
+								<%#= f.submit %>
+								<%#= submit_tag 'Save' %>
+							<!-- </form> -->
 							<div class="tab-list">
 								<div class="tab" id="mtab1">
 									<div class="information">
@@ -50,7 +51,7 @@
 											
 											
 											<div class="payment-block">
-												<a href="/checkout_steps/email">
+												<a href="#" onclick="document.forms['select_product'].submit(); return false;">
 												<img src="/images/img-payment1.png" alt="image description" width="62" height="39" />
 												<div class="info">
 													<h5>Paypal</h5>
@@ -60,7 +61,7 @@
 											</div>
 											
 											<div class="payment-block">
-												<a href="/checkout_steps/email">
+												<a href="#" onclick="document.forms['select_product'].submit(); return false;">
 												<img src="/images/img-payment2.png" alt="image description" width="59" height="35" />
 												<div class="info">
 													<h5>Check</h5>
@@ -88,7 +89,7 @@
 										<div class="wrapper">
 											
 											<div class="payment-block">
-												<a href="/checkout_steps/email">
+												<a href="#" onclick="document.forms['select_product'].submit(); return false;">
 												<img src="/images/img-payment1.png" alt="image description" width="62" height="39" />
 												<div class="info">
 													<h5>Paypal</h5>
@@ -98,7 +99,7 @@
 											</div>
 											
 											<div class="payment-block">
-												<a href="/checkout_steps/email">
+												<a href="#" onclick="document.forms['select_product'].submit(); return false;">
 												<img src="/images/img-payment2.png" alt="image description" width="59" height="35" />
 												<div class="info">
 													<h5>Check</h5>
@@ -126,8 +127,8 @@
 										<div class="wrapper">
 											
 											<div class="payment-block">
-												<a href="/checkout_steps/email">
-												<img src="/images/img-payment1.png" alt="image description" width="62" height="39" />
+												<a href="#" onclick="document.forms['select_product'].submit(); return false;">
+												<image src="/images/img-payment1.png" alt="Get Paid By PayPal" name="paypal" width="62" height="39" />
 												<div class="info">
 													<h5>Paypal</h5>
 													<p>Receive funds in your account the same day we receive your phone</p>
@@ -136,8 +137,9 @@
 											</div>
 											
 											<div class="payment-block">
-												<a href="/checkout_steps/email">
-												<img src="/images/img-payment2.png" alt="image description" width="59" height="35" />
+												<a href="#" onclick="document.forms['select_product'].submit(); return false;">
+												<!-- <input type="image" src="go.gif"/> -->
+												<image src="/images/img-payment2.png" alt="Get Paid By Check" name="check" width="59" height="35" />
 												<div class="info">
 													<h5>Check</h5>
 													<p>Have the funds issued to you by mail the same day we receive your phone</p>
@@ -147,6 +149,7 @@
 											
 										</div>
 									</div>
+								<% end # </form> %> 
 								</div>
 							</div>
 						</div>

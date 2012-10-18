@@ -1,9 +1,10 @@
 class CheckoutStepsController < ApplicationController
   include Wicked::Wizard
-  steps :email, :get_paid, :shipping, :confirm, :done, :thank_you
+  steps :product, :email, :get_paid, :shipping, :confirm, :done, :thank_you
   
   def show
-    # CP TODO - Put checkout show logic here
+    logger.debug "params -- " + params.inspect
+    
     @shipping_detail = ShippingDetail.new(params[:shipping_detail])
     
     render_wizard
@@ -21,20 +22,19 @@ class CheckoutStepsController < ApplicationController
   
   def update
     logger.debug "Step -- " + step.inspect
+    logger.debug "Checkout Steps - Update -- " + params.inspect
     
-    @shipping_detail = ShippingDetail.new()
-    
+    @shipping_detail = ShippingDetail.new
+        
     @shipping_detail.should_validate = false
     case step
     when :shipping
       @shipping_detail.should_validate = true
     end
     
-    #@shipping_detail = current_shipping_details
     @shipping_detail.update_attributes(params[:shipping_detail])
-    #@shipping_detail = ShippingDetail.new(params[:shipping_detail])
+    
     render_wizard @shipping_detail
-    #next_step
   end
   
   private
