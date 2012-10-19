@@ -25,6 +25,8 @@
 				<p>We’ll use this email address to send you shipping details and progress updates every step of the way.</p>
 				<!-- <form class="contact-form" action="#"> -->
 				<%= form_for @shipping_detail, :html => { :class => 'contact-form' }, url: wizard_path, :method => :put  do |f| %>
+					<%= f.hidden_field :product_id, :value => 1  %>
+					
 					<fieldset>
 						<div class="row right">
 							<label for="email">Email:</label>
@@ -48,7 +50,7 @@
 				<div class="wrapper">
 					<img src="/images/img13.png" alt="image description" width="67" height="66" />
 					<div class="info">
-						<span class="name">Apple iPhone 4S <br />16Gb At&amp;t</span>
+						<span class="name"><%= @shipping_detail.product.name %></span>
 						<span class="price">$314 <a class="remove" href="#">remove</a></span>
 					</div>
 				</div>

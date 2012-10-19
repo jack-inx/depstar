@@ -17,7 +17,7 @@
 								<h2>My Phone is...</h2>
 							</div>
 							<!-- <form class="phone-status" action="/"> -->
-								<%= form_tag '/checkout_steps/product', :id=>'select_product', :html => { :class => 'phone-status' }, :method => :put do |f| %>
+								<%#= form_tag '/checkout_steps/email', :id=>'select_product', :html => { :class => 'phone-status' }, :method => :put do |f| %>
 								<fieldset>
 									<ul class="tabset">
 										<li class="active">
@@ -51,23 +51,24 @@
 											
 											
 											<div class="payment-block">
-												<a href="#" onclick="document.forms['select_product'].submit(); return false;">
+												<%= link_to '/checkout_steps/email?product_id=' + @product.id.to_s + '&payment_method=paypal?condition=best' do %>
 												<img src="/images/img-payment1.png" alt="image description" width="62" height="39" />
 												<div class="info">
 													<h5>Paypal</h5>
 													<p>Receive funds in your account the same day we receive your phone</p>
 												</div>
-												</a>
+												<!-- </a> -->
+												<% end %>
 											</div>
 											
 											<div class="payment-block">
-												<a href="#" onclick="document.forms['select_product'].submit(); return false;">
+												<%= link_to '/checkout_steps/email?product_id=' + @product.id.to_s + '&payment_method=check?condition=best' do %>
 												<img src="/images/img-payment2.png" alt="image description" width="59" height="35" />
 												<div class="info">
 													<h5>Check</h5>
 													<p>Have the funds issued to you by mail the same day we receive your phone</p>
 												</div>
-												</a>
+												<% end %>
 											</div>
 											
 											
@@ -89,23 +90,23 @@
 										<div class="wrapper">
 											
 											<div class="payment-block">
-												<a href="#" onclick="document.forms['select_product'].submit(); return false;">
+												<%= link_to '/checkout_steps/email?product_id=' + @product.id.to_s + '&payment_method=paypal?condition=good' do %>
 												<img src="/images/img-payment1.png" alt="image description" width="62" height="39" />
 												<div class="info">
 													<h5>Paypal</h5>
 													<p>Receive funds in your account the same day we receive your phone</p>
 												</div>
-												</a>
+												<% end %>
 											</div>
 											
 											<div class="payment-block">
-												<a href="#" onclick="document.forms['select_product'].submit(); return false;">
+												<%= link_to '/checkout_steps/email?product_id=' + @product.id.to_s + '&payment_method=check?condition=good' do %>
 												<img src="/images/img-payment2.png" alt="image description" width="59" height="35" />
 												<div class="info">
 													<h5>Check</h5>
 													<p>Have the funds issued to you by mail the same day we receive your phone</p>
 												</div>
-												</a>
+												<% end %>
 											</div>
 											
 											
@@ -127,29 +128,28 @@
 										<div class="wrapper">
 											
 											<div class="payment-block">
-												<a href="#" onclick="document.forms['select_product'].submit(); return false;">
+												<%= link_to '/checkout_steps/email?product_id=' + @product.id.to_s + '&payment_method=paypal?condition=broken' do %>
 												<image src="/images/img-payment1.png" alt="Get Paid By PayPal" name="paypal" width="62" height="39" />
 												<div class="info">
 													<h5>Paypal</h5>
 													<p>Receive funds in your account the same day we receive your phone</p>
 												</div>
-												</a>
+												<% end %>
 											</div>
 											
 											<div class="payment-block">
-												<a href="#" onclick="document.forms['select_product'].submit(); return false;">
-												<!-- <input type="image" src="go.gif"/> -->
+												<%= link_to '/checkout_steps/email?product_id=' + @product.id.to_s + '&payment_method=check?condition=broken' do %>
 												<image src="/images/img-payment2.png" alt="Get Paid By Check" name="check" width="59" height="35" />
 												<div class="info">
 													<h5>Check</h5>
 													<p>Have the funds issued to you by mail the same day we receive your phone</p>
 												</div>
-												</a>
+												<% end %>
 											</div>
 											
 										</div>
 									</div>
-								<% end # </form> %> 
+								<%# end # </form> %> 
 								</div>
 							</div>
 						</div>

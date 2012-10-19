@@ -9,9 +9,7 @@ Trunk::Application.routes.draw do
   end
   
   # checkout wizard
-  #resources :users
   resources :checkout_steps
-  #root to: 'users#index'
   
   resources :shipping_details
   match 'shipping_details/confirm', :controller => :shipping_details, :action => :confirm
