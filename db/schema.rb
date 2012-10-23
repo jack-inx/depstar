@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420194746) do
+ActiveRecord::Schema.define(:version => 20121022224037) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -149,10 +150,16 @@ ActiveRecord::Schema.define(:version => 20120420194746) do
     t.string   "uuid"
     t.string   "referer"
     t.integer  "final_offer"
-    t.integer  "status_code",          :default => 0
+    t.integer  "status_code",            :default => 0
     t.string   "notes"
     t.string   "serial"
     t.integer  "offer"
+    t.string   "check_payment_name"
+    t.string   "check_payment_address1"
+    t.string   "check_payment_address2"
+    t.string   "check_payment_city"
+    t.string   "check_payment_state"
+    t.string   "check_payment_zip"
   end
 
   create_table "user_sessions", :force => true do |t|

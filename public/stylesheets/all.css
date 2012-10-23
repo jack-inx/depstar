@@ -1306,6 +1306,13 @@ form,fieldset{
 	line-height:27px;
 	height:27px;
 }
+.steps-area .box input[type=text].last_name,
+.steps-area .box input[type=text].first_name{
+	width:88px;
+	margin-bottom:2px;
+}
+.steps-area .box input[type=text].first_name { margin-right:19px; }
+
 .steps-area .box input[type=text].zip,
 .steps-area .box input[type=text].state{
 	width:88px;

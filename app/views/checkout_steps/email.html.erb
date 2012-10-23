@@ -24,9 +24,7 @@
 				<h4>Your Email Address</h4>
 				<p>We’ll use this email address to send you shipping details and progress updates every step of the way.</p>
 				<!-- <form class="contact-form" action="#"> -->
-				<%= form_for @shipping_detail, :html => { :class => 'contact-form' }, url: wizard_path, :method => :put  do |f| %>
-					<%= f.hidden_field :product_id, :value => 1  %>
-					
+				<%= form_for @shipping_detail, :html => { :class => 'contact-form' }, url: next_wizard_path, :method => :put  do |f| %>
 					<fieldset>
 						<div class="row right">
 							<label for="email">Email:</label>
@@ -36,7 +34,10 @@
 						<!-- <p><a class="notice" href="#">I already have a depstar account</a></p> -->
 						<div class="row row-submit">
 							<span class="submit">
-								<input type="submit" value="Continue" />
+								<%= f.hidden_field :product_id, :value => @shipping_detail.product.id  %>
+								<%= f.hidden_field :offer, :value => @shipping_detail.offer %>
+								<%= f.hidden_field :payment_method_id, :value => @shipping_detail.payment_method_id %>
+								<%= f.submit :value => 'Continue' %>
 							</span>
 						</div>
 					</fieldset>
@@ -51,10 +52,11 @@
 					<img src="/images/img13.png" alt="image description" width="67" height="66" />
 					<div class="info">
 						<span class="name"><%= @shipping_detail.product.name %></span>
-						<span class="price">$314 <a class="remove" href="#">remove</a></span>
+						<!-- <span class="price">$314 <a class="remove" href="#">remove</a> -->
+						</span>
 					</div>
 				</div>
-				<span class="total-price">Total Estimated Value <strong>$314</strong></span>
+				<span class="total-price">Total Estimated Value <strong><%= number_to_currency(@shipping_detail.offer_or_default, :precision => 0) %></strong></span>
 			</div>
 		</div>
 	</div>

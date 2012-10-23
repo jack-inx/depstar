@@ -15,48 +15,69 @@
 				</div>
 				<div class="wrapper">
 					<div class="box check">
-						<form class="contact-form" action="#">
+						<!-- <form class="contact-form" action="#"> -->
+						<%= form_for @shipping_detail, :html => { :class => 'contact-form' }, url: next_wizard_path, :method => :put  do |f| %>	
 							<fieldset>
 								<div class="row">
-									<input type="text" value="Payable to" />
+									<!-- <input type="text" value="Payable to" /> -->
+									<%= f.text_field :check_payment_name, :value => 'Payable to' %>
 								</div>
 								<div class="row">
-									<input type="text" value="Address 1" />
+									<!-- <input type="text" value="Address 1" /> -->
+									<%= f.text_field :check_payment_address1, :value => 'Address' %>
 								</div>
 								<div class="row">
-									<input type="text" value="Address 2" />
+									<!-- <input type="text" value="Address 2" /> -->
+									<%= f.text_field :check_payment_address2 %>
 								</div>
 								<div class="row">
-									<input type="text" value="City" />
+									<!-- <input type="text" value="City" /> -->
+									<%= f.text_field :check_payment_city, :value => 'City' %>
 								</div>
 								<div class="row">
-									<input class="state" type="text" value="State" />
-									<input class="zip" type="text" value="Zip" />
+									<!-- <input class="state" type="text" value="State" /> -->
+									<%= f.text_field :check_payment_state, :value => 'State', :class => 'state' %>
+									<!-- <input class="zip" type="text" value="Zip" /> -->
+									<%= f.text_field :check_payment_zip, :value => 'Zip', :class => 'zip' %>
 								</div>
 								<div class="box-frame">
 									<span class="box-title">Send me a Check</span>
 									<span class="submit">
-										<input type="submit" value="Continue" />
+										<%= f.hidden_field :product_id, :value => @shipping_detail.product.id  %>
+										<%= f.hidden_field :email, :value => @shipping_detail.email %>
+										<%= f.hidden_field :offer, :value => @shipping_detail.offer %>
+										<%= f.hidden_field :payment_method_id, :value => @shipping_detail.payment_method_id %>
+										
+										<%= f.submit :value => 'Continue' %>
 									</span>
 								</div>
 							</fieldset>
-						</form>
+						<!-- </form> -->
+						<% end %>
 					</div>
 					<div class="box paypal">
-						<form class="contact-form" action="#">
+						<%= form_for @shipping_detail, :html => { :class => 'contact-form' }, url: next_wizard_path, :method => :put  do |f| %>
+						<!-- <form class="contact-form" action="#"> -->
 							<fieldset>
 								<div class="row right">
-									<input type="text" value="Paypal email address" autofocus="autofocus" />
+									<!-- <input type="text" value="Paypal email address" autofocus="autofocus" /> -->
+									<%= f.text_field :paypal_email, :value => 'Paypal email address', :autofocus => true %>
 								</div>
 								<div class="box-frame">
 									<span class="box-title">Pay me via paypal</span>
 									<span class="submit">
-										<input type="submit" value="Continue" />
+										<%= f.hidden_field :email, :value => @shipping_detail.email %>
+										<%= f.hidden_field :product_id, :value => @shipping_detail.product.id %>
+										<%= f.hidden_field :offer, :value => @shipping_detail.offer %>
+										<%= f.hidden_field :payment_method_id, :value => @shipping_detail.payment_method_id %>
+								
+										<%= f.submit :value => 'Continue' %>
 									</span>
-									<a href="#" class="btn-recieve">Receieve payment same day</a>
+									<a href="#" class="btn-recieve">Receive payment same day</a>
 								</div>
 							</fieldset>
-						</form>
+						<!-- </form> -->
+						<% end %>
 					</div>
 				</div>
 			</div>
@@ -67,11 +88,12 @@
 				<div class="wrapper">
 					<img src="/images/img13.png" alt="image description" width="67" height="66" />
 					<div class="info">
-						<span class="name">Apple iPhone 4S <br />16Gb At&amp;t</span>
-						<span class="price">$314 <a class="remove" href="#">remove</a></span>
+						<span class="name"><%= @shipping_detail.product.name %></span>
+						<!-- <span class="price">$314 <a class="remove" href="#">remove</a> -->
+						</span>
 					</div>
 				</div>
-				<span class="total-price">Total Estimated Value <strong>$314</strong></span>
+				<span class="total-price">Total Estimated Value <strong><%= number_to_currency(@shipping_detail.offer_or_default, :precision => 0) %></strong></span>
 			</div>
 		</div>
 	</div>

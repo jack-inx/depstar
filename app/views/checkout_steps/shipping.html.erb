@@ -10,74 +10,133 @@
 			</ul>
 			<div class="steps-area">
 				<h4>Shipping</h4>
-				<div class="text-block">
-					<p>Please choose your shipping option</p>
-				</div>
-				<div class="wrapper">
-					<div class="box print">
-						<form class="contact-form" action="#">
-							<fieldset>
-								<div class="row">
-									<input type="text" value="Payable to" />
+				<!-- <div class="text-block">
+									<p>Please choose your shipping option</p>
+								</div> -->
+				<!-- <div class="wrapper">
+									<div class="box print">
+										<form class="contact-form" action="#">
+											<fieldset>
+												<div class="row">
+													<input type="text" value="Payable to" />
+												</div>
+												<div class="row">
+													<input type="text" value="Address 1" />
+												</div>
+												<div class="row">
+													<input type="text" value="Address 2" />
+												</div>
+												<div class="row">
+													<input type="text" value="City" />
+												</div>
+												<div class="row">
+													<input class="state" type="text" value="State" />
+													<input class="zip" type="text" value="Zip" />
+												</div>
+												<div class="row">
+													<input type="text" value="Phone Number" />
+												</div>
+												<div class="box-frame">
+													<span class="box-title">Print a Label</span>
+													<span class="submit">
+														<input type="submit" value="Continue" />
+													</span>
+													<a href="#" class="btn-recieve">Faster payment by shipping yourself</a>
+												</div>
+											</fieldset>
+										</form>
+									</div>
+									<div class="box send">
+										<form class="contact-form" action="#">
+											<fieldset>
+												<div class="row">
+													<input type="text" value="Payable to" />
+												</div>
+												<div class="row">
+													<input type="text" value="Address 1" />
+												</div>
+												<div class="row">
+													<input type="text" value="Address 2" />
+												</div>
+												<div class="row">
+													<input type="text" value="City" />
+												</div>
+												<div class="row">
+													<input class="state" type="text" value="State" />
+													<input class="zip" type="text" value="Zip" />
+												</div>
+												<div class="row">
+													<input type="text" value="Phone Number" />
+												</div>
+												<div class="box-frame">
+													<span class="box-title">Send me a Box</span>
+													<span class="submit">
+														<input type="submit" value="Continue" />
+													</span>
+												</div>
+											</fieldset>
+										</form>
+									</div>
+								</div> -->
+								
+								<div class="wrapper">
+									<div class="box send" style="width: 625px;"> <!-- Tmp override styles -->
+										<!-- <form class="contact-form" action="#"> -->
+										<%= form_for @shipping_detail, :html => { :class => 'contact-form' }, url: next_wizard_path, :method => :put  do |f| %>											
+											<fieldset>
+												<div class="row">
+													<!-- <input class="first_name" type="text" value="First Name" style="width: 220px;" /> -->
+													<%= f.text_field :first_name, :class => 'first_name', :value => 'First Name', :style => 'width: 220px;' %>
+													<!-- <input class="last_name" type="text" value="Last Name" style="width: 220px;" /> -->
+													<%= f.text_field :last_name, :class => 'last_name', :value => 'Last Name', :style => 'width: 220px;' %>
+												</div>
+												<div class="row">
+													<!-- <input type="text" value="Address 1" style="width: 500px;"/> -->
+													<%= f.text_field :address1, :value => 'Address', :style => 'width: 500px;' %>
+												</div>
+												<div class="row">
+													<!-- <input type="text" value="Address 2" style="width: 500px;"/> -->
+													<%= f.text_field :address2, :style => 'width: 500px;' %>
+												</div>
+												<div class="row">
+													<!-- <input type="text" value="City" style="width: 500px;" /> -->
+													<%= f.text_field :city, :value => 'City', :style => 'width: 500px;' %>
+												</div>
+												<div class="row">
+													<!-- <input class="state" type="text" value="State" style="width: 220px;" /> -->
+													<%= f.text_field :state, :class => 'state', :value => 'State', :style => 'width: 220px;' %>
+													<!-- <input class="zip" type="text" value="Zip" style="width: 220px;" /> -->
+													<%= f.text_field :zip, :class => 'zip', :value => 'Zip', :style => 'width: 220px;' %>
+												</div>
+												<div class="row">
+													<input type="text" value="Phone Number" style="width: 500px;" />
+												</div>
+												<div class="box-frame" style="margin-left: auto; margin-right: auto; float: none; clear: both;">
+													<span class="box-title">Send me a Box</span>
+													<span class="submit">
+														<%= f.hidden_field :product_id, :value => @shipping_detail.product.id  %>
+														<%= f.hidden_field :email, :value => @shipping_detail.email %>
+														
+														<%= f.hidden_field :check_payment_name, :value => @shipping_detail.check_payment_name %>
+														<%= f.hidden_field :check_payment_address1, :value => @shipping_detail.check_payment_address1 %>
+														<%= f.hidden_field :check_payment_address2, :value => @shipping_detail.check_payment_address2 %>
+														<%= f.hidden_field :check_payment_city, :value => @shipping_detail.check_payment_city %>
+														<%= f.hidden_field :check_payment_state, :value => @shipping_detail.check_payment_state %>
+														<%= f.hidden_field :check_payment_zip, :value => @shipping_detail.check_payment_zip %>
+														
+														<%= f.hidden_field :paypal_email, :value => @shipping_detail.paypal_email %>
+														<%= f.hidden_field :offer, :value => @shipping_detail.offer %>
+														<%= f.hidden_field :payment_method_id, :value => @shipping_detail.payment_method_id %>
+														
+														<%= f.submit :value => 'Continue' %>
+													</span>
+												</div>
+											</fieldset>
+										<!-- </form> -->
+										<% end %>
+									</div>
 								</div>
-								<div class="row">
-									<input type="text" value="Address 1" />
-								</div>
-								<div class="row">
-									<input type="text" value="Address 2" />
-								</div>
-								<div class="row">
-									<input type="text" value="City" />
-								</div>
-								<div class="row">
-									<input class="state" type="text" value="State" />
-									<input class="zip" type="text" value="Zip" />
-								</div>
-								<div class="row">
-									<input type="text" value="Phone Number" />
-								</div>
-								<div class="box-frame">
-									<span class="box-title">Print a Label</span>
-									<span class="submit">
-										<input type="submit" value="Continue" />
-									</span>
-									<a href="#" class="btn-recieve">Faster payment by shipping yourself</a>
-								</div>
-							</fieldset>
-						</form>
-					</div>
-					<div class="box send">
-						<form class="contact-form" action="#">
-							<fieldset>
-								<div class="row">
-									<input type="text" value="Payable to" />
-								</div>
-								<div class="row">
-									<input type="text" value="Address 1" />
-								</div>
-								<div class="row">
-									<input type="text" value="Address 2" />
-								</div>
-								<div class="row">
-									<input type="text" value="City" />
-								</div>
-								<div class="row">
-									<input class="state" type="text" value="State" />
-									<input class="zip" type="text" value="Zip" />
-								</div>
-								<div class="row">
-									<input type="text" value="Phone Number" />
-								</div>
-								<div class="box-frame">
-									<span class="box-title">Send me a Box</span>
-									<span class="submit">
-										<input type="submit" value="Continue" />
-									</span>
-								</div>
-							</fieldset>
-						</form>
-					</div>
-				</div>
+								
 			</div>
 			<div class="checkout-content">
 				<div class="heading">
@@ -86,11 +145,12 @@
 				<div class="wrapper">
 					<img src="/images/img13.png" alt="image description" width="67" height="66" />
 					<div class="info">
-						<span class="name">Apple iPhone 4S <br />16Gb At&amp;t</span>
-						<span class="price">$314 <a class="remove" href="#">remove</a></span>
+						<span class="name"><%= @shipping_detail.product.name %></span>
+						<!-- <span class="price">$314 <a class="remove" href="#">remove</a> -->
+						</span>
 					</div>
 				</div>
-				<span class="total-price">Total Estimated Value <strong>$314</strong></span>
+				<span class="total-price">Total Estimated Value <strong><%= number_to_currency(@shipping_detail.offer_or_default, :precision => 0) %></strong></span>
 			</div>
 		</div>
 	</div>

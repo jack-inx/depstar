@@ -14,21 +14,33 @@
 				</div>
 				<p>All emails about your order will be sent here:</p>
 				<div class="text-block">
-					<a href="#" class="edit">Edit this</a>
-					<a href="mailto:&#098;&#105;&#106;&#097;&#110;&#064;&#100;&#101;&#112;&#115;&#116;&#097;&#114;&#046;&#099;&#111;&#109;">&#098;&#105;&#106;&#097;&#110;&#064;&#100;&#101;&#112;&#115;&#116;&#097;&#114;&#046;&#099;&#111;&#109;</a>
+					<%#= link_to 'Edit this', wizard_path(:email), :class => 'edit' %>
+					<%#= link_to_function 'Edit this', 'history.back(-10)', :class => 'edit' %>
+					<%= @shipping_detail.email %>
 				</div>
-				<form class="contact-form" action="#">
+				<%= form_for @shipping_detail, :html => { :class => 'contact-form' }, url: next_wizard_path, :method => :put  do |f| %>
 					<fieldset>
 						<div class="wrapper">
 							<div class="box-info">
 								<div class="headline">
 									<h4>Payment Address</h4>
 								</div>
+								<% if @shipping_detail.payment_method_id == 2 %>
 								<p>We’ll send your PayPal payment to:</p>
 								<div class="text-block">
-									<a href="#" class="edit">Edit this</a>
-									<a href="mailto:&#098;&#105;&#106;&#097;&#110;&#064;&#100;&#101;&#112;&#115;&#116;&#097;&#114;&#046;&#099;&#111;&#109;">&#098;&#105;&#106;&#097;&#110;&#064;&#100;&#101;&#112;&#115;&#116;&#097;&#114;&#046;&#099;&#111;&#109;</a>
+									<%= @shipping_detail.email %>
 								</div>
+								<% else %>
+								<p>We’ll send your check to:</p>
+								<div class="text-block">
+									<%= @shipping_detail.check_payment_name %><br />
+									<%= @shipping_detail.check_payment_address1 %><br />
+									<% unless @shipping_detail.check_payment_address2.empty? %>
+										<%= @shipping_detail.check_payment_address2 %><br />
+									<% end %>
+									<%= @shipping_detail.check_payment_city %> <%= @shipping_detail.check_payment_state %>, <%= @shipping_detail.check_payment_zip %>
+								</div>
+								<% end %>
 							</div>
 							<div class="box-info">
 								<div class="headline">
@@ -37,37 +49,61 @@
 								<p>We’ll send a box with prepaid label to:</p>
 								<div class="text-block">
 									<address>
-										Bijan Cronin<br />Washington<br />DC<br />USA, WA 12345
+										<%= @shipping_detail.first_name %> <%= @shipping_detail.last_name %><br />
+										<%= @shipping_detail.address1 %><br />
+										<% unless @shipping_detail.address2.empty? %>
+											<%= @shipping_detail.address2 %><br />
+										<% end %>
+										<%= @shipping_detail.city %>
+										<%= @shipping_detail.state %>, <%= @shipping_detail.zip %>
 									</address>
-									<a href="#" class="edit">Edit this</a>
+									<%#= link_to 'Edit this', wizard_path(:shipping), :class => 'edit' %>
 								</div>
 							</div>
 						</div>
 						<div class="wrapper">
 							<div class="box-info">
-								<h4>How did you hear about us?</h4>
-								<div class="text-block">
+								&nbsp;
+								<!-- <h4>How did you hear about us?</h4> -->
+								<!-- <div class="text-block">
 									<select>
 										<option>Choose one</option>
 									</select>
-								</div>
+								</div> -->
 							</div>
 							<div class="box-info">
 								<h4>Terms of services</h4>
 								<div class="text-block check">
-									<input type="checkbox" id="ch1" />
-									<label for="ch1">I Agree to <br /><a href="#">Terms and Conditions</a></label>
+									<!-- <input type="checkbox" id="ch1" /> -->
+									<%= check_box_tag 'tos', 'yes', false %>
+									<label for="ch1">I Agree to <br />
+										<a href="#">Terms and Conditions</a></label>
 								</div>
 							</div>
 						</div>
 						<div class="wrapper">
 							<span class="notice">Go on to get your packing<br />and shipping instructions...</span>
 							<span class="submit">
-								<input type="submit" value="Submit Order" />
+								
+								<%= f.hidden_field :product_id, :value => @shipping_detail.product.id  %>
+								<%= f.hidden_field :email, :value => @shipping_detail.email %>
+								
+								<%= f.hidden_field :check_payment_name, :value => @shipping_detail.check_payment_name %>
+								<%= f.hidden_field :check_payment_address1, :value => @shipping_detail.check_payment_address1 %>
+								<%= f.hidden_field :check_payment_address2, :value => @shipping_detail.check_payment_address2 %>
+								<%= f.hidden_field :check_payment_city, :value => @shipping_detail.check_payment_city %>
+								<%= f.hidden_field :check_payment_state, :value => @shipping_detail.check_payment_state %>
+								<%= f.hidden_field :check_payment_zip, :value => @shipping_detail.check_payment_zip %>
+								
+								<%= f.hidden_field :paypal_email, :value => @shipping_detail.paypal_email %>
+								<%= f.hidden_field :offer, :value => @shipping_detail.offer %>
+								<%= f.hidden_field :payment_method_id, :value => @shipping_detail.payment_method_id %>
+								
+								<%= f.submit :value => 'Continue' %>
 							</span>
 						</div>
 					</fieldset>
-				</form>
+				<% end %>
 			</div>
 			<div class="checkout-content">
 				<div class="heading">
@@ -76,11 +112,12 @@
 				<div class="wrapper">
 					<img src="/images/img13.png" alt="image description" width="67" height="66" />
 					<div class="info">
-						<span class="name">Apple iPhone 4S <br />16Gb At&amp;t</span>
-						<span class="price">$314 <a class="remove" href="#">remove</a></span>
+						<span class="name"><%= @shipping_detail.product.name %></span>
+						<!-- <span class="price">$314 <a class="remove" href="#">remove</a> -->
+						</span>
 					</div>
 				</div>
-				<span class="total-price">Total Estimated Value <strong>$314</strong></span>
+				<span class="total-price">Total Estimated Value <strong><%= number_to_currency(@shipping_detail.offer_or_default, :precision => 0) %></strong></span>
 			</div>
 		</div>
 	</div>

@@ -11,9 +11,31 @@ class CheckoutStepsController < ApplicationController
     logger.debug "params -- " + params.inspect
     
     @shipping_detail = ShippingDetail.new(params[:shipping_detail])
+    @shipping_detail.should_validate = true
+    
+    # Take product_id from product#show
+    unless params[:product_id].nil?
+      @shipping_detail.product = Product.find(params[:product_id])
+    else
+      logger.debug 'params[:shipping_detail] -------- ' + params[:shipping_detail].inspect
+      @shipping_detail.product = Product.find(params[:shipping_detail][:product_id]) unless params[:shipping_detail][:product_id].nil?
+    end
+    
+    # Take payment_method from product#show
+    unless params[:payment_method].nil?
+      @shipping_detail.payment_method_id = PaymentMethod.find_by_short_code(params[:payment_method]).id
+    end
 
-    @shipping_detail.product = Product.find(params[:product_id]) unless params[:product_id].nil?
-    @shipping_detail.product = Product.find(params[:shipping_detail][:product_id]) unless params[:shipping_detail][:product_id]
+    # Take payment_method from product#show
+    unless params[:condition].nil?
+      if params[:condition] == 'best'
+        @shipping_detail.offer = @shipping_detail.product.price_excellent
+      elsif params[:condition] == 'good'
+        @shipping_detail.offer = @shipping_detail.product.price_average
+      elsif params[:condition] == 'broken'
+        @shipping_detail.offer = @shipping_detail.product.price_broken
+      end
+    end
     
     logger.debug "@shipping_detail -- " + @shipping_detail.inspect
     
@@ -51,8 +73,10 @@ class CheckoutStepsController < ApplicationController
   def update
     logger.debug "Step -- " + step.inspect
     logger.debug "Checkout Steps - Update -- " + params.inspect
+    logger.debug "params -- " + params.inspect
     
-    @shipping_detail = ShippingDetail.new
+    @shipping_detail = ShippingDetail.new(params[:shipping_detail])
+    @shipping_detail.should_validate = true
     #     
     # @shipping_detail.should_validate = false
     # case step
