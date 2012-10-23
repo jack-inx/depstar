@@ -30,18 +30,39 @@
 				<div class="wrapper">
 					<img src="/images/img13.png" alt="image description" width="67" height="66" />
 					<div class="info">
-						<span class="name">Apple iPhone 4S <br />16Gb At&amp;t</span>
-						<span class="price">$314 <a class="remove" href="#">remove</a></span>
+						<span class="name"><%= @shipping_detail.product.name %></span>
+						<!-- <span class="price">$314 <a class="remove" href="#">remove</a></span> -->
 					</div>
 				</div>
-				<span class="total-price">Total Estimated Value <strong>$314</strong></span>
+				<span class="total-price">Total Estimated Value <strong><%= number_to_currency(@shipping_detail.offer_or_default, :precision => 0) %></strong></span>
 				<dl>
 					<dt>Payment Method: </dt>
-					<dd>PayPal</dd>
-					<dt>Payable to: </dt>
-					<dd>Bijan Cronin</dd>
+					<dd><%= @shipping_detail.payment_method.name %></dd>
+					<% if @shipping_detail.payment_method.id == 1 %>
+						<dt>Payable to: </dt>
+						<dd class="address">
+							<%= @shipping_detail.check_payment_name %> <br />
+							<%= @shipping_detail.check_payment_address1 %><br />
+							<% unless @shipping_detail.check_payment_address2.empty? %>
+								<%= @shipping_detail.check_payment_address2 %><br />
+							<% end %>
+							<%= @shipping_detail.check_payment_city %>
+							<%= @shipping_detail.check_payment_state %>, <%= @shipping_detail.check_payment_zip %>
+						</dd>
+					<% else %>
+						<dt>Paypay email:</dt>
+						<dd><%= @shipping_detail.paypal_email %></dd>
+					<% end %>
 					<dt>Shipping info:</dt>
-					<dd class="address"><address>Bijan Cronin<br />Boston,<br />United States 12345</address></dd>
+					<dd class="address">
+						<%= @shipping_detail.first_name %> <%= @shipping_detail.last_name %><br />
+						<%= @shipping_detail.address1 %><br />
+						<% unless @shipping_detail.address2.empty? %>
+							<%= @shipping_detail.address2 %><br />
+						<% end %>
+						<%= @shipping_detail.city %>
+						<%= @shipping_detail.state %>, <%= @shipping_detail.zip %>
+					</dd>
 				</dl>
 			</div>
 		</div>

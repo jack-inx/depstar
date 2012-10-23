@@ -88,6 +88,14 @@
 								<%= f.hidden_field :product_id, :value => @shipping_detail.product.id  %>
 								<%= f.hidden_field :email, :value => @shipping_detail.email %>
 								
+								<%= f.hidden_field :first_name, :value => @shipping_detail.first_name %>
+								<%= f.hidden_field :last_name, :value => @shipping_detail.last_name %>
+								<%= f.hidden_field :address1, :value => @shipping_detail.address1 %>
+								<%= f.hidden_field :address2, :value => @shipping_detail.address2 %>
+								<%= f.hidden_field :city, :value => @shipping_detail.city %>
+								<%= f.hidden_field :state, :value => @shipping_detail.state %>
+								<%= f.hidden_field :zip, :value => @shipping_detail.zip %>
+								
 								<%= f.hidden_field :check_payment_name, :value => @shipping_detail.check_payment_name %>
 								<%= f.hidden_field :check_payment_address1, :value => @shipping_detail.check_payment_address1 %>
 								<%= f.hidden_field :check_payment_address2, :value => @shipping_detail.check_payment_address2 %>
