@@ -10,13 +10,22 @@ class CheckoutStepsController < ApplicationController
     logger.debug "Step -- " + step.inspect
     logger.debug "params -- " + params.inspect
     
+    if session[:shipping_detail].nil?
+      session[:shipping_detail] = ShippingDetail.new()
+    end
+    
+    #@shipping_detail = ShippingDetail.new(session[:shipping_detail])
+    #@shipping_detail = ShippingDetail.new()
+    #@shipping_detail.update_attributes(session[:shipping_detail])
+    #@shipping_detail.update_attributes(:shipping_detail => params[:shipping_detail])
+    
     @shipping_detail = ShippingDetail.new(params[:shipping_detail])
     @shipping_detail.should_validate = true
     
     # Take product_id from product#show
-    unless params[:product_id].nil?
+    if ! params[:product_id].nil?
       @shipping_detail.product = Product.find(params[:product_id])
-    else
+    elsif ! params[:shipping_detail].nil?
       logger.debug 'params[:shipping_detail] -------- ' + params[:shipping_detail].inspect
       @shipping_detail.product = Product.find(params[:shipping_detail][:product_id]) unless params[:shipping_detail][:product_id].nil?
     end
@@ -75,6 +84,10 @@ class CheckoutStepsController < ApplicationController
     logger.debug "Checkout Steps - Update -- " + params.inspect
     logger.debug "params -- " + params.inspect
     
+    #session[:shipping_detail].update_attributes(params[:shipping_detail])
+    #@shipping_detail = ShippingDetail.new(session[:shipping_detail])
+    #@shipping_detail = session[:shipping_detail]
+    
     @shipping_detail = ShippingDetail.new(params[:shipping_detail])
     @shipping_detail.should_validate = true
     #     
@@ -86,8 +99,13 @@ class CheckoutStepsController < ApplicationController
     
     #@shipping_detail.update_attributes(params[:shipping_detail])
     
-    render_wizard
-    #render_wizard @shipping_detail
+    if step == :done
+      #@shipping_detail.save
+      #logger.debug "-------------------------------- " + @shipping_detail.errors.inspect
+      render_wizard @shipping_detail
+    else
+      render_wizard
+    end
   end
   
   private
