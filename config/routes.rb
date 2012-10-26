@@ -10,6 +10,7 @@ Trunk::Application.routes.draw do
   
   # checkout wizard
   resources :checkout_steps
+  match 'checkout_steps/done', :controller => :checkout_steps, :action => :done
   
   resources :shipping_details
   match 'shipping_details/confirm', :controller => :shipping_details, :action => :confirm

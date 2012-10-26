@@ -1,11 +1,11 @@
 class CheckoutStepsController < ApplicationController
   include Wicked::Wizard
-  steps :email, :get_paid, :shipping, :confirm, :done, :thank_you
+  steps :email, :get_paid, :shipping, :confirm#, :done, :thank_you
   
   def show
-    # if session[:shipping_detail].nil?
-    #      session[:shipping_detail] = ShippingDetail.new()
-    #    end
+    if session[:shipping_detail].nil?
+      session[:shipping_detail] = ShippingDetail.new()
+    end
     
     #logger.debug 'current_shipping_detail  --  ' + current_shipping_detail.inspect
     #logger.debug 'shipping_detail  --  ' + shipping_detail.inspect
@@ -66,7 +66,7 @@ class CheckoutStepsController < ApplicationController
   end
   
   def update
-    logger.debug "Step -- " + step.inspect
+    #logger.debug "Step -- " + step.inspect
     # logger.debug "Checkout Steps - Update -- " + params.inspect
     # logger.debug "params -- " + params.inspect
     
@@ -101,7 +101,8 @@ class CheckoutStepsController < ApplicationController
     session[:shipping_detail][:paypal_email] = nil if session[:shipping_detail][:paypal_email] == "Paypal email address"
 
     @shipping_detail = session[:shipping_detail]
-    logger.debug "@shipping_detail --- " + @shipping_detail.inspect
+    #logger.debug "@shipping_detail --- " + @shipping_detail.inspect
+    logger.debug "@shipping_detail.tos --- " + @shipping_detail.tos.inspect
     
     #session[:shipping_detail] = ShippingDetail.new(params[:shipping_detail])
     #@shipping_detail = session[:shipping_detail]
@@ -133,8 +134,15 @@ class CheckoutStepsController < ApplicationController
   
   private
   
-  def redirect_to_finish_wizard
-    redirect_to root_url, notice: "Thanks for signing up."
+  def finish_wizard_path
+    '/checkout_steps/done'
   end
+  
+  # def redirect_to_finish_wizard
+  #   #reset_session
+  #   #redirect_to 
+  #   #'checkout_steps/done'
+  #   #redirect_to root_url, notice: "Thanks for signing up."
+  # end
 
 end
