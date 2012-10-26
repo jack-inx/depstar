@@ -1,6 +1,18 @@
 <div id="main">
 	<div class="holder">
 		<div class="checkout-block">
+			
+			<% if @shipping_detail.errors.any? %>
+			  <div class="error_messages">
+			    <h2><%= pluralize(@shipping_detail.errors.count, "error") %> prohibited this user from being saved:</h2>
+			    <ul>
+			    <% @shipping_detail.errors.full_messages.each do |msg| %>
+			      <li><%= msg %></li>
+			    <% end %>
+			    </ul>
+			  </div>
+			<% end %>
+			
 			<h2>Checkout</h2>
 			<ul id="steps">
 				<li class="checked first"><a class="email" href="#"><span>Email</span></a></li>
@@ -18,7 +30,7 @@
 					<%#= link_to_function 'Edit this', 'history.back(-10)', :class => 'edit' %>
 					<%= @shipping_detail.email %>
 				</div>
-				<%= form_for @shipping_detail, :html => { :class => 'contact-form' }, url: next_wizard_path, :method => :put  do |f| %>
+				<%= form_for @shipping_detail, :html => { :class => 'contact-form' }, :url => wizard_path, :method => :put  do |f| %>
 					<fieldset>
 						<div class="wrapper">
 							<div class="box-info">
@@ -75,7 +87,7 @@
 								<h4>Terms of services</h4>
 								<div class="text-block check">
 									<!-- <input type="checkbox" id="ch1" /> -->
-									<%= check_box_tag 'tos', 'yes', false %>
+									<%= f.check_box :tos %>
 									<label for="ch1">I Agree to <br />
 										<a href="#">Terms and Conditions</a></label>
 								</div>

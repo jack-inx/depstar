@@ -7,24 +7,50 @@ class ShippingDetail < ActiveRecord::Base
 	has_many :devices
 	
 	accepts_nested_attributes_for :devices, :allow_destroy => true
-	attr_accessor :should_validate
+	attr_accessible :product_id, :payment_method_id, :paypal_email, :email, :offer
 	
+	attr_accessor :should_validate
+	attr_accessor :step
+	attr_accessor :tos
+  attr_accessor :type
+  	
+	validates_presence_of :email, if: :on_email_step?
   validates_presence_of :first_name, :last_name, :address1, :city, :state, :zip, :email, :payment_method_id, if: :on_shipping_step?
+  
+  validates_presence_of :check_payment_name, :check_payment_address1, :check_payment_city, :check_payment_state, :check_payment_zip, if: :on_get_paid_step_check?
+  validates_presence_of :paypal_email, if: :on_get_paid_step_paypal?
+
+  validates_acceptance_of :tos, if: :on_confirm_step?
 
   validates_format_of :phone,
       :message => "must be a valid telephone number.",
       :with => /^[\(\)0-9\- \+\.]{10,20}$/,
       #:if => :on_shipping_step?
       :if => :require_phone_validation?
-  
-  attr_accessor :type  
+    
   def require_phone_validation?
     # Only for uSell orders phone numbers are optional
-    self.referer != 'usell' && self.should_validate
+    self.referer != 'usell' && self.on_shipping_step?
+  end
+
+  def on_confirm_step?
+    self.step == :confirm
+  end
+
+  def on_get_paid_step_check?
+    self.step == :get_paid && payment_method.short_code == 'check'
+  end
+
+  def on_get_paid_step_paypal?
+    self.step == :get_paid && payment_method.short_code == 'paypal'
   end
 
   def on_shipping_step?
-    self.should_validate
+    self.step == :shipping
+  end
+
+  def on_email_step?
+    self.step == :email
   end
 
   def full_name
