@@ -92,36 +92,27 @@
 								</div> -->
 								
 								<div class="wrapper">
-									<div class="box send" style="width: 625px;"> <!-- Tmp override styles -->
-										<!-- <form class="contact-form" action="#"> -->
+									<div class="box send" style="width: 610px;"> <!-- Tmp override styles -->
 										<%= form_for @shipping_detail, :html => { :class => 'contact-form' }, :url => wizard_path, :method => :put  do |f| %>											
 											<fieldset>
 												<div class="row">
-													<!-- <input class="first_name" type="text" value="First Name" style="width: 220px;" /> -->
 													<%= f.text_field :first_name, :class => 'first_name', :value => (@shipping_detail.first_name.nil? ? 'First Name' : @shipping_detail.first_name), :style => 'width: 220px;' %>
-													<!-- <input class="last_name" type="text" value="Last Name" style="width: 220px;" /> -->
 													<%= f.text_field :last_name, :class => 'last_name', :value => (@shipping_detail.last_name.nil? ? 'Last Name' : @shipping_detail.last_name), :style => 'width: 220px;' %>
 												</div>
 												<div class="row">
-													<!-- <input type="text" value="Address 1" style="width: 500px;"/> -->
 													<%= f.text_field :address1, :value => (@shipping_detail.address1.nil? ? 'Address' : @shipping_detail.address1), :style => 'width: 500px;' %>
 												</div>
 												<div class="row">
-													<!-- <input type="text" value="Address 2" style="width: 500px;"/> -->
 													<%= f.text_field :address2, :style => 'width: 500px;' %>
 												</div>
 												<div class="row">
-													<!-- <input type="text" value="City" style="width: 500px;" /> -->
 													<%= f.text_field :city, :value => (@shipping_detail.city.nil? ? 'City' : @shipping_detail.city), :style => 'width: 500px;' %>
 												</div>
 												<div class="row">
-													<!-- <input class="state" type="text" value="State" style="width: 220px;" /> -->
 													<%= f.text_field :state, :class => 'state', :value => (@shipping_detail.state.nil? ? 'State' : @shipping_detail.state), :style => 'width: 220px;' %>
-													<!-- <input class="zip" type="text" value="Zip" style="width: 220px;" /> -->
 													<%= f.text_field :zip, :class => 'zip', :value => (@shipping_detail.zip.nil? ? 'Zip' : @shipping_detail.zip), :style => 'width: 220px;' %>
 												</div>
 												<div class="row">
-													<!-- <input type="text" value="Phone Number" style="width: 500px;" /> -->
 													<%= f.text_field :phone, :value => (@shipping_detail.phone.nil? ? 'Phone Number' : @shipping_detail.phone), :style => 'width: 500px;' %>
 												</div>
 												<div class="box-frame" style="margin-left: auto; margin-right: auto; float: none; clear: both;">
@@ -145,7 +136,6 @@
 													</span>
 												</div>
 											</fieldset>
-										<!-- </form> -->
 										<% end %>
 									</div>
 								</div>
