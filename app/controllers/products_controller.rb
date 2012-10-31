@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
   end
   
   def search
-    @products = Product.where("name like '%"+params[:name]+"%'").paginate(:page => params[:page])
+    @products = Product.where("name like '%"+params[:name]+"%'") #.paginate(:page => params[:page])
     
     respond_to do |format|
       format.html
