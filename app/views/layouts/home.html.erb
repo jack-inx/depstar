@@ -62,9 +62,11 @@
 				</div>
 				<div class="featured">
 					<div class="box">
-						<img src="images/img2.png" alt="" class="alignleft" width="99" height="109" />
-						<h2>About<br /> Depstar</h2>
-						<p>Learn about us and our commitment to a hassle-free Customer experience.</p>
+						<%= link_to how_it_works_path do %>
+							<img src="images/img2.png" alt="" class="alignleft" width="99" height="109" />
+							<h2>How it <br /> Works</h2>
+							<p>Learn about us and our commitment to a hassle-free Customer experience.</p>
+						<% end %>
 					</div>
 					<div class="box">
 						<img src="images/img3.png" alt="" class="alignleft" width="90" height="124" />
@@ -72,9 +74,11 @@
 						<p>We'll purchase any model iPhone no matter what condition it is in.</p>
 					</div>
 					<div class="box box2">
-						<img src="images/img4.png" width="141" height="129" alt="" class="alignleft" />
-						<h2>Corporate Buy Back Program</h2>
-						<p>We do bulk purchase programs for any size business. </p>
+						<%= link_to corporate_path do %>
+							<img src="images/img4.png" width="141" height="129" alt="" class="alignleft" />
+							<h2>Corporate Buy Back Program</h2>
+							<p>We do bulk purchase programs for any size business. </p>
+						<% end %>
 					</div>
 				</div>
 				<div class="popular-category">
