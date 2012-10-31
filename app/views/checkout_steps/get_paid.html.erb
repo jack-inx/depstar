@@ -92,7 +92,8 @@
 					<h4>Your Box Contents</h4>
 				</div>
 				<div class="wrapper">
-					<img src="/images/img13.png" alt="image description" width="67" height="66" />
+					<!-- <img src="/images/img13.png" alt="image description" width="67" height="66" /> -->
+					<%= image_tag @shipping_detail.product.photo.url(:small), :width => '67' %>
 					<div class="info">
 						<span class="name"><%= @shipping_detail.product.name %></span>
 						<!-- <span class="price">$314 <a class="remove" href="#">remove</a> -->
