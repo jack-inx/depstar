@@ -1574,20 +1574,23 @@ form,fieldset{
 	font-size:14px;
 	line-height:17px;
 }
-.featured .box{
-	float:left;
-	margin:0 19px 0 0;
-	padding:4px 0 0;
-	width:305px;
+.featured .box
+{
+	float: left;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 32px;
+	width: 280px;
 }
+
 .featured .box .alignleft{
 	margin:-4px 23px 0 0;
 	float:left;
 }
 .featured .box .alignright{margin:0 24px 0 0;}
-.featured .box2{
-	margin:0 0 0 -45px;
-	width:338px;
+.featured .box2
+{
+	margin: 0 0 0 0px;
+	width: 290px;
 }
 .featured .box2 .alignleft{margin:6px 19px 0 0;}
 .featured a{color:#545454;}
