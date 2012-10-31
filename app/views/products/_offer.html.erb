@@ -1,5 +1,5 @@
-<div class="box-pay">					
-	<% if @question_response.valid? %>
+<div class="box-pay">
+	<% if ! @question_response.nil? && @question_response.valid? %>
 		<span>WE'LL PAY YOU</span>
 		<span><strong><%= number_to_currency(@question_response.quote, :precision => 0, :delimiter => "") %></strong></span>
 		<% if show_next_button == true %>

@@ -344,6 +344,8 @@ class ShippingDetailsController < ApplicationController
     @question_response = @shipping_detail.question_response
     @user = current_user
     
+    #logger.debug "@question_response ----- " + ShippingDetail.find(params[:id]).inspect
+    
     # @purchase = Stamps.purchase_postage(
     #   :amount => 100,
     #   :control_total => 200

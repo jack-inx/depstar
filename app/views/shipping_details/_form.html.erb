@@ -19,31 +19,24 @@
 	      </ul>
 	    </div>
 	  <% end %>
+		
+		<div class="aside">
+			<div id='price_quote_results' style='text-align: center;'>
+				<%= render 'products/offer', :show_next_button => false unless @product.nil? %>
+			</div>
 
+			<!-- <div class="info-box">
+						<h4>HOW DO WE CALCULATE YOUR OFFER?</h4>
+						<p>Depstar calculates your offer based on two main factors: the quality of your phone, and the payback rate of our competitors. First, we ask you several basic questions to accurately assess the condition of your phone before it reaches our facility. Second, Depstar representatives are constantly updating pricing information to ensure that our quote is higher than our competitors.</p>
+					</div> -->
+		</div>
+		
 		<% #debugger %>
 	  <%= f.hidden_field :product_id, :value => @product.id unless @product.nil? %>
 		<%= f.hidden_field :question_response_id, :value => @question_response.id unless @question_response.nil? %>
 		
 		<%= f.hidden_field :uuid, :value => @shipping_detail.uuid %>
 		<%= f.hidden_field :referer, :value => @shipping_detail.referer %>
-	
-	  	<% content_for :javascript do %>
-	  	 	<script type="text/javascript">
-	  	 		function selectPaymentMethod(sender)
-	    		{
-					if(sender == "paypal")
-					{
-						$("#paypal_email").css("display", "block");
-					}
-					else
-					{
-						$("#paypal_email").css("display", "none");
-					}
-					
-	    			return;
-				}
-			</script>
-		<% end %>
 		
 	<div class="image">
 		<div style='margin-bottom: 10px'>
@@ -162,17 +155,16 @@
 		</div>
 		<% end %>
 		
-	  	<div>	  	
+	  	<div>
 		  	<%= label_tag nil, 'How would you like to receive your payment?' %> <br />
-			
-		  	<p>
 		  		<% PaymentMethod.all.each do |payment_method| %>
+				  	<div style="clear:both; float:left; width: 200px;">
 			    	<%= f.radio_button :payment_method_id, payment_method.id, options = {:onclick => "selectPaymentMethod('#{payment_method.short_code}');"} %>
-			    	<%= f.label payment_method.name %>
+			    	<%= f.label payment_method.name %> <br/>
+						</div>
 					<% end %>
-				</p>
 	  	</div>
-	  
+	  <div class="clear">&nbsp;</div>
 		<% unless @user.nil? %>
 			
 			<%= f.fields_for :devices do |builder| %>
@@ -215,7 +207,8 @@
 	  </div>
 	  <div class="field">
 	    <%= f.label :state %><br />
-	    <%= f.select :state, [
+			<%= f.text_field :state %>
+	    <%#= f.select :state, [
 		    ['Alabama', 'AL'], 
 		    ['Alaska', 'AK'],
 		    ['Arizona', 'AZ'],
@@ -273,9 +266,9 @@
 	    <%= f.label :zip %><br />
 	    <%= f.text_field :zip, :maxlength=>'5' %>
 	  </div>
-		<div class="field">
-			<h5> Terms of service </h5>
-			<%= text_area_tag :tos_text, 'Privacy Policy
+		<!-- <div class="field">
+					<h5> Terms of service </h5> -->
+			<%#= text_area_tag :tos_text, 'Privacy Policy
 
 This privacy policy sets out how Depstar uses and protects any information that you give Depstar when you use this website. Depstar is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement. Depstar may change this policy from time to time by updating this page. You should check this page from time to time to ensure that you are happy with any changes. This policy is effective January 1, 2011.
 
@@ -341,11 +334,11 @@ Definitions
 “Item”: any mobile device or computer with the capability of storing personal information.
 “Stored”: any information, encrypted or otherwise, that can be found in memory hardware on the device.
 “Lost or stolen”: title rendered officially by a cellular provider to indicate that the device has at some point previously been misplaced or taken illegally from its rightful owner.', :size => "15x10", :disabled => true %> <br /> 
-			<div style='width: 300px; vertical-align: top;'>
-				<%= check_box_tag 'tos', 'yes', false, :class => 'accept_tos' %>
-				<%= label_tag "Do you agree to the" %> <%= link_to 'terms of service', privacy_policy_path %>?				
-			</div>
-		</div>
+			<!-- <div style='width: 300px; vertical-align: top;'>
+							<%= check_box_tag 'tos', 'yes', false, :class => 'accept_tos' %>
+							<%= label_tag "Do you agree to the" %> <%= link_to 'terms of service', privacy_policy_path %>?				
+						</div>
+					</div> -->
 	
 		<% unless @user.nil? %>
 
@@ -367,8 +360,9 @@ Definitions
 		    ['Recycled', 4],
 		    ['Cancelled', 5],		    
 				['ReQuote', 6]],
-		    {:prompt => 'Select one'} %>
+		    {:prompt => 'Select one'}, :class=>'none' %>
 		</div>
+		<!-- <div class="clear">&nbsp;</div> -->
 		<div class="field">
 		  <%= f.label :serial %><br />
 		  <%= f.text_field :serial %>
@@ -397,14 +391,4 @@ Definitions
 	  </div>
 	</div>
 	<% end %>
-	<div class="aside">
-		<div id='price_quote_results' style='text-align: center;'>
-			<%= render 'products/offer', :show_next_button => false unless @product.nil? %>
-		</div>
-		
-		<div class="info-box">
-			<h4>HOW DO WE CALCULATE YOUR OFFER?</h4>
-			<p>Depstar calculates your offer based on two main factors: the quality of your phone, and the payback rate of our competitors. First, we ask you several basic questions to accurately assess the condition of your phone before it reaches our facility. Second, Depstar representatives are constantly updating pricing information to ensure that our quote is higher than our competitors.</p>
-		</div>
-	</div>
 </div>
