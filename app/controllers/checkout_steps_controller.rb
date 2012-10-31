@@ -75,6 +75,8 @@ class CheckoutStepsController < ApplicationController
   private
   
   def finish_wizard_path
+    UserMailer.welcome_email(@shipping_detail).deliver
+    UserMailer.new_quote_request_email(@shipping_detail).deliver
     '/checkout_steps/done'
   end
 
