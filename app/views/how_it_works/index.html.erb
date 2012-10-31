@@ -26,7 +26,7 @@
 							<%= form_tag('/products/show', :method => :get, :class => 'product-search') do %>
 							<h2>Select your Item and begin Selling for cash</h2>
 							<fieldset>
-								<%= select_tag('id', options_for_select(@products.collect {|p| [ p.name, p.id ] }) ) %>
+								<%= select_tag('id', options_for_select(@products.collect {|p| [ p.name.truncate(21, :omission => '...'), p.id ] }) ) %>
 								</select>
 								<span class="btn-go" style="padding-left: 10px;">
 									<%= submit_tag 'go' %>
