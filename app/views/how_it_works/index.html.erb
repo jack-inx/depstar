@@ -1,5 +1,4 @@
-<div id="main">
-	<div class="holder">
+
 		<div class="product">
 			<div class="area">
 				<div class="block">
@@ -29,7 +28,7 @@
 							<fieldset>
 								<%= select_tag('id', options_for_select(@products.collect {|p| [ p.name, p.id ] }) ) %>
 								</select>
-								<span class="btn-go">
+								<span class="btn-go" style="padding-left: 10px;">
 									<%= submit_tag 'go' %>
 								</span>
 							</fieldset>
@@ -55,5 +54,3 @@
 				</div>
 			</div>
 		</div>
-	</div>
-</div>

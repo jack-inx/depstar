@@ -74,17 +74,35 @@ form,fieldset{
 }
 .social-networks li{float:left;}
 .social-networks li a{
-	background:url(../images/bg-social.png) no-repeat;
+/*	background:url(../images/bg-social.png) no-repeat;*/
 	width:29px;
 	height:35px;
 	display:block;
 	text-indent:-9999px;
 	overflow:hidden;
 }
+
+#header .social-networks li a{
+/*	height:32px;*/
+	background:url(../images/bg-social2.png) no-repeat;
+/*	margin:0 0 0 12px;*/	
+	height:35px;
+	width:32px;
+	display:block;
+}
+#header .social-networks li.facebook a{background-position:0 0;}
+#header .social-networks li.twitter a{background-position:-45px 0;}
+#header .social-networks li.youtube a{background-position:-89px 0;}
+#header .social-networks li.bba a{
+	background:url(../images/bg-social.png) no-repeat;
+	background-position:-91px 0;
+	margin:0 0 0 20px;
+}
+/*
 .facebook{
 	float:right;
 	margin:8px 0 0;
-}
+}*/
 .social-networks li.twitter a{
 	background-position:0 0;
 	margin:0 0 0 24px;
@@ -2016,7 +2034,7 @@ background: linear-gradient(to bottom,  #ffffff 0%,#ffffff 64%,#e9e9e9 100%);
 	width:32px;
 	display:block;
 }
-#footer .follow-us { font-weight:400; margin: 8px 0 0 0; font-size:16px; float:right;}
+#footer .follow-us { font-weight:400; margin: 10px 0 0 0; font-size:16px; float:right;}
 #footer .social-networks li.facebook a{background-position:0 0;}
 #footer .social-networks li.twitter a{background-position:-45px 0;}
 #footer .social-networks li.youtube a{background-position:-89px 0;}

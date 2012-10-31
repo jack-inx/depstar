@@ -1,5 +1,4 @@
-<div id="main">
-	<div class="holder">
+
 		<div class="checkout-block">
 			
 			<% if @shipping_detail.errors.any? %>
@@ -15,10 +14,10 @@
 			
 			<h2>Checkout</h2>
 			<ul id="steps">
-				<li class="active first"><a class="email" href="#"><span>Email</span></a></li>
-				<li><a class="get-paid" href="#"><span>Get Paid</span></a></li>
-				<li><a class="shipping" href="#"><span>Shipping</span></a></li>
-				<li class="last"><a class="confirm" href="#"><span>Confirm</span></a></li>
+				<li class="active first"><a class="email" href="/checkout_steps/email"><span>Email</span></a></li>
+				<li><a class="get-paid" href="/checkout_steps/get_paid"><span>Get Paid</span></a></li>
+				<li><a class="shipping" href="/checkout_steps/shipping"><span>Shipping</span></a></li>
+				<li class="last"><a class="confirm" href="/checkout_steps/confirm"><span>Confirm</span></a></li>
 			</ul>
 			<div class="steps-area">
 				<h4>Your Email Address</h4>
@@ -59,5 +58,3 @@
 				<span class="total-price">Total Estimated Value <strong><%= number_to_currency(@shipping_detail.offer_or_default, :precision => 0) %></strong></span>
 			</div>
 		</div>
-	</div>
-</div>

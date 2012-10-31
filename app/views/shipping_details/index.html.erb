@@ -1,4 +1,4 @@
-<div style='margin: 5px;'>
+		
 	<h1>Shipping Requests</h1>
 	
 	<%= will_paginate @shipping_details, :container => false %>
@@ -19,7 +19,7 @@
 		
 	<% @shipping_details.each do |shipping_detail| %>
 	  <tr>
-	    <td><%= truncate(shipping_detail.full_name, :length => 30, :omission => '...') %></td>
+	    <td><%= truncate(shipping_detail.full_name, :length => 30, :omission => '...') unless shipping_detail.full_name.nil? %></td>
 	    <td><%= truncate(shipping_detail.email, :length => 35, :omission => '...') %></td>
 			<!--<td><%#= shipping_detail.status %></td>-->
 			<td><%= shipping_detail.devices.count %></td>
@@ -32,4 +32,3 @@
 	  </tr>
 	<% end %>
 	</table>
-</div>
