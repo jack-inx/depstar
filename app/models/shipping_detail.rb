@@ -10,7 +10,7 @@ class ShippingDetail < ActiveRecord::Base
 	attr_accessible :first_name, :last_name, :address1, :address2, :city, :state, :zip, :email, :phone
 	attr_accessible :check_payment_name, :check_payment_address1, :check_payment_address2, :check_payment_city, :check_payment_state, :check_payment_zip, :paypal_email
 	attr_accessible :product_id, :payment_method_id, :paypal_email, :email, :offer, :tos
-	attr_accessible :uuid, :referer, :status_code, :serial, :final_offer, :notes
+	attr_accessible :uuid, :referer, :status_code, :serial, :final_offer, :notes, :devices_attributes
 	
 	attr_accessor :should_validate
 	attr_accessor :step
