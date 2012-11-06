@@ -3,7 +3,7 @@
 	  <%= f.label :name, 'Device Name' %><br />
 	  <%= f.text_field :name, :disabled => true %>
 	</div>
-	<div class="field">
+	<div class="field" style='height: 50px; clear: both;'>
 	  <%= f.label :status_code %><br />
 	  <%= f.select :status_code, [
 	    ['Awaiting Receipt', 0], 
@@ -15,6 +15,7 @@
 			['ReQuote', 6]],
 	    {:prompt => 'Select one'} %>
 	</div>
+	<div class="clear">&nbsp;</div>
 	<div class="field">
 	  <%= f.label :serial %><br />
 	  <%= f.text_field :serial %>
