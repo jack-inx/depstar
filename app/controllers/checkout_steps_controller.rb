@@ -66,8 +66,6 @@ class CheckoutStepsController < ApplicationController
     session[:shipping_detail][:check_payment_zip] = nil if session[:shipping_detail][:check_payment_zip] == "Zip"
     
     session[:shipping_detail][:paypal_email] = nil if session[:shipping_detail][:paypal_email] == "Paypal email address"
-
-    @shipping_detail = session[:shipping_detail]
     
     render_wizard @shipping_detail
   end
@@ -75,6 +73,18 @@ class CheckoutStepsController < ApplicationController
   private
   
   def finish_wizard_path
+    @product = @shipping_detail.product;
+    @device = Device.new(:product => @product)
+    @device.status_code = 0
+    # if @device.valid?
+    #       @device.save
+    #     end
+    @device.offer         = @shipping_detail.offer
+    @device.final_offer   = @shipping_detail.offer    
+    @shipping_detail.devices[0] = @device
+    @shipping_detail.save
+    #@shipping_detail = session[:shipping_detail]
+    
     UserMailer.welcome_email(@shipping_detail).deliver
     UserMailer.new_quote_request_email(@shipping_detail).deliver
     '/checkout_steps/done'
