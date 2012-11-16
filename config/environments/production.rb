@@ -17,8 +17,7 @@ Trunk::Application.configure do
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = true
-
-  
+    
   
   # For nginx:
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
