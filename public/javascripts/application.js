@@ -29,6 +29,14 @@ $(document).ready(function() {
 			});
 		});
 	});
+	
+	$("#item_select_button").live('click',function(event){
+		//event.preventDefault();
+						
+		//var item = $("span.center.jcf-unselectable").text();
+		//alert(item);
+		
+	});
 });
 
 /*
