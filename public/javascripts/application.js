@@ -31,10 +31,10 @@ $(document).ready(function() {
 	});
 	
 	$("#item_select_button").live('click',function(event){
-		//event.preventDefault();
+		event.preventDefault();
 						
-		//var item = $("span.center.jcf-unselectable").text();
-		//alert(item);
+		var item = $("span.center.jcf-unselectable").text();
+		alert(item);
 		
 	});
 });
