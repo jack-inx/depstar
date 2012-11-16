@@ -5,9 +5,9 @@ gem 'mysql2'#, '0.3.11', :git => 'git://github.com/brianmario/mysql2.git'
 
 #gem 'pg', :group => :production
 
-group :production do
-  gem 'pg'
-end	
+
+#gem 'pg'
+	
 
 group :development do
  	#gem 'ruby-debug'
