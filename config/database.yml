@@ -20,8 +20,8 @@ production:
     encoding: utf8
     database: depstar_prod1
     pool: 5
-    username: depstar_depstar
-    password: pids6b45zn
+    #username: depstar_depstar
+    #password: pids6b45zn
     #socket: /tmp/mysql.sock
     #host: 127.0.0.1
   
