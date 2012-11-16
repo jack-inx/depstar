@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'mysql2'#, '0.3.11', :git => 'git://github.com/brianmario/mysql2.git'
 
-gem 'pg', :group => :production
+gem 'pg'
 
 group :development do
  	#gem 'ruby-debug'
