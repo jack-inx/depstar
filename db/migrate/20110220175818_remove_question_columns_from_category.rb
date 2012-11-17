@@ -10,7 +10,7 @@ class RemoveQuestionColumnsFromCategory < ActiveRecord::Migration
     remove_column :categories, :question_2_option_1_multiplier
     remove_column :categories, :question_2_option_2_multiplier
 
-    remove_column :categories, :question_3_is_enabled, :boolean
+    #remove_column :categories, :question_3_is_enabled, :boolean
     remove_column :categories, :question_3_name, :string
     remove_column :categories, :question_3_option_1_multiplier
     remove_column :categories, :question_3_option_2_multiplier
