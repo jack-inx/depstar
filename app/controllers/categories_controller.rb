@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   # GET /categories.xml
   def index
     @categories = Category.all
-    @usell_categories = Category.group('usell_category_code').find(:all, :conditions => "usell_category_code IS NOT NULL")
+    #@usell_categories = Category.group('usell_category_code').find(:all, :conditions => "usell_category_code IS NOT NULL")
 
     respond_to do |format|
       format.html # index.html.erb
