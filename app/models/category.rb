@@ -1,7 +1,7 @@
 class Category < ActiveRecord::Base
   USELL_CATEGORY_CODES = ['Cell Phones', 'Tablets', 'MP3 Players', 'Game Consoles', 'E-Readers', 'Digital Cameras']
   
-  has_many :products  
+  has_many :products
 
   self.per_page = 12
   

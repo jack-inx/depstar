@@ -9,6 +9,8 @@ Trunk::Application.routes.draw do
   end
   
   # checkout wizard
+  match 'manufact_product' => 'categories#final_product'
+
   resources :checkout_steps
   match 'checkout_steps/done', :controller => :checkout_steps, :action => :done
   

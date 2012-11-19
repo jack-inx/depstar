@@ -6,7 +6,7 @@ class Product < ActiveRecord::Base
   
   has_many :devices
 
-  validates_presence_of :price, :category_id
+  validates_presence_of :price, :category_id  
   validates_numericality_of :price
 
   has_attached_file :photo,
@@ -20,6 +20,10 @@ class Product < ActiveRecord::Base
 
   has_many :question_options
   accepts_nested_attributes_for :question_options, :allow_destroy => true
+
+  #scope :final_product,where('category_id =?',params[:cat_id])
+  #scope :final_product do lambda { |*on| where("category_id = ?", on.first && "manufacturer_id = ?",3 ) } end
+
 
   self.per_page = 12
   
