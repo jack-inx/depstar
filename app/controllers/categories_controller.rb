@@ -19,12 +19,25 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @products = @category.products #.paginate(:page => params[:page])
+
+    @manufacturer_list = Array.new
+    @products.each do |product| 
+       @manufacturer_list <<  product.manufacturer
+    end  
+
+    @manufacturer_list = @manufacturer_list.uniq
     
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @category }
     end
   end
+
+  def final_product
+    @products = Product.where(:manufacturer_id => params[:id],:category_id => params[:cat_id])
+    #@products = Product.final_product(params[:cat_id],params[:id])
+  end
+
   
   def grades
     
