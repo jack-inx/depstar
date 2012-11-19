@@ -34,7 +34,7 @@
 						 	 	<% manufacturer.each do |manufact| %>
 						 	   	<% @counter += 1 %>
 						 	   	<td width=177px>
-						 	   		<%= link_to image_tag('facebook.png'), manufact %>
+						 	   		<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), manufact %>
 						 	   	 	<p><%= link_to manufact.name, manufact_product_path(:cat_id=>params[:id],:id=>manufact.id) %></p>
 						 	   	</td>
 						 	 	<% end %>
