@@ -44,6 +44,7 @@ class ManufacturersController < ApplicationController
   def create
     @manufacturer = Manufacturer.new(params[:manufacturer])
 
+
     respond_to do |format|
       if @manufacturer.save
         format.html { redirect_to(@manufacturer, :notice => 'Manufacturer was successfully created.') }
