@@ -22,12 +22,6 @@ class CategoriesController < ApplicationController
 
     @manufacturer_list = @category.manufacturers
 
-    #@manufacturer_list = Array.new
-    #@products.each do |product| 
-    #   @manufacturer_list <<  product.manufacturer
-    #end  
-
-    #@manufacturer_list = @manufacturer_list.uniq
     
     respond_to do |format|
       format.html # show.html.erb
