@@ -20,12 +20,14 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @products = @category.products #.paginate(:page => params[:page])
 
-    @manufacturer_list = Array.new
-    @products.each do |product| 
-       @manufacturer_list <<  product.manufacturer
-    end  
+    @manufacturer_list = @category.manufacturers
 
-    @manufacturer_list = @manufacturer_list.uniq
+    #@manufacturer_list = Array.new
+    #@products.each do |product| 
+    #   @manufacturer_list <<  product.manufacturer
+    #end  
+
+    #@manufacturer_list = @manufacturer_list.uniq
     
     respond_to do |format|
       format.html # show.html.erb
@@ -57,6 +59,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new.xml
   def new
     @category = Category.new
+    @manufacturers = Manufacturer.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -67,6 +70,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1/edit
   def edit
     @category = Category.find(params[:id])
+    @manufacturers = Manufacturer.all
+
   end
 
   # POST /categories
@@ -89,6 +94,7 @@ class CategoriesController < ApplicationController
   # PUT /categories/1.xml
   def update
     @category = Category.find(params[:id])
+    
 
     respond_to do |format|
       if @category.update_attributes(params[:category])
