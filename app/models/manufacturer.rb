@@ -1,8 +1,10 @@
 class Manufacturer < ActiveRecord::Base
+  
   has_many :products
-  has_and_belongs_to_many :categories
+  has_and_belongs_to_many   :categories
+  has_and_belongs_to_many   :carriers
 
- 
+  attr_accessible   :name, :photo 
 
   has_attached_file :photo,
                     :default_url => "http://depstar.com/assets/:class/missing_:style.gif", 

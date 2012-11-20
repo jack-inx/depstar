@@ -11,14 +11,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121025220702) do
+ActiveRecord::Schema.define(:version => 20121120133331) do
+
+  create_table "carriers", :force => true do |t|
+    t.string   "name"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "carriers_manufacturers", :id => false, :force => true do |t|
+    t.integer "carrier_id"
+    t.integer "manufacturer_id"
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.boolean  "is_popular"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.boolean  "question_3_is_enabled"
     t.integer  "usell_category_code"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  create_table "categories_manufacturers", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "manufacturer_id"
   end
 
   create_table "devices", :force => true do |t|
@@ -30,42 +55,32 @@ ActiveRecord::Schema.define(:version => 20121025220702) do
     t.string   "notes"
     t.text     "serial"
     t.float    "offer"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
   end
 
   create_table "manufacturers", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "payment_methods", :force => true do |t|
     t.string   "name"
     t.string   "short_code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "price_quotes", :force => true do |t|
-    t.integer  "product_id"
-    t.boolean  "question_1"
-    t.boolean  "question_2"
-    t.integer  "question_3"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "product_types", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.boolean  "is_popular"
     t.integer  "category_id"
     t.string   "photo_file_name"
@@ -101,8 +116,8 @@ ActiveRecord::Schema.define(:version => 20121025220702) do
     t.integer  "product_id"
     t.string   "name"
     t.float    "multiplier"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "question_responses", :force => true do |t|
@@ -111,23 +126,8 @@ ActiveRecord::Schema.define(:version => 20121025220702) do
     t.string   "question_2"
     t.string   "question_3"
     t.string   "question_4"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "question_types", :force => true do |t|
-    t.string   "name"
-    t.string   "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "questions", :force => true do |t|
-    t.string   "name"
-    t.integer  "question_type_id"
-    t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "sessions", :force => true do |t|
@@ -154,8 +154,8 @@ ActiveRecord::Schema.define(:version => 20121025220702) do
     t.integer  "product_id"
     t.boolean  "requires_box"
     t.integer  "question_response_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "phone"
     t.string   "uuid"
     t.string   "referer"
@@ -175,8 +175,8 @@ ActiveRecord::Schema.define(:version => 20121025220702) do
   create_table "user_sessions", :force => true do |t|
     t.string   "username"
     t.string   "password"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -192,8 +192,8 @@ ActiveRecord::Schema.define(:version => 20121025220702) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
 end
