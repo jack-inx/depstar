@@ -45,13 +45,15 @@ class CategoriesController < ApplicationController
     #add_breadcrumb "index", index_path, :title => "Back to the Index"
     @manufacturers = Manufacturer.find(params[:manufact_id])
     @carriers =  @manufacturers.carriers
-    session[:manufact_id] = params[:id]
+    session[:manufact_id] = params[:manufact_id]
+
     #@products = Product.where(:manufacturer_id => params[:id],:category_id => params[:cat_id])
     #@products = Product.final_product(params[:cat_id],params[:id])
   end
 
   def carrier_product
     #add_breadcrumb "Carrier", :root_path
+
     @products = Product.where(:manufacturer_id => session[:manufact_id],:category_id => params[:cat_id],:carrier_id => params[:id])
 
     #@products = Product.final_product(params[:cat_id],params[:id])

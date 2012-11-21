@@ -35,7 +35,7 @@
 							<td width=177px>
 								<%#= link_to image_tag(carrier.photo.url(:small)), carrier %>
 				 	    		<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier %>
-								<p><%= link_to carrier.name, carrier_product_path(:cat_id=>params[:id],:manufact_id => session[:manufact_id],:id=>carrier.id) %></p>
+								<p><%= link_to carrier.name, carrier_product_path(:cat_id=>params[:cat_id],:manufact_id => params[:manufact_id],:id=>carrier.id) %></p>
 							</td>							
 							<% end %>
 							<% for i in @counter.. @carriers.count - 8 %>
