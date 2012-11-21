@@ -28,10 +28,22 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def final_product
-    @products = Product.where(:manufacturer_id => params[:id],:category_id => params[:cat_id])
+  def manufacturer_carrier
+
+    @manufacturers = Manufacturer.find(params[:id])
+    @carriers =  @manufacturers.carriers
+    session[:manufact_id] = params[:id]
+    #@products = Product.where(:manufacturer_id => params[:id],:category_id => params[:cat_id])
     #@products = Product.final_product(params[:cat_id],params[:id])
   end
+
+  def carrier_product
+
+    @products = Product.where(:manufacturer_id => session[:manufact_id],:category_id => params[:cat_id],:carrier_id => params[:id])
+
+    #@products = Product.final_product(params[:cat_id],params[:id])
+  end
+
 
   
   def grades

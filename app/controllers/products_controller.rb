@@ -143,6 +143,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @categories = Category.find(:all)
+    @carriers = Carrier.find(:all)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -154,6 +155,7 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find(params[:id])
     @categories = Category.find(:all)    
+    @carriers = Carrier.find(:all)
   end
 
   # POST /products
