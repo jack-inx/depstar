@@ -1,5 +1,6 @@
 Trunk::Application.routes.draw do
-  
+
+  match 'search' => 'categories#search_filter'  
   match 'categories/show/' => 'categories#show' # For the homepage form
   resources :question_response
   resources :categories
@@ -11,6 +12,8 @@ Trunk::Application.routes.draw do
   
   # checkout wizard
   match 'carrier_product' => 'categories#carrier_product'
+
+
   match 'manufact_carrier' => 'categories#manufacturer_carrier'
   match 'product_list' => 'categories#carrier_product'
 

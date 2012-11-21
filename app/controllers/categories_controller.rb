@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_filter :authorize, :except => [:index, :show, :grades]
   before_filter :xml_authorize, :include => [:index, :grades]
+  #add_breadcrumb "Manufacturer", :root_path
 
   # GET /categories
   # GET /categories.xml
@@ -16,6 +17,17 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   # GET /categories/1.xml
+
+  def search_filter
+    @category = Category.find(params[:id])
+    @products = @category.products #.paginate(:page => params[:page])
+
+    @manufacturer_list = @category.manufacturers
+
+  end    
+
+
+
   def show
     @category = Category.find(params[:id])
     @products = @category.products #.paginate(:page => params[:page])
@@ -29,8 +41,9 @@ class CategoriesController < ApplicationController
   end
 
   def manufacturer_carrier
-
-    @manufacturers = Manufacturer.find(params[:id])
+    #add_breadcrumb "Manufacturer", :root_path, :title => "Manufacturer"
+    #add_breadcrumb "index", index_path, :title => "Back to the Index"
+    @manufacturers = Manufacturer.find(params[:manufact_id])
     @carriers =  @manufacturers.carriers
     session[:manufact_id] = params[:id]
     #@products = Product.where(:manufacturer_id => params[:id],:category_id => params[:cat_id])
@@ -38,7 +51,7 @@ class CategoriesController < ApplicationController
   end
 
   def carrier_product
-
+    #add_breadcrumb "Carrier", :root_path
     @products = Product.where(:manufacturer_id => session[:manufact_id],:category_id => params[:cat_id],:carrier_id => params[:id])
 
     #@products = Product.final_product(params[:cat_id],params[:id])
@@ -111,6 +124,7 @@ class CategoriesController < ApplicationController
       end
     end
   end
+
 
   # DELETE /categories/1
   # DELETE /categories/1.xml

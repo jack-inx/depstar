@@ -1,5 +1,6 @@
 class ManufacturersController < ApplicationController
   before_filter :authorize
+  add_breadcrumb "Manufacturer", :root_path
   
   # GET /manufacturers
   # GET /manufacturers.xml

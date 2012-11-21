@@ -65,19 +65,19 @@
   </div>
   <div class="field">
     <%= f.label :manufacturer %><br />
-	<%= f.collection_select "manufacturer_id", Manufacturer.all, :id, :name, :prompt => "Select" %>
+	<%= f.select :manufacturer_id, Manufacturer.all.map { |x| [x.name, x.id ]}, :prompt => "Select" %>
   </div>
-  <br>
+
   <div class="field">
     <%= f.label :category_id %><br />
 	<%= f.select :category_id, Category.all.map { |x| [x.name, x.id ]}, :prompt => "Select Category" %>
   </div>
-	<br />
+
   <div class="field">
     <%= f.label :carrier_id %><br />
   <%= f.select :carrier_id, Carrier.all.map { |x| [x.name, x.id ]}, :prompt => "Select Carrier" %>
   </div>
-
+	
   <div class="field">
     <%= f.label :photo %><br />
     <%= f.file_field :photo %>
