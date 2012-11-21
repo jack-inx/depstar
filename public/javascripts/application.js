@@ -30,6 +30,7 @@ $(document).ready(function() {
 		});
 	});
 	
+	/*
 	$("#item_select_button").live('click',function(event){
 		event.preventDefault();
 						
@@ -37,6 +38,7 @@ $(document).ready(function() {
 		alert(item);
 		
 	});
+*/
 });
 
 /*
