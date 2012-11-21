@@ -2239,4 +2239,33 @@ background: linear-gradient(to bottom,  #ffffff 0%,#ffffff 64%,#e9e9e9 100%);
 display : none;
 }
 
+.admin_header{
+	float: left;
+	margin: 5px;
+}
 
+table.hovertable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+	width: 400px;
+}
+table.hovertable th {
+	background-color:#c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.hovertable tr {
+	background-color:#d4e3e5;
+}
+table.hovertable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
