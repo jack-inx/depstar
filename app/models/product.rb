@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :manufacturer
+  belongs_to :carrier
   
   has_many :shipping_details
   

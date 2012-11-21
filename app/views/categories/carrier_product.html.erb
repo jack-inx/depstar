@@ -33,8 +33,9 @@
 							<% slice.each do |product| %>
 								<% @counter += 1 %>
 							<td width=177px>
-								<%= link_to image_tag(product.photo.url(:small)), product %>
-								<p><%= product.name %></p><%= link_to "Sell Now", product, :class => "sell" %>
+								<%#= link_to image_tag(carrier.photo.url(:small)), carrier %>
+				 	    		<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), product %>
+								<p><%= link_to product.name,product %></p>
 							</td>							
 							<% end %>
 							<% for i in @counter.. @products.count - 8 %>

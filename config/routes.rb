@@ -10,7 +10,9 @@ Trunk::Application.routes.draw do
   end
   
   # checkout wizard
-  match 'manufact_product' => 'categories#final_product'
+  match 'carrier_product' => 'categories#carrier_product'
+  match 'manufact_carrier' => 'categories#manufacturer_carrier'
+  match 'product_list' => 'categories#carrier_product'
 
   resources :checkout_steps
   match 'checkout_steps/done', :controller => :checkout_steps, :action => :done

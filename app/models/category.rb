@@ -4,10 +4,10 @@ class Category < ActiveRecord::Base
   has_many :products
   has_and_belongs_to_many :manufacturers
   
-  attr_accessor :photo_file_name
-  attr_accessor :photo_content_type
-  attr_accessor :photo_file_size
-  attr_accessor :photo_updated_at
+  #attr_accessor :photo_file_name
+  #attr_accessor :photo_content_type
+  #attr_accessor :photo_file_size
+  #attr_accessor :photo_updated_at
 
   has_attached_file :photo,
                   :default_url => "http://depstar.com/assets/:class/missing_:style.gif", 
