@@ -3,6 +3,7 @@ Trunk::Application.routes.draw do
   match 'categories/show/' => 'categories#show' # For the homepage form
   resources :question_response
   resources :categories
+  resources :carriers
   
   resources :categories do
     get :grades, :on => :member
