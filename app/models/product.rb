@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+  
+  attr_accessible           :name, :description, :price, :is_popular, :photo, :carrier_id,
+                            :category_id, :manufacturer_id 
   belongs_to :category
   belongs_to :manufacturer
   belongs_to :carrier

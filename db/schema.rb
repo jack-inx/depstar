@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121120133331) do
+ActiveRecord::Schema.define(:version => 20121121073535) do
 
   create_table "carriers", :force => true do |t|
     t.string   "name"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20121120133331) do
     t.integer  "question_1_option_2_price"
     t.integer  "question_2_option_1_price"
     t.integer  "question_2_option_2_price"
+    t.string   "carrier_id"
   end
 
   create_table "question_options", :force => true do |t|

@@ -54,10 +54,7 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :manufacturer %><br />
-		<%= f.collection_select "manufacturer_id", Manufacturer.all, :id, :name, :prompt => "Select" %>
-  </div>
+  
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_field :description %>
@@ -67,142 +64,24 @@
     <%= f.text_field :price %>
   </div>
   <div class="field">
-    <%= f.label :is_popular %><br />
-    <%= f.check_box :is_popular %>
+    <%= f.label :manufacturer %><br />
+	<%= f.collection_select "manufacturer_id", Manufacturer.all, :id, :name, :prompt => "Select" %>
   </div>
+  <br>
   <div class="field">
     <%= f.label :category_id %><br />
-	<%= f.collection_select "category_id", Category.all, :id, :name, :prompt => "Select" %>
+	<%= f.select :category_id, Category.all.map { |x| [x.name, x.id ]}, :prompt => "Select Category" %>
   </div>
-
+	<br />
   <div class="field">
     <%= f.label :carrier_id %><br />
-  <%= f.collection_select "carrier_id", Carrier.all, :id, :name, :prompt => "Select" %>
+  <%= f.select :carrier_id, Carrier.all.map { |x| [x.name, x.id ]}, :prompt => "Select Carrier" %>
   </div>
-
 
   <div class="field">
     <%= f.label :photo %><br />
     <%= f.file_field :photo %>
-  </div>
-  
-  
-    <div style="padding: 5px; margin: 5px; border: 1px solid gray; width: 300px;">
-    <h3>Question 1</h3>
-    <div class="field">
-      <%= f.label :question_1_is_enabled, "Is Enabled?" %><br />
-      <%= f.check_box :question_1_is_enabled %>
-    </div>
-    <div class="field">
-    <%= f.label :question_1_name, "Name" %><br />
-    <%= f.text_field :question_1_name %>
-    </div>
-
-    <div class="field">
-    <%= f.label :question_1_option_1_multiplier, "Option 1 Multiplier" %><br />
-    <%= f.text_field :question_1_option_1_multiplier %>
-    </div>
-    <div class="field">
-    <%= f.label :question_1_option_1_price, "Option 1 Price" %><br />
-    <%= f.text_field :question_1_option_1_price %>
-    </div>
-
-    <div class="field">
-    <%= f.label :question_1_option_2_multiplier, "Option 2 Multiplier" %><br />
-    <%= f.text_field :question_1_option_2_multiplier %>
-    </div>
-    <div class="field">
-    <%= f.label :question_1_option_2_price, "Option 2 Price" %><br />
-    <%= f.text_field :question_1_option_2_price %>
-    </div>
-
-  </div>
-
-  <div style="padding: 5px; margin: 5px; border: 1px solid gray; width: 300px;">
-    <h3>Question 2</h3>
-    <div class="field">
-      <%= f.label :question_2_is_enabled, "Is Enabled?" %><br />
-      <%= f.check_box :question_2_is_enabled %>
-    </div>
-    <div class="field">
-    <%= f.label :question_2_name, "Name" %><br />
-    <%= f.text_field :question_2_name %>
-    </div>
-
-    <div class="field">
-    <%= f.label :question_2_option_1_multiplier, "Option 1 Multiplier" %><br />
-    <%= f.text_field :question_2_option_1_multiplier %>
-    </div>
-    <div class="field">
-    <%= f.label :question_2_option_1_price, "Option 1 Price" %><br />
-    <%= f.text_field :question_2_option_1_price %>
-    </div>
-
-    <div class="field">
-    <%= f.label :question_2_option_2_multiplier, "Option 2 Multiplier" %><br />
-    <%= f.text_field :question_2_option_2_multiplier %>
-    </div>
-    <div class="field">
-    <%= f.label :question_2_option_2_price, "Option 2 Price" %><br />
-    <%= f.text_field :question_2_option_2_price %>
-    </div>
-  </div>
-
-  <div style="padding: 5px; margin: 5px; border: 1px solid gray; width: 300px;">
-    <h3>Question 3</h3>
-    <div class="field">
-      <%= f.label :question_3_is_enabled, "Is Enabled?" %><br />
-      <%= f.check_box :question_3_is_enabled %>
-    </div>
-    <div class="field">
-    <%= f.label :question_3_name, "Name" %><br />
-    <%= f.text_field :question_3_name %>
-    </div>
-
-    <div class="field">
-    <%= f.label :question_3_option_1_multiplier, "Option 1 Multiplier" %><br />
-    <%= f.text_field :question_3_option_1_multiplier %>
-    </div>
-
-    <div class="field">
-    <%= f.label :question_3_option_2_multiplier, "Option 2 Multiplier" %><br />
-    <%= f.text_field :question_3_option_2_multiplier %>
-    </div>
-
-    <div class="field">
-    <%= f.label :question_3_option_3_multiplier, "Option 3 Multiplier" %><br />
-    <%= f.text_field :question_3_option_3_multiplier %>
-    </div>
-
-    <div class="field">
-    <%= f.label :question_3_option_4_multiplier, "Option 4 Multiplier" %><br />
-    <%= f.text_field :question_3_option_4_multiplier %>
-    </div>
-
-  </div>
-
-  <div style="padding: 5px; margin: 5px; border: 1px solid gray; width: 300px;">
-    <h3>Question 4</h3>
-    <div class="field">
-      <%= f.label :question_4_is_enabled, "Is Enabled?" %><br />
-      <%= f.check_box :question_4_is_enabled %>
-    </div>
-
-    <div class="field">
-    <%= f.label :question_4_name, "Name" %><br />
-    <%= f.text_field :question_4_name %>
-    </div>
-
-    <div class="question_options admin_details">
-      <%= f.fields_for :question_options do |builder| %>
-        <%= render "question_option_fields", :f => builder %>
-      <% end %>
-      <p><%= link_to_add_fields "Add Question Option", f, :question_options %></p>
-    </div>
-  
-  </div>  
-  
-  
+  </div> 
   
   <div class="actions">
     <%= f.submit %>
