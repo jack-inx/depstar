@@ -14,19 +14,17 @@
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
-  </div>
-
+  </div> 
+  
+  
+	
   <div class="field">
     <%= f.label :image %><br />
     <%= f.file_field :image %>
   </div>
-  
-  <div class="field">    
-    <%= f.label :manufacturer %><br />
-    <%= f.select :manufacturer_ids, Manufacturer.all.collect{|x|[x.name,x.id]}, {}, :multiple => true %>  
-  </div>
-
+	
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+<br />

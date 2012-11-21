@@ -1,58 +1,12 @@
-<% content_for :title, "Sell " + @category.name + " - " %>
+<%= render :file => "/admin/index"  %>
+
 <p id="notice"><%= notice %></p>
 
-
-		<div class="product">
-			<!-- <h2>Sell your Blackberry cell phone <span>Choose your carrier</span></h2>
-						<ul class="carrier">
-							<li>
-								<a href="#"><span><img src="/images/logo1.png" alt="image description" width="146" height="66" /></span></a>
-							</li>
-							<li>
-								<a href="#"><span><img src="/images/logo2.png" alt="image description" width="118" height="66" /></span></a>
-							</li>
-							<li>
-								<a href="#"><span><img src="/images/logo3.png" alt="image description" width="161" height="67" /></span></a>
-							</li>
-							<li>
-								<a href="#"><span><img src="/images/logo4.png" alt="image description" width="170" height="28" /></span></a>
-							</li>
-						</ul> -->
-			<div class="items-holder">				
-				<table class="sell-table">
-					<thead>
-						<tr>
-							<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
-							<td colspan="5">Select your Manufacturers</td>
-						</tr>
-					</thead>
-					<tbody>
-						<% if @manufacturer_list.count != 0  %>
-							<% @manufacturer_list.each_slice(@manufacturer_list.count) do |manufacturer| -%>
-						 	<tr>
-						 		 <% @counter = 0 %>
-						 	 	<% manufacturer.each do |manufact| %>
-						 	   	<% @counter += 1 %>
-						 	   	<td width=177px>
-						 	   		<% if manufact.photo_file_name.nil? %>
-						 	    		<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), manufact %>
-						 	    	<% else %>				 	    		
-						 	   	        <%= link_to image_tag(manufact.photo.url(:small)), manufact %>
-						 	   	     <% end %>   
-						 	   	 	<p><%= link_to manufact.name, manufact_product_path(:cat_id=>params[:id],:id=>manufact.id) %></p>
-						 	   	</td>
-						 	 	<% end %>
-						 	 	<% for i in @counter..@manufacturer_list.count - 1  %>
-									<td></td>
-								<% end %>
-								</tr>
-						 	</tr> 	
-							<% end %>
-						<% end %>	
-							
-					</tbody>
-				</table>
-			</div>
-		</div>
+<p>
+  <b>Name:</b>
+  <%= @category.name %>
+</p>
 
 
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back to Categories', categories_path %>

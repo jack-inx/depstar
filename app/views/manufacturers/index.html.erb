@@ -1,13 +1,8 @@
-<h1>Manufacturers</h1>
+<%= render :file => "/admin/index"  %>
+<h2>Manufacturers</h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<table class="hovertable">
+  
 <% @manufacturers.each do |manufacturer| %>
   <tr>
     <td><%= manufacturer.name %></td>
@@ -20,4 +15,4 @@
 
 <br />
 
-<%= link_to 'New Manufacturer', new_manufacturer_path %>
+<%= link_to ' Create New Manufacturer', new_manufacturer_path %>

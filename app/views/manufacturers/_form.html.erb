@@ -15,7 +15,11 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-
+	
+	<div class="field">    
+    <%= f.label :carriers %><br />
+    <%= f.select :carrier_ids, Carrier.all.collect{|x|[x.name,x.id]}, {}, :multiple => true %>    
+    </div>
    <div class="field">
     <%= f.label :photo %><br />
     <%= f.file_field :photo %>
@@ -25,3 +29,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+<br />

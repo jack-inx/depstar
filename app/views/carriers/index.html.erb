@@ -1,12 +1,8 @@
-<h1>Carriers</h1>
+<%= render :file => "/admin/index"  %>
+<h2>Carriers</h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="hovertable">
+  
 
 <% @carriers.each do |carrier| %>
   <tr>
@@ -20,4 +16,4 @@
 
 <br />
 
-<%= link_to 'New Carrier', new_carrier_path %>
+<%= link_to 'Create New Carrier', new_carrier_path %>
