@@ -916,7 +916,7 @@ jcf.lib = {
 // custom select module
 jcf.addModule({
 	name:'select',
-	selector:'select#id',	
+	selector: 'select#id',	
 	defaultOptions: {
 		showNativeDrop: false,
 		handleDropPosition: true,
