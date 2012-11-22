@@ -2,6 +2,7 @@ Trunk::Application.routes.draw do
 
   match 'search' => 'categories#search_filter'  
   match 'categories/show/' => 'categories#show' # For the homepage form
+  
   resources :question_response
   resources :categories
   resources :carriers
@@ -12,7 +13,7 @@ Trunk::Application.routes.draw do
   
   # checkout wizard
   match 'carrier_product' => 'categories#carrier_product'
-
+  match "/get_by_javascript"  => 'categories#get_manufacturer'
 
   match 'manufact_carrier' => 'manufacturers#manufacturer_carrier'
   match 'product_list' => 'categories#carrier_product'

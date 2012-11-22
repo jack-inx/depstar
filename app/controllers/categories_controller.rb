@@ -138,4 +138,19 @@ class CategoriesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def get_manufacturer
+    if params[:field].eql?("category")
+       @category = Category.find(params[:id])
+       @data = @category.manufacturers
+          
+    elsif params[:field].eql?("manufacturer")
+       @manufacturer = Manufacturer.find(params[:id])
+       @data = @manufacturer.carriers
+    end   
+    
+    respond_to do |format|
+      format.json { render :json => @data }
+    end
+  end
 end

@@ -1,9 +1,9 @@
-		
-	<h1>Shipping Requests</h1>
+<%= render :file => "/admin/index"  %>		
+	<h2>Shipping Requests</h2>
 	
 	<%= will_paginate @shipping_details, :container => false %>
 	
-	<table>
+	<table class="hovertable">
 	  <tr>
 	    <th>Name</th>
 	    <th>Email</th>
