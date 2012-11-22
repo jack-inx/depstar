@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
-  before_filter :authorize, :except => [:index, :show, :grades]
+  before_filter :authorize, :except => [:index, :show, :grades,:search_filter]
   before_filter :xml_authorize, :include => [:index, :grades]
-  #add_breadcrumb "Manufacturer", :root_path
+  add_breadcrumb "Categories", :root_path
 
   # GET /categories
   # GET /categories.xml
@@ -40,16 +40,16 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def manufacturer_carrier
+  #def manufacturer_carrier
     #add_breadcrumb "Manufacturer", :root_path, :title => "Manufacturer"
     #add_breadcrumb "index", index_path, :title => "Back to the Index"
-    @manufacturers = Manufacturer.find(params[:manufact_id])
-    @carriers =  @manufacturers.carriers
-    session[:manufact_id] = params[:manufact_id]
+  #  @manufacturers = Manufacturer.find(params[:manufact_id])
+  #  @carriers =  @manufacturers.carriers
+  #  session[:manufact_id] = params[:manufact_id]
 
     #@products = Product.where(:manufacturer_id => params[:id],:category_id => params[:cat_id])
     #@products = Product.final_product(params[:cat_id],params[:id])
-  end
+  #end
 
   def carrier_product
     #add_breadcrumb "Carrier", :root_path
