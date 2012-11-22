@@ -1,6 +1,6 @@
 class ManufacturersController < ApplicationController
   before_filter :authorize,:except => [:manufacturer_carrier]
-  add_breadcrumb "Manufacturer", :root_path
+  #add_breadcrumb "Manufacturer", :root_path
   
   # GET /manufacturers
   # GET /manufacturers.xml
