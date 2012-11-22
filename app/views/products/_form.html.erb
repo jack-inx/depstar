@@ -66,6 +66,7 @@
   <div class="field">
     <%= f.label :manufacturer %><br />
 	<%= f.select :manufacturer_id, Manufacturer.all.map { |x| [x.name, x.id ]}, :prompt => "Select Manufacturer" %>
+
   </div>
 
   <div class="field">

@@ -72,6 +72,7 @@ class CarriersController < ApplicationController
     end
   end
 
+
   # DELETE /manufacturers/1
   # DELETE /manufacturers/1.xml
   def destroy

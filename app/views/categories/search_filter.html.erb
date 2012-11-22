@@ -1,3 +1,4 @@
+<%#= render_breadcrumbs :separator => ' / ' %>
 
 <p id="notice"><%= notice %></p>
 
@@ -23,22 +24,22 @@
 					<thead>
 						<tr>
 							<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
-							<td colspan="5">Select your Carriers</td>
+							<td colspan="5">Select your Manufactures</td>
 						</tr>
 					</thead>
 					<tbody>
-						<% @carriers.each_slice(5) do |slice| -%>
+						<% @manufacturer_list.each_slice(5) do |slice| -%>
 						<tr>
 							<% @counter = 0 %>
-							<% slice.each do |carrier| %>
+							<% slice.each do |manufact| %>
 								<% @counter += 1 %>
 							<td width=177px>
 								<%#= link_to image_tag(carrier.photo.url(:small)), carrier %>
-				 	    		<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier %>
-								<p><%= link_to carrier.name, carrier_product_path(:cat_id=>params[:cat_id],:manufact_id => params[:manufact_id],:id=>carrier.id) %></p>
+				 	    		<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), manufact %>
+								<p><%= link_to manufact.name, manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact.id) %></p>
 							</td>							
 							<% end %>
-							<% for i in @counter.. @carriers.count - 8 %>
+							<% for i in @counter.. @manufacturer_list.count - 8 %>
 								<td></td>
 							<% end %>
 							</tr>

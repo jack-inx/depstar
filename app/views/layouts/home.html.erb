@@ -28,7 +28,7 @@
 				<div class="product">
 					<h2>Sell your iPhone, iPad and more for cash.</h2>
 					<!-- <form action="#" class="product-search"> -->
-						<%= form_tag('/categories/show', :method => :get, :class => 'product-search') do %>
+						<%= form_tag(search_path, :method => :get, :class => 'product-search') do %>
 						<%#= form_tag(product_path(:product_id), :method => :get, :class => 'product-search') do %>
 						<%#= form_tag( products_path, :method => "get", :class => "product-search", :id => 'product[product_id]') do |f| %>
 						<%#= form_tag( :id => 'form_id', :controller => 'products', :action => 'show', :id=>'2') do |f| %>
