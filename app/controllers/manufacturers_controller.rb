@@ -1,6 +1,6 @@
 class ManufacturersController < ApplicationController
-  before_filter :authorize
-  
+  before_filter :authorize,:except => [:manufacturer_carrier]
+  #add_breadcrumb "Manufacturer", :root_path
   
   # GET /manufacturers
   # GET /manufacturers.xml
@@ -12,6 +12,18 @@ class ManufacturersController < ApplicationController
       format.xml  { render :xml => @manufacturers }
     end
   end
+
+  def manufacturer_carrier
+    #add_breadcrumb "Manufacturer", :root_path, :title => "Manufacturer"
+    #add_breadcrumb "index", index_path, :title => "Back to the Index"
+    @manufacturers = Manufacturer.find(params[:manufact_id])
+    @carriers =  @manufacturers.carriers
+    session[:manufact_id] = params[:manufact_id]
+
+    #@products = Product.where(:manufacturer_id => params[:id],:category_id => params[:cat_id])
+    #@products = Product.final_product(params[:cat_id],params[:id])
+  end
+
 
   # GET /manufacturers/1
   # GET /manufacturers/1.xml
