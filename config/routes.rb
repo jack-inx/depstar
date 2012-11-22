@@ -14,7 +14,7 @@ Trunk::Application.routes.draw do
   match 'carrier_product' => 'categories#carrier_product'
 
 
-  match 'manufact_carrier' => 'categories#manufacturer_carrier'
+  match 'manufact_carrier' => 'manufacturers#manufacturer_carrier'
   match 'product_list' => 'categories#carrier_product'
 
   resources :checkout_steps
