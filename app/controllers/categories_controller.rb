@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_filter :authorize, :except => [:index, :show, :grades,:search_filter,:carrier_product]
+  before_filter :authorize, :except => [:index, :show, :grades, :search_filter, :carrier_product]
   before_filter :xml_authorize, :include => [:index, :grades]
   #add_breadcrumb "Categories", :root_path
 
@@ -25,7 +25,6 @@ class CategoriesController < ApplicationController
     @manufacturer_list = @category.manufacturers
 
   end    
-
 
 
   def show
