@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_filter :authorize, :except => [:index, :show, :grades,:search_filter]
   before_filter :xml_authorize, :include => [:index, :grades]
-  add_breadcrumb "Categories", :root_path
+  #add_breadcrumb "Categories", :root_path
 
   # GET /categories
   # GET /categories.xml
