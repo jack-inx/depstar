@@ -63,15 +63,15 @@
     <%= f.label :price %><br />
     <%= f.text_field :price %>
   </div>
-  <div class="field">
-    <%= f.label :manufacturer %><br />
-	<%= f.select :manufacturer_id, Manufacturer.all.map { |x| [x.name, x.id ]}, :prompt => "Select Manufacturer" %>
-
-  </div>
-
+  
   <div class="field">
     <%= f.label :category_id %><br />
 	<%= f.select :category_id, Category.all.map { |x| [x.name, x.id ]}, :prompt => "Select Category" %>
+  </div>
+		
+  <div class="field">
+    <%= f.label :manufacturer %><br />
+	<%= f.select :manufacturer_id, Manufacturer.all.map { |x| [x.name, x.id ]}, :prompt => "Manufacturer" %>
   </div>
 
   <div class="field">

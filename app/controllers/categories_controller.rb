@@ -138,4 +138,13 @@ class CategoriesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def get_manufacturer
+    @category = Category.find(params[:id])
+    @manufacturers = @category.manufacturers
+    
+    respond_to do |format|
+      format.json { render :json => @manufacturers }
+    end
+  end
 end
