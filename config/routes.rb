@@ -7,6 +7,8 @@ Trunk::Application.routes.draw do
   resources :categories
   resources :carriers
   
+  resources :series_lists
+  
   resources :categories do
     get :grades, :on => :member
   end

@@ -1,9 +1,16 @@
 <%= render :file => "/admin/index"  %>
 <p id="notice"><%= notice %></p>
-
+<h2>Manufacturer</h2>
 <p>
   <b>Name:</b>
   <%= @manufacturer.name %>
+</p>
+<p>
+  <b>Carriers:</b>
+  <br>
+  <% @manufacturer.carriers.each do |carrier| %>
+  	<%=  carrier.name  %><br>
+  <% end %>
 </p>
 
 

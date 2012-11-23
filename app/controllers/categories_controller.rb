@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  
   before_filter :authorize, :except => [:index, :show, :grades, :search_filter, :carrier_product]
   before_filter :xml_authorize, :include => [:index, :grades]
   #add_breadcrumb "Categories", :root_path
@@ -16,15 +17,7 @@ class CategoriesController < ApplicationController
   end
 
   # GET /categories/1
-  # GET /categories/1.xml
-
-  def search_filter
-    @category = Category.find(params[:id])
-    @products = @category.products #.paginate(:page => params[:page])
-
-    @manufacturer_list = @category.manufacturers
-
-  end    
+  # GET /categories/1.xml 
 
 
   def show
@@ -39,22 +32,10 @@ class CategoriesController < ApplicationController
     end
   end
 
-  #def manufacturer_carrier
-    #add_breadcrumb "Manufacturer", :root_path, :title => "Manufacturer"
-    #add_breadcrumb "index", index_path, :title => "Back to the Index"
-  #  @manufacturers = Manufacturer.find(params[:manufact_id])
-  #  @carriers =  @manufacturers.carriers
-  #  session[:manufact_id] = params[:manufact_id]
-
-    #@products = Product.where(:manufacturer_id => params[:id],:category_id => params[:cat_id])
-    #@products = Product.final_product(params[:cat_id],params[:id])
-  #end
-
+  
   def carrier_product
     #add_breadcrumb "Carrier", :root_path
-
     @products = Product.where(:manufacturer_id => session[:manufact_id],:category_id => params[:cat_id],:carrier_id => params[:id])
-
     #@products = Product.final_product(params[:cat_id],params[:id])
   end
 
@@ -153,4 +134,13 @@ class CategoriesController < ApplicationController
       format.json { render :json => @data }
     end
   end
+  
+  
+  def search_filter
+    @category = Category.find(params[:id])
+    if @category.name.eql?("iPhones") or @category.name.eql?("iPod") or @category.name.eql?("iPad")
+      @apple_product = true   
+      logger.info "################## apple product #{@apple_product}   #############################33"   
+    end      
+  end  
 end

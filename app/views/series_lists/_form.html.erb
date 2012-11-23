@@ -1,0 +1,27 @@
+<%= form_for(@series_list) do |f| %>
+  <% if @series_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@series_list.errors.count, "error") %> prohibited this series_list from being saved:</h2>
+
+      <ul>
+      <% @series_list.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.select :category_id, @categories.map { |x| [x.name, x.id ]} %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

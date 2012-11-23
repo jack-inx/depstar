@@ -1,53 +1,66 @@
 <%#= render_breadcrumbs :separator => ' / ' %>
 
-<p id="notice"><%= notice %></p>
+<p id="notice">
+	<%= notice %>
+</p>
 
-
-		<div class="product">
-			<!-- <h2>Sell your Blackberry cell phone <span>Choose your carrier</span></h2>
-						<ul class="carrier">
-							<li>
-								<a href="#"><span><img src="/images/logo1.png" alt="image description" width="146" height="66" /></span></a>
-							</li>
-							<li>
-								<a href="#"><span><img src="/images/logo2.png" alt="image description" width="118" height="66" /></span></a>
-							</li>
-							<li>
-								<a href="#"><span><img src="/images/logo3.png" alt="image description" width="161" height="67" /></span></a>
-							</li>
-							<li>
-								<a href="#"><span><img src="/images/logo4.png" alt="image description" width="170" height="28" /></span></a>
-							</li>
-						</ul> -->
-			<div class="items-holder">				
-				<table class="sell-table">
-					<thead>
-						<tr>
-							<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
-							<td colspan="5">Select your Manufactures</td>
-						</tr>
-					</thead>
-					<tbody>
-						<% @manufacturer_list.each_slice(5) do |slice| -%>
-						<tr>
-							<% @counter = 0 %>
-							<% slice.each do |manufact| %>
-								<% @counter += 1 %>
-							<td width=177px>
-								<%#= link_to image_tag(carrier.photo.url(:small)), carrier %>
-				 	    		<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), manufact %>
-								<p><%= link_to manufact.name, manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact.id) %></p>
-							</td>							
-							<% end %>
-							<% for i in @counter.. @manufacturer_list.count - 8 %>
-								<td></td>
-							<% end %>
-							</tr>
-						<% end %>
-							
-					</tbody>
-				</table>
-			</div>
-		</div>
-
+<div class="product">
+	<div class="items-holder">
+		
+	<% if !@apple_product.eql?(true) %>	
+		
+		<table class="sell-table">
+			<thead>
+				<tr>
+					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
+					<td colspan="5">Select your Manufactures</td>
+				</tr>
+			</thead>
+			<tbody>
+				<% @category.manufacturers.each_slice(5) do |slice| -%>
+				<tr>
+					<% @counter = 0 %>
+					<% slice.each do |manufact| %>
+					<% @counter += 1 %>
+						<td> 
+							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), manufact %>
+							<p>
+								<%= link_to manufact.name, manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact.id) %>
+							</p>
+						</td>
+					<% end %>					
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<% else %>
+			<table class="sell-table">
+			<thead>
+				<tr>
+					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
+					<td colspan="5">Select any Product from Series </td>
+				</tr>
+			</thead>
+			<tbody>
+				<% @category.series_lists.each_slice(5) do |slice| -%>
+				<tr>
+					<% @counter = 0 %>
+					<% slice.each do |manufact| %>
+					<% @counter += 1 %>
+						<td> 
+							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact.id) %>
+							<p>
+								<%= link_to manufact.name, manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact.id) %>
+							</p>
+						</td>
+					<% end %>					
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<% end %>	
+		
+				
+	</div>
+</div>
 
