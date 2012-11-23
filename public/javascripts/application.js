@@ -52,7 +52,12 @@ $(document).ready(function() {
 					id : id
 				},
 				success : function(data) {
-					$("#product_manufacturer_id").html(data);				
+					 var options = '';
+					$(data).each(function(index, value) {
+    					options += "<option value='"+value.manufacturer.id+"'>"+value.manufacturer.name+"</option>";
+					});
+					
+					$("#product_manufacturer_id").html(options);				
 				},
 				error : function(data) {
 					
@@ -62,6 +67,36 @@ $(document).ready(function() {
 
 		}).trigger('change');
 	
+	$("#product_manufacturer_id").change(function() 
+		{
+			$("select#product_manufacturer_id option:selected").each(function() 
+			{
+				var field = "manufacturer";
+				var id = $(this).val();
+				
+				$.ajax({
+				url : "/get_by_javascript",
+				type : "GET",
+				dataType : "json",
+				data : {
+					field : field,
+					id : id
+				},
+				success : function(data) {
+					 var options = '';
+					$(data).each(function(index, value) {
+    					options += "<option value='"+value.carrier.id+"'>"+value.carrier.name+"</option>";
+					});
+					
+					$("#product_carrier_id").html(options);				
+				},
+				error : function(data) {
+					
+				}
+				});
+			});
+
+		}).trigger('change');
 	
 	
 		

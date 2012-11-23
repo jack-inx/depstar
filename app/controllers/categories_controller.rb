@@ -140,11 +140,19 @@ class CategoriesController < ApplicationController
   end
   
   def get_manufacturer
-    @category = Category.find(params[:id])
-    @manufacturers = @category.manufacturers
+
+    if params[:field].eql?("category")
+       @category = Category.find(params[:id])
+       @data = @category.manufacturers
+          
+    elsif params[:field].eql?("manufacturer")
+       @manufacturer = Manufacturer.find(params[:id])
+       @data = @manufacturer.carriers
+    end   
     
     respond_to do |format|
-      format.json { render :json => @manufacturers }
+      format.json { render :json => @data }
+
     end
   end
 end
