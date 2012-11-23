@@ -7,6 +7,13 @@
   <b>Name:</b>
   <%= @category.name %>
 </p>
+<p>
+  <b>Manufacturers:</b>
+  <br>
+  <% @category.manufacturers.each do |manufacturer| %>
+  	<%=  manufacturer.name  %><br>
+  <% end %>
+</p>
 
 
 
