@@ -36,7 +36,11 @@ columns do
   end
   column do
     panel "Total Orders" do
-        para ""
+      ul do
+        li "Categories Total Count: #{Category.all.count}"
+        li "Manufacturer Total Count: #{Manufacturer.all.count}"
+        li "Carriers Total Count: #{Carrier.all.count}"
+      end
     end
   end
 end
