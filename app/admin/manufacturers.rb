@@ -28,7 +28,7 @@ ActiveAdmin.register Manufacturer do
             end
             tr do
               th { 'Image' }
-              td { image_tag(manufacturer.image.url(:thumb), :alt => "Image not exists") }
+              td { image_tag(manufacturer.photo.url(:thumb), :alt => "Image not exists") }
             end            
           end # table
         end # attributes_table
