@@ -7,6 +7,7 @@ Trunk::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   match 'search' => 'categories#search_filter'  
+  match 'search_result' => 'categories#get_search_result' 
   match 'categories/show/' => 'categories#show' # For the homepage form
   
   resources :question_response

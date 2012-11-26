@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   
-  before_filter :authorize, :except => [:index, :show, :grades, :search_filter, :carrier_product]
+  before_filter :authorize, :except => [:index, :show, :grades, :search_filter,:get_search_result, :carrier_product]
   before_filter :xml_authorize, :include => [:index, :grades]
   #add_breadcrumb "Categories", :root_path
 
@@ -140,9 +140,19 @@ class CategoriesController < ApplicationController
   
   def search_filter
     @category = Category.find(params[:id])
-    if @category.name.eql?("iPhones") or @category.name.eql?("iPod") or @category.name.eql?("iPad")
+        
+    if @category.manufacturers.first.name.eql?("Apple")
       @apple_product = true   
-      logger.info "################## apple product #{@apple_product}   #############################33"   
+      logger.info "# apple product #{@apple_product}   ####"   
     end      
   end  
+  
+  def get_search_result
+     @products = Product.find_all_by_name(params[:name])
+     
+     if @products.count < 1
+       @products = Product.where("name LIKE ?","%#{params[:name]}%")
+     end     
+     render "categories/carrier_product"
+  end
 end

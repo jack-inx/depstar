@@ -15,7 +15,7 @@
 					<%= blog.description[0..20] %>... by User<%#= blog.user.name) %> <%= time_ago_in_words(blog.created_at) %> ago
 				</p>
 				<p>
-					<%= link_to 'More', blog %> | <%= link_to 'Post Blog', new_blog_path %>
+					<%= link_to 'More', blog %>  <%#= link_to 'Post Blog', new_blog_path %>
 				</p>
 				<br />
 				<% end %>

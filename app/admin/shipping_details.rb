@@ -13,5 +13,7 @@ ActiveAdmin.register ShippingDetail do
   end                                 
   filter :first_name
   filter :last_name
-  
+  filter :city
+  filter :email
+  filter :phone
 end

@@ -94,15 +94,17 @@ $(document).ready(function() {
 
 	}).trigger('change');
 
-	/*
-	 $("#item_select_button").live('click',function(event){
-	 event.preventDefault();
-
-	 var item = $("span.center.jcf-unselectable").text();
-	 alert(item);
-
+	
+	 $("#sell_now").live('click',function(event){
+	 	
+	 	var item = $("#name").val();
+	 	if (item == '' || item == "Sell your item")
+	 	{
+	 		alert(item);
+	 		event.preventDefault();	
+	 	} 	 	
 	 });
-	 */
+	 
 });
 
 /*

@@ -7,7 +7,7 @@
 <div class="product">
 	<div class="items-holder">
 		
-	<% if !@apple_product.eql?(true) %>	
+	<% if !@apple_product %>	
 		
 		<table class="sell-table">
 			<thead>
@@ -43,10 +43,8 @@
 			</thead>
 			<tbody>
 				<% @category.series_lists.each_slice(5) do |slice| -%>
-				<tr>
-					<% @counter = 0 %>
-					<% slice.each do |manufact| %>
-					<% @counter += 1 %>
+				<tr>					
+					<% slice.each do |manufact| %>					
 						<td> 
 							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact.id) %>
 							<p>

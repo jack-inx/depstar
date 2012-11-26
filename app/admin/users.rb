@@ -13,6 +13,10 @@ ActiveAdmin.register User do
   filter :username
   filter :email                       
 
-                                  
+   csv :separator => ';' do
+      column :username
+      column :email
+      column :created_at
+    end                          
 
 end

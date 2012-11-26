@@ -3,6 +3,7 @@ ActiveAdmin.register Product do
     column :name                     
     column :category
     column :manufacturer
+    column :series_list
     column :carrier
     column :price
     column :photo do |product|
@@ -41,6 +42,10 @@ ActiveAdmin.register Product do
             tr do
               th { 'price' }
               td { product.price }
+            end  
+             tr do
+              th { 'Series List' }
+              td { product.series_list.name }
             end          
             tr do
               th { 'Image' }
@@ -58,6 +63,7 @@ ActiveAdmin.register Product do
     f.inputs :description
     f.inputs :category
     f.inputs :manufacturer
+    f.inputs :series_list
     f.inputs :carrier   
     f.inputs :price
     f.inputs :photo, :as => :file, input_html: { multiple: true}

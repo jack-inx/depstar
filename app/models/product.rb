@@ -1,16 +1,17 @@
 class Product < ActiveRecord::Base
   
   attr_accessible           :name, :description, :price, :is_popular, :photo, :carrier_id,
-                            :category_id, :manufacturer_id 
+                            :category_id, :manufacturer_id , :series_list_id
   belongs_to :category
   belongs_to :manufacturer
   belongs_to :carrier
+  belongs_to :series_list
   
   has_many :shipping_details
   
   has_many :devices
 
-  validates_presence_of :price, :category_id  
+  validates_presence_of :price, :category_id, :manufacturer_id , :series_list_id
   validates_numericality_of :price
 
   has_attached_file :photo,

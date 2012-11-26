@@ -32,7 +32,7 @@ ActiveAdmin.register Category do
 
     f.inputs :name
     f.inputs :manufacturers
-    f.inputs :image, :as => :file, input_html: { multiple: true}
+    f.inputs :photo, :as => :file, input_html: { multiple: true}
     
     f.buttons                         
   end                                 
