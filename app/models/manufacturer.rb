@@ -2,7 +2,7 @@ class Manufacturer < ActiveRecord::Base
   
   has_many :products
   has_and_belongs_to_many   :categories
-  has_and_belongs_to_many   :carriers
+  has_and_belongs_to_many   :carriers, :join_table => :carriers_manufacturers
 
   attr_accessible   :name, :photo, :carrier_ids 
 

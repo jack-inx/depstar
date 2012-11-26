@@ -1,6 +1,6 @@
 class Carrier < ActiveRecord::Base
   
-  has_and_belongs_to_many  :manufacturers
+  has_and_belongs_to_many  :manufacturers, :join_table => :carriers_manufacturers
   has_many    :products
   
   attr_accessible :name, :image
@@ -13,4 +13,5 @@ class Carrier < ActiveRecord::Base
                   :path => ":rails_root/public/assets/categories/:id/:style/:basename.:extension"  
   
   validates       :name, :presence => true
+
 end
