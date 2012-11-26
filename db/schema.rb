@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(:version => 20121123115502) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
-
   create_table "carriers", :force => true do |t|
     t.string   "name"
     t.string   "image_file_name"

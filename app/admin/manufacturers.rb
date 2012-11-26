@@ -1,17 +1,32 @@
 ActiveAdmin.register Manufacturer do
   index do                            
     column :name                     
-    column :photo_file_name       
-
+  
     default_actions                   
   end                                 
   filter :name
 
-   form do |f|                         
-    f.inputs "Manufacturers" do       
-      f.text_field :name
-      f.select :carrier_id, :collection => Carrier.all.map(&:name)
-    end                               
+  show do |event|
+    attributes_table do
+      row :name
+    
+    end
+    active_admin_comments
+  end
+
+   form do |f|
+
+    f.inputs :name
+
+    f.inputs "Carriers" do
+            f.input :id, :label => "Select Carriers",  
+                :as => :select, 
+                :multiple => true, 
+                :collection => Carrier.all,
+                :selected => "Select Carriers"
+    end
+    #f.select :carrier_ids, :collection => Carrier.all.map(&:name)
+    
     f.buttons                         
   end                                 
  
