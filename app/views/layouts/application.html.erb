@@ -1,90 +1,87 @@
-
 <%= render 'layouts/inner_head' %>
 <body>
 	<div id="wrapper">
-						<%= render 'layouts/header' %>
-						<div id="main">
-							<div class="holder">
-													<%= yield %>
-							
-<!-- 							
-													<div class="popular-searches">
-														<div class="holder">
-															<div class="frame">
-																<h2><strong>Popular Searches</strong></h2>
-																<div class="links-area">
-																	<ul>
-																		<li><a href="/">Sell Electronics</a></li>
-																		<li><a href="/">Sell Used Electronics</a></li>	
-																		<li><a href="/">Sell Cell Phone</a></li>
-																		<li><a href="/">Sell My Phone</a></li>
-																		<li><a href="/categories/1-iphones">Sell My iPhone</a></li>
-																		<li><a href="/categories/1-iphones">Sell iPhone</a></li>
-																		<li><a href="/search?name=iphone%203g">Sell iPhone 3G</a></li>
-																		<li><a href="/search?name=iphone%203gs">Sell iPhone 3GS</a></li>
-																		<li><a href="/search?name=iphone%204">Sell iPhone 4</a></li>
-																		<li><a href="/search?name=iphone%204s">Sell iPhone 4S</a></li>
-																	</ul>
-																	<ul>
-																		<li><a href="/categories/3-ipad">Sell iPad</a></li>
-																		<li><a href="/categories/5-ipods">Sell iPod</a></li>
-																		<li><a href="/categories/2-laptops">Sell MacBook</a></li>
-																		<li><a href="/categories/8-blackberry">Sell Blackberry</a></li>
-																		<li><a href="/categories/10-android">Sell Droid</a></li>
-																		<li><a href="/">Sell Broken Electronics</a></li>
-																		<li><a href="/">Sell Broken Cell Phone</a></li>
-																		<li><a href="/">Sell Broken Phone</a></li>
-																		<li><a href="/">Sell Broken iPhone</a></li>
-																		<li><a href="/">Sell My Broken iPhone</a></li>
-																	</ul>
-																	<ul>	
-																		<li><a href="/search?name=iphone%203g">Sell Broken iPhone 3G</a></li>
-																		<li><a href="/search?name=iphone%203gs">Sell Broken iPhone 3GS</a></li>
-																		<li><a href="/search?name=iphone%204">Sell Broken iPhone 4</a></li>
-																		<li><a href="/search?name=iphone%204s">Sell Broken iPhone 4S</a></li>
-																		<li><a href="/categories/3-ipad">Sell Broken iPad</a></li>
-																		<li><a href="/categories/5-ipods">Sell broken iPod</a></li>
-																		<li><a href="/categories/2-laptops">Sell Broken MacBook</a></li>
-																		<li><a href="/categories/8-blackberry">Sell Broken Blackberry</a></li>
-																		<li><a href="/categories/10-android">Sell Broken Droid</a></li>
-																		<li><a href="/">Recycle Electronics</a></li>
-																	</ul>
-																	<ul>
-																		<li><a href="/">Recycle Used Electronics</a></li>
-																		<li><a href="/">Recycle Cell Phone</a></li>
-																		<li><a href="/">Recycle My Cell Phone</a></li>
-																		<li><a href="/categories/1-iphones">Recycle iPhone</a></li>
-																		<li><a href="/categories/1-iphones">Recycle My iPhone</a></li>
-																		<li><a href="/categories/5-ipods">Recycle iPod</a></li>
-																		<li><a href="/categories/3-ipad">Recycle iPad</a></li>
-																		<li><a href="/categories/2-laptops">Recycle MacBook</a></li>
-																		<li><a href="/categories/8-blackberry">Recycle Droid</a></li>
-																		<li><a href="/categories/10-android">Recycle Broken iPhone</a></li>
-																	</ul>
-																	<ul>
-																		<li><a href="/categories/1-iphones">Recycle My iPhone</a></li>
-																		<li><a href="/categories/3-ipad">Recycle My iPad</a></li>
-																		<li><a href="/categories/5-ipods">Recycle My iPod</a></li>
-																		<li><a href="/categories/2-laptops">Recycle My MacBook</a></li>
-																		<li><a href="/categories/1-iphones">Trade In iPhone</a></li>
-																		<li><a href="/categories/1-iphones">Trade In My iPhone</a></li>
-																		<li><a href="/categories/3-ipad">Trade In iPad</a></li>
-																		<li><a href="/categories/3-ipad">Trade in My iPad</a></li>
-																		<li><a href="/categories/2-laptops">Trade In MacBook</a></li>
-																		<li><a href="/categories/2-laptops">Trade In My MacBook</a></li>
-																	</ul>
-																</div>
-															</div>
-														</div>
-													</div> -->
-							
-							
-							
-							</div>
-						</div>
-						<%#= render "layouts/threecolumns" %>
-						<%= render "layouts/footer" %>
-					
-					</div>
-				</body>
-				</html>
+		<%= render 'layouts/header' %>
+		<div id="main">
+			<div class="holder">
+				<%= yield %>
+
+				<!--
+				<div class="popular-searches">
+				<div class="holder">
+				<div class="frame">
+				<h2><strong>Popular Searches</strong></h2>
+				<div class="links-area">
+				<ul>
+				<li><a href="/">Sell Electronics</a></li>
+				<li><a href="/">Sell Used Electronics</a></li>
+				<li><a href="/">Sell Cell Phone</a></li>
+				<li><a href="/">Sell My Phone</a></li>
+				<li><a href="/categories/1-iphones">Sell My iPhone</a></li>
+				<li><a href="/categories/1-iphones">Sell iPhone</a></li>
+				<li><a href="/search?name=iphone%203g">Sell iPhone 3G</a></li>
+				<li><a href="/search?name=iphone%203gs">Sell iPhone 3GS</a></li>
+				<li><a href="/search?name=iphone%204">Sell iPhone 4</a></li>
+				<li><a href="/search?name=iphone%204s">Sell iPhone 4S</a></li>
+				</ul>
+				<ul>
+				<li><a href="/categories/3-ipad">Sell iPad</a></li>
+				<li><a href="/categories/5-ipods">Sell iPod</a></li>
+				<li><a href="/categories/2-laptops">Sell MacBook</a></li>
+				<li><a href="/categories/8-blackberry">Sell Blackberry</a></li>
+				<li><a href="/categories/10-android">Sell Droid</a></li>
+				<li><a href="/">Sell Broken Electronics</a></li>
+				<li><a href="/">Sell Broken Cell Phone</a></li>
+				<li><a href="/">Sell Broken Phone</a></li>
+				<li><a href="/">Sell Broken iPhone</a></li>
+				<li><a href="/">Sell My Broken iPhone</a></li>
+				</ul>
+				<ul>
+				<li><a href="/search?name=iphone%203g">Sell Broken iPhone 3G</a></li>
+				<li><a href="/search?name=iphone%203gs">Sell Broken iPhone 3GS</a></li>
+				<li><a href="/search?name=iphone%204">Sell Broken iPhone 4</a></li>
+				<li><a href="/search?name=iphone%204s">Sell Broken iPhone 4S</a></li>
+				<li><a href="/categories/3-ipad">Sell Broken iPad</a></li>
+				<li><a href="/categories/5-ipods">Sell broken iPod</a></li>
+				<li><a href="/categories/2-laptops">Sell Broken MacBook</a></li>
+				<li><a href="/categories/8-blackberry">Sell Broken Blackberry</a></li>
+				<li><a href="/categories/10-android">Sell Broken Droid</a></li>
+				<li><a href="/">Recycle Electronics</a></li>
+				</ul>
+				<ul>
+				<li><a href="/">Recycle Used Electronics</a></li>
+				<li><a href="/">Recycle Cell Phone</a></li>
+				<li><a href="/">Recycle My Cell Phone</a></li>
+				<li><a href="/categories/1-iphones">Recycle iPhone</a></li>
+				<li><a href="/categories/1-iphones">Recycle My iPhone</a></li>
+				<li><a href="/categories/5-ipods">Recycle iPod</a></li>
+				<li><a href="/categories/3-ipad">Recycle iPad</a></li>
+				<li><a href="/categories/2-laptops">Recycle MacBook</a></li>
+				<li><a href="/categories/8-blackberry">Recycle Droid</a></li>
+				<li><a href="/categories/10-android">Recycle Broken iPhone</a></li>
+				</ul>
+				<ul>
+				<li><a href="/categories/1-iphones">Recycle My iPhone</a></li>
+				<li><a href="/categories/3-ipad">Recycle My iPad</a></li>
+				<li><a href="/categories/5-ipods">Recycle My iPod</a></li>
+				<li><a href="/categories/2-laptops">Recycle My MacBook</a></li>
+				<li><a href="/categories/1-iphones">Trade In iPhone</a></li>
+				<li><a href="/categories/1-iphones">Trade In My iPhone</a></li>
+				<li><a href="/categories/3-ipad">Trade In iPad</a></li>
+				<li><a href="/categories/3-ipad">Trade in My iPad</a></li>
+				<li><a href="/categories/2-laptops">Trade In MacBook</a></li>
+				<li><a href="/categories/2-laptops">Trade In My MacBook</a></li>
+				</ul>
+				</div>
+				</div>
+				</div>
+				</div> -->
+
+			</div>
+		</div>
+		<%#= render "layouts/threecolumns" %>
+		<%= render "layouts/footer" %>
+
+	</div>
+</body>
+</html>
