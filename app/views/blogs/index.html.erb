@@ -1,25 +1,26 @@
-<h1>Listing blogs</h1>
+<%#= link_to 'New Blog', new_blog_path %>
+<div class="product">
+	<div class="area">
+		<div class="contact-block">
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+			<div class="heading" style="padding-bottom: 0px;">
+				<h2>Blogs</h2>
+			</div>
 
-<% @blogs.each do |blog| %>
-  <tr>
-    <td><%= blog.title %></td>
-    <td><%= blog.description %></td>
-    <td><%= link_to 'Show', blog %></td>
-    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-    <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+			<div class="content">
+				<% @blogs.each do |blog| %>
 
-<br />
+				<h1><%= blog.title %></h1>
+				<p>
+					<%= blog.description[0..20] %>... by User<%#= blog.user.name) %> <%= time_ago_in_words(blog.created_at) %> ago
+				</p>
+				<p>
+					<%= link_to 'More', blog %> | <%= link_to 'Post Blog', new_blog_path %>
+				</p>
+				<br />
+				<% end %>
 
-<%= link_to 'New Blog', new_blog_path %>
+			</div>
+		</div>
+	</div>
+</div>
