@@ -43,7 +43,7 @@
 											<li>No scratches, dents or marks</li>
 											<li>No dust under the glass</li>
 										</ul>
-										<span class="price-text">We’ll pay you <strong><%= number_to_currency(@product.price_excellent, :precision => 0) %></strong></span>
+										<span class="price-text">We’ll pay you <strong><%= number_to_currency(@product.price, :precision => 0) %></strong></span>
 									</div>
 									<div class="payment-area">
 										<h3>Pay me with...</h3>
@@ -83,7 +83,7 @@
 											<li>No scratches, dents or marks</li>
 											<li>No dust under the glass</li>
 										</ul>
-										<span class="price-text">We’ll pay you <strong><%= number_to_currency(@product.price_average, :precision => 0) %></strong></span>
+										<span class="price-text">We’ll pay you <strong><%= number_to_currency(@product.used_price, :precision => 0) %></strong></span>
 									</div>
 									<div class="payment-area">
 										<h3>Pay me with...</h3>
@@ -121,7 +121,7 @@
 											<li>No scratches, dents or marks</li>
 											<li>No dust under the glass</li>
 										</ul>
-										<span class="price-text">We’ll pay you <strong><%= number_to_currency(@product.price_broken, :precision => 0) %></strong></span>
+										<span class="price-text">We’ll pay you <strong><%= number_to_currency(@product.broken_price, :precision => 0) %></strong></span>
 									</div>
 									<div class="payment-area">
 										<h3>Pay me with...</h3>
