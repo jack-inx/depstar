@@ -16,7 +16,7 @@ class HomeController < ApplicationController
  @title=[]
  @posted_by=[]
  @image_url=[]
- (doc/".description-box.add/h2").each do |f|
+ (doc/".description-box.add/h2/a").each do |f|
  	@title << f
  end
  (doc/".description-box.add/.date-box").each do |posted|
