@@ -5,7 +5,10 @@ ActiveAdmin.register Product do
     column :manufacturer
     column :series_list
     column :carrier
-    column :price
+    column "Price (Flawless)",:price
+    column "Price (Used)",:used_price
+    column "Price (Broken)",:broken_price
+    
     column :photo do |product|
       image_tag(product.photo.url(:thumb), :alt => "Image not exists")
     end
@@ -40,8 +43,16 @@ ActiveAdmin.register Product do
               td { product.carrier.name }
             end          
             tr do
-              th { 'price' }
+              th { 'price (flawless)' }
               td { product.price }
+            end 
+             tr do
+              th { 'price (used)' }
+              td { product.used_price }
+            end 
+             tr do
+              th { 'price (broken)' }
+              td { product.broken_price }
             end  
              tr do
               th { 'Series List' }
@@ -65,7 +76,13 @@ ActiveAdmin.register Product do
     f.inputs :manufacturer
     f.inputs :series_list
     f.inputs :carrier   
-    f.inputs :price
+    
+     f.inputs "Price ($)" do
+        f.input :price, :label => "Flawless"
+        f.input :used_price, :label => "Used"
+        f.input :broken_price, :label => "Broken"
+      end
+      
     f.inputs :photo, :as => :file, input_html: { multiple: true}
 
     f.buttons                         

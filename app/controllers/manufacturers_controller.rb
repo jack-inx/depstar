@@ -16,8 +16,12 @@ class ManufacturersController < ApplicationController
   def manufacturer_carrier
     #add_breadcrumb "Manufacturer", :root_path, :title => "Manufacturer"
     #add_breadcrumb "index", index_path, :title => "Back to the Index"
-    @manufacturers = Manufacturer.find(params[:manufact_id])    
-    session[:manufact_id] = params[:manufact_id]
+    if !params[:manufact_id].nil?
+      @manufacturers = Manufacturer.find(params[:manufact_id])
+    elsif !params[:series_id].nil?
+      @series_list = SeriesList.find(params[:series_id])
+    end      
+    #session[:manufact_id] = params[:manufact_id]
 
     #@products = Product.where(:manufacturer_id => params[:id],:category_id => params[:cat_id])
     #@products = Product.final_product(params[:cat_id],params[:id])

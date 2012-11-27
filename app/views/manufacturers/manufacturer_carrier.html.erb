@@ -1,9 +1,8 @@
 <%#= render_breadcrumbs :separator => ' / ' %>
-<p id="notice">
-	<%= notice %>
-</p>
+<p id="notice">	<%= notice %></p>
 <div class="product">
 	<div class="items-holder">
+		<%  if !params[:manufact_id].nil?  %>
 		<table class="sell-table">
 			<thead>
 				<tr>
@@ -16,9 +15,9 @@
 				<tr>					
 					<% slice.each do |carrier| %>					
 					<td> 
-						<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id=>params[:cat_id],:manufact_id => params[:manufact_id], :id => carrier.id) %>
+						<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier) %>
 						<p>
-							<%= link_to carrier.name, carrier_product_path(:cat_id=>params[:cat_id],:manufact_id => params[:manufact_id], :id => carrier.id) %>
+							<%= link_to carrier.name, carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier.id) %>
 						</p>
 					</td>
 					<% end %>					
@@ -26,6 +25,30 @@
 				<% end %>
 			</tbody>
 		</table>
+		<% else %>
+			<table class="sell-table">
+			<thead>
+				<tr>
+					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
+					<td colspan="5">Select your Carriers</td>
+				</tr>
+			</thead>
+			<tbody>
+				<% @series_list.manufacturer.carriers.each_slice(5) do |slice| -%>
+				<tr>					
+					<% slice.each do |carrier| %>					
+					<td> 
+						<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id ) %>
+						<p>
+							<%= link_to carrier.name, carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id) %>
+						</p>
+					</td>
+					<% end %>					
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<% end %>
 	</div>
 </div>
 

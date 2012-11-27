@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
   
-  attr_accessible           :name, :description, :price, :is_popular, :photo, :carrier_id,
+  attr_accessible           :name, :description, :price, :used_price, :broken_price, :is_popular, :photo, :carrier_id,
                             :category_id, :manufacturer_id , :series_list_id
   belongs_to :category
   belongs_to :manufacturer
@@ -13,6 +13,8 @@ class Product < ActiveRecord::Base
 
   validates_presence_of :price, :category_id, :manufacturer_id , :series_list_id
   validates_numericality_of :price
+  validates_numericality_of :used_price
+  validates_numericality_of :broken_price
 
   has_attached_file :photo,
                   :default_url => "http://depstar.com/assets/:class/missing_:style.gif", 

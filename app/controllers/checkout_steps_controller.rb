@@ -19,7 +19,7 @@ class CheckoutStepsController < ApplicationController
     
     # Take payment_method from product#show
     unless params[:payment_method].nil?
-      @shipping_detail.payment_method_id = PaymentMethod.find_by_short_code(params[:payment_method]).id
+      @shipping_detail.payment_method_id = PaymentMethod.find_by_short_code(params[:payment_method])
     end
     
     # Take payment_method from product#show

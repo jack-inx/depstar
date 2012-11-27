@@ -11,9 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20121126123415) do
-
+ActiveRecord::Schema.define(:version => 20121127083018) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -154,6 +152,8 @@ ActiveRecord::Schema.define(:version => 20121126123415) do
     t.integer  "question_2_option_2_price"
     t.string   "carrier_id"
     t.integer  "series_list_id"
+    t.integer  "used_price"
+    t.integer  "broken_price"
   end
 
   create_table "question_options", :force => true do |t|
@@ -176,13 +176,14 @@ ActiveRecord::Schema.define(:version => 20121126123415) do
 
   create_table "series_lists", :force => true do |t|
     t.string   "name"
-    t.integer  "category_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.integer  "category_id"
+    t.integer  "manufacturer_id"
   end
 
   create_table "sessions", :force => true do |t|

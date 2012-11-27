@@ -31,16 +31,7 @@ class CategoriesController < ApplicationController
       format.xml  { render :xml => @category }
     end
   end
-
-  
-  def carrier_product
-    #add_breadcrumb "Carrier", :root_path
-    @products = Product.where(:manufacturer_id => session[:manufact_id],:category_id => params[:cat_id],:carrier_id => params[:id])
-    #@products = Product.final_product(params[:cat_id],params[:id])
-  end
-
-
-  
+ 
   def grades
     
     unless params[:id].nil?
@@ -154,5 +145,14 @@ class CategoriesController < ApplicationController
        @products = Product.where("name LIKE ?","%#{params[:name]}%")
      end     
      render "categories/carrier_product"
+  end
+  
+  def carrier_product
+    if !params[:series].nil?
+      @products = Product.where(:category_id => params[:cat_id],:carrier_id => params[:carrier],:series_list_id => params[:series])
+    else
+      @products = Product.where(:category_id => params[:cat_id],:carrier_id => params[:carrier],:manufacturer_id => params[:manufact_id])
+    end    
+        
   end
 end

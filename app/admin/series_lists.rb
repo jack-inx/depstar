@@ -1,7 +1,8 @@
 ActiveAdmin.register SeriesList do
  index do                            
     column :name
-    column :category                        
+    column :manufacturer 
+    column :category                       
 
     default_actions                   
   end                                 
@@ -10,6 +11,7 @@ ActiveAdmin.register SeriesList do
   form do |f|
 
     f.inputs :name    
+    f.inputs :manufacturer
     f.inputs :category
      
     f.buttons                         
@@ -24,6 +26,10 @@ ActiveAdmin.register SeriesList do
             tr do
               th { 'Name' }
               td { series_list.name }
+            end
+            tr do
+              th { 'Manufacturer' }
+              td { series_list.manufacturer.name }
             end
             tr do
               th { 'Category' }

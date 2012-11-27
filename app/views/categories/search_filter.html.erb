@@ -25,7 +25,7 @@
 						<td> 
 							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), manufact %>
 							<p>
-								<%= link_to manufact.name, manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact.id) %>
+								<%= link_to manufact.name, manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact) %>
 							</p>
 						</td>
 					<% end %>					
@@ -44,11 +44,11 @@
 			<tbody>
 				<% @category.series_lists.each_slice(5) do |slice| -%>
 				<tr>					
-					<% slice.each do |manufact| %>					
-						<td> 
-							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact.id) %>
+					<% slice.each do |series| %>					
+						<td>						
+							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), manufact_carrier_path(:cat_id => params[:id],:series_id => series) %>
 							<p>
-								<%= link_to manufact.name, manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact.id) %>
+								<%= link_to series.name, manufact_carrier_path(:cat_id => params[:id],:series => series) %>
 							</p>
 						</td>
 					<% end %>					
