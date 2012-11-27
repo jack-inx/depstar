@@ -211,18 +211,21 @@
 											</div>
 											<div class="post">
 												<h2>Depstar Blog</h2>
-												<ul>
-													<% @blogs.each do |blog| %>
+												<ul><% i=0 %>
+													<% if i < 3 %>
+													<% @title.each do |blog| %>
 													<li>
 														<span class="alignleft">
-															<img src="http://depstar.com/blog/wp-content/uploads/2012/10/iphone51.jpg" width="61" alt="" />
+															<img src="<%= @image_url[i] %>" width="60" height="60" alt="" />
 														</span>
 														<h3>
-															<%= link_to blog.title, blog %>															
+															<%= "#{@title[i]}".html_safe	%>													
 														</h3>
-														<span class="meta">Posted by <%#= blog.user %>User on <em class="date"><%= blog.created_at.strftime("%d/%m/%y") %></em></span>
+														<span class="meta"><%= "#{@posted_by[i]}".html_safe %></span>
+														<% i +=1 %>
 													</li>
 													<% end %>
+													<% end -%>
 													<!-- 													
 													<li>
 														<span class="alignleft"><img src="images/img6.jpg" height="50" width="61" alt="" /></span>
