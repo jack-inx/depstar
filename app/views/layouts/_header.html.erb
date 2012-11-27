@@ -1,18 +1,25 @@
 <div id="header">
 	<script >
 	</script>
-	
+	<div id="fb-root"></div>
 	<div class="upper-header">
 		
 		<ul class="social-networks">
 			<!--<li class="facebook"><a href="http://www.facebook.com/pages/Depstar/109849125756594" target="_blank">facebook</a></li> !-->
 			<div class ="pluginCountBox">
 			  <!--<div class='fb-like' data-send='false' data-layout='box_count' data-width='5' data-height='35' data-show-faces='true'></div> !-->
-			</div>  
-			<li class="twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="large" size="400px;" data-url="http://www.depstar.com" data-count="none">Tweet</a></li>
-			<!--<li class="twitter"><a href="http://twitter.com/#!/depstar_com" target="_blank">twitter</a></li> !-->
-			<li class="youtube"><a href="http://www.youtube.com/depstartv" target="_blank">youtube</a></li>
-			<li class="bba"><a href="#">better business</a></li>
+			</div> 
+
+			<li class="facebook"><%#= link_to "","#", :id => "upper_facebook" %></li>
+			<!-- 
+			<div  id="fb_like" class="fb-like" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-url="http://www.depstar.com" data-count="false"></div> -->
+			<fb:like layout="button_count" href="http://www.depstar.com"></fb:like>
+			
+			 <li class="twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="large" size="400px;" data-url="http://www.depstar.com" data-count="none">Tweet</a></li>
+			 <!--<li class="twitter"><a href="http://twitter.com/#!/depstar_com" target="_blank">twitter</a></li> !
+			<!-- <li class="youtube"><a href="http://www.youtube.com/depstartv" target="_blank">youtube</a></li>
+			<li class="bba"><a href="#">better business</a></li> -->
+
 		</ul>
 		
 		<!-- 		
@@ -41,7 +48,7 @@
 			<ul class="addnav">
 				<li class="sign-up"><a href="/contact">Contact</a></li>
 				<li class="my-account"><a href="/how_it_works">How It Works</a></li>
-				<li class="help"><a href="/blogs">Blog</a></li>
+				<li class="help"><a href="http://depstar.com/blog">Blog</a></li>
 			</ul>
 		</div>
 	</div>

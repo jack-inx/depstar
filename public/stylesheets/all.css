@@ -2268,3 +2268,15 @@ table.hovertable td {
 	border-style: solid;
 	border-color: #a9c6c9;
 }
+
+
+/*------------------*/
+.upper-header .social-networks li a{
+	height:32px;
+	background:url(../images/bg-social2.png) no-repeat;
+	margin:0 0 0 12px;
+	width:32px;
+	display:block;
+}
+.upper-header .social-networks li.facebook a{background-position:0 0;}
+.upper-header .social-networks li.twitter a{background-position:-45px 0;}

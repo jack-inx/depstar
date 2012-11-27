@@ -6,6 +6,7 @@ gem 'activeadmin'
 gem 'sass-rails',"~>3.2.5"
 gem 'haml'
 gem "meta_search"
+# gem "simple-rss"
 #gem 'pg', :group => :production
 
 group :production do
