@@ -18,8 +18,8 @@ class ManufacturersController < ApplicationController
     #add_breadcrumb "index", index_path, :title => "Back to the Index"
     if !params[:manufact_id].nil?
       @manufacturers = Manufacturer.find(params[:manufact_id])
-    elsif !params[:series_id].nil?
-      @series_list = SeriesList.find(params[:series_id])
+    elsif !params[:series].nil?
+      @series_list = SeriesList.find(params[:series])
     end      
     #session[:manufact_id] = params[:manufact_id]
 
