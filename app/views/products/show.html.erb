@@ -14,7 +14,7 @@
 						</div>
 						<div class="block-content">
 							<div class="heading">
-								<h2>My <%= truncate(@product.name, :length=>23, :omission => '...') %> is..</h2>
+								<h2>My <%= truncate(@product.name, :length=>20, :omission => '...') %> is..</h2>
 							</div>
 							<!-- <form class="phone-status" action="/"> -->
 								<%#= form_tag '/checkout_steps/email', :id=>'select_product', :html => { :class => 'phone-status' }, :method => :put do |f| %>
@@ -37,7 +37,7 @@
 							<div class="tab-list">
 								<div class="tab" id="mtab1">
 									<div class="information">
-										<h4>Your is in this condition if it has</h4>
+										<h4>Your device is in this condition if it has</h4>
 										<ul class="list">
 											<li>No noticeable flaws, still in its original package or looks like new</li>
 											<li>No scratches, dents or marks</li>
@@ -77,11 +77,11 @@
 								</div>
 								<div class="tab" id="mtab2">
 									<div class="information">
-										<h4>Your is in this condition if it has</h4>
+										<h4>Your device is in this condition if it has</h4>
 										<ul class="list">
-											<li>No noticeable flaws, still in its original package or looks like new</li>
-											<li>No scratches, dents or marks</li>
-											<li>No dust under the glass</li>
+											<li>Minor signs of use and is in full working function</li>
+											<li>Light scratches and marks</li>
+											<li>No cracks or missing parts</li>
 										</ul>
 										<span class="price-text">We’ll pay you <strong><%= number_to_currency(@product.used_price, :precision => 0) %></strong></span>
 									</div>
@@ -115,11 +115,11 @@
 								</div>
 								<div class="tab" id="mtab3">
 									<div class="information">
-										<h4>Your is in this condition if it has</h4>
+										<h4>Your device is in this condition if it has</h4>
 										<ul class="list">
-											<li>No noticeable flaws, still in its original package or looks like new</li>
-											<li>No scratches, dents or marks</li>
-											<li>No dust under the glass</li>
+											<li>Water damage or does not power on</li>
+											<li>Broken or Cracked LCD screen or Glass</li>
+											<li>Broken or cracked hardware</li>
 										</ul>
 										<span class="price-text">We’ll pay you <strong><%= number_to_currency(@product.broken_price, :precision => 0) %></strong></span>
 									</div>
