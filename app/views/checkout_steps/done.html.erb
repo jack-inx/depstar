@@ -39,7 +39,7 @@
 				<dl>
 					<dt>Payment Method: </dt>
 					<dd><%= @shipping_detail.payment_method.name %></dd>
-					<% if @shipping_detail.payment_method.short_code.eql?("check") %>
+					<% if @shipping_detail.payment_method.name == "Check" %>
 						<dt>Payable to: </dt>
 						<dd class="address">
 							<%= @shipping_detail.check_payment_name %> <br />
@@ -50,7 +50,7 @@
 							<%= @shipping_detail.check_payment_city %>
 							<%= @shipping_detail.check_payment_state %>, <%= @shipping_detail.check_payment_zip %>
 						</dd>
-					<% else %>
+					<% elsif @shipping_detail.payment_method.name == "Paypal" %>
 						<dt>Paypal email:</dt>
 						<dd><%= @shipping_detail.paypal_email[0..10] %>..</dd>
 					<% end %>
