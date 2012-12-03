@@ -15,6 +15,7 @@ end
 
 group :development do
  	#gem 'ruby-debug'
+ 	gem 'pg'
  	gem 'sqlite3-ruby', :require => 'sqlite3'
  	gem 'hirb'
  	gem 'nifty-generators'

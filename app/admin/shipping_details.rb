@@ -6,9 +6,9 @@ ActiveAdmin.register ShippingDetail do
     column :email
     column :phone
     column :paypal_email
-    column :image_file_name       
-    column :price
-    column :manufacturer
+         
+    
+    
     default_actions                   
   end                                 
   filter :first_name
