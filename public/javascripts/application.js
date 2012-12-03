@@ -100,7 +100,7 @@ $(document).ready(function() {
 	 	var item = $("#name").val();
 	 	if (item == '' || item == "Sell your item")
 	 	{
-	 		alert(item);
+	 		//alert(item);
 	 		event.preventDefault();	
 	 	} 	 	
 	 });

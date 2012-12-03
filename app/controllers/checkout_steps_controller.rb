@@ -25,11 +25,11 @@ class CheckoutStepsController < ApplicationController
     # Take payment_method from product#show
     unless params[:condition].nil?
       if params[:condition] == 'best'
-        @shipping_detail.offer = @shipping_detail.product.price_excellent
+        @shipping_detail.offer = @shipping_detail.product.price
       elsif params[:condition] == 'good'
-        @shipping_detail.offer = @shipping_detail.product.price_average
+        @shipping_detail.offer = @shipping_detail.product.used_price
       elsif params[:condition] == 'broken'
-        @shipping_detail.offer = @shipping_detail.product.price_broken
+        @shipping_detail.offer = @shipping_detail.product.broken_price
       end
     end
     

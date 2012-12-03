@@ -1,6 +1,6 @@
 
 		<div class="checkout-block">
-			<h2>Your Done!</h2>
+			<h2>You're Done!</h2>
 			<div class="thank-block">
 				<p>Thank you for selling your device</p>
 			</div>
@@ -39,7 +39,7 @@
 				<dl>
 					<dt>Payment Method: </dt>
 					<dd><%= @shipping_detail.payment_method.name %></dd>
-					<% if @shipping_detail.payment_method.id == 1 %>
+					<% if @shipping_detail.payment_method.short_code.eql?("check") %>
 						<dt>Payable to: </dt>
 						<dd class="address">
 							<%= @shipping_detail.check_payment_name %> <br />
@@ -51,8 +51,8 @@
 							<%= @shipping_detail.check_payment_state %>, <%= @shipping_detail.check_payment_zip %>
 						</dd>
 					<% else %>
-						<dt>Paypay email:</dt>
-						<dd><%= @shipping_detail.paypal_email %></dd>
+						<dt>Paypal email:</dt>
+						<dd><%= @shipping_detail.paypal_email[0..10] %>..</dd>
 					<% end %>
 					<dt>Shipping info:</dt>
 					<dd class="address">
