@@ -7,7 +7,6 @@ class HomeController < ApplicationController
   def index     
     @categories = Category.all
     @blogs = Blog.order("created_at").limit(4)    
-    #@products = Product.find_all_by_is_popular(true)
 
     doc = open("http://depstar.com/blog/") { |f|
     Hpricot(f) 

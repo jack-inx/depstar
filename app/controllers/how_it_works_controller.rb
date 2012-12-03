@@ -1,8 +1,7 @@
 class HowItWorksController < ApplicationController
 
-  def index
-    #@products = Product.find_all_by_is_popular(true)
-    @categories = Category.find_all_by_is_popular(true)
+  def index    
+    @categories = Category.all
     
     respond_to do |format|
       format.html 

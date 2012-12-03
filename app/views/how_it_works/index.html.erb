@@ -14,7 +14,7 @@
 								<div class="box">
 									<img src="/images/img11.png" alt="image description" width="133" height="100" />
 									<h3>Ship It</h3>
-									<p>We supply a prepaid shipping label so there is no cost to you. Simply wait for our free shipping kit in the mail or for a faster transaction you can print the prepaid shipping label and ship your device using your own box</p>
+									<p>We supply a prepaid shipping label so there is no cost to you. Simply wait for our free shipping kit in the mail.</p>
 								</div>
 								<div class="box">
 									<img src="/images/img12.png" alt="image description" width="111" height="101" />
@@ -23,12 +23,11 @@
 								</div>
 							</div>
 							
-							<%#= form_tag('/products/show', :method => :get, :class => 'product-search') do %>
+							
 							<%= form_tag('/categories/show', :method => :get, :class => 'product-search') do %>
 							<h2>Select your Item and begin Selling for cash</h2>
 							<fieldset>
-								<%= select_tag('id', options_for_select(@categories.collect {|p| [ p.name.truncate(21, :omission => '...'), p.id ] }) ) %>
-								<%#= select_tag('id', options_for_select(@products.collect {|p| [ p.name.truncate(21, :omission => '...'), p.id ] }) ) %>
+								<%= select_tag('id', options_for_select(@categories.collect {|p| [ p.name.truncate(21, :omission => '...'), p.id ] }) ) %>								
 								</select>
 								<span class="btn-go" style="padding-left: 10px;">
 									<%= submit_tag 'go' %>
