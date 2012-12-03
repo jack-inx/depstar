@@ -1589,7 +1589,7 @@ form,fieldset{
 .featured{
 	overflow:hidden;
 	color:#545454;
-	margin:0 0 23px;
+	margin:0 0 0px;
 	font-size:14px;
 	line-height:17px;
 }
