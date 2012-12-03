@@ -779,6 +779,9 @@ form,fieldset{
 	width:270px;
 	
 }
+.box_image{
+	background:url(../images/bg-box.png) no-repeat 0 50%;
+}
 .box:first-child{
 	background:none;
 	padding:0 20px 0 23px;
