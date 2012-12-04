@@ -192,21 +192,14 @@
 												<h2>Selling Now</h2>
 												<h3>Look who is getting cash for their cell phones and electronics...</h3>
 												<ul>
+													
+													<% @shippings.each do |shipping| %>
 													<li>
 														<img src="images/img5.png" height="61" width="48" class="alignleft" alt="" />
-														<h4>Annelise <span>received</span> <span class="price">$129.00</span> <span>for:</span></h4>
-														<p>Toshiba Thrive 10.1-Inch 16GB Android Tablet </p>
+														<h4><%= shipping.first_name  %> <span>received</span> <span class="price">$<%= shipping.offer  %></span> <span>for:</span></h4>
+														<p> <%= shipping.product.name  %> </p>
 													</li>
-													<li>
-														<img src="images/img5.png" height="61" width="48" class="alignleft" alt="" />
-														<h4>Annelise <span>received</span> <span class="price">$129.00</span> <span>for:</span></h4>
-														<p>Toshiba Thrive 10.1-Inch 16GB Android Tablet </p>
-													</li>
-													<li>
-														<img src="images/img5.png" height="61" width="48" class="alignleft" alt="" />
-														<h4>Annelise <span>received</span> <span class="price">$129.00</span> <span>for:</span></h4>
-														<p>Toshiba Thrive 10.1-Inch 16GB Android Tablet </p>
-													</li>
+													<% end %>													
 												</ul>
 											</div>
 											<div class="post">
@@ -215,9 +208,11 @@
 													<% if i < 3 %>
 													<% @title.each do |blog| %>
 													<li>
+														<% if !@image_url[i].nil? %>
 														<span class="alignleft">
 															<img src="<%= @image_url[i] %>" width="60" height="60" alt="" />
 														</span>
+														<% end %>
 														<h3>
 															<%= "#{@title[i]}".html_safe	%>													
 														</h3>

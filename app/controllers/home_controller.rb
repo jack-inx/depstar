@@ -6,23 +6,24 @@ class HomeController < ApplicationController
   
   def index     
     @categories = Category.all
+    @shippings = ShippingDetail.order("created_at ASC").limit(3)
     @blogs = Blog.order("created_at").limit(4)    
 
     doc = open("http://depstar.com/blog/") { |f|
     Hpricot(f) 
 }
- (doc/".description-box.add").inner_html
+ (doc/".description-box").inner_html
  @title=[]
  @posted_by=[]
  @image_url=[]
- (doc/".description-box.add/h2/a").each do |f|
+ (doc/".description-box/h2/a").each do |f|
  	@title << f
  end
- (doc/".description-box.add/.date-box").each do |posted|
+ (doc/".description-box/.date-box").each do |posted|
  	@posted_by << posted.html
  end
 
-  (doc/".description-box.add/.info-box/img@src").each do |f|
+  (doc/".description-box/.info-box/img@src").each do |f|
 
   	@image_url << f.attributes['src']
   end
