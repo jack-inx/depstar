@@ -108,9 +108,7 @@
 						<ul>
 							<% slice.each do |category| %>
 								<li>
-								<%= link_to(category) do %>
-								    <%= category.name %>
-								  <% end %>
+									<%= link_to category.name, "/search_result?name=#{category.name}"  %>								    							  
 								</li>
 							<% end %>
 					
