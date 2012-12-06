@@ -13,7 +13,7 @@
 			<thead>
 				<tr>
 					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
-					<td colspan="5">Select your Manufactures</td>
+					<td colspan="5">Choose your <%= @category.name %> Manufacturers</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -23,7 +23,7 @@
 					<% slice.each do |manufact| %>
 					<% @counter += 1 %>
 						<td> 
-							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact) %>
+							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"),manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact) %>
 							<p>
 								<%= link_to manufact.name, manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact) %>
 							</p>
@@ -38,7 +38,7 @@
 			<thead>
 				<tr>
 					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
-					<td colspan="5">Select any Product from Series </td>
+					<td colspan="5">Choose your <%= @category.name %> Series </td>
 				</tr>
 			</thead>
 			<tbody>
@@ -46,7 +46,7 @@
 				<tr>					
 					<% slice.each do |series| %>					
 						<td>						
-							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), manufact_carrier_path(:cat_id => params[:id],:series_id => series) %>
+							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), manufact_carrier_path(:cat_id => params[:id],:series => series) %>
 							<p>
 								<%= link_to series.name, manufact_carrier_path(:cat_id => params[:id],:series => series) %>
 							</p>

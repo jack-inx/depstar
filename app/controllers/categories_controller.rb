@@ -148,10 +148,15 @@ class CategoriesController < ApplicationController
   end
   
   def carrier_product
+    @category = Category.find(params[:cat_id])
+    @carrier = Carrier.find(params[:carrier]) 
+    
     if !params[:series].nil?
       @products = Product.where(:category_id => params[:cat_id],:carrier_id => params[:carrier],:series_list_id => params[:series])
+      @series = SeriesList.find(params[:series])
     else
       @products = Product.where(:category_id => params[:cat_id],:carrier_id => params[:carrier],:manufacturer_id => params[:manufact_id])
+      @manufacturer = Manufacturer.find(params[:manufact_id])
     end    
         
   end

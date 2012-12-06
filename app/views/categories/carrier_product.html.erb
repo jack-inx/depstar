@@ -2,28 +2,22 @@
 	<%= notice %>
 </p>
 
-<div class="product">
-	<!-- <h2>Sell your Blackberry cell phone <span>Choose your carrier</span></h2>
-	<ul class="carrier">
-	<li>
-	<a href="#"><span><img src="/images/logo1.png" alt="image description" width="146" height="66" /></span></a>
-	</li>
-	<li>
-	<a href="#"><span><img src="/images/logo2.png" alt="image description" width="118" height="66" /></span></a>
-	</li>
-	<li>
-	<a href="#"><span><img src="/images/logo3.png" alt="image description" width="161" height="67" /></span></a>
-	</li>
-	<li>
-	<a href="#"><span><img src="/images/logo4.png" alt="image description" width="170" height="28" /></span></a>
-	</li>
-	</ul> -->
+<div class="product">	
 	<div class="items-holder">
 		<table class="sell-table">
 			<thead>
-				<tr>
-					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
-					<td colspan="5">Select your Products</td>
+				<tr>					
+					<td colspan="5">
+						<% if params[:name].nil? %>
+							<% if !@series.nil? %>
+								Choose your <%=  "#{@carrier.name} - #{@series.name} - #{@category.name}" %>
+							<% else %>
+								Choose your <%=  "#{@carrier.name} - #{@manufacturer.name} - #{@category.name}" %>
+							<% end %>
+						<% else %>
+							Choose your <%= params[:name] %>
+						<% end %>						
+					</td>
 				</tr>
 			</thead>
 			<tbody>
