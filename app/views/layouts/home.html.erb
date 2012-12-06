@@ -1,55 +1,65 @@
 <%= render 'layouts/inner_head' %>
 <body>
-<div id="fb-root"></div>
+	<div id="fb-root"></div>
 
-<script>
-(function(d, s, id) {
-  
-  var js, fjs = d.getElementsByTagName(s)[0];
-  
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=183694155089225";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+	<script>
+		( function(d, s, id) {
 
-  //var countbox = document.getElementsByClassName('pluginCountBox');
-  //countbox.style.display = "none";
-</script>
-<script>
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-</script>
+				var js, fjs = d.getElementsByTagName(s)[0];
+
+				if (d.getElementById(id))
+					return;
+				js = d.createElement(s);
+				js.id = id;
+				js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=183694155089225";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+
+		//var countbox = document.getElementsByClassName('pluginCountBox');
+		//countbox.style.display = "none";
+	</script>
+	<script>
+		! function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (!d.getElementById(id)) {
+				js = d.createElement(s);
+				js.id = id;
+				js.src = "https://platform.twitter.com/widgets.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}
+		}(document, "script", "twitter-wjs");
+	</script>
 	<div id="wrapper">
-		
+
 		<%= render "layouts/header" %>
-		
+
 		<div id="main">
 			<div class="holder">
 				<div class="product">
 					<h2>Sell your iPhone, iPad and more for cash.</h2>
 					<!-- <form action="#" class="product-search"> -->
-						<%= form_tag(search_path, :method => :get, :class => 'product-search') do %>
-						<%#= form_tag(product_path(:product_id), :method => :get, :class => 'product-search') do %>
-						<%#= form_tag( products_path, :method => "get", :class => "product-search", :id => 'product[product_id]') do |f| %>
-						<%#= form_tag( :id => 'form_id', :controller => 'products', :action => 'show', :id=>'2') do |f| %>
-						<fieldset>
-							<%#= select_tag('id', @products.collect {|p| [ p.name, p.id ] }) %>
-							<%= select_tag('id', options_for_select(@categories.collect {|p| [ p.name, p.id ] }) ) %>
-							<!-- <select> -->
-								<%# @products.each do |product| %>
-									<!-- <option> -->
-									<%#= link_to(product) do %>
-									    <!-- <span> -->
-												<%#= product.name.truncate(20, :omission => '...') %>
-											<!-- </span> -->
-									  <%# end %>
-									<!-- </option> -->
-								<%# end %>
-								<!-- <option>Select a Product</option> -->						
-							</select>
-							<%= submit_tag 'go', :class => 'btn-go',:id => "item_select_button" %>
-							<!-- <input type="submit" value="go" class="btn-go" /> -->
-						</fieldset>
+					<%= form_tag(search_path, :method => :get, :class => 'product-search') do %>
+					<%#= form_tag(product_path(:product_id), :method => :get, :class => 'product-search') do %>
+					<%#= form_tag( products_path, :method => "get", :class => "product-search", :id => 'product[product_id]') do |f| %>
+					<%#= form_tag( :id => 'form_id', :controller => 'products', :action => 'show', :id=>'2') do |f| %>
+					<fieldset>
+						<%#= select_tag('id', @products.collect {|p| [ p.name, p.id ] }) %>
+						<%= select_tag('id', options_for_select(@categories.collect {|p| [ p.name, p.id ] }) ) %>
+						<!-- <select> -->
+						<%# @products.each do |product| %>
+						<!-- <option> -->
+						<%#= link_to(product) do %>
+						<!-- <span> -->
+						<%#= product.name.truncate(20, :omission => '...') %>
+						<!-- </span> -->
+						<%# end %>
+						<!-- </option> -->
+						<%# end %>
+						<!-- <option>Select a Product</option> -->
+						</select>
+						<%= submit_tag 'go', :class => 'btn-go',:id => "item_select_button" %>
+						<!-- <input type="submit" value="go" class="btn-go" /> -->
+					</fieldset>
 					<% end %>
 					<!-- </form> -->
 				</div>
@@ -58,100 +68,104 @@
 				</div>
 				<div class="workflow">
 					<div class="text">
-						<p>It's simple to <span>go green </span>and get green now!</p>
+						<p>
+							It's simple to <span>go green </span>and get green now!
+						</p>
 					</div>
 					<span class="arrows">Arrow</span>
 					<ul>
 						<li>
 							<img src="images/img7.png" height="66" width="80" alt="" class="icon" />
 							<h2>Quote</h2>
-							<p>Submit your item for a quote...</p>
+							<p>
+								Submit your item for a quote...
+							</p>
 						</li>
 						<li>
 							<img src="images/img8.png" height="69" width="80" alt="" class="icon" />
 							<h2>Ship</h2>
-							<p>Free Priority Shipping...</p>
+							<p>
+								Free Priority Shipping...
+							</p>
 						</li>
 						<li>
 							<img src="images/img9.png" height="68" width="68" alt="" class="icon" />
 							<h2>Cash</h2>
-							<p>Hassle free, have funds...</p>
+							<p>
+								Hassle free, have funds...
+							</p>
 						</li>
 					</ul>
 				</div>
 				<div class="featured">
-					<div class="box">
+					<div class="box" style="padding: 10px 0 0;width: 321px;">
 						<%= link_to how_it_works_path do %>
-							<img src="images/how-it-	works.png" alt="" class="alignleft" width="99" height="109" />
-							<h2>How it <br /> Works</h2>
-							<p>Learn about our hassle-free Customer experience.</p>
+						<img src="images/how-it-works.png" alt="" class="alignleft" />
+						<h2>How It
+						<br />
+						Works</h2>
+						<p>
+							Learn about our hassle-free Customer experience.
+						</p>
 						<% end %>
 					</div>
-					<div class="box">
+					<div class="box" style="padding: 10px 0 0;width: 314px;">
+						<%= link_to "/search_result?name=iPhone" do %>
 						<img src="images/img3.png" alt="" class="alignleft" width="90" height="124" />
 						<h2>We buy broken iPhones</h2>
-						<p>We'll purchase any model iPhone no matter what condition it is in.</p>
+						<p>
+							We'll purchase any model iPhone no matter what condition it is in.
+						</p>
+						<% end %>
 					</div>
-					<div class="box box2">
+					<div class="box" style="padding: 10px 0 0;width: 321px;">
 						<%= link_to corporate_path do %>
-							<img src="images/img4.png" width="141" height="129" alt="" class="alignleft" />
-							<h2>Corporate Buy Back Program</h2>
-							<p>We do bulk purchase programs for any size business. </p>
+						<img src="images/img4.png"  alt="" class="alignleft" style="margin: -4px 10px 0 0" />
+						<h2>Corporate Buy Back Program</h2>
+						<p>
+							We do bulk purchase programs for any size business.
+						</p>
 						<% end %>
 					</div>
 				</div>
+				<!--
 				<div class="popular-category">
-					<h2><strong>Popular Categories</strong></h2>
-					
-					<div class="holder">
-					<% @categories.each_slice(4) do |slice| -%>
-						<ul>
-							<% slice.each do |category| %>
-								<li>
-									<%= link_to category.name, "/search_result?name=#{category.name}"  %>								    							  
-								</li>
-							<% end %>
-					
-						</ul>
-					<% end %>
-					</div> 
-					
-<!-- 					
-						<div class="holder">
-						<ul>
-							<li><a href="#">Apple iPhone</a></li>
-							<li><a href="#">Apple TV</a></li>
-							<li><a href="#">Apple Display</a></li>
-						</ul>
-						<ul>
-							<li><a href="#">Motorola Cell Phone</a></li>
-							<li><a href="#">Nokia Cell Phone</a></li>
-							<li><a href="#">Apple iPad</a></li>
-						</ul>
-						<ul>
-							<li><a href="#">Apple Laptops</a></li>
-							<li><a href="#">Blackberry Cell Phone</a></li>
-							<li><a href="#">Samsung Cell Phone</a></li>
-						</ul>
-						<ul>
-							<li><a href="#">Apple Desktops</a></li>
-							<li><a href="#">HTC Cell Phone</a></li>
-							<li><a href="#">LG Cell Phone</a></li>
-						</ul>
-					</div>
-	 -->			
-				
+				<h2><strong>Popular Categories</strong></h2>
+
+				<div class="holder">
+				<% @categories.each_slice(4) do |slice| -%>
+				<ul>
+				<% slice.each do |category| %>
+				<li>
+				<%= link_to category.name, "/search_result?name=#{category.name}"  %>
+				</li>
+				<% end %>
+
+				</ul>
+				<% end %>
 				</div>
+				</div>
+				-->
 			</div>
 			<div class="sponsors">
 				<div class="frame">
 					<h3>As seen on</h3>
 					<ul>
-						<li><a href="#"><img src="images/sponsor1.png" alt="" /></a></li>
-						<li><a href="#"><img src="images/sponsor2.png" alt="" /></a></li>
-						<li><a href="#"><img src="images/sponsor3.png" alt="" /></a></li>
-						<li><a href="#"><img src="images/sponsor4.png" alt="" /></a></li>
-						<li><a href="#"><img src="images/sponsor5.png" alt="" /></a></li>
+						<li>
+							<a href="#"><img src="images/sponsor1.png" alt="" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="images/sponsor2.png" alt="" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="images/sponsor3.png" alt="" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="images/sponsor4.png" alt="" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="images/sponsor5.png" alt="" /></a>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -190,52 +204,36 @@
 												<h2>Selling Now</h2>
 												<h3>Look who is getting cash for their cell phones and electronics...</h3>
 												<ul>
-													
+
 													<% @shippings.each do |shipping| %>
 													<li>
 														<img src="images/img5.png" height="61" width="48" class="alignleft" alt="" />
-														<h4><%= shipping.first_name  %> <span>received</span> <span class="price">$<%= shipping.offer  %></span> <span>for:</span></h4>
-														<p> <%= shipping.product.name  %> </p>
+														<h4><%= shipping.first_name  %> <span> received </span><span class="price"> $<%= shipping.offer  %> </span><span>for:</span></h4>
+														<p>
+															<%= shipping.product.name  %>
+														</p>
 													</li>
-													<% end %>													
+													<% end %>
 												</ul>
 											</div>
 											<div class="post">
 												<h2>Depstar Blog</h2>
-												<ul><% i=0 %>
-													<% if i < 3 %>
+												<ul>
+													<% i = 0 %>
 													<% @title.each do |blog| %>
+													<% if i < 3 %>												
 													<li>
-														<% if !@image_url[i].nil? %>
-														<span class="alignleft">
-															<img src="<%= @image_url[i] %>" width="60" height="60" alt="" />
-														</span>
+														<% if !@image_url[i].blank? %>
+															<span class="alignleft"> <img src="<%= @image_url[i] %>" width="60" height="60" alt="" /> </span>
+														<% else %>
+															<span class="alignleft"> <img src="images/img-phone10.png" width="60" height="60" alt="" /> </span>														
 														<% end %>
-														<h3>
-															<%= "#{@title[i]}".html_safe	%>													
-														</h3>
+														<h3> <%= "#{@title[i]}".html_safe	%> </h3>
 														<span class="meta"><%= "#{@posted_by[i]}".html_safe %></span>
-														<% i +=1 %>
-													</li>
-													<% end %>
+													</li>													
 													<% end -%>
-													<!-- 													
-													<li>
-														<span class="alignleft"><img src="images/img6.jpg" height="50" width="61" alt="" /></span>
-														<h3><a href="#">HTC One X – Full Hands-On Phone Review</a></h3>
-														<span class="meta">Posted by Matt on <em class="date">7/11/2012</em></span>
-													</li>
-													<li>
-														<span class="alignleft"><img src="images/img6.jpg" height="50" width="61" alt="" /></span>
-														<h3><a href="#">HTC One X – Full Hands-On Phone Review</a></h3>
-														<span class="meta">Posted by Matt on <em class="date">7/11/2012</em></span>
-													</li>
-													<li>
-														<span class="alignleft"><img src="images/img6.jpg" height="50" width="61" alt=""/></span>
-														<h3><a href="#">HTC One X – Full Hands-On Phone Review</a></h3>
-														<span class="meta">Posted by Matt on <em class="date">7/11/2012</em></span>
-													</li>
-													 -->
+													<% i = i + 1 %>
+													<% end %>													
 												</ul>
 											</div>
 										</div>
@@ -251,64 +249,164 @@
 							<h2><strong>Popular Searches</strong></h2>
 							<div class="links-area">
 								<ul>
-									<li><a href="/">Sell Electronics</a></li>
-									<li><a href="/">Sell Used Electronics</a></li>	
-									<li><a href="/">Sell Cell Phone</a></li>
-									<li><a href="/">Sell My Phone</a></li>
-									<li><a href="/categories/1-iphones">Sell My iPhone</a></li>
-									<li><a href="/categories/1-iphones">Sell iPhone</a></li>
-									<li><a href="/search?name=iphone%203g">Sell iPhone 3G</a></li>
-									<li><a href="/search?name=iphone%203gs">Sell iPhone 3GS</a></li>
-									<li><a href="/search?name=iphone%204">Sell iPhone 4</a></li>
-									<li><a href="/search?name=iphone%204s">Sell iPhone 4S</a></li>
+									<li>
+										<a href="/">Sell Electronics</a>
+									</li>
+									<li>
+										<a href="/">Sell Used Electronics</a>
+									</li>
+									<li>
+										<a href="/">Sell Cell Phone</a>
+									</li>
+									<li>
+										<a href="/">Sell My Phone</a>
+									</li>
+									<li>
+										<a href="/categories/1-iphones">Sell My iPhone</a>
+									</li>
+									<li>
+										<a href="/categories/1-iphones">Sell iPhone</a>
+									</li>
+									<li>
+										<a href="/search?name=iphone%203g">Sell iPhone 3G</a>
+									</li>
+									<li>
+										<a href="/search?name=iphone%203gs">Sell iPhone 3GS</a>
+									</li>
+									<li>
+										<a href="/search?name=iphone%204">Sell iPhone 4</a>
+									</li>
+									<li>
+										<a href="/search?name=iphone%204s">Sell iPhone 4S</a>
+									</li>
 								</ul>
 								<ul>
-									<li><a href="/categories/3-ipad">Sell iPad</a></li>
-									<li><a href="/categories/5-ipods">Sell iPod</a></li>
-									<li><a href="/categories/2-laptops">Sell MacBook</a></li>
-									<li><a href="/categories/8-blackberry">Sell Blackberry</a></li>
-									<li><a href="/categories/10-android">Sell Droid</a></li>
-									<li><a href="/">Sell Broken Electronics</a></li>
-									<li><a href="/">Sell Broken Cell Phone</a></li>
-									<li><a href="/">Sell Broken Phone</a></li>
-									<li><a href="/">Sell Broken iPhone</a></li>
-									<li><a href="/">Sell My Broken iPhone</a></li>
-								</ul>
-								<ul>	
-									<li><a href="/search?name=iphone%203g">Sell Broken iPhone 3G</a></li>
-									<li><a href="/search?name=iphone%203gs">Sell Broken iPhone 3GS</a></li>
-									<li><a href="/search?name=iphone%204">Sell Broken iPhone 4</a></li>
-									<li><a href="/search?name=iphone%204s">Sell Broken iPhone 4S</a></li>
-									<li><a href="/categories/3-ipad">Sell Broken iPad</a></li>
-									<li><a href="/categories/5-ipods">Sell broken iPod</a></li>
-									<li><a href="/categories/2-laptops">Sell Broken MacBook</a></li>
-									<li><a href="/categories/8-blackberry">Sell Broken Blackberry</a></li>
-									<li><a href="/categories/10-android">Sell Broken Droid</a></li>
-									<li><a href="/">Recycle Electronics</a></li>
-								</ul>
-								<ul>
-									<li><a href="/">Recycle Used Electronics</a></li>
-									<li><a href="/">Recycle Cell Phone</a></li>
-									<li><a href="/">Recycle My Cell Phone</a></li>
-									<li><a href="/categories/1-iphones">Recycle iPhone</a></li>
-									<li><a href="/categories/1-iphones">Recycle My iPhone</a></li>
-									<li><a href="/categories/5-ipods">Recycle iPod</a></li>
-									<li><a href="/categories/3-ipad">Recycle iPad</a></li>
-									<li><a href="/categories/2-laptops">Recycle MacBook</a></li>
-									<li><a href="/categories/8-blackberry">Recycle Droid</a></li>
-									<li><a href="/categories/10-android">Recycle Broken iPhone</a></li>
+									<li>
+										<a href="/categories/3-ipad">Sell iPad</a>
+									</li>
+									<li>
+										<a href="/categories/5-ipods">Sell iPod</a>
+									</li>
+									<li>
+										<a href="/categories/2-laptops">Sell MacBook</a>
+									</li>
+									<li>
+										<a href="/categories/8-blackberry">Sell Blackberry</a>
+									</li>
+									<li>
+										<a href="/categories/10-android">Sell Droid</a>
+									</li>
+									<li>
+										<a href="/">Sell Broken Electronics</a>
+									</li>
+									<li>
+										<a href="/">Sell Broken Cell Phone</a>
+									</li>
+									<li>
+										<a href="/">Sell Broken Phone</a>
+									</li>
+									<li>
+										<a href="/">Sell Broken iPhone</a>
+									</li>
+									<li>
+										<a href="/">Sell My Broken iPhone</a>
+									</li>
 								</ul>
 								<ul>
-									<li><a href="/categories/1-iphones">Recycle My iPhone</a></li>
-									<li><a href="/categories/3-ipad">Recycle My iPad</a></li>
-									<li><a href="/categories/5-ipods">Recycle My iPod</a></li>
-									<li><a href="/categories/2-laptops">Recycle My MacBook</a></li>
-									<li><a href="/categories/1-iphones">Trade In iPhone</a></li>
-									<li><a href="/categories/1-iphones">Trade In My iPhone</a></li>
-									<li><a href="/categories/3-ipad">Trade In iPad</a></li>
-									<li><a href="/categories/3-ipad">Trade in My iPad</a></li>
-									<li><a href="/categories/2-laptops">Trade In MacBook</a></li>
-									<li><a href="/categories/2-laptops">Trade In My MacBook</a></li>
+									<li>
+										<a href="/search?name=iphone%203g">Sell Broken iPhone 3G</a>
+									</li>
+									<li>
+										<a href="/search?name=iphone%203gs">Sell Broken iPhone 3GS</a>
+									</li>
+									<li>
+										<a href="/search?name=iphone%204">Sell Broken iPhone 4</a>
+									</li>
+									<li>
+										<a href="/search?name=iphone%204s">Sell Broken iPhone 4S</a>
+									</li>
+									<li>
+										<a href="/categories/3-ipad">Sell Broken iPad</a>
+									</li>
+									<li>
+										<a href="/categories/5-ipods">Sell broken iPod</a>
+									</li>
+									<li>
+										<a href="/categories/2-laptops">Sell Broken MacBook</a>
+									</li>
+									<li>
+										<a href="/categories/8-blackberry">Sell Broken Blackberry</a>
+									</li>
+									<li>
+										<a href="/categories/10-android">Sell Broken Droid</a>
+									</li>
+									<li>
+										<a href="/">Recycle Electronics</a>
+									</li>
+								</ul>
+								<ul>
+									<li>
+										<a href="/">Recycle Used Electronics</a>
+									</li>
+									<li>
+										<a href="/">Recycle Cell Phone</a>
+									</li>
+									<li>
+										<a href="/">Recycle My Cell Phone</a>
+									</li>
+									<li>
+										<a href="/categories/1-iphones">Recycle iPhone</a>
+									</li>
+									<li>
+										<a href="/categories/1-iphones">Recycle My iPhone</a>
+									</li>
+									<li>
+										<a href="/categories/5-ipods">Recycle iPod</a>
+									</li>
+									<li>
+										<a href="/categories/3-ipad">Recycle iPad</a>
+									</li>
+									<li>
+										<a href="/categories/2-laptops">Recycle MacBook</a>
+									</li>
+									<li>
+										<a href="/categories/8-blackberry">Recycle Droid</a>
+									</li>
+									<li>
+										<a href="/categories/10-android">Recycle Broken iPhone</a>
+									</li>
+								</ul>
+								<ul>
+									<li>
+										<a href="/categories/1-iphones">Recycle My iPhone</a>
+									</li>
+									<li>
+										<a href="/categories/3-ipad">Recycle My iPad</a>
+									</li>
+									<li>
+										<a href="/categories/5-ipods">Recycle My iPod</a>
+									</li>
+									<li>
+										<a href="/categories/2-laptops">Recycle My MacBook</a>
+									</li>
+									<li>
+										<a href="/categories/1-iphones">Trade In iPhone</a>
+									</li>
+									<li>
+										<a href="/categories/1-iphones">Trade In My iPhone</a>
+									</li>
+									<li>
+										<a href="/categories/3-ipad">Trade In iPad</a>
+									</li>
+									<li>
+										<a href="/categories/3-ipad">Trade in My iPad</a>
+									</li>
+									<li>
+										<a href="/categories/2-laptops">Trade In MacBook</a>
+									</li>
+									<li>
+										<a href="/categories/2-laptops">Trade In My MacBook</a>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -316,9 +414,9 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<%= render "layouts/footer" %>
-		
+
 	</div>
 </body>
 </html>
