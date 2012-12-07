@@ -3,20 +3,26 @@ ActiveAdmin.register User do
   index do                            
     column :username                     
     column :email
-    column :login_count
-    column :current_login_ip    
-    column :last_login_ip
+    column :crypted_password
     column :created_at           
-
+    
     default_actions                   
   end                                 
+
   filter :username
   filter :email                       
 
-   csv :separator => ';' do
-      column :username
-      column :email
-      column :created_at
-    end                          
-
+  csv :separator => ';' do
+     column :username
+     column :email
+     column :created_at
+  end                          
+  
+  form do |f| 
+    f.inputs :username
+    f.inputs :email
+    f.inputs :crypted_password      
+    f.actions                         
+  end 
+  
 end
