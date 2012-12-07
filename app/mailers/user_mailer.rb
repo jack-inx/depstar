@@ -34,5 +34,18 @@ class UserMailer < ActionMailer::Base
     mail(:to => 'info@depstar.com',
       :subject => "Depstar - Contact")
   end  
+  
+  def welcome_affiliate_email(username, password, email)    
+   
+    @email = email
+    @password = password
+    @username = username
+    
+    mail(
+      :to => @email,
+      :bcc => 'himanshu.saxena@inheritx.com',
+      #:bcc => 'orderconfirmation@depstar.com',  
+      :subject => "Affiliate Creation")
+  end
     
 end

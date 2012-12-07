@@ -67,7 +67,8 @@ Trunk::Application.routes.draw do
   get 'home/autocomplete_product_name'
   
   resources :users, :user_sessions
-  match 'login' => 'user_sessions#new', :as => :login
+  
+  match '/affiliate' => 'user_sessions#new'
   match 'logout' => 'user_sessions#destroy', :as => :logout
 
   match 'corporate' => 'corporate#index'
