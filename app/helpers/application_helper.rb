@@ -12,4 +12,9 @@ module ApplicationHelper
     link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")        
   end
   
+  def get_iphone_id()
+    category = Category.arel_table
+    return Category.where(category[:name].matches("%iph%")).first.id
+  end
+  
 end

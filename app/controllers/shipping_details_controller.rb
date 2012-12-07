@@ -7,8 +7,10 @@ class ShippingDetailsController < ApplicationController
   # GET /shipping_details
   # GET /shipping_details.xml
   def index
+    @user = ShippingDetail.find_by_user_id(session[:current_user])
+    p "============== #{session[:current_user]} #{@user.nil?}"
     #@shipping_details = ShippingDetail.all(:order => "created_at desc")
-    @shipping_details = ShippingDetail.paginate(:page => params[:page], :per_page => 2000, :order => "created_at desc")
+    @shipping_details = ShippingDetail.where(:user_id => session[:current_user]).paginate(:page => params[:page], :per_page => 2000, :order => "created_at desc")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -256,81 +258,87 @@ class ShippingDetailsController < ApplicationController
   def new
     @shipping_detail = ShippingDetail.new
     @options = ''
+    if params[:login]!= 'true'
+
     
-    unless params[:shipping_detail].nil?
-      @product = Product.find(params[:shipping_detail][:product_id])
-      @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])    
-    else
-      
-      @params_to_pass_to_shipping_details = {}
-
-      @product = Product.find(params['product_id'])
-      @x = 0
-
-      # Add all options
-      params.each do |param|
-       key = param[0]
-       value = param[1]
-
-       if key.start_with?('option')        
-         if value.end_with?('1') == true
-           @current_question_option_id = @product.question_options[@x].id
-           @options = @options + @current_question_option_id.to_s
-         end
-         @x = @x + 1
-       end
-
-       if key.start_with?('option') or key.start_with?('question')
-         @params_to_pass_to_shipping_details[key] = value
-       end
-      end
-
-      @question_response = QuestionResponse.new(:product_id => params['product_id'], 
-       :question_1 => (params[:question_1] == 'answer_1' ? 'True' : 'False'), 
-       :question_2 => (params[:question_2] == 'answer_5' ? 'True' : 'False'),
-       :question_3 => (case params[:question_3] 
-                         when 'answer_5' 
-                           '1' 
-                         when 'answer_6' 
-                           '2'
-                         when 'answer_7' 
-                           '3'
-                         when 'answer_8' 
-                           '4'
-                         else
-                           '0'
-                       end),
-       :question_4 => @options)
-      
-      if @question_response.valid?
-        @question_response.save
-      end
-    end
+        unless params[:shipping_detail].nil?
+          @product = Product.find(params[:shipping_detail][:product_id])
+          @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])    
+        else
+          
+          @params_to_pass_to_shipping_details = {}
     
-    @uuid = nil
-
-    # Required by uSell intergration -- Set a 30 day cookie
-    if !params[:uuid].nil? # Always transfer to new UUID if uSell provides one
-      cookies[:uuid] = { :value => params[:uuid], :expires => 30.day.from_now }
-      @uuid = params[:uuid]
-    elsif !cookies[:uuid].nil? # If a new UUID is not provided, use the ID from the cookie
-      @uuid = cookies[:uuid]
-    end
+          @product = Product.find(params['product_id'])
+          @x = 0
     
-    @device = Device.new(:product_id => params['shipping_detail']['product_id'],
-      :question_response_id => @question_response.id
-      )
-    @device.status_code = 0
-      
-    if @device.valid?
-      @device.save
-    end
+          # Add all options
+          params.each do |param|
+           key = param[0]
+           value = param[1]
     
-    # Assume just 1 device per shipping details
-    @shipping_detail.devices[0] = @device
-    @shipping_detail.uuid = @uuid unless @uuid.nil?
-    @shipping_detail.referer = params[:ref] unless params[:ref].nil?
+           if key.start_with?('option')        
+             if value.end_with?('1') == true
+               @current_question_option_id = @product.question_options[@x].id
+               @options = @options + @current_question_option_id.to_s
+             end
+             @x = @x + 1
+           end
+    
+           if key.start_with?('option') or key.start_with?('question')
+             @params_to_pass_to_shipping_details[key] = value
+           end
+          end
+    
+          @question_response = QuestionResponse.new(:product_id => params['product_id'], 
+           :question_1 => (params[:question_1] == 'answer_1' ? 'True' : 'False'), 
+           :question_2 => (params[:question_2] == 'answer_5' ? 'True' : 'False'),
+           :question_3 => (case params[:question_3] 
+                             when 'answer_5' 
+                               '1' 
+                             when 'answer_6' 
+                               '2'
+                             when 'answer_7' 
+                               '3'
+                             when 'answer_8' 
+                               '4'
+                             else
+                               '0'
+                           end),
+           :question_4 => @options)
+          
+          if @question_response.valid?
+            @question_response.save
+          end
+        end
+        
+        @uuid = nil
+    
+        # Required by uSell intergration -- Set a 30 day cookie
+        if !params[:uuid].nil? # Always transfer to new UUID if uSell provides one
+          cookies[:uuid] = { :value => params[:uuid], :expires => 30.day.from_now }
+          @uuid = params[:uuid]
+        elsif !cookies[:uuid].nil? # If a new UUID is not provided, use the ID from the cookie
+          @uuid = cookies[:uuid]
+        end
+        
+        @device = Device.new(:product_id => params['shipping_detail']['product_id'],
+          :question_response_id => @question_response.id
+          )
+        @device.status_code = 0
+          
+        if @device.valid?
+          @device.save
+        end
+        
+        # Assume just 1 device per shipping details
+        @shipping_detail.devices[0] = @device
+        @shipping_detail.uuid = @uuid unless @uuid.nil?
+        @shipping_detail.referer = params[:ref] unless params[:ref].nil?
 
+else
+  @brow = 1 
+end
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @shipping_detail }
@@ -368,9 +376,11 @@ class ShippingDetailsController < ApplicationController
   # POST /shipping_details
   # POST /shipping_details.xml
   def create
-    @shipping_detail = ShippingDetail.new(params[:shipping_detail])
     
+    @shipping_detail = ShippingDetail.new(params[:shipping_detail])
+     
     @product = Product.find(params[:shipping_detail][:product_id])
+    if params[:shipping_detail][:question_response_id]
     @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
     
     @tos = params[:tos]
@@ -388,11 +398,15 @@ class ShippingDetailsController < ApplicationController
     @device.final_offer   = @question_response.quote unless @question_response.nil?
     
     @shipping_detail.devices[0] = @device
-    
+    else
+      
+      @tos = params[:shipping_detail][:tos]
+      @shipping_detail.user_id=session[:current_user]
+    end
     respond_to do |format|
-      if @tos.nil?
+      if @tos.nil? && @product.nil?
         flash[:error] = "You must first agree to the terms of service"
-        format.html { render :action => "new", :product_id => @product.id, :question_response_id => @question_response.id, :notice => "You must first agree to the terms of service" }
+        format.html { render :action => "new", :product_id => @product.id,  :notice => "You must first agree to the terms of service" } #:question_response_id => @question_response.id,
         format.xml  { render :xml => @shipping_detail.errors, :status => :unprocessable_entity }
       elsif @shipping_detail.save
         UserMailer.welcome_email(@shipping_detail).deliver
@@ -401,7 +415,7 @@ class ShippingDetailsController < ApplicationController
         format.html { redirect_to(@shipping_detail, :notice => 'Please check your email for confirmation') }
         format.xml  { render :xml => @shipping_detail, :status => :created, :location => @shipping_detail }
       else
-        format.html { render :action => "new", :product_id => @product.id, :question_response_id => @question_response.id }
+        format.html { render :action => "new", :product_id => @product.id }#, :question_response_id => @question_response.id
         format.xml  { render :xml => @shipping_detail.errors, :status => :unprocessable_entity }
       end
     end

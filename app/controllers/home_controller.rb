@@ -7,6 +7,7 @@ class HomeController < ApplicationController
   
   def index
     @categories = Category.all
+    # @iphone_id = @iphone=Category.iphoneId
     @shippings = ShippingDetail.order("created_at DESC").limit(3)
     @blogs = Blog.order("created_at").limit(4)
 

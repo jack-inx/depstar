@@ -4,6 +4,8 @@ class ShippingDetail < ActiveRecord::Base
   belongs_to :question_response
   belongs_to :user
   
+  Condition = [["Flawless",1],["Used",2],["Broken",3]]
+  
   #has_and_belongs_to_many :devices
 	has_many :devices
 	
@@ -25,13 +27,21 @@ class ShippingDetail < ActiveRecord::Base
   validates_presence_of :paypal_email, if: :on_get_paid_step_paypal?
 
   validates_acceptance_of :tos, if: :on_confirm_step?
+  
+
+ 
+ validates_presence_of :first_name, :last_name
 
   validates_format_of :phone,
       :message => "must be a valid telephone number.",
       :with => /^[\(\)0-9\- \+\.]{10,20}$/,
       #:if => :on_shipping_step?
       :if => :require_phone_validation?
-    
+
+  def validate_data
+    self.first_name != ''
+  end
+      
   def require_phone_validation?
     # Only for uSell orders phone numbers are optional
     self.referer != 'usell' && self.on_shipping_step?

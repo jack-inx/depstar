@@ -206,6 +206,21 @@
 
 		<% end %>
 				
+	<% if @brow == 1 %>
+	   <div class="field">
+	    <%= f.label :product %><br />
+	    <%= f.select :product_id,Product.all.map{ |i| [i.name, i.id]} %>
+	  </div>
+	  
+	   <div class="field">
+	    <%= f.label :offer %><br />
+	    <%= f.select :offer, ShippingDetail::Condition.map{ |i| [i.first, i.last]} %>
+	  </div>
+	  
+	 
+	  
+	  <% end %>
+	  
 	  <div id="paypal_email" class="field" style='display: none;'>
 	    <%= f.label :paypal_email %><br />
 	    <%= f.text_field :paypal_email %>
@@ -238,6 +253,8 @@
 	    <%= f.label :city %><br />
 	    <%= f.text_field :city %>
 	  </div>
+	 
+	  
 	  <div class="field">
 	    <%= f.label :state %><br />
 			<%= f.text_field :state %>
@@ -299,6 +316,13 @@
 	    <%= f.label :zip %><br />
 	    <%= f.text_field :zip, :maxlength=>'5' %>
 	  </div>
+	  <%# if @brow == 1%>
+	    <div class="field">
+	    <%= f.check_box :tos %><br />
+	    <%= f.label :terms_and_conditions %>
+	  </div>
+	  
+	  <%# end %>
 		<!-- <div class="field">
 					<h5> Terms of service </h5> -->
 			<%#= text_area_tag :tos_text, 'Privacy Policy

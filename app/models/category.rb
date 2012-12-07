@@ -23,4 +23,6 @@ class Category < ActiveRecord::Base
     "#{self.id}-#{self.name.parameterize}"
   end
   
+  
+ 
 end
