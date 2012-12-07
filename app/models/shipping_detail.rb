@@ -2,6 +2,7 @@ class ShippingDetail < ActiveRecord::Base
   belongs_to :payment_method
   belongs_to :product
   belongs_to :question_response
+  belongs_to :user
   
   #has_and_belongs_to_many :devices
 	has_many :devices
