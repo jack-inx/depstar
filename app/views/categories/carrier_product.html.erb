@@ -7,16 +7,12 @@
 		<table class="sell-table">
 			<thead>
 				<tr>					
-					<td colspan="5">
-						<% if params[:name].nil? %>
+					<td colspan="5">						
 							<% if !@series.nil? %>
-								Choose your <%=  "#{@carrier.name} - #{@series.name} - #{@category.name}" %>
+								Choose your <%=  "#{@carrier.name} #{@series.name} " %>
 							<% else %>
-								Choose your <%=  "#{@carrier.name} - #{@manufacturer.name} - #{@category.name}" %>
-							<% end %>
-						<% else %>
-							Choose your <%= params[:name] %>
-						<% end %>						
+								Choose your <%=  "#{@carrier.name} #{@manufacturer.name} #{@category.name}" %>
+							<% end %>											
 					</td>
 				</tr>
 			</thead>

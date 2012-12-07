@@ -1,6 +1,6 @@
 Trunk::Application.routes.draw do
 
-  resources :blogs
+  #resources :blogs
 
   ActiveAdmin.routes(self)
 
