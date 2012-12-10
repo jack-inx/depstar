@@ -1,5 +1,7 @@
 Trunk::Application.routes.draw do
 
+  resources :profiles
+
   #resources :blogs
 
   ActiveAdmin.routes(self)

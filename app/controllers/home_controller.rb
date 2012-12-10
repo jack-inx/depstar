@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   autocomplete :product, :name, :full => true
   
   def index
-    @categories = Category.all
+    @categories = Category.order("name DESC")
     # @iphone_id = @iphone=Category.iphoneId
     @shippings = ShippingDetail.order("created_at DESC").limit(3)
     @blogs = Blog.order("created_at").limit(4)

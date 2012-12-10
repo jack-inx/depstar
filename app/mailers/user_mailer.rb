@@ -41,6 +41,12 @@ class UserMailer < ActionMailer::Base
     @password = password
     @username = username
     
+     if Rails.env.production?
+      @root = "Depstar.com"
+    else  
+      @root = "localhost:3000"
+    end
+    
     mail(
       :to => @email,
       :bcc => 'himanshu.saxena@inheritx.com',

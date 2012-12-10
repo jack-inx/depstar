@@ -1,0 +1,18 @@
+
+<h2>Profiles</h2>
+
+<table class="hovertable">
+  
+
+<% @profiles.each do |profile| %>
+  <tr>
+  	<td><%= profile.user.username %></td>
+    <td><%= profile.website_url %></td>    
+    <td><%= link_to 'Show', profile %></td>
+    <td><%= link_to 'Edit', edit_profile_path(profile) %></td>    
+  </tr>
+<% end %>
+</table>
+
+
+

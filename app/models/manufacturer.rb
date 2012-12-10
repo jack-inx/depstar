@@ -1,7 +1,7 @@
 class Manufacturer < ActiveRecord::Base
   
-  has_many :products
-  has_many :series_lists
+  has_many :products, :dependent => :destroy
+  has_many :series_lists, :dependent => :destroy
    
   has_and_belongs_to_many   :categories
   has_and_belongs_to_many   :carriers, :join_table => :carriers_manufacturers

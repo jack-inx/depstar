@@ -1,8 +1,8 @@
 class Category < ActiveRecord::Base
   USELL_CATEGORY_CODES = ['Cell Phones', 'Tablets', 'MP3 Players', 'Game Consoles', 'E-Readers', 'Digital Cameras']
   
-  has_many :products
-  has_many :series_lists
+  has_many :products, :dependent => :destroy
+  has_many :series_lists, :dependent => :destroy
   has_and_belongs_to_many :manufacturers
   
   #attr_accessor :photo_file_name

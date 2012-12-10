@@ -1,6 +1,9 @@
 <%#= render :file => "/admin/index"  %>		
 	<h2>Orders</h2>
-	<%= link_to 'New Order', new_shipping_detail_path(:login=>current_user) %>
+	<p>
+		<%= link_to 'New Order', new_shipping_detail_path(:login => current_user) %>
+	</p>
+	
 	<%= will_paginate @shipping_details, :container => false %>
 	
 	
