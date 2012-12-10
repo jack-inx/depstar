@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :email, :crypted_password, :persistence_token,:password_salt
+  attr_accessible :username, :email, :crypted_password, :persistence_token,:password_salt, :status
   attr_accessor :password_confirmation
    
   has_one :profile, :dependent => :destroy
@@ -29,6 +29,15 @@ class User < ActiveRecord::Base
   
   def is_admin?
     self.is_admin == true unless self == nil    
+  end
+  
+    def self.checkStatus(username, password)
+    @user = self.find_by_username_and_crypted_password_and_status(username, password,true)
+    if @user.nil?
+      false
+    else
+      true
+    end    
   end
   
 end

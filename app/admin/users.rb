@@ -5,13 +5,15 @@ ActiveAdmin.register User do
     column :username                     
     column :email
     column :crypted_password
-    column :created_at           
+    column :created_at     
+    column :status      
     
     default_actions                  
   end                                 
 
   filter :username
-  filter :email                       
+  filter :email     
+  filter :status                  
 
   csv :separator => ';' do
      column :username
@@ -23,6 +25,7 @@ ActiveAdmin.register User do
     f.inputs :username
     f.inputs :email
     f.inputs :crypted_password      
+    f.inputs :status
     f.actions                         
   end 
   
