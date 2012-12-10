@@ -1,0 +1,5 @@
+<div class="field">
+	<%= f.label :product %>
+	<br />
+	<%= f.select :product_id,Product.all.map{ |i| [i.name, i.id]}  %>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121207091742) do
+ActiveRecord::Schema.define(:version => 20121210060244) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string    "resource_id",   :null => false
@@ -197,36 +197,36 @@ ActiveRecord::Schema.define(:version => 20121207091742) do
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "shipping_details", :force => true do |t|
-    t.string    "first_name"
-    t.string    "last_name"
-    t.string    "address1"
-    t.string    "address2"
-    t.string    "city"
-    t.string    "state"
-    t.string    "zip"
-    t.string    "email"
-    t.integer   "payment_method_id"
-    t.string    "paypal_email"
-    t.integer   "product_id"
-    t.boolean   "requires_box"
-    t.integer   "question_response_id"
-    t.timestamp "created_at",                            :null => false
-    t.timestamp "updated_at",                            :null => false
-    t.string    "phone"
-    t.string    "uuid"
-    t.string    "referer"
-    t.integer   "final_offer"
-    t.integer   "status_code",            :default => 0
-    t.string    "notes"
-    t.string    "serial"
-    t.integer   "offer"
-    t.string    "check_payment_name"
-    t.string    "check_payment_address1"
-    t.string    "check_payment_address2"
-    t.string    "check_payment_city"
-    t.string    "check_payment_state"
-    t.string    "check_payment_zip"
-    t.integer   "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "email"
+    t.integer  "payment_method_id"
+    t.string   "paypal_email"
+    t.integer  "product_id"
+    t.boolean  "requires_box"
+    t.integer  "question_response_id"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "phone"
+    t.string   "uuid"
+    t.string   "referer"
+    t.integer  "final_offer"
+    t.integer  "status_code",            :default => 0
+    t.string   "notes"
+    t.string   "serial"
+    t.integer  "offer"
+    t.string   "check_payment_name"
+    t.string   "check_payment_address1"
+    t.string   "check_payment_address2"
+    t.string   "check_payment_city"
+    t.string   "check_payment_state"
+    t.string   "check_payment_zip"
+    t.integer  "user_id"
   end
 
   create_table "user_sessions", :force => true do |t|
@@ -242,15 +242,16 @@ ActiveRecord::Schema.define(:version => 20121207091742) do
     t.string    "crypted_password"
     t.string    "password_salt"
     t.string    "persistence_token"
-    t.integer   "login_count",        :default => 0, :null => false
-    t.integer   "failed_login_count", :default => 0, :null => false
+    t.integer   "login_count",        :default => 0,    :null => false
+    t.integer   "failed_login_count", :default => 0,    :null => false
     t.timestamp "last_request_at"
     t.timestamp "current_login_at"
     t.timestamp "last_login_at"
     t.string    "current_login_ip"
     t.string    "last_login_ip"
-    t.timestamp "created_at",                        :null => false
-    t.timestamp "updated_at",                        :null => false
+    t.timestamp "created_at",                           :null => false
+    t.timestamp "updated_at",                           :null => false
+    t.boolean   "status",             :default => true
   end
 
 end

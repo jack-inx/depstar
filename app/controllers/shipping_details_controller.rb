@@ -8,7 +8,6 @@ class ShippingDetailsController < ApplicationController
   # GET /shipping_details.xml
   def index
     @user = ShippingDetail.find_by_user_id(session[:current_user])
-    p "============== #{session[:current_user]} #{@user.nil?}"
     #@shipping_details = ShippingDetail.all(:order => "created_at desc")
     @shipping_details = ShippingDetail.where(:user_id => session[:current_user]).paginate(:page => params[:page], :per_page => 2000, :order => "created_at desc")
 
@@ -399,18 +398,18 @@ end
     
     @shipping_detail.devices[0] = @device
     else
-      
       @tos = params[:shipping_detail][:tos]
       @shipping_detail.user_id=session[:current_user]
+      
     end
     respond_to do |format|
-      if @tos.nil? && @product.nil?
+      if @tos=='0' || @product.nil?
         flash[:error] = "You must first agree to the terms of service"
         format.html { render :action => "new", :product_id => @product.id,  :notice => "You must first agree to the terms of service" } #:question_response_id => @question_response.id,
         format.xml  { render :xml => @shipping_detail.errors, :status => :unprocessable_entity }
       elsif @shipping_detail.save
-        UserMailer.welcome_email(@shipping_detail).deliver
-        UserMailer.new_quote_request_email(@shipping_detail).deliver
+       # UserMailer.welcome_email(@shipping_detail).deliver
+       # UserMailer.new_quote_request_email(@shipping_detail).deliver
         
         format.html { redirect_to(@shipping_detail, :notice => 'Please check your email for confirmation') }
         format.xml  { render :xml => @shipping_detail, :status => :created, :location => @shipping_detail }
