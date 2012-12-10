@@ -11,9 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
 ActiveRecord::Schema.define(:version => 20121210103815) do
-
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -251,38 +249,21 @@ ActiveRecord::Schema.define(:version => 20121210103815) do
   end
 
   create_table "users", :force => true do |t|
-<<<<<<< HEAD
     t.string   "username"
     t.string   "email"
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
-    t.integer  "login_count",        :default => 0, :null => false
-    t.integer  "failed_login_count", :default => 0, :null => false
+    t.integer  "login_count",        :default => 0,    :null => false
+    t.integer  "failed_login_count", :default => 0,    :null => false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-=======
-    t.string    "username"
-    t.string    "email"
-    t.string    "crypted_password"
-    t.string    "password_salt"
-    t.string    "persistence_token"
-    t.integer   "login_count",        :default => 0,    :null => false
-    t.integer   "failed_login_count", :default => 0,    :null => false
-    t.timestamp "last_request_at"
-    t.timestamp "current_login_at"
-    t.timestamp "last_login_at"
-    t.string    "current_login_ip"
-    t.string    "last_login_ip"
-    t.timestamp "created_at",                           :null => false
-    t.timestamp "updated_at",                           :null => false
-    t.boolean   "status",             :default => true
->>>>>>> d1a70e43593938ec9dfdeed677efde77b487988c
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.boolean  "status",             :default => true
   end
 
 end
