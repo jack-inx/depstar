@@ -1549,6 +1549,7 @@ form,fieldset{
 	color:#a1a1a1;
 	font-size:14px;
 	line-height:18px;
+	font-weight: bolder;
 }
 .workflow ul{
 	list-style:none;
@@ -1566,7 +1567,7 @@ form,fieldset{
 	float:left;
 	padding:4px 13px 0 27px;
 	width:280px;
-	background:url(../images/arrow.gif) no-repeat 0 -2px;
+	/*background:url(../images/arrow.gif) no-repeat 0 -2px;*/
 }
 .workflow .icon{
 	float:left;
@@ -1583,7 +1584,7 @@ form,fieldset{
 	color:#fff;
 	font-weight:400;
 }
-.workflow p{margin:0;}
+.workflow p{margin:0 -15px;}
 #main{
 	background:url(../images/bg-glow.png) no-repeat 50% 581px;
 	overflow:hidden;

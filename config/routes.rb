@@ -11,7 +11,8 @@ Trunk::Application.routes.draw do
   match 'search' => 'categories#search_filter'  
   match 'search_result' => 'categories#get_search_result' 
   match 'categories/show/' => 'categories#show' # For the homepage form
-  
+  match "/admin_as_affiliate/:id/affiliate" => "user_sessions#admin_as_affiliate"
+  match "/admin_logout_as_affiliate" => "user_sessions#admin_logout_as_affiliate"  
   resources :question_response
   resources :categories
   resources :carriers
