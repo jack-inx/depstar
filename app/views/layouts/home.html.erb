@@ -212,7 +212,11 @@
 														<img src="images/img5.png" height="61" width="48" class="alignleft" alt="" />
 														<h4><%= shipping.first_name  %> <span> received </span><span class="price"> $<%= shipping.offer  %> </span><span>for:</span></h4>
 														<p>
-															<%= shipping.product.name  %>
+															<% if !shipping.product.nil?  %>
+																<%= shipping.product.name  %>
+															<% else  %>	
+																Product Removed
+															<% end  %>
 														</p>
 													</li>
 													<% end %>

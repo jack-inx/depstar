@@ -1,5 +1,6 @@
-ActiveAdmin.register User do
-  menu :priority => 1  
+ActiveAdmin.register User do  
+  menu :priority => 1,:label => "Affiliates"  
+  
   index do                            
     column :username                     
     column :email
@@ -7,7 +8,7 @@ ActiveAdmin.register User do
     column :created_at     
     column :status      
     
-    default_actions                   
+    default_actions                  
   end                                 
 
   filter :username
@@ -27,5 +28,29 @@ ActiveAdmin.register User do
     f.inputs :status
     f.actions                         
   end 
+  
+  show do
+    div :class => 'panel' do
+      h3 'Affiliate'
+      div :class => 'panel_contents' do
+        div :class => 'attributes_table users' do
+          table do
+            tr do
+              th { 'Username' }
+              td { user.username }
+            end
+            tr do
+              th { 'Email' }
+              td { user.email }
+            end
+            tr do
+              th { 'Password' }
+              td { user.crypted_password }
+            end
+          end # table
+        end # attributes_table
+      end # panel_contents
+    end # panel
+  end #
   
 end

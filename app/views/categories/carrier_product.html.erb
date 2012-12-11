@@ -11,7 +11,7 @@
 							<% if !@series.nil? %>
 								Choose your <%=  "#{@carrier.name} #{@series.name} " %>
 							<% else %>
-								Choose your <%=  "#{@carrier.name} #{@manufacturer.name} #{@category.name}" %>
+								Choose your <%=  "#{@carrier.name} #{@manufacturer.name} #{@category.name.singularize.downcase}" %>
 							<% end %>											
 					</td>
 				</tr>
@@ -23,10 +23,14 @@
 					<% slice.each do |product| %>
 					<% @counter += 1 %>
 					<td width=177px> <%#= link_to image_tag(carrier.photo.url(:small)), carrier %>
-					<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), product %>
-					<p>
-						<%= link_to product.name,product %>
-					</p></td>
+						<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), product %>
+						<p>
+							<%= product.name %>
+						</p>
+						<p>							
+							<%= link_to "Sell Now",product,:class=>"sell" %>							
+						</p>
+					</td>
 					<% end %>
 					<% for i in @counter.. @products.count - 8 %>
 					<td></td>

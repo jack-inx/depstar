@@ -17,4 +17,9 @@ module ApplicationHelper
     return Category.where(category[:name].matches("%iph%")).first.id
   end
   
+  def get_user(id)
+    @user = User.find(id)
+    return @user
+  end
+  
 end

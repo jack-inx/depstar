@@ -4,6 +4,6 @@ class SeriesList < ActiveRecord::Base
   belongs_to :manufacturer
   belongs_to :category
   
-  has_many :products
+  has_many :products, :dependent => :destroy
   
 end
