@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   
   before_filter :check_current_user, :only =>[:edit, :update, :show]
-  before_filter :not_allowed
+  #before_filter :not_allowed
   
   def index
     @profiles = Profile.all

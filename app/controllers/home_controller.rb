@@ -7,7 +7,17 @@ class HomeController < ApplicationController
   
   def index
     @categories = Category.order("name DESC")
-    # @iphone_id = @iphone=Category.iphoneId
+    logger.info(" #{@categories.inspect}   ")
+    @index = 0
+    @categories.each do |category|             
+      if category.name.eql?("iPhones") or category.name.eql?("iPhone")
+        @temp = @categories[0]
+        @categories[0] = @categories[@index]
+        @categories[@index] = @temp  
+      end
+      @index += 1    
+    end
+       
     @shippings = ShippingDetail.order("created_at DESC").limit(3)
     @blogs = Blog.order("created_at").limit(4)
 

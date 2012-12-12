@@ -47,6 +47,11 @@ ActiveAdmin.register User do
               th { 'Password' }
               td { user.crypted_password }
             end
+            tr do
+              th { 'Login as' }
+              td { link_to user.username, "/admin_as_affiliate/#{user.id}/affiliate" }
+            end
+            
           end # table
         end # attributes_table
       end # panel_contents
