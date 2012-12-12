@@ -53,5 +53,26 @@ class UserMailer < ActionMailer::Base
       #:bcc => 'orderconfirmation@depstar.com',  
       :subject => "Affiliate Creation")
   end
+  
+  
+  def affiliate_password_email(username, password, email)    
+   
+    @email = email
+    @password = password
+    @username = username
+    
+     if Rails.env.production?
+      @root = "Depstar.com"
+    else  
+      @root = "localhost:3000"
+    end
+    
+    mail(
+      :to => @email,
+      :bcc => 'himanshu.saxena@inheritx.com',
+      #:bcc => 'orderconfirmation@depstar.com',  
+      :subject => "Affiliate Creation")
+  end
+  
     
 end

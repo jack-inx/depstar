@@ -13,10 +13,17 @@ class User < ActiveRecord::Base
   # end
   
   after_create :send_email
+  
+  after_update :send_password_email
 
   def send_email
     @profile = Profile.create(:user_id => self.id)
     UserMailer.welcome_affiliate_email(self.username, self.crypted_password, self.email).deliver
+  end
+  
+   def send_password_email
+    #@profile = Profile.create(:user_id => self.id)
+    UserMailer.affiliate_password_email(self.username, self.crypted_password, self.email).deliver
   end
   
   def empty?
