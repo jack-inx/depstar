@@ -74,15 +74,23 @@
 	<div class="image">
 		<div style='margin-bottom: 10px'>
 			<% if @product %>
+			<% begin %>
 			<% @product.each do |f| %>
 			<%= image_tag f.photo.url(:small) unless f.nil? %>
+			<% end %>
+			<% rescue %>
+			<%= image_tag @product.photo.url(:small) unless @product.nil? %>
 			<% end %>
 			<% end %>
 		</div>
 		<div style='text-align: center; width: 125px;'>
 			<% if @product %>
+			<% begin %>
 			<% @product.each do |f| %>
 			<span class='product-title'><%= f.name unless f.nil? %></span>
+			<% end %>
+			<% rescue %>
+			<span class='product-title'><%= @product.name unless @product.nil? %></span>
 			<% end %>
 			<% end %>
 		</div>

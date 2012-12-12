@@ -412,6 +412,7 @@ end
     @shipping_detail.devices[0] = @device
     else
       @tos = params[:shipping_detail][:tos]
+      logger.info "===========user id  #{session[:current_user]}"
       @shipping_detail.user_id=session[:current_user]
       
     end
@@ -475,7 +476,9 @@ end
     @shipping_detail = ShippingDetail.find(params[:id])
 
     respond_to do |format|
+      if !params[:products].nil?
       params[:shipping_detail][:product_ids] = params[:products][:product_list]
+      end
       if @shipping_detail.update_attributes(params[:shipping_detail])
                 
         if !params[:products].nil?

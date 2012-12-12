@@ -8,7 +8,8 @@ Please select field for :
 		<td><%= Product.find(f.product_id).name %></td>
 		<td><%= select_tag "product[price_type][]", options_for_select(ShippingDetail::Condition.map{ |i| [i.first , i.last]}) %></td>
 		<td><%= hidden_field_tag "product[product_id][]", "#{f.product_id}" %></td>
-	</tr>	
+	</tr>
+	<br />	
 	<% end %>
 	<%= submit_tag "Submit" %>
 	<% end -%>

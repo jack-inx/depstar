@@ -38,9 +38,9 @@ class UserSessionsController < ApplicationController
   end
   
   def admin_as_affiliate
-    session[:current_user] = User.find(params[:id])
+    session[:current_user] = User.find(params[:id]).id
     session[:admin] = true
-    redirect_to root_url
+    redirect_to "/shipping_details"
   end
   
   def admin_logout_as_affiliate
