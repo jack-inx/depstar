@@ -4,7 +4,7 @@ ActiveAdmin.register Product do
     column :category
     column :manufacturer
     column :series_list
-    column :carrier
+    column "Carrier*",:carrier
     column "Price (Flawless)",:price
     column "Price (Used)",:used_price
     column "Price (Broken)",:broken_price
@@ -24,7 +24,7 @@ ActiveAdmin.register Product do
           table do
             tr do
               th { 'Name' }
-              td { product.name }
+              td { product.name.nil? ? "" : product.name  }
             end
             tr do
               th { 'Description' }

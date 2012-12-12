@@ -11,26 +11,34 @@
 	  <tr>
 	    <th>Name</th>
 	    <th>Email</th>
-		  <!--<th>Status</th>-->
-			<th>Devices</th>
-			<th>Referrer</th>
-			<th>Initial</th>
-			<th>Final</th>			
-	    <th>Created</th>
+		<th>Address</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Product</th>
+			<th>Type</th>			
 	    <th></th>
 	    <th></th>
-	  </tr>
-		
+<!-- 	    <th></th> -->
+	  
+		<% @price_type = ["None","Flawless", "Used","Broken"]%>
 	<% @shipping_details.each do |shipping_detail| %>
 	  <tr>
 	    <td><%= truncate(shipping_detail.full_name, :length => 30, :omission => '...') unless shipping_detail.full_name.nil? %></td>
 	    <td><%= truncate(shipping_detail.email, :length => 35, :omission => '...') %></td>
-			<!--<td><%#= shipping_detail.status %></td>-->
-			<td><%= shipping_detail.devices.count %></td>
-			<td><%= shipping_detail.referer %></td>
-			<td><%#= number_to_currency(shipping_detail.offer_or_default != 0 ? shipping_detail.offer_or_default : shipping_detail.initial_total_offer, :precision => 0) %></td>
-			<td><%#= number_to_currency(shipping_detail.final_offer_or_default != 0 ? shipping_detail.final_offer_or_default : shipping_detail.final_total_offer, :precision => 0) %></td>			
-			<td><%= shipping_detail.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+		<td><%= shipping_detail.full_address %></td>
+			<td><%= shipping_detail.city %></td>
+			<td><%= shipping_detail.state %></td>
+			<td><% shipping_detail.products.each do |f| %>
+				<%= f.name %>
+				<% end %>
+			</td>
+			<td><% shipping_detail.other_details.each do |f| %>
+				<%= @price_type[f.price_type.to_i] %>
+				<% end %>
+			</td>
+<!-- 			 <td><%#= number_to_currency(shipping_detail.offer_or_default != 0 ? shipping_detail.offer_or_default : shipping_detail.initial_total_offer, :precision => 0) %></td> -->
+<!-- 			# <td><%#= number_to_currency(shipping_detail.final_offer_or_default != 0 ? shipping_detail.final_offer_or_default : shipping_detail.final_total_offer, :precision => 0) %></td>			 -->
+<!-- 			<td><%#= shipping_detail.created_at.strftime("%Y-%m-%d %H:%M") %></td> -->
 	 <% if !@user.nil? %>   <td><%= link_to 'Edit', edit_shipping_detail_path(shipping_detail) %></td>
 	    <td><%= link_to 'Destroy', shipping_detail, :confirm => 'Are you sure?', :method => :delete %></td>
 	  <% end %></tr>

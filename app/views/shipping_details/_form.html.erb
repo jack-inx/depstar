@@ -65,7 +65,7 @@
 		</div>
 		
 		<% #debugger %>
-	  <%= f.hidden_field :product_id, :value => @product.id unless @product.nil? %>
+	  <%#= f.hidden_field :product_id, :value => @product.id unless @product.nil? %>
 		<%= f.hidden_field :question_response_id, :value => @question_response.id unless @question_response.nil? %>
 		
 		<%= f.hidden_field :uuid, :value => @shipping_detail.uuid %>
@@ -73,10 +73,18 @@
 		
 	<div class="image">
 		<div style='margin-bottom: 10px'>
-			<%= image_tag @product.photo.url(:small) unless @product.nil? %>
+			<% if @product %>
+			<% @product.each do |f| %>
+			<%= image_tag f.photo.url(:small) unless f.nil? %>
+			<% end %>
+			<% end %>
 		</div>
 		<div style='text-align: center; width: 125px;'>
-			<span class='product-title'><%= @product.name unless @product.nil? %></span>
+			<% if @product %>
+			<% @product.each do |f| %>
+			<span class='product-title'><%= f.name unless f.nil? %></span>
+			<% end %>
+			<% end %>
 		</div>
 	</div>  
 	<div class="conditions">		
@@ -205,19 +213,9 @@
 			<% end %>
 
 		<% end %>
+		
+		<%= render :partial => "shipping_details/products_list" , :locals => {:f => f } %>
 				
-	<% if @brow == 1 %>
-	   <div class="field">
-	    <%= f.label :product %><br />
-	    <%= f.select :product_id,Product.all.map{ |i| [i.name, i.id]}  %>
-	  </div>
-	  
-	   <div class="field">
-	    <%= f.label :offer %><br />
-	    <%= f.select :offer, ShippingDetail::Condition.map{ |i| [i.first , i.last]} %>
-	  </div>
-	  
-	  <% end %>
 	  
 	  <div id="paypal_email" class="field" style='display: none;'>
 	    <%= f.label :paypal_email %><br />
@@ -314,11 +312,30 @@
 	    <%= f.label :zip %><br />
 	    <%= f.text_field :zip, :maxlength=>'5' %>
 	  </div>
-	  <%# if @brow == 1%>
+	  <% if params[:action] != 'edit' %>
 	    <div class="field">
 	    <%=  f.check_box :tos %><br />
 	    <%= f.label :terms_and_conditions %>
 	  </div>
+	  <% end %>
+	  <script type="text/javascript">
+	  
+
+
+		function add_fields(link, association, content) {
+		var new_id = new Date().getTime();
+		var regexp = new RegExp("new_" + association, "g")
+		$(link).up().insert({
+		before: content.replace(regexp, new_id)
+		});
+		}
+
+
+	  	$("#add_products").live('click',function(){
+	  		
+	  		$("#add_field").append("<%= escape_javascript(render :partial => "shipping_details/products_list" , :locals => {:f => f }) %>");
+	  	});
+	  </script>
 	  
 	  <%# end %>
 		<!-- <div class="field">

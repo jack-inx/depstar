@@ -1,8 +1,14 @@
 class ShippingDetail < ActiveRecord::Base
   belongs_to :payment_method
-  belongs_to :product
   belongs_to :question_response
   belongs_to :user
+  has_many :other_details, :dependent => :destroy
+  
+  
+  has_and_belongs_to_many :products
+  
+  accepts_nested_attributes_for :products 
+                            
   
   Condition = [["Flawless",1],["Used",2],["Broken",3]]
   
@@ -10,10 +16,10 @@ class ShippingDetail < ActiveRecord::Base
 	has_many :devices
 	
 	accepts_nested_attributes_for :devices, :allow_destroy => true
-	attr_accessible :first_name, :last_name, :address1, :address2, :city, :state, :zip, :email, :phone
+	attr_accessible :first_name, :last_name, :address1, :address2, :city, :state, :zip, :email, :phone, :user_id, :product_ids
 	attr_accessible :check_payment_name, :check_payment_address1, :check_payment_address2, :check_payment_city, :check_payment_state, :check_payment_zip, :paypal_email
 	attr_accessible :product_id, :payment_method_id, :paypal_email, :email, :offer, :tos, :product_name
-	attr_accessible :uuid, :referer, :status_code, :serial, :final_offer, :notes, :devices_attributes
+	attr_accessible :uuid, :referer, :status_code, :serial, :final_offer, :notes, :devices_attributes,:products_attributes
 	
 	attr_accessor :should_validate
 	attr_accessor :step
@@ -69,6 +75,10 @@ class ShippingDetail < ActiveRecord::Base
 
   def full_name
     first_name.to_s + ' ' + last_name.to_s
+  end
+  
+  def full_address
+    address1.to_s + '' + address2.to_s
   end
 
   def status

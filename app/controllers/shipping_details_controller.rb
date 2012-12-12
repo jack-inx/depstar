@@ -1,8 +1,10 @@
 class ShippingDetailsController < ApplicationController
   include AwesomeUSPS
   
-  before_filter :authorize, :except => [:new, :create, :confirm, :show, :orders, :order_details, :submit_external_order, :checkout, :customers]
-  before_filter :xml_authorize, :include => [:orders, :order_details, :submit_external_order, :checkout, :customers]
+  before_filter :authorize, :except => [:new, :create, :confirm, :show, :orders, :order_details, :submit_external_order, :checkout, :customers, :showdata, :updatedata]
+  before_filter :xml_authorize, :include => [:orders, :order_details, :submit_external_order, :checkout, :customers],:except=>[:show_data, :updatedata]
+    
+  @@var = ""
   
   # GET /shipping_details
   # GET /shipping_details.xml
@@ -343,11 +345,15 @@ end
       format.xml  { render :xml => @shipping_detail }
     end
   end
+  
+  def new_data
+    @shipping_detail = ShippingDetail.new
+  end
 
   # GET /shipping_details/1/edit
   def edit
     @shipping_detail = ShippingDetail.find(params[:id])
-    @product = @shipping_detail.product
+    @product = @shipping_detail.products
     @question_response = @shipping_detail.question_response
     @user = current_user
     
@@ -376,9 +382,16 @@ end
   # POST /shipping_details.xml
   def create
     
-    @shipping_detail = ShippingDetail.new(params[:shipping_detail])
-     
-    @product = Product.find(params[:shipping_detail][:product_id])
+    if !params[:products].nil?
+      
+      @@var = params[:products][:product_list].collect!{|i| i.to_i}
+      params[:shipping_detail][:product_ids] = params[:products][:product_list]    
+      
+      @shipping_detail = ShippingDetail.new(params[:shipping_detail])     
+      
+      @array = params[:products][:product_list]     
+      @product = Product.find(params[:products][:product_list][0])
+      
     if params[:shipping_detail][:question_response_id]
     @question_response = QuestionResponse.find(params[:shipping_detail][:question_response_id])
     
@@ -408,28 +421,82 @@ end
         format.html { render :action => "new", :product_id => @product.id,  :notice => "You must first agree to the terms of service" } #:question_response_id => @question_response.id,
         format.xml  { render :xml => @shipping_detail.errors, :status => :unprocessable_entity }
       elsif @shipping_detail.save
-
-        UserMailer.welcome_email(@shipping_detail).deliver
-        UserMailer.new_quote_request_email(@shipping_detail).deliver
         
-        format.html { redirect_to(@shipping_detail, :notice => 'Please check your email for confirmation') }
-        format.xml  { render :xml => @shipping_detail, :status => :created, :location => @shipping_detail }
+         params[:products][:product_list].collect{|i| @shipping_detail.other_details.create(:product_id => i.to_i) }
+
+        #UserMailer.welcome_email(@shipping_detail).deliver
+        #UserMailer.new_quote_request_email(@shipping_detail).deliver
+        
+        format.html { redirect_to "/showdata?id=#{@shipping_detail.id}", :list => @array, :notice => 'Please check your email for confirmation' }
+        format.xml  { render :xml => shipping_detailsshow_data, :status => :created, :action => 'show_data',:params=>@array }
       else
         format.html { render :action => "new", :product_id => @product.id }#, :question_response_id => @question_response.id
         format.xml  { render :xml => @shipping_detail.errors, :status => :unprocessable_entity }
       end
     end
+    else
+      flash[:error] = "Please select at least one product."
+      redirect_to '/shipping_details/new?login=true'
+    end
   end
 
+def showdata
+ logger.info "==============session in showdata #{@@var} "
+  @shipping_detail = ShippingDetail.find(params[:id])
+  @remainingData = @shipping_detail.other_details
+  
+  @array = @@var.collect{|i| Product.find(i)}
+end
+
+ def updatedata
+
+    @shipping_detail = ShippingDetail.find(params[:id])
+    @price_type = params[:product][:price_type]
+    @product_id = params[:product][:product_id]
+    @price_type.each_with_index do |price, index|
+
+      @o_detail=@shipping_detail.other_details.where(:product_id => @product_id[index])
+      @o_detail.each do |update|
+        update.price_type = price
+        update.save
+      end
+    end
+    #session[:list] = nil
+    respond_to do |format|
+      format.html { redirect_to(shipping_details_path, :notice => 'Shipping detail was successfully updated.') }
+      format.xml  { head :ok }
+    end
+  end
+  
+  
   # PUT /shipping_details/1
   # PUT /shipping_details/1.xml
   def update
     @shipping_detail = ShippingDetail.find(params[:id])
 
     respond_to do |format|
+      params[:shipping_detail][:product_ids] = params[:products][:product_list]
       if @shipping_detail.update_attributes(params[:shipping_detail])
+                
+        if !params[:products].nil?
+                   
+          @shipping_detail.other_details.each do |f|
+            f.destroy
+          end
+                 
+          @@var = params[:products][:product_list]          
+          params[:products][:product_list].collect{|i| @shipping_detail.other_details.create(:product_id => i.to_i) }    
+           
+         
+        # params[:products][:product_list].collect{|i| @shipping_detail.other_details.update_attribute(:product_id, i.to_i) }
+        format.html { redirect_to "/showdata?id=#{@shipping_detail.id}", :list => @array, :notice => 'Please check your email for confirmation' }
+        format.xml  { render :xml => shipping_detailsshow_data, :status => :created, :action => 'show_data',:params=>@array }
+        
+        else
+        
         format.html { redirect_to(@shipping_detail, :notice => 'Shipping detail was successfully updated.') }
         format.xml  { head :ok }
+        end
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @shipping_detail.errors, :status => :unprocessable_entity }
@@ -441,6 +508,7 @@ end
   # DELETE /shipping_details/1.xml
   def destroy
     @shipping_detail = ShippingDetail.find(params[:id])
+    @shipping_detail.other_details.destroy_all
     @shipping_detail.destroy
 
     respond_to do |format|

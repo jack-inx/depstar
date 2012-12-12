@@ -22,6 +22,8 @@ Trunk::Application.routes.draw do
     get :grades, :on => :member
   end
   
+  
+  
   # checkout wizard
   match 'carrier_product' => 'categories#carrier_product'
   match "/get_by_javascript"  => 'categories#get_manufacturer'
@@ -36,6 +38,8 @@ Trunk::Application.routes.draw do
   match 'shipping_details/confirm', :controller => :shipping_details, :action => :confirm
 
   match 'products/show/' => 'products#show' # For the homepage form
+  match "/showdata" => "shipping_details#showdata"
+  match "/updatedata" => "shipping_details#updatedata"
   
   resources :products do
     resources :question_responses

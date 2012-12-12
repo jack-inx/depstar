@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
   belongs_to :carrier
   belongs_to :series_list
   
-  has_many :shipping_details
+  has_and_belongs_to_many :shipping_details
   
   has_many :devices
 
