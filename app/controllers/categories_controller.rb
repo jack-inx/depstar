@@ -143,8 +143,11 @@ class CategoriesController < ApplicationController
      
      if @products.count < 1
        @products = Product.where("name LIKE ?","%#{params[:name]}%")
+       render "categories/carrier_product"
+     else
+       redirect_to root_url
      end     
-     render "categories/carrier_product"
+     
   end
   
   def carrier_product
