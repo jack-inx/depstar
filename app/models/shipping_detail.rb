@@ -2,46 +2,35 @@ class ShippingDetail < ActiveRecord::Base
   belongs_to :payment_method
   belongs_to :product
   belongs_to :question_response
-  belongs_to :user
-  
-  Condition = [["Flawless",1],["Used",2],["Broken",3]]
   
   #has_and_belongs_to_many :devices
-	has_many :devices
-	
-	accepts_nested_attributes_for :devices, :allow_destroy => true
-	attr_accessible :first_name, :last_name, :address1, :address2, :city, :state, :zip, :email, :phone
-	attr_accessible :check_payment_name, :check_payment_address1, :check_payment_address2, :check_payment_city, :check_payment_state, :check_payment_zip, :paypal_email
-	attr_accessible :product_id, :payment_method_id, :paypal_email, :email, :offer, :tos, :product_name
-	attr_accessible :uuid, :referer, :status_code, :serial, :final_offer, :notes, :devices_attributes
-	
-	attr_accessor :should_validate
-	attr_accessor :step
-	attr_accessor :tos
+  has_many :devices
+  
+  accepts_nested_attributes_for :devices, :allow_destroy => true
+  attr_accessible :first_name, :last_name, :address1, :address2, :city, :state, :zip, :email, :phone
+  attr_accessible :check_payment_name, :check_payment_address1, :check_payment_address2, :check_payment_city, :check_payment_state, :check_payment_zip, :paypal_email
+  attr_accessible :product_id, :payment_method_id, :paypal_email, :email, :offer, :tos
+  attr_accessible :uuid, :referer, :status_code, :serial, :final_offer, :notes, :devices_attributes
+  
+  attr_accessor :should_validate
+  attr_accessor :step
+  attr_accessor :tos
   attr_accessor :type
-  	
-	validates_presence_of :email, if: :on_email_step?
+    
+  validates_presence_of :email, if: :on_email_step?
   validates_presence_of :first_name, :last_name, :address1, :city, :state, :zip, :email, :payment_method_id, if: :on_shipping_step?
   
   validates_presence_of :check_payment_name, :check_payment_address1, :check_payment_city, :check_payment_state, :check_payment_zip, if: :on_get_paid_step_check?
   validates_presence_of :paypal_email, if: :on_get_paid_step_paypal?
 
   validates_acceptance_of :tos, if: :on_confirm_step?
-  
-
- 
- validates_presence_of :first_name, :last_name
 
   validates_format_of :phone,
       :message => "must be a valid telephone number.",
       :with => /^[\(\)0-9\- \+\.]{10,20}$/,
       #:if => :on_shipping_step?
       :if => :require_phone_validation?
-
-  def validate_data
-    self.first_name != ''
-  end
-      
+    
   def require_phone_validation?
     # Only for uSell orders phone numbers are optional
     self.referer != 'usell' && self.on_shipping_step?

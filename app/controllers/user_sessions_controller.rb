@@ -12,7 +12,7 @@ class UserSessionsController < ApplicationController
      
       if User.checkStatus(params[:user_session][:username],params[:user_session][:password])
         session[:current_user] = @user      
-        redirect_to "/shipping_details"
+        redirect_to "/orders"
       else
         flash[:notice] = "This account is inactive. Please contact to administrator."
         session[:current_user] = nil
@@ -35,5 +35,18 @@ class UserSessionsController < ApplicationController
   
   def checkStatus(username,password)
     
+  end
+  
+  def admin_as_affiliate
+    session[:current_user] = User.find(params[:id]).id
+    session[:admin] = true
+    redirect_to "/profiles/#{Profile.find_by_user_id(params[:id]).id}"
+  end
+  
+  def admin_logout_as_affiliate
+     back_url = "/admin/users/#{session[:current_user]}"
+    session[:current_user] = nil
+    session[:admin] = false
+    redirect_to back_url
   end
 end

@@ -1,0 +1,44 @@
+<p>
+  <b>First Name:</b>
+  <%= @order.first_name %>
+</p>
+
+<p>
+  <b>Last Name:</b>
+  <%= @order.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @order.email %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @order.address %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @order.state %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @order.city %>
+</p>
+
+<p>
+  <b>Phone Number:</b>
+  <%= @order.phone_number %>
+</p>
+
+<p>
+  <b>Affliate aasociated:</b>
+  <%= @order.user.username %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back to orders', orders_path %>

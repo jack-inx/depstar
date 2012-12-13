@@ -5,8 +5,12 @@ ActiveAdmin.register User do
     column :username                     
     column :email
     column :crypted_password
-    column :created_at     
-    column :status      
+    column :orders     
+    column :status
+    # column "Orders" do |expert|
+      # link_to "View", edit_admin_expert_path(expert)
+    # end
+      
     
     default_actions                  
   end                                 
@@ -47,6 +51,15 @@ ActiveAdmin.register User do
               th { 'Password' }
               td { user.crypted_password }
             end
+            tr do
+              th { 'Login as' }
+              td { link_to user.username, "/admin_as_affiliate/#{user.id}/affiliate" }
+            end
+            tr do
+              th { 'Order Count' }
+              td { link_to user.orders.count, "/admin/orders" }
+            end
+            
           end # table
         end # attributes_table
       end # panel_contents

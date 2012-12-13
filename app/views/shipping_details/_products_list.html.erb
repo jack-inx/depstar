@@ -1,5 +1,17 @@
-<div class="field">
+
+<div class='field'>
 	<%= f.label :product %>
 	<br />
-	<%= f.select :product_id,Product.all.map{ |i| [i.name, i.id]}  %>
+	<%#= f.select :product_id,Product.all.map{ |i| [i.name, i.id]}, :multiple => true  %>
+	<%= select_tag "products[product_list][]", options_for_select(Product.all.map{ |i| [i.name, i.id]}), :multiple => true %>
 </div>
+
+<div class='field'>
+	<%#= f.label :offer %>
+	<br />
+	<%#= f.select :offer, ShippingDetail::Condition.map{ |i| [i.first , i.last]} %>
+</div>
+
+
+<p><%#= link_to_add_fields "Add Products", f, :products %></p>
+<%# end %>
