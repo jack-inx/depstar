@@ -6,6 +6,7 @@ class ShippingDetail < ActiveRecord::Base
   #has_and_belongs_to_many :devices
   has_many :devices
   
+  
   accepts_nested_attributes_for :devices, :allow_destroy => true
   attr_accessible :first_name, :last_name, :address1, :address2, :city, :state, :zip, :email, :phone
   attr_accessible :check_payment_name, :check_payment_address1, :check_payment_address2, :check_payment_city, :check_payment_state, :check_payment_zip, :paypal_email

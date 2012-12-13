@@ -25,11 +25,10 @@ ActiveAdmin.register ShippingDetail do
     f.inputs :city
     f.inputs :state
     f.inputs :zip
-    f.inputs :email
-    f.inputs :user
+    f.inputs :email  
     f.inputs :payment_method
     f.inputs :paypal_email
-    f.inputs :products    
+  
      
     f.actions                         
   end  
@@ -48,18 +47,8 @@ ActiveAdmin.register ShippingDetail do
               th { 'Last Name' }
               td { shipping_detail.last_name }
             end            
-            tr do
-              th { 'User' }
-              td { shipping_detail.user.nil? ? "" : shipping_detail.user.username }
-            end          
-             tr do
-               th { 'Products' }
-               shipping_detail.products.each do |name|
-               td { 
-                 name.name
-                }
-                end
-             end          
+                    
+                     
             tr do
               th { 'Email' }
               td { shipping_detail.email }
