@@ -1,7 +1,7 @@
 class ShippingDetail < ActiveRecord::Base
   belongs_to :payment_method
-  belongs_to :product
   belongs_to :question_response
+
   
   #has_and_belongs_to_many :devices
   has_many :devices
@@ -15,6 +15,7 @@ class ShippingDetail < ActiveRecord::Base
   attr_accessor :should_validate
   attr_accessor :step
   attr_accessor :tos
+
   attr_accessor :type
     
   validates_presence_of :email, if: :on_email_step?
@@ -58,6 +59,10 @@ class ShippingDetail < ActiveRecord::Base
 
   def full_name
     first_name.to_s + ' ' + last_name.to_s
+  end
+  
+  def full_address
+    address1.to_s + '' + address2.to_s
   end
 
   def status

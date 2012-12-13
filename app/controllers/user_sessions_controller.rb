@@ -40,6 +40,7 @@ class UserSessionsController < ApplicationController
   def admin_as_affiliate
     session[:current_user] = User.find(params[:id]).id
     session[:admin] = true
+
     redirect_to "/profiles/#{Profile.find_by_user_id(params[:id]).id}"
   end
   
@@ -48,5 +49,8 @@ class UserSessionsController < ApplicationController
     session[:current_user] = nil
     session[:admin] = false
     redirect_to back_url
-  end
+
+    redirect_to "/shipping_details"
+  end  
+ 
 end

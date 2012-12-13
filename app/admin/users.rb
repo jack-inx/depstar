@@ -55,10 +55,12 @@ ActiveAdmin.register User do
               th { 'Login as' }
               td { link_to user.username, "/admin_as_affiliate/#{user.id}/affiliate" }
             end
+
             tr do
               th { 'Order Count' }
               td { link_to user.orders.count, "/admin/orders" }
             end
+
             
           end # table
         end # attributes_table
