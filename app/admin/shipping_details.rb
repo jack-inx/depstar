@@ -2,7 +2,7 @@ ActiveAdmin.register ShippingDetail do
   index do                            
     column :first_name                     
     column :last_name    
-    column :products
+    column :product
     column :email
     column :phone
     column :payment_method  
