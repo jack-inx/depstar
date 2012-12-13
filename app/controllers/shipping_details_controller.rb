@@ -767,7 +767,7 @@ end
         format.html { render :action => "new", :product_id => @product.id,  :notice => "You must first agree to the terms of service" } #:question_response_id => @question_response.id,
         format.xml  { render :xml => @shipping_detail.errors, :status => :unprocessable_entity }
       elsif @shipping_detail.save
-<<<<<<< HEAD
+
         
          params[:products][:product_list].collect{|i| @shipping_detail.other_details.create(:product_id => i.to_i) }
 
@@ -1060,9 +1060,7 @@ end
       elsif @shipping_detail.save
         UserMailer.welcome_email(@shipping_detail).deliver
         UserMailer.new_quote_request_email(@shipping_detail).deliver
-=======
->>>>>>> 36d22b3f8a4d34a925bbe2af591862f92360caf9
-        
+
          params[:products][:product_list].collect{|i| @shipping_detail.other_details.create(:product_id => i.to_i) }
 
         #UserMailer.welcome_email(@shipping_detail).deliver
