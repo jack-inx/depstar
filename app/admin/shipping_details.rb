@@ -6,7 +6,7 @@ ActiveAdmin.register ShippingDetail do
     column :email
     column :phone
     column :payment_method  
-    column :user
+   
     
     default_actions                   
   end                                 
