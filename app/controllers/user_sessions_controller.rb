@@ -1,4 +1,6 @@
 class UserSessionsController < ApplicationController
+  layout 'affiliate'
+  
   def new
     @user_session = UserSession.new
   end
@@ -30,7 +32,7 @@ class UserSessionsController < ApplicationController
     #@user_session.destroy unless @user_session.nil?
     session[:current_user] = nil
     flash[:notice] = "Successfully logged out."
-    redirect_to root_url
+    redirect_to new_user_session_path
   end
   
   def checkStatus(username,password)
@@ -49,8 +51,7 @@ class UserSessionsController < ApplicationController
     session[:current_user] = nil
     session[:admin] = false
     redirect_to back_url
-
-    redirect_to "/shipping_details"
+    #redirect_to "/shipping_details"
   end  
  
 end

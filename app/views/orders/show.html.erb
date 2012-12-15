@@ -1,44 +1,62 @@
-<p>
-  <b>First Name:</b>
-  <%= @order.first_name %>
-</p>
+<div class="title_bar" id="title_bar">
+	<div id="titlebar_left">
+		<h2 id="page_title">Order #<%= @order.order_id %></h2>
+	</div>
+	<div id="titlebar_right">
+		<div class="action_items">
+			<span class="action_item"><%= link_to 'Edit Order', edit_order_path(@order) %></span>
+			<span class="action_item"><%= link_to 'Delete Order', @order, :confirm => 'Are you sure?', :method => :delete %></span>
+		</div>
+	</div>
+</div>
+<div id="active_admin_content" class="without_sidebar">
+	<div id="main_content_wrapper">
+		<div id="main_content">
+			<div class="panel">
+				<h3>Order</h3>
+				<div class="panel_contents">
+					<div class="attributes_table users">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<th>First Name</th>
+								<td><%= @order.first_name %></td>
+							</tr>
+							<tr>
+								<th>Last Name</th>
+								<td><%= @order.last_name %></td>
+							</tr>
+							<tr>
+								<th>Email</th>
+								<td><%= @order.email %></td>
+							</tr>
+							<tr>
+								<th>Address</th>
+								<td><%= @order.address %></td>
+							</tr>
+							<tr>
+								<th>State</th>
+								<td><%= @order.state %></td>
+							</tr>
+							<tr>
+								<th>City</th>
+								<td><%= @order.city %></td>
+							</tr>
 
-<p>
-  <b>Last Name:</b>
-  <%= @order.last_name %>
-</p>
+							<tr>
+								<th>Phone Number</th>
+								<td><%= @order.phone_number %></td>
+							</tr>
+							
+							<tr>
+								<th>Notes</th>
+								<td><%= @order.notes %></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
 
-<p>
-  <b>Email:</b>
-  <%= @order.email %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @order.address %>
-</p>
-
-<p>
-  <b>State:</b>
-  <%= @order.state %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @order.city %>
-</p>
-
-<p>
-  <b>Phone Number:</b>
-  <%= @order.phone_number %>
-</p>
-
-<p>
-  <b>Affliate aasociated:</b>
-  <%= @order.user.username %>
-</p>
-
-
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back to orders', orders_path %>

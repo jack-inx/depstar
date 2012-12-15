@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  layout 'affiliate_layout' 
+  
   before_filter :authorize
   # GET /manufacturers
   # GET /manufacturers.xml
@@ -92,7 +94,9 @@ class OrdersController < ApplicationController
      OrderProductPriceType.where(:order_id => params[:order_id]).delete_all  
      params[:products][:product_id].each_with_index do |product,index|
        OrderProductPriceType.create(:order_id => params[:order_id],
-       :product_id => params[:products][:product_id][index], :price_type_id => params[:products][:product_price_type][index] )
+       :product_id => params[:products][:product_id][index],
+       :price_type_id => params[:products][:product_price_type][index],
+       :price => params[:products][:price][index] )
      end
     redirect_to "/orders"
   end

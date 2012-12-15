@@ -1,22 +1,37 @@
-<%= form_tag("/submit_price_type") do -%>
-  <table>
-  <tbody>  
-  <% @order.products.each do |product| %>
-  	<tr>
-  		<td> 			
-  			<%= product.name %>  			
-  		</td>
-  		<td>
-  			<%= select_tag "products[product_price_type][]", options_for_select(Order::Condition.collect.map{ |i| [i.first, i.last]}) %>
-  			<%= hidden_field_tag "products[product_id][]", product.id %>
-  		</td>  		
-  	</tr>
-  <% end %>
-  <%= hidden_field_tag "order_id", @order.id %>
-  </tbody>  
-  </table>
-  <div class="actions">
-    <%= submit_tag "Submit" %>
-  </div>  
-<% end -%>
-<br />
+<div class="title_bar" id="title_bar">
+	<div id="titlebar_left">
+		<h2 id="page_title">Order #<%= @order.order_id %></h2>
+	</div>
+</div>
+<div id="active_admin_content" class="without_sidebar">
+	<div id="main_content_wrapper">
+		<div id="main_content">
+			<div class="panel">
+				<h3>Order</h3>
+				<div class="panel_contents">
+					<div class="attributes_table users">
+						<%= form_tag("/submit_price_type") do -%>
+						<table border="0" cellspacing="0" cellpadding="0">
+							<% @order.products.each do |product| %>
+							<tr>
+								<td> <%= product.name %> </td>
+								<td> <%= select_tag "products[product_price_type][]", options_for_select(Order::AffiliateConditionCategory.collect.map{ |i| [i.first, i.last]}) %>
+								<%= hidden_field_tag "products[product_id][]", product.id %> </td>
+								<td> Price ($) </td>
+								<td> <%= text_field_tag "products[price][]"  %> </td>
+							</tr>
+							<% end %>
+							<%= hidden_field_tag "order_id", @order.id %>							
+						</table>
+						<div class="actions">
+							<%= submit_tag "Submit" %>
+						</div>
+						<% end -%>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+

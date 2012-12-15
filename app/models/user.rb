@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :email, :crypted_password, :persistence_token,:password_salt, :status
+  attr_accessible :username, :email, :crypted_password, :persistence_token,:password_salt, :status, :product_ids
   attr_accessor :password_confirmation
    
   has_one :profile, :dependent => :destroy
 
-  has_many :orders  
+  has_many :orders 
+  has_and_belongs_to_many :products  
+  
   # acts_as_authentic do |c|
     # if is_admin?
       # true
@@ -12,7 +14,7 @@ class User < ActiveRecord::Base
       # false
     # end
   # end
-  
+    
   after_create :send_email
   
   after_update :send_password_email

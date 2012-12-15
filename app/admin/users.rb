@@ -28,8 +28,9 @@ ActiveAdmin.register User do
   form do |f| 
     f.inputs :username
     f.inputs :email
-    f.inputs :crypted_password      
-    f.inputs :status
+    f.inputs :crypted_password
+    f.inputs :products      
+    f.inputs :status    
     f.actions                         
   end 
   
@@ -51,6 +52,11 @@ ActiveAdmin.register User do
               th { 'Password' }
               td { user.crypted_password }
             end
+            tr do
+              th { 'Products' }
+              td { user.products.map{ |p| p.name }.join(',') }
+            end
+            
             tr do
               th { 'Login as' }
               td { link_to user.username, "/admin_as_affiliate/#{user.id}/affiliate" }

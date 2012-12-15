@@ -1,16 +1,29 @@
-<% title "Login - " %>
+<div id="login">
+	<h2>Depstar Affiliate Login</h2>
+	
+	<%= form_for @user_session,:class=>"formtastic admin_user" do |f| %>	
+		<fieldset class="inputs">
+			<ol>
+				<li class="email input required autofocus stringish" id="admin_user_email_input">
+					
+					<%= f.label :username,"Username*",:class=>"label" %>					
+					<%= f.text_field :username %>
 
-<div style="margin: 0px 10px;">
-	<%= form_for @user_session do |f| %>
-	  <p id="notice"><%= notice %></p>
-	  <p>
-	    <%= f.label :username %><br />
-	    <%= f.text_field :username %>
-	  </p>
-	  <p>
-	    <%= f.label :password %><br />
-	    <%= f.password_field :password %>
-	  </p>
-	  <p><%= f.submit "Submit" %></p>
+				</li>
+				<li class="password input required stringish" id="admin_user_password_input">
+					<%= f.label :password,"Password*",:class=>"label" %>					
+					<%= f.password_field :password %>
+				</li>				
+			</ol>
+		</fieldset>
+		<fieldset class="actions">
+			<ol>
+				<li class="action input_action " id="admin_user_submit_action">
+					<%= f.submit "Login" %>
+				</li>
+			</ol>
+		</fieldset>
 	<% end %>
+	
+
 </div>

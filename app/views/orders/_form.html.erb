@@ -1,64 +1,119 @@
-<%= form_for(@order, :html => {:multipart => true}) do |f| %>
-  <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this carrier from being saved:</h2>
 
-      <ul>
-      <% @order.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <div class="field">
-    <%= f.label :products %><br />
-    <%= f.select :product_ids, Product.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
-  </div> 
+<div class="title_bar" id="title_bar">
+	<div id="titlebar_left">		
+		<h2 id="page_title">New Order</h2>
+	</div>
+	<div id="titlebar_right"></div>
+</div>
+<div id="active_admin_content" class="without_sidebar">
+	<div id="main_content_wrapper">
+		<div id="main_content">
+			<%= form_for(@order, :html => {:multipart => true}) do |f| %>
+				<fieldset class="inputs">
+					<ol>
+						<li class="string input optional stringish" id="user_username_input">							
+							<%= f.label :products,:class=>" label" %>
+							<%= f.select :product_ids,get_user(session[:current_user]).products.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
+							<%#= session[:current_user].inspect  %>
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="inputs">
+					<ol>
+						<li class="email input optional stringish" id="user_email_input">
+							<%= f.label :first_name,:class=>" label" %>
+							<%= f.text_field :first_name %>
+							<%= @order.errors[:first_name].join(", ") %>
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="inputs">
+					<ol>
+						<li class="email input optional stringish" id="user_email_input">
+							<%= f.label :last_name %>
+							<%= f.text_field :last_name %>
+							<%= @order.errors[:last_name].join(", ") %>
+						</li>
+					</ol>
+				</fieldset>				
+				<fieldset class="inputs">
+					<ol>
+						<li class="email input optional stringish" id="user_email_input">
+							<%= f.label :email %>
+							<%= f.text_field :email %>
+							<%= @order.errors[:email].join(", ") %>
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="inputs">
+					<ol>
+						<li class="email input optional stringish" id="user_email_input">
+							<%= f.label :address %>
+							<%= f.text_field :address %>
+							<%= @order.errors[:address].join(", ") %>
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="inputs">
+					<ol>
+						<li class="email input optional stringish" id="user_email_input">
+							<%= f.label :city %>
+							<%= f.text_field :city %>
+							<%= @order.errors[:city].join(", ") %>
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="inputs">
+					<ol>
+						<li class="email input optional stringish" id="user_email_input">
+							<%= f.label :state %>
+							<%= f.text_field :state %>
+							<%= @order.errors[:state].join(", ") %>
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="inputs">
+					<ol>
+						<li class="email input optional stringish" id="user_email_input">
+							<%= f.label :zip %>
+							<%= f.text_field :zip %>
+							<%= @order.errors[:zip].join(", ") %>
+						</li>
+					</ol>
+				</fieldset>		
+				
+				<fieldset class="inputs">
+					<ol>
+						<li class="input optional stringish" id="user_phone_number_input">					
+							
+							<%= f.label :phone_number,:class=>" label" %>							
+							<%= f.text_field :phone_number %>
+							<%= @order.errors[:phone_number].join(", ") %>
+							<%= f.hidden_field :user_id,:value => "#{session[:current_user]}" %>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>  
-	
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div> 
-  	
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div> 
-  	
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div> 
-  	
-  	<div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div> 
-  	
-  <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
-  </div> 
-  
-  <div class="field">
-    <%= f.label :zip %><br />
-    <%= f.text_field :zip %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :phone_number %><br />
-    <%= f.text_field :phone_number %>
-    <%= f.hidden_field :user_id,:value => "#{session[:current_user]}" %>
-  </div> 
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-<br />
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="inputs">
+					<ol>
+						<li class="email input optional stringish" id="user_email_input">
+							<%= f.label :notes %>
+							<%= f.text_area :notes %>
+							<%= @order.errors[:notes].join(", ") %>
+						</li>
+					</ol>
+				</fieldset>	
+				<fieldset class="actions">
+					<ol>
+						<li class="action input_action " id="user_submit_action">
+							<%= f.submit "Create Order" %>
+						</li>
+						<li class="cancel">
+							<a href="/orders">Cancel</a>
+						</li>
+					</ol>
+				</fieldset>
+			<% end %>
+		</div>
+	</div>
+</div>
