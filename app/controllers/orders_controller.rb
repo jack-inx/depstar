@@ -5,7 +5,17 @@ class OrdersController < ApplicationController
   # GET /manufacturers
   # GET /manufacturers.xml
   def index
-    @orders = Order.all
+    
+    if !params[:q].nil?      
+      if !params[:q][:name_contains].nil?
+        @orders = Order.where("first_name LIKE ?","%#{params[:q][:name_contains]}%")
+      else
+        @orders = Order.where(:created_at =>(("#{params[:q][:created_at_gte]}")..("#{params[:q][:created_at_lte]}")))  
+      end      
+    else
+      @orders = Order.all
+    end
+    
 
     respond_to do |format|
       format.html # index.html.erb
