@@ -1,0 +1,34 @@
+
+<div id="active_admin_content" class="without_sidebar">
+	<div id="main_content_wrapper">
+		<div id="main_content">
+			<div class="panel">
+				<h3>Affiliate Products</h3>
+				<div class="panel_contents">
+					<div class="attributes_table users">
+						<%= form_tag("/suggest_price_type") do -%>
+						<table border="0" cellspacing="0" cellpadding="0">
+							<% @user.products.each do |product| %>
+							<tr>
+								<td> <%= product.name %> </td>
+								<td> Broken Price ($) </td>
+								<td> <%= text_field_tag "affiliates[broken_price][]",product.broken_price  %> </td>
+								<td> Used Price ($) </td>
+								<td> <%= text_field_tag "affiliates[used_price][]",product.used_price  %> </td>
+								<%= hidden_field_tag "affiliates[product_id][]", product.id %> </td>
+							</tr>
+							<% end %>
+							<%= hidden_field_tag "user_id", @user.id %>							
+						</table>
+						<div class="actions">
+							<%= submit_tag "Submit" %>
+						</div>
+						<% end -%>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+

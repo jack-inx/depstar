@@ -9,9 +9,7 @@ ActiveAdmin.register User do
     column :status
     # column "Orders" do |expert|
       # link_to "View", edit_admin_expert_path(expert)
-    # end
-      
-    
+    # end    
     default_actions                  
   end                                 
 
@@ -28,7 +26,7 @@ ActiveAdmin.register User do
   form do |f| 
     f.inputs :username
     f.inputs :email
-    f.inputs :crypted_password
+    f.inputs :crypted_password,:value => "abc"
     f.inputs :products      
     f.inputs :status    
     f.actions                         
@@ -69,5 +67,34 @@ ActiveAdmin.register User do
       end # panel_contents
     end # panel
   end #
+  
+  controller do
+    def create
+      # my custom code
+      create!
+      redirect_to root_url
+    end
+  end
+  
+  controller do
+    def update
+      # my custom code
+      update! do 
+        redirect_to("/admin/affiliate/#{params[:id]}")
+        #logger.info "######  #{params[:user][:email]} ###########{params[:id]}########"
+        return  
+      end      
+    end
+    
+    def create
+      # my custom code
+      create! do 
+        redirect_to("/admin/affiliate/#{params[:id]}")
+        #logger.info "######  #{params[:user][:email]} ###########{params[:id]}########"
+        return  
+      end      
+    end
+  end
+  
   
 end

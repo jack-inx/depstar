@@ -18,8 +18,8 @@ Trunk::Application.routes.draw do
 
   match "/product_price" => "orders#add_price_type"
   match "/submit_price_type" => "orders#submit_price_type"
-  
-  
+  match "/admin/affiliate/:id" => "users#product_prices"
+  match "/suggest_price_type" => "users#suggest_prices"
   
 
   resources :question_response
