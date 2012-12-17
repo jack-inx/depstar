@@ -71,7 +71,7 @@ class UserMailer < ActionMailer::Base
       :to => @email,
       :bcc => 'himanshu.saxena@inheritx.com',
       #:bcc => 'orderconfirmation@depstar.com',  
-      :subject => "Affiliate Creation")
+      :subject => "Affiliate Update")
   end
   
     
