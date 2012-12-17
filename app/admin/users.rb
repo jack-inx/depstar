@@ -55,6 +55,7 @@ ActiveAdmin.register User do
             tr do
               th { 'Products' }
               td { user.products.map{ |p| p.name }.join(',') }
+              
             end
             
             tr do
