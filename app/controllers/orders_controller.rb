@@ -8,12 +8,12 @@ class OrdersController < ApplicationController
     
     if !params[:q].nil?      
       if !params[:q][:name_contains].nil?
-        @orders = Order.where("first_name LIKE ?","%#{params[:q][:name_contains]}%")
+        @orders = Order.where("first_name LIKE ? AND user_id = ?","%#{params[:q][:name_contains]}%", session[:current_user])
       else
-        @orders = Order.where(:created_at =>(("#{params[:q][:created_at_gte]}")..("#{params[:q][:created_at_lte]}")))  
+        @orders = Order.where(:created_at =>(("#{params[:q][:created_at_gte]}")..("#{params[:q][:created_at_lte]}")),:user_id => session[:current_user] )  
       end      
     else
-      @orders = Order.all
+      @orders = Order.where(:user_id => session[:current_user])
     end
     
 
