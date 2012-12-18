@@ -6,7 +6,21 @@ class User < ActiveRecord::Base
 
   has_many :orders 
   has_and_belongs_to_many :products  
+
+  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
+  #validations for username, password, password confirmation and email
+  validates :username, :presence =>true,
+                       :uniqueness => true,
+                       :length => { :within =>6..10 }            
+  
+  validates :crypted_password, :presence => true, :length => { :within =>6..40 } 
+  
+
+  validates :email, :presence => true,
+            :uniqueness => true,
+            :format => { :with => email_regex }
+
   # acts_as_authentic do |c|
     # if is_admin?
       # true

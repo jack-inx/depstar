@@ -62,6 +62,16 @@ class UsersController < ApplicationController
     
     
    def product_prices
+     #@user = User.where(:username => params[:username])
+     @user = User.find_by_username(params[:username])
+     
+     #logger.info "$$$$$$$$$$$$$$$$$$$$$$ #{@user.crypted_password}  $$$$$$$$$$$$$$$$$$$$$$$$"
+     respond_to do |format|
+       format.html {render "admin/users/product_prices", :layout => 'admin' }
+     end     
+   end
+   
+    def product_prices_update
      @user = User.find(params[:id])
      
      #logger.info "$$$$$$$$$$$$$$$$$$$$$$ #{@user.crypted_password}  $$$$$$$$$$$$$$$$$$$$$$$$"
@@ -73,12 +83,13 @@ class UsersController < ApplicationController
    def suggest_prices
      @user = User.find(params[:user_id])
      #logger.info "$$$$$$$$$$$$$$$$$$$$$$ #{@user.crypted_password}  $$$$$$$$$$$$$$$$$$$$$$$$"
-     @suggestion = Suggestion.where(:user_id => params[:user_id])
+     @suggestion = Suggestion.where(:user_id => @user.id)
      
      if @suggestion.blank?
+       @profile = Profile.create(:user_id => @user.id)
        UserMailer.welcome_affiliate_email(@user.username, @user.crypted_password, @user.email).deliver
-     else
-       UserMailer.affiliate_password_email(@user.username, @user.crypted_password, @user.email).deliver       
+     # else
+       # UserMailer.affiliate_password_email(@user.username, @user.crypted_password, @user.email).deliver       
      end    
        
      params[:affiliates][:product_id].each_with_index do |product,index|
