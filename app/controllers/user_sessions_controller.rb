@@ -43,7 +43,7 @@ class UserSessionsController < ApplicationController
     session[:current_user] = User.find(params[:id]).id
     session[:admin] = true
 
-    redirect_to "/profiles/#{Profile.find_by_user_id(params[:id]).id}"
+    redirect_to "/orders"
   end
   
   def admin_logout_as_affiliate
@@ -53,5 +53,18 @@ class UserSessionsController < ApplicationController
     redirect_to back_url
     #redirect_to "/shipping_details"
   end  
+  
+  def delete_affiliate_product
+    @user = User.find(params[:user_id])
+    product = @user.products.find(params[:id])
+    @user.products.delete(product)
+    
+    redirect_to "/admin/affiliates/#{params[:user_id]}"  
+    
+    #assignment = Assignment.find(params[:assignment_id])
+    #candidate = assignment.candidates.find(params[:candidate_ids])
+    #assignment.candidates.delete(candidate)
+    #find( params[:participation_id] ).destroy 
+  end
  
 end

@@ -15,6 +15,7 @@
 								<td> <%= text_field_tag "affiliates[broken_price][]",product.broken_price  %> </td>
 								<td> Used Price ($) </td>
 								<td> <%= text_field_tag "affiliates[used_price][]",product.used_price  %> </td>
+								<td> <%= link_to "Delete Product","/delete_affiliate_product/#{product.id}/#{@user.id}",:confirm => "Are you sure you want to delete this product ?"  %> </td>
 								<%= hidden_field_tag "affiliates[product_id][]", product.id %> </td>
 							</tr>
 							<% end %>

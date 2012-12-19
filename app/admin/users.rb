@@ -26,8 +26,8 @@ ActiveAdmin.register User do
   form do |f| 
     f.inputs :username
     f.inputs :email
-    f.inputs :crypted_password,:value => "abc"
-    f.inputs :products      
+    f.inputs :crypted_password
+    f.inputs :products             
     f.inputs :status    
     f.actions                         
   end 
@@ -80,20 +80,70 @@ ActiveAdmin.register User do
     def update
       # my custom code
       update! do 
-        redirect_to("/admin/affiliate/#{params[:id]}")
-        #logger.info "######  #{params[:user][:email]} ###########{params[:id]}########"
+        logger.info "######  #{params[:user][:email]} ###########{params[:id]}########"
+        redirect_to("/admin/affiliates/#{params[:id]}")
+        
         return  
       end      
     end
     
     def create
       # my custom code
-      create! do 
-        redirect_to("/admin/affiliate/#{params[:id]}")
-        #logger.info "######  #{params[:user][:email]} ###########{params[:id]}########"
-        return  
+      @email = params[:user][:email]
+      @username = params[:user][:username]
+      @password  = params[:user][:crypted_password]
+      
+      @check_name = User.find_all_by_username(params[:user][:username])
+      @check_email = User.find_all_by_email(params[:user][:email])
+      
+      if username_match(@username) and email_match(@email) and password_match(@password) and @check_name.count < 1 and @check_email.count < 1         
+        logger.info "######  #{params[:user][:email]} ###########{params[:id]}########"        
+        create! do           
+       
+             logger.info "#### unique email created ##  #{params[:user][:email]} ###########{params[:id]}########"
+             redirect_to("/admin/affiliate/#{params[:user][:username]}")        
+             return                     
+        end
+      else
+          create!
       end      
     end
+    
+    def email_match(email)
+       email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+           
+       if  !email.nil? and (email =~ email_regex)  
+         logger.info "###### email true  ########"
+         true
+       else
+         logger.info "###### email false  ########"
+         false         
+       end
+    end
+    
+    def password_match(password)
+       logger.info "###### password  ######## #{password}  #{password.to_s.length} "
+       
+       if !password.nil? and (password.to_s.length >= 6)
+         logger.info "###### password true  ########"
+         true
+       else
+         logger.info "###### password false  ########"
+         false
+       end
+    end
+    
+    def username_match(username)      
+      
+       if !username.nil? and !(username.length < 6)  
+         logger.info "###### username true  ########"
+         true
+       else
+         logger.info "###### username false  ########"
+         false
+       end
+    end    
+    
   end
   
   

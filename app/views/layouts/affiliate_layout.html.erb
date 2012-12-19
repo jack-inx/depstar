@@ -50,8 +50,13 @@
 					</li> -->
 				</ul>
 				<p class="header-item" id="utility_nav">
-					<span class="current_user"><%= get_user(session[:current_user]).email %></span>					
-					<%= link_to 'Logout', logout_url %>					
+					<span class="current_user"><%= get_user(session[:current_user]).email %></span>
+					<% if session[:admin].eql?(true) %>
+						<%= link_to 'Admin Logout', "/admin_logout_as_affiliate" %>
+					<% else %>
+						<%= link_to 'Logout', logout_url %>
+					<% end %>				
+										
 				</p>
 			</div>
 			<%= yield %>
