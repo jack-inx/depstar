@@ -17,5 +17,5 @@ class Order < ActiveRecord::Base
     self.order_id = "#{self.id}_#{self.user.username}_#{self.products.count}_#{self.first_name}"
     #logger.info "#####################################################################################"
   end
-  
+
 end
