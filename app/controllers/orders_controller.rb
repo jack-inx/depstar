@@ -57,7 +57,15 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to("/product_price?order=#{@order.id}", :notice => 'Please Select Price Type for each product.') }
+        
+        OrderProductPriceType.where(:order_id => @order.id).delete_all  
+          params[:products][:product_id].each_with_index do |product,index|
+          OrderProductPriceType.create(:order_id => @order.id,
+          :product_id => params[:products][:product_id][index],
+          :price_type_id => params[:products][:product_price_type][index],
+          :price => params[:products][:price][index] )
+        end
+        format.html { redirect_to("/orders", :notice => 'Please Select Price Type for each product.') }
         format.xml  { render :xml => @order, :status => :created, :location => @order }
       else
         format.html { render :action => "new" }
@@ -73,7 +81,16 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.update_attributes(params[:order])
-        format.html { redirect_to("/product_price?order=#{@order.id}", :notice => 'Order was successfully updated.') }
+        
+        OrderProductPriceType.where(:order_id => @order.id).delete_all  
+          params[:products][:product_id].each_with_index do |product,index|
+          OrderProductPriceType.create(:order_id => @order.id,
+          :product_id => params[:products][:product_id][index],
+          :price_type_id => params[:products][:product_price_type][index],
+          :price => params[:products][:price][index] )
+        end
+        
+        format.html { redirect_to("/orders", :notice => 'Order was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
