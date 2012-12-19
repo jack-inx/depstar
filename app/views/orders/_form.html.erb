@@ -11,10 +11,23 @@
 			<%= form_for(@order, :html => {:multipart => true}) do |f| %>
 				<fieldset class="inputs">
 					<ol>
-						<li class="string input optional stringish" id="user_username_input">							
-							<%= f.label :products,:class=>" label" %>
-							<%= f.select :product_ids,get_user(session[:current_user]).products.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
-							<%#= session[:current_user].inspect  %>
+						<li><lable style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">Category</lable><%= select_tag "category_ids",options_for_select(get_category(get_user(session[:current_user]),"category")), :prompt => "Select Category" , :onchange => "update_versions_div('category',this.value,#{session[:current_user]})"%></li>
+
+						<li id="versionsDiv">							
+						</li>
+
+						  <% if !@product_list.blank? %> 
+            <li class="string input optional stringish" id="user_username_input" , style= 'display:none;'>              
+              <%#= f.label :products, :class=>" label" %>
+              <%#= f.select :product_ids, @product_list.collect {|x| [x.name, x.id]}, { :prompt => "Select Product" } %>
+            <!--li class="user_username_input" style="display:none;"><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">Products</lable><%#= select_tag "product_ids",options_for_select(@product_list), :prompt => "Select Product" %></li--> 
+              
+              <%#= session[:current_user].inspect  %>
+
+            </li>
+<% end %>
+						<li id="manufacturerDiv">
+								<%= render :partial => 'manufacturer' %>
 						</li>
 					</ol>
 				</fieldset>
@@ -117,3 +130,35 @@
 		</div>
 	</div>
 </div>
+<script>
+/*
+//$('#category_ids').live("change", function () {
+//var name = $(this).val();
+//if (name == "iPhones" || name == "iPad" || name == "iPod"){
+	//$('.series_list').show();
+//}else if(name == "Cell Phones" || name == "Blackberry" || name == "Camera"){
+	//$('.manufacture_list').show();
+}
+});
+$('#series_list_ids').live("change", function () {
+	$('.carrier').show();
+});
+$('#carrier_ids').live("change", function () {
+	$('#user_username_input').show();
+});
+$('#manufacturer_ids').live("change", function () {
+	$('.carrier').show();
+});*/
+function update_versions_div(type,category_name,user_data) {  
+  jQuery.ajax({
+    url: "/update_versions",
+    type: "POST",
+    data: {"category_name" : category_name,"user" : user_data,"type": type },
+   success: function(data) {
+     $('.series_list').show();     
+    }
+  });
+
+}
+
+</script>

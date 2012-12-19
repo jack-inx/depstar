@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
   # GET /manufacturers/new.xml
   def new
     @order = Order.new
-
+    #@series_list = SeriesList.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @order }
@@ -110,4 +110,40 @@ class OrdersController < ApplicationController
      end
     redirect_to "/orders"
   end
+
+  def update_versions
+    @series_list = Array.new
+    @carrier_list = Array.new
+    @product_list = Array.new
+    @user = User.find(params[:user])
+    if params[:type].eql?("category")
+      if !params[:category_name].nil?
+        @category = Category.find_by_name(params[:category_name])  
+        if params[:category_name] == "iPhones" || params[:category_name] == "iPad" || params[:category_name] == "iPod"
+          @name = "Series list"
+        else
+          @name = "Brand List"
+        end
+        @series_list_new = @user.products.find_by_category_id(@category)
+        @series_list << @series_list_new.series_list.name 
+        @carrier_list << @series_list_new.carrier.name
+        @product_list << @series_list_new
+        #render :partial => "series_list", :object => @series_list   
+      end
+        respond_to do |format|
+          format.js
+        end  
+
+    end    
+    #if params[:type].eql?("series")
+     # @series_list_detail = SeriesList.find_by_name(params[:series_name])  
+     # @carrier_new= @user.products.find_by_series_list_id(@series_list_detail)
+
+      #@series_list << @carrier_new.series_list.name
+
+      
+    #end    
+
+  end
+
 end

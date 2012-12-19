@@ -10,7 +10,6 @@ ActiveAdmin.register Order do
       product.user.username
     end
       
-    
     default_actions                  
   end 
 end
