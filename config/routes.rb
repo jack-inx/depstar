@@ -20,7 +20,7 @@ Trunk::Application.routes.draw do
   match "/submit_price_type" => "orders#submit_price_type"
   match "/admin/affiliate/:id" => "users#product_prices"
   match "/suggest_price_type" => "users#suggest_prices"
-  
+  match "/update_versions" => "orders#update_versions"  
 
   resources :question_response
   resources :categories
