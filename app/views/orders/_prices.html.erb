@@ -2,7 +2,7 @@
 <br />
 <div class="attributes_table users">
 	<%#= form_tag("/submit_price_type") do -%>
-	<table border="0" cellspacing="0" cellpadding="0">
+	<table border="0" cellspacing="0" cellpadding="0" style="width:800px;">
 		<% @product_list.each do |product| %>
 		<tr>
 			<td> <%= product.name %> </td>
@@ -11,11 +11,11 @@
 			-->
 			<%= hidden_field_tag "products[product_id][]", product.id %> 
 			<td> Price Broken ($) <%= hidden_field_tag "products[product_price_type][]",1 %> </td>
-			<td> <%= text_field_tag "products[price][]"  %> </td>
+			<td> <%= text_field_tag "products[price][]",get_suggested_price(product.id).broken_price  %> </td>
 			<td> Price Used ($) <%= hidden_field_tag "products[product_price_type][]",2 %> </td>
-			<td> <%= text_field_tag "products[price][]"  %> </td>
-			<td> Price (Broken) : $<%= get_suggested_price(product.id).broken_price  %> </td>
-			<td> Price (Defective) : $<%= get_suggested_price(product.id).used_price  %> </td>
+			<td> <%= text_field_tag "products[price][]",get_suggested_price(product.id).used_price  %> </td>
+			<td> &nbsp;<%#= get_suggested_price(product.id).broken_price  %> </td>
+			<td> &nbsp;<%#= get_suggested_price(product.id).used_price  %> </td>
 		</tr>
 		<% end %>
 		<%#= hidden_field_tag "order_id", @order.id %>
