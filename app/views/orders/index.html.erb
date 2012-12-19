@@ -29,9 +29,10 @@
 									<thead>
 										<tr>
 											<th class="sortable username"><a href="/admin/users?order=username_desc">First Name</a></th>
-											<th class="sortable email"><a href="/admin/users?order=email_desc">Email</a></th>
+											<th class="sortable email"><a href="/admin/users?order=last_name_desc">Last Name</a></th>
 											<th class="sortable crypted password"><a href="/admin/users?order=crypted_password_desc">Category</a></th>
-											<th class="sortable created at"><a href="/admin/users?order=created_at_desc">Condition</a></th>
+											<th class="sortable created at"><a href="#">Condition</a></th>
+											<th class="sortable created at"><a href="/admin/users?order=created_at_desc">Created At</a></th>
 
 											<th class=""></th>
 										</tr>
@@ -40,11 +41,12 @@
 										<% @orders.each do |order| %>
 										<tr class="odd" id="user_10">
 											<td class="username"><%= order.first_name %></td>
-											<td class="email"><%= order.email %></td>
+											<td class="last_name"><%= order.last_name %></td>
 											<td class="crypted_password"><%= order.products.all.collect{ |p| [p.name] }.join(", ") %></td>
 											<td class="created_at"> <% get_product_price(order.products, order.id).each do |price_type| %>
 											<%= price_type.all.collect{ |p| Order::AffiliateConditionCategory[p.price_type_id - 1][0] }.join(', ') %>
 											<% end %> </td>
+											<td class="created_at"><%= time_ago_in_words(order.created_at) %> ago</td>
 											<td class=""><%= link_to 'Show', order,:class=>"member_link view_link" %> <%= link_to 'Edit', edit_order_path(order),:class=>"member_link edit_link" %> <%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
 										</tr>
 										<% end %>
