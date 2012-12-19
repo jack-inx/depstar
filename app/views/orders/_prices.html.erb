@@ -11,7 +11,7 @@
 			<!--<td> Price ($) </td>-->
 			<td> <%= hidden_field_tag "products[price][]"  %> </td>
 			<td> Price (Broken) : $<%= get_suggested_price(product.id).broken_price  %> </td>
-			<td> Price (Defective) : $<%= get_suggested_price(product.id).used_price  %> </td>
+			<td> Price (Used) : $<%= get_suggested_price(product.id).used_price  %> </td>
 		</tr>
 		<% end %>
 		<%#= hidden_field_tag "order_id", @order.id %>
