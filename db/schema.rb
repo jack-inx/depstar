@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121217105613) do
+ActiveRecord::Schema.define(:version => 20121219153256) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -71,9 +71,16 @@ ActiveRecord::Schema.define(:version => 20121217105613) do
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.boolean  "is_popular"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.boolean  "question_3_is_enabled"
+    t.string   "question_3_name"
+    t.float    "question_3_option_1_multiplier"
+    t.float    "question_3_option_2_multiplier"
+    t.float    "question_3_option_3_multiplier"
+    t.float    "question_3_option_4_multiplier"
+    t.boolean  "question_4_is_enabled"
+    t.string   "question_4_name"
     t.integer  "usell_category_code"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
@@ -127,7 +134,7 @@ ActiveRecord::Schema.define(:version => 20121217105613) do
     t.string   "state"
     t.string   "city"
     t.string   "zip"
-    t.integer  "phone_number"
+    t.string   "phone_number"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "order_id"
@@ -223,13 +230,13 @@ ActiveRecord::Schema.define(:version => 20121217105613) do
 
   create_table "series_lists", :force => true do |t|
     t.string   "name"
+    t.integer  "category_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-    t.integer  "category_id"
     t.integer  "manufacturer_id"
   end
 
