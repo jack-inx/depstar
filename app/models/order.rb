@@ -7,7 +7,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
   
   Condition = [["Flawless",1],["Used",2],["Broken",3]]
-  AffiliateConditionCategory = [["Broken",1],["Defective",2]]
+  AffiliateConditionCategory = [["Broken",1],["Used",2]]
   
   
   before_save :create_order_id

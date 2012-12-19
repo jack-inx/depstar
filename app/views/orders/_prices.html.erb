@@ -6,9 +6,13 @@
 		<% @product_list.each do |product| %>
 		<tr>
 			<td> <%= product.name %> </td>
-			<td> <%= select_tag "products[product_price_type][]", options_for_select(Order::AffiliateConditionCategory.collect.map{ |i| [i.first, i.last]}) %>
-			<%= hidden_field_tag "products[product_id][]", product.id %> </td>
-			<td> Price ($) </td>
+			<!--<td> <%#= select_tag "products[product_price_type][]", options_for_select(Order::AffiliateConditionCategory.collect.map{ |i| [i.first, i.last]}) %>
+				</td>
+			-->
+			<%= hidden_field_tag "products[product_id][]", product.id %> 
+			<td> Price Broken ($) <%= hidden_field_tag "products[product_price_type][]",1 %> </td>
+			<td> <%= text_field_tag "products[price][]"  %> </td>
+			<td> Price Used ($) <%= hidden_field_tag "products[product_price_type][]",2 %> </td>
 			<td> <%= text_field_tag "products[price][]"  %> </td>
 			<td> Price (Broken) : $<%= get_suggested_price(product.id).broken_price  %> </td>
 			<td> Price (Defective) : $<%= get_suggested_price(product.id).used_price  %> </td>
