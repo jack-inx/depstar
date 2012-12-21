@@ -71,7 +71,7 @@ ActiveAdmin.register ShippingDetail do
             end
             tr do
               th { 'Status' }
-              td { shipping_detail.status_code }
+              td { ShippingDetail::ShippingStatus[shipping_detail.status_code].first }
             end             
             tr do
               th { 'Referrer' }
