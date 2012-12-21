@@ -97,7 +97,7 @@ ActiveAdmin.register ShippingDetail do
               td { shipping_detail.uuid }
             end 
              tr do
-              th { 'Final Serial' }
+              th { 'Serial' }
               td { shipping_detail.serial }
             end 
                      
