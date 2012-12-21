@@ -23,25 +23,25 @@ ActiveAdmin.register ShippingDetail do
 
     f.inputs :first_name
     f.inputs :last_name
+    f.inputs :email
+    f.inputs :phone  
     f.inputs :address1
-    f.inputs :address2
+    f.inputs :address2   
+    f.inputs :city
+    f.inputs :state
+    f.inputs :zip      
+    f.inputs :uuid
+    f.inputs :serial
+    f.inputs :referer
+    f.inputs :offer
+    f.inputs :final_offer        
+    f.inputs :payment_method
+    f.inputs :paypal_email
     
     f.inputs "Shipping" do
       f.input :status_code, :as => :select, :collection =>ShippingDetail::ShippingStatus   
     end
-  
-    f.inputs :referer
-    f.inputs :offer
-    f.inputs :final_offer
-    f.inputs :phone
-    f.inputs :uuid
-    f.inputs :serial
-    f.inputs :city
-    f.inputs :state
-    f.inputs :zip
-    f.inputs :email  
-    f.inputs :payment_method
-    f.inputs :paypal_email
+    
     f.inputs :notes, :as => :textarea
       
     f.actions                         
@@ -62,55 +62,26 @@ ActiveAdmin.register ShippingDetail do
               td { shipping_detail.last_name }
             end 
              tr do
+              th { 'Email' }
+              td { shipping_detail.email }
+            end      
+           
+            
+             tr do
+              th { 'Phone' }
+              td { shipping_detail.phone }
+            end 
+            
+             tr do
               th { 'Address 1' }
               td { shipping_detail.address1 }
             end 
              tr do
               th { 'Address 2' }
               td { shipping_detail.address2 }
-            end
-            tr do
-              th { 'Status' }
-              td { ShippingDetail::ShippingStatus[shipping_detail.status_code].first }
-            end             
-            tr do
-              th { 'Referrer' }
-              td { shipping_detail.referer }
-            end 
-            tr do
-              th { 'Offer' }
-              td { shipping_detail.offer }
-            end 
-            tr do
-              th { 'Final Offer' }
-              td { shipping_detail.final_offer }
-            end 
-            
-            
-            
-             tr do
-              th { 'Phone' }
-              td { shipping_detail.phone }
-            end 
-             tr do
-              th { 'UUid' }
-              td { shipping_detail.uuid }
-            end 
-             tr do
-              th { 'Serial' }
-              td { shipping_detail.serial }
-            end 
-                     
-            tr do
-              th { 'Email' }
-              td { shipping_detail.email }
             end          
-            tr do
-              th { 'Phone' }
-              td { shipping_detail.phone }
-            end
             
-            tr do
+             tr do
               th { 'City' }
               td { shipping_detail.city }
             end 
@@ -124,6 +95,26 @@ ActiveAdmin.register ShippingDetail do
               td { shipping_detail.zip }
             end
             
+             tr do
+              th { 'UUid' }
+              td { shipping_detail.uuid }
+            end 
+             tr do
+              th { 'Serial' }
+              td { shipping_detail.serial }
+            end 
+            tr do
+              th { 'Referrer' }
+              td { shipping_detail.referer }
+            end 
+            tr do
+              th { 'Offer' }
+              td { shipping_detail.offer }
+            end 
+            tr do
+              th { 'Final Offer' }
+              td { shipping_detail.final_offer }
+            end              
             tr do
               th { 'Payment Method' }
               td { shipping_detail.payment_method.name }
@@ -133,7 +124,11 @@ ActiveAdmin.register ShippingDetail do
               th { 'Paypal Email' }
               td { shipping_detail.paypal_email }
             end
-            
+             tr do
+              th { 'Status' }
+              td { ShippingDetail::ShippingStatus[shipping_detail.status_code].first }
+            end             
+                      
             tr do
               th { 'Notes' }
               td { shipping_detail.notes }
