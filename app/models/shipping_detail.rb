@@ -6,6 +6,7 @@ class ShippingDetail < ActiveRecord::Base
   #has_and_belongs_to_many :devices
   has_many :devices
   
+  ShippingStatus = [["AwaitingReceipt",0],["Recieved",1],["Paid",2],["Returned",3],["Recycled",4],["Cancelled",5],["Requote",6]]
   
   accepts_nested_attributes_for :devices, :allow_destroy => true
   attr_accessible :first_name, :last_name, :address1, :address2, :city, :state, :zip, :email, :phone

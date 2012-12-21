@@ -1,9 +1,12 @@
 ActiveAdmin.register ShippingDetail do
   index do                            
-    column :first_name                     
-    column :last_name    
+    column :first_name
     column :product
     column :email
+    column :status
+    column :referer
+    column :offer
+    column :final_offer
     column :phone
     column :payment_method  
    
@@ -22,14 +25,25 @@ ActiveAdmin.register ShippingDetail do
     f.inputs :last_name
     f.inputs :address1
     f.inputs :address2
+    
+    f.inputs "Shipping" do
+      f.input :status, :as => :select, :collection =>ShippingDetail::ShippingStatus, :selected => :status     
+    end
+  
+    f.inputs :referer
+    f.inputs :offer
+    f.inputs :final_offer
+    f.inputs :phone
+    f.inputs :uuid
+    f.inputs :serial
     f.inputs :city
     f.inputs :state
     f.inputs :zip
     f.inputs :email  
     f.inputs :payment_method
     f.inputs :paypal_email
-  
-     
+    f.inputs :notes, :as => :textarea
+      
     f.actions                         
   end  
   
@@ -46,8 +60,46 @@ ActiveAdmin.register ShippingDetail do
             tr do
               th { 'Last Name' }
               td { shipping_detail.last_name }
-            end            
-                    
+            end 
+             tr do
+              th { 'Address 1' }
+              td { shipping_detail.address1 }
+            end 
+             tr do
+              th { 'Address 2' }
+              td { shipping_detail.address2 }
+            end
+            tr do
+              th { 'Status' }
+              td { shipping_detail.status }
+            end             
+            tr do
+              th { 'Referrer' }
+              td { shipping_detail.referer }
+            end 
+            tr do
+              th { 'Offer' }
+              td { shipping_detail.offer }
+            end 
+            tr do
+              th { 'Final Offer' }
+              td { shipping_detail.final_offer }
+            end 
+            
+            
+            
+             tr do
+              th { 'Phone' }
+              td { shipping_detail.phone }
+            end 
+             tr do
+              th { 'UUid' }
+              td { shipping_detail.uuid }
+            end 
+             tr do
+              th { 'Final Serial' }
+              td { shipping_detail.serial }
+            end 
                      
             tr do
               th { 'Email' }
@@ -56,23 +108,32 @@ ActiveAdmin.register ShippingDetail do
             tr do
               th { 'Phone' }
               td { shipping_detail.phone }
+            end
+            
+            tr do
+              th { 'City' }
+              td { shipping_detail.city }
             end 
-             # tr do
-              # th { 'price (used)' }
-              # td { product.used_price }
-            # end 
-             # tr do
-              # th { 'price (broken)' }
-              # td { product.broken_price }
-            # end  
-             # tr do
-              # th { 'Series List' }
-              # td { product.series_list.name }
-            # end          
-            # tr do
-              # th { 'Image' }
-              # td { image_tag(product.photo.url(:thumb), :alt => "Image not exists") }
-            # end
+            
+            tr do
+              th { 'State' }
+              td { shipping_detail.state }
+            end
+            tr do
+              th { 'Zip' }
+              td { shipping_detail.zip }
+            end
+            
+            tr do
+              th { 'Payment Method' }
+              td { shipping_detail.payment_method.name }
+            end
+            
+            tr do
+              th { 'Paypal Email' }
+              td { shipping_detail.paypal_email }
+            end            
+            
           end # table
         end # attributes_table
       end # panel_contents
