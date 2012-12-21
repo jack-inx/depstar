@@ -132,6 +132,11 @@ ActiveAdmin.register ShippingDetail do
             tr do
               th { 'Paypal Email' }
               td { shipping_detail.paypal_email }
+            end
+            
+            tr do
+              th { 'Notes' }
+              td { shipping_detail.notes }
             end            
             
           end # table
