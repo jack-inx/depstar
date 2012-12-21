@@ -3,7 +3,7 @@ ActiveAdmin.register ShippingDetail do
     column :first_name
     column :product
     column :email
-    column :status
+    column :status_code
     column :referer
     column :offer
     column :final_offer
@@ -27,7 +27,7 @@ ActiveAdmin.register ShippingDetail do
     f.inputs :address2
     
     f.inputs "Shipping" do
-      f.input :status, :as => :select, :collection =>ShippingDetail::ShippingStatus, :selected => :status     
+      f.input :status_code, :as => :select, :collection =>ShippingDetail::ShippingStatus   
     end
   
     f.inputs :referer
@@ -71,7 +71,7 @@ ActiveAdmin.register ShippingDetail do
             end
             tr do
               th { 'Status' }
-              td { shipping_detail.status }
+              td { shipping_detail.status_code }
             end             
             tr do
               th { 'Referrer' }
