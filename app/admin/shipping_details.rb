@@ -1,4 +1,5 @@
 ActiveAdmin.register ShippingDetail do
+  menu :label => "Shipping Requests"
   index do                            
     column :first_name
     column :product
