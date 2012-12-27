@@ -28,8 +28,7 @@ ActiveAdmin.register ShippingDetail do
    end
 
     f.has_many :devices do |dev|
-
-      dev.input :name
+      dev.input :name, :input_html => {:disabled => true }
       dev.input :status_code, :as => :select, :collection =>ShippingDetail::ShippingStatus
       dev.input :serial, :as => :string, :input_html => {:size => "12"}
       dev.input :offer
@@ -54,7 +53,7 @@ ActiveAdmin.register ShippingDetail do
     f.inputs :offer
     f.inputs :final_offer        
     f.inputs :referer        
-    f.inputs :notes, :as => :textarea
+    #f.inputs :notes, :as => :textarea
       
     f.actions                         
   end  
@@ -145,42 +144,38 @@ ActiveAdmin.register ShippingDetail do
               th { 'Notes' }
               td { shipping_detail.notes }
             end            
-            if !shipping_detail.devices.map(&:name).first.nil?
-              tr do
-                th { 'Device name' }
-                td { shipping_detail.devices.map(&:name).join(' ')}              
-              end   
-            end
-            if !shipping_detail.devices.map(&:status_code).first.nil?            
-              tr do
-                th { 'Status code' }
-                td { shipping_detail.devices.map(&:status_code).join(' ')}              
-              end            
-            end
-           if !shipping_detail.devices.map(&:serial).first.nil?
-              tr do
-                th { 'Series' }
-                td { shipping_detail.devices.map(&:serial).join(' ') }              
-              end            
-            end
-           if !shipping_detail.devices.map(&:offer).first.nil?
-              tr do
-                th { 'Offer' }
-                td { shipping_detail.devices.map(&:offer).join(' ') }              
-              end            
-            end
-           if !shipping_detail.devices.map(&:final_offer).first.nil?
-              tr do
-                th { 'Final Offer' }
-                td { shipping_detail.devices.map(&:final_offer).join(' ') }              
-              end            
-            end
-           if !shipping_detail.devices.map(&:notes).first.nil?
-              tr do
-                th { 'Notes' }
-                td { shipping_detail.devices.map(&:Notes).join(' ')   }              
-              end            
-            end
+         
+         #    if !shipping_detail.devices.map(&:name).first.nil?
+         #      tr do
+         #        th { 'Device name' }
+         #        td { shipping_detail.devices.map(&:name).join(' ')}              
+         #      end   
+         #    end
+         #    if !shipping_detail.devices.map(&:status_code).first.nil?            
+         #      tr do
+         #        th { 'Status code' }
+         #        td { shipping_detail.devices.map(&:status_code).join(' ')}              
+         #      end            
+         #    end
+         #   if !shipping_detail.devices.map(&:serial).first.nil?
+         #      tr do
+         #        th { 'Series' }
+         #        td { shipping_detail.devices.map(&:serial).join(' ') }              
+         #      end            
+         #    end
+         #   if !shipping_detail.devices.map(&:offer).first.nil?
+         #      tr do
+         #        th { 'Offer' }
+         #        td { shipping_detail.devices.map(&:offer).join(' ') }              
+         #      end            
+         #    end
+         #   if !shipping_detail.devices.map(&:final_offer).first.nil?
+         #      tr do
+         #        th { 'Final Offer' }
+         #        td { shipping_detail.devices.map(&:final_offer).join(' ') }              
+         #      end            
+         #    end
+        
            
           end # table
         end # attributes_table
