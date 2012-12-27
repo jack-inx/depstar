@@ -22,7 +22,11 @@ ActiveAdmin.register ShippingDetail do
   filter :email  
     
    form do |f|
-    f.inputs :payment_method
+   
+    f.inputs "Payment Method" do 
+     f.input :payment_method, :as => :radio
+   end
+
     f.has_many :devices do |dev|
 
       dev.input :name
