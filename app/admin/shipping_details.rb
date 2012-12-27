@@ -27,10 +27,10 @@ ActiveAdmin.register ShippingDetail do
 
       dev.input :name
       dev.input :status_code, :as => :select, :collection =>ShippingDetail::ShippingStatus 
-      dev.input :serial, :input_html => { :size => 10 }
+      dev.input :serial, :as => :string, :input_html => {:size => "12"}
       dev.input :offer
       dev.input :final_offer
-      dev.input :notes
+      dev.input :notes, :as => :text
     end
     f.inputs :email
     f.inputs :first_name
