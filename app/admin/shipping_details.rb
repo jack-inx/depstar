@@ -30,7 +30,7 @@ ActiveAdmin.register ShippingDetail do
     f.has_many :devices do |dev|
 
       dev.input :name
-      dev.input :status_code, :as => :select, :collection =>ShippingDetail::ShippingStatus 
+      dev.input :status_code, :as => :select, :collection =>ShippingDetail::ShippingStatus
       dev.input :serial, :as => :string, :input_html => {:size => "12"}
       dev.input :offer
       dev.input :final_offer
