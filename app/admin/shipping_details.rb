@@ -23,7 +23,7 @@ ActiveAdmin.register ShippingDetail do
     
    form do |f|
    
-    f.inputs "Payment Method" do 
+    f.inputs do 
      f.input :payment_method, :as => :radio
    end
 
