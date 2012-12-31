@@ -139,13 +139,24 @@ class CategoriesController < ApplicationController
   end  
   
   def get_search_result
-     @products = Product.find_all_by_name(params[:name])
+     @product = Product.find_by_name(params[:name])
+     logger.info "66666666666666666#{@product.inspect}6666666666"
      
-     if @products.count < 1
+     if @product.nil? 
        @products = Product.where("name LIKE ?","%#{params[:name]}%")
-       render "categories/carrier_product"
+              
+       if @products.size >= 1
+          @series = @products.first.series_list
+          @category = @products.first.category
+          @manufacturer = @products.first.manufacturer
+          @carrier = @products.first.carrier
+          
+          render "categories/carrier_product"          
+        else
+           redirect_to root_url
+       end
      else
-       redirect_to root_url
+      render "products/show"                
      end     
      
   end

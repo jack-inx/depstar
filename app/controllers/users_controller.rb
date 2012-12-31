@@ -88,7 +88,7 @@ class UsersController < ApplicationController
      
      if @profile.blank?
        @profile = Profile.create(:user_id => @user.id)
-       UserMailer.welcome_affiliate_email(@user.username, @user.crypted_password, @user.email).deliver
+       #UserMailer.welcome_affiliate_email(@user.username, @user.crypted_password, @user.email).deliver
      # else
        # UserMailer.affiliate_password_email(@user.username, @user.crypted_password, @user.email).deliver       
      end    

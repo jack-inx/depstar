@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :email, :crypted_password, :persistence_token,:password_salt, :status, :product_ids
+  attr_accessible :username, :email, :crypted_password, :persistence_token,:password_salt, :status, :product_ids, :is_affiliate_admin, :user_id
   attr_accessor :password_confirmation
    
   has_one :profile, :dependent => :destroy
 
   has_many :orders 
-  has_and_belongs_to_many :products  
+  has_and_belongs_to_many :products
+  has_one :user, :foreign_key => "user_id", :class_name => "User"  
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   

@@ -1,16 +1,17 @@
-ActiveAdmin.register ShippingDetail do
-  menu :label => "Shipping Requests"
+ActiveAdmin.register ShippingDetail, :as => "Shipping Requests" do
+  #menu :label => "Shipping Requests"
   index do       
     menu :label => "Shipping Requests"
                 
     column :first_name
+    column :last_name
     column :product
     column :email
     column :status_code
     column :referer
     column :offer
     column :final_offer
-    column :phone
+    #column :phone
     column :payment_method  
 
     default_actions                   
@@ -34,6 +35,7 @@ ActiveAdmin.register ShippingDetail do
       dev.input :offer
       dev.input :final_offer
       dev.input :notes, :as => :text
+      #dev.buttons :submit, :input_html => {:hidden => true}
     end
     f.inputs :email
     f.inputs :first_name
@@ -47,7 +49,7 @@ ActiveAdmin.register ShippingDetail do
     f.inputs :paypal_email
     f.inputs :uuid
     f.inputs "Shipping" do
-      f.input :status_code, :as => :select, :collection =>ShippingDetail::ShippingStatus   
+      f.input :status_code, :as => :select, :collection => ShippingDetail::ShippingStatus   
     end
     f.inputs :serial
     f.inputs :offer
@@ -62,117 +64,117 @@ ActiveAdmin.register ShippingDetail do
     div :class => 'panel' do
       h3 'Shipping Requests'
       div :class => 'panel_contents' do
-        div :class => 'attributes_table shipping_detail' do
+        div :class => 'attributes_table shipping_request' do
           table do
             tr do
               th { 'First Name' }
-              td { shipping_detail.first_name }
+              td { shipping_requests.first_name }
             end
             tr do
               th { 'Last Name' }
-              td { shipping_detail.last_name }
+              td { shipping_requests.last_name }
             end 
              tr do
               th { 'Email' }
-              td { shipping_detail.email }
+              td { shipping_requests.email }
             end      
            
             
              tr do
               th { 'Phone' }
-              td { shipping_detail.phone }
+              td { shipping_requests.phone }
             end 
             
              tr do
               th { 'Address 1' }
-              td { shipping_detail.address1 }
+              td { shipping_requests.address1 }
             end 
              tr do
               th { 'Address 2' }
-              td { shipping_detail.address2 }
+              td { shipping_requests.address2 }
             end          
             
              tr do
               th { 'City' }
-              td { shipping_detail.city }
+              td { shipping_requests.city }
             end 
             
             tr do
               th { 'State' }
-              td { shipping_detail.state }
+              td { shipping_requests.state }
             end
             tr do
               th { 'Zip' }
-              td { shipping_detail.zip }
+              td { shipping_requests.zip }
             end
             
              tr do
               th { 'UUid' }
-              td { shipping_detail.uuid }
+              td { shipping_requests.uuid }
             end 
              tr do
               th { 'Serial' }
-              td { shipping_detail.serial }
+              td { shipping_requests.serial }
             end 
             tr do
               th { 'Referrer' }
-              td { shipping_detail.referer }
+              td { shipping_requests.referer }
             end 
             tr do
               th { 'Offer' }
-              td { shipping_detail.offer }
+              td { shipping_requests.offer }
             end 
             tr do
               th { 'Final Offer' }
-              td { shipping_detail.final_offer }
+              td { shipping_requests.final_offer }
             end              
             tr do
               th { 'Payment Method' }
-              td { shipping_detail.payment_method.name }
+              td { shipping_requests.payment_method.name }
             end
             
             tr do
               th { 'Paypal Email' }
-              td { shipping_detail.paypal_email }
+              td { shipping_requests.paypal_email }
             end
              tr do
               th { 'Status' }
-              td { ShippingDetail::ShippingStatus[shipping_detail.status_code].first }
+              td { ShippingDetail::ShippingStatus[shipping_requests.status_code].first }
             end             
                       
             tr do
               th { 'Notes' }
-              td { shipping_detail.notes }
+              td { shipping_requests.notes }
             end            
          
-         #    if !shipping_detail.devices.map(&:name).first.nil?
+         #    if !shipping_requests.devices.map(&:name).first.nil?
          #      tr do
          #        th { 'Device name' }
-         #        td { shipping_detail.devices.map(&:name).join(' ')}              
+         #        td { shipping_requests.devices.map(&:name).join(' ')}              
          #      end   
          #    end
-         #    if !shipping_detail.devices.map(&:status_code).first.nil?            
+         #    if !shipping_requests.devices.map(&:status_code).first.nil?            
          #      tr do
          #        th { 'Status code' }
-         #        td { shipping_detail.devices.map(&:status_code).join(' ')}              
+         #        td { shipping_requests.devices.map(&:status_code).join(' ')}              
          #      end            
          #    end
-         #   if !shipping_detail.devices.map(&:serial).first.nil?
+         #   if !shipping_requests.devices.map(&:serial).first.nil?
          #      tr do
          #        th { 'Series' }
-         #        td { shipping_detail.devices.map(&:serial).join(' ') }              
+         #        td { shipping_requests.devices.map(&:serial).join(' ') }              
          #      end            
          #    end
-         #   if !shipping_detail.devices.map(&:offer).first.nil?
+         #   if !shipping_requests.devices.map(&:offer).first.nil?
          #      tr do
          #        th { 'Offer' }
-         #        td { shipping_detail.devices.map(&:offer).join(' ') }              
+         #        td { shipping_requests.devices.map(&:offer).join(' ') }              
          #      end            
          #    end
-         #   if !shipping_detail.devices.map(&:final_offer).first.nil?
+         #   if !shipping_requests.devices.map(&:final_offer).first.nil?
          #      tr do
          #        th { 'Final Offer' }
-         #        td { shipping_detail.devices.map(&:final_offer).join(' ') }              
+         #        td { shipping_requests.devices.map(&:final_offer).join(' ') }              
          #      end            
          #    end
         

@@ -1,9 +1,10 @@
 class UserMailer < ActionMailer::Base
   default :from => "info@depstar.com"
   
-  def welcome_email(shipping_detail)
+  def welcome_email(shipping_detail, condition)
     
     @shipping_detail = shipping_detail
+    @condition = condition
     
     mail(
       :to => shipping_detail.email,

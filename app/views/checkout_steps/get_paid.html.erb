@@ -25,6 +25,7 @@
 					<p>How would you like to get paid?</p>
 				</div>
 				<div class="wrapper">
+					<%#= @shipping_detail.payment_method.short_code %>
 					<% if @shipping_detail.payment_method.short_code == "check" %>
 					<div class="box check" style="width: 610px;"> <!-- Tmp override styles -->
 						<%= form_for @shipping_detail, :html => { :class => 'contact-form' }, :url => wizard_path, :method => :put  do |f| %>	

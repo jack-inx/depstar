@@ -16,14 +16,18 @@ class CheckoutStepsController < ApplicationController
     elsif ! params[:shipping_detail].nil?
       @shipping_detail.product = Product.find(params[:shipping_detail][:product_id]) unless params[:shipping_detail][:product_id].nil?
     end
-    
+    logger.info "$$$$$$$$ outside unless $$$$$$$$$$$$$ #{params[:payment_method]} $$$$$$$$$$$$$$$$$$$$$$$$$$"
     # Take payment_method from product#show
     unless params[:payment_method].nil?
-      @shipping_detail.payment_method_id = PaymentMethod.find_by_short_code(params[:payment_method])
+      logger.info "$$$$$$$$inside unless $$$$$$$$$$$$$ #{params[:payment_method]} $$$$$$$$$$$$$$$$$$$$$$$$$$"
+      @short_code = PaymentMethod.find_by_short_code(params[:payment_method])
+      @shipping_detail.payment_method_id = @short_code.id
+      #@shipping_detail.payment_method = params[:payment_method]
     end
     
     # Take payment_method from product#show
     unless params[:condition].nil?
+      @@condition = params[:condition] 
       if params[:condition] == 'best'
         @shipping_detail.offer = @shipping_detail.product.price
       elsif params[:condition] == 'good'
@@ -32,9 +36,9 @@ class CheckoutStepsController < ApplicationController
         @shipping_detail.offer = @shipping_detail.product.broken_price
       end
     end
-    
+     logger.info "$$$$$$$ after show above session $$$$$#{@shipping_detail.payment_method_id }$$$$$$$$ #{session[:shipping_detail].inspect} $$$$$$$$$$$$$$$$$$$$$$$$$$"
     session[:shipping_detail] = @shipping_detail
-    
+    logger.info "$$$$$$$ after show $$$$$$$$$$$$$ #{session[:shipping_detail].inspect} $$$$$$$$$$$$$$$$$$$$$$$$$$"
     render_wizard
   end
 
@@ -44,7 +48,7 @@ class CheckoutStepsController < ApplicationController
   
   def update
     #logger.debug "Step -- " + step.inspect
-    
+     logger.info "$$$$$$$ inside update $$$$$$$$$$$$$ #{session[:shipping_detail].inspect} $$$$$$$$$$$$$$$$$$$$$$$$$$"
     @shipping_detail = session[:shipping_detail]
     @shipping_detail.step = step # Sets current step
     
@@ -85,7 +89,7 @@ class CheckoutStepsController < ApplicationController
     @shipping_detail.save
     #@shipping_detail = session[:shipping_detail]
     
-    UserMailer.welcome_email(@shipping_detail).deliver
+    UserMailer.welcome_email(@shipping_detail, @@condition).deliver
     UserMailer.new_quote_request_email(@shipping_detail).deliver
     '/checkout_steps/done'
   end

@@ -55,7 +55,7 @@ $(document).ready(function() {
 					});
 
 					$("#product_manufacturer_id").html(options);
-					
+
 					$("#product_manufacturer_id").change(function() {
 						$("select#product_manufacturer_id option:selected").each(function() {
 							var field = "manufacturer";
@@ -94,17 +94,31 @@ $(document).ready(function() {
 
 	}).trigger('change');
 
-	
-	 $("#sell_now").live('click',function(event){
-	 	
-	 	var item = $("#name").val();
-	 	if (item == '' || item == "Sell your item")
-	 	{
-	 		//alert(item);
-	 		event.preventDefault();	
-	 	} 	 	
-	 });
-	 
+	$("#sell_now").live('click', function(event) {
+
+		var item = $("#name").val();
+		if (item == '' || item == "Sell your item") {
+			//alert(item);
+			event.preventDefault();
+		}
+	});
+
+	if ($("#user_is_affiliate_admin").attr("checked") == "checked") {
+		//	alert("yes checked");
+		$("#user_user_id_input").hide();
+	} else {
+		$("#user_user_id_input").show();
+	}
+
+	$("#user_is_affiliate_admin").live('click', function() {
+		//if()
+		if ($(this).attr("checked") == "checked") {
+			//	alert("yes checked");
+			$("#user_user_id_input").hide();
+		} else {
+			$("#user_user_id_input").show();
+		}
+	});
 });
 
 /*

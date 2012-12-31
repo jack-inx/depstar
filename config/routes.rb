@@ -46,7 +46,8 @@ Trunk::Application.routes.draw do
   resources :checkout_steps
   match 'checkout_steps/done', :controller => :checkout_steps, :action => :done
   
-  resources :shipping_details
+  resources :shipping_requests
+  
   match 'shipping_details/confirm', :controller => :shipping_details, :action => :confirm
 
   match 'products/show/' => 'products#show' # For the homepage form

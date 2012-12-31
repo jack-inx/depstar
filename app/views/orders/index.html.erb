@@ -32,6 +32,7 @@
 											<th class="sortable email"><a href="/admin/users?order=last_name_desc">Last Name</a></th>
 											<th class="sortable crypted password"><a href="/admin/users?order=crypted_password_desc">Product</a></th>
 											<th class="sortable created at"><a href="#">Condition</a></th>
+											<th class="sortable created at"><a href="#">Price</a></th>
 											<th class="sortable created at"><a href="/admin/users?order=created_at_desc">Created At</a></th>
 
 											<th class=""></th>
@@ -45,6 +46,9 @@
 											<td class="crypted_password"><%= order.products.all.collect{ |p| [p.name] }.join(", ") %></td>
 											<td class="created_at"> <% get_product_price(order.products, order.id).each do |price_type| %>
 											<%= price_type.all.collect{ |p| Order::AffiliateConditionCategory[p.price_type_id - 1][0] }.join(', ') %>
+											<% end %> </td>
+											<td class="created_at"> <% get_product_price(order.products, order.id).each do |price_type| %>
+											<%= price_type.all.collect{ |p| p.price }.join(' ') %>
 											<% end %> </td>
 											<td class="created_at"><%= order.created_at.strftime("%d/%m/%Y %I:%M%p") %></td>
 											<td class=""><%= link_to 'Show', order,:class=>"member_link view_link" %> <%= link_to 'Edit', edit_order_path(order),:class=>"member_link edit_link" %> <%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>

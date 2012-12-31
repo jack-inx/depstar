@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
   attr_accessible :user_id, :first_name, :last_name, :address, :state, :city, :phone_number, :email,
-                  :product_ids, :zip, :order_id, :notes
+                  :product_ids, :zip, :order_id, :notes, :serial_no
   
   has_and_belongs_to_many :products
   

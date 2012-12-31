@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   layout 'affiliate_layout' 
   
-  before_filter :authorize
+  before_filter :authorize, :except => [:show]
   # GET /manufacturers
   # GET /manufacturers.xml
   def index
@@ -57,13 +57,16 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        
-        OrderProductPriceType.where(:order_id => @order.id).delete_all  
-          params[:products][:product_id].each_with_index do |product,index|
+        logger.info "6666666666666666666666666666666#{params[:products][:price]}"
+        OrderProductPriceType.where(:order_id => @order.id).delete_all
+          
+        params[:products][:product_id].each_with_index do |product,index|
           OrderProductPriceType.create(:order_id => @order.id,
           :product_id => params[:products][:product_id][index],
-          :price_type_id => params[:products][:product_price_type][index] )
+          :price_type_id => params[:products][:product_price_type][index],
+          :price => params[:products][:price][index] )
         end
+        
         format.html { redirect_to("/orders", :notice => 'Please Select Price Type for each product.') }
         format.xml  { render :xml => @order, :status => :created, :location => @order }
       else
@@ -80,11 +83,15 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.update_attributes(params[:order])
-        OrderProductPriceType.where(:order_id => @order.id).delete_all  
-          params[:products][:product_id].each_with_index do |product,index|
+        logger.info "6666666666666666666666666666666#{params[:products][:price]}"
+        
+        OrderProductPriceType.where(:order_id => @order.id).delete_all
+          
+        params[:products][:product_id].each_with_index do |product,index|
           OrderProductPriceType.create(:order_id => @order.id,
           :product_id => params[:products][:product_id][index],
-          :price_type_id => params[:products][:product_price_type][index] )
+          :price_type_id => params[:products][:product_price_type][index],
+          :price => params[:products][:price][index] )
         end
         format.html { redirect_to("/orders", :notice => 'Order was successfully updated.') }
         format.xml  { head :ok }

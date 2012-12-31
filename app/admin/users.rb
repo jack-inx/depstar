@@ -1,7 +1,8 @@
 ActiveAdmin.register User do  
   menu :priority => 1,:label => "Affiliates"  
   
-  index do                            
+  
+  index do                           
     column :username                     
     column :email
     column :crypted_password
@@ -28,7 +29,20 @@ ActiveAdmin.register User do
     f.inputs :email
     f.inputs :crypted_password
     f.inputs :products             
-    f.inputs :status    
+    f.inputs :status 
+    f.inputs "" do
+        f.input :is_affiliate_admin, :label => "Affiliate Admin ?"
+    end
+     if f.object.new_record?
+       f.inputs "" do
+         f.input :user_id, :as => :select, :collection => User.where(:is_affiliate_admin => true ).map { |u| [u.username, u.id] }, :prompt => "Select Affiliate Admin"
+       end
+     else
+        f.inputs "" do
+          f.input :user_id, :as => :select, :collection => User.where(['id != ? AND is_affiliate_admin = ?', params[:id], true] ).map { |u| [u.username, u.id] }, :prompt => "Select Affiliate Admin"
+        end
+     end
+     
     f.actions                         
   end 
   
@@ -55,7 +69,16 @@ ActiveAdmin.register User do
               td { user.products.map{ |p| p.name }.join(',') }
               
             end
-            
+            tr do
+              th { 'Affiliate Admin' }
+              td { user.is_affiliate_admin }              
+            end
+            if !user.is_affiliate_admin
+              tr do
+                th { 'Affilate Admin Name' }
+                td { User.find(user.user_id).username if !user.user_id.nil?  }              
+              end
+            end            
             tr do
               th { 'Login as' }
               td { link_to user.username, "/admin_as_affiliate/#{user.id}/affiliate" }
@@ -78,12 +101,18 @@ ActiveAdmin.register User do
   
   controller do
     def update
+      if !params[:user][:is_affiliate_admin].eql?("1")
+          params[:user][:product_ids] = []
+          params[:user][:user_id] = nil   
+      end
       # my custom code
-      update! do 
-        logger.info "######  #{params[:user][:email]} ###########{params[:id]}########"
-        redirect_to("/admin/affiliates/#{params[:id]}")
-        
-        return  
+      update! do
+        #logger.info "555555555555555555555555555555#{params[:user][:is_affiliate_admin]}44444444444444444444444444444444444444444" 
+        if params[:user][:is_affiliate_admin].eql?("1")
+          #logger.info "######  #{params[:user][:email]} ###########{params[:id]}########"
+          redirect_to("/admin/affiliates/#{params[:id]}")        
+          return  
+        end
       end      
     end
     
@@ -97,12 +126,13 @@ ActiveAdmin.register User do
       @check_email = User.find_all_by_email(params[:user][:email])
       
       if username_match(@username) and email_match(@email) and password_match(@password) and @check_name.count < 1 and @check_email.count < 1         
-        logger.info "######  #{params[:user][:email]} ###########{params[:id]}########"        
+        #logger.info "######  #{params[:user][:email]} ###########{params[:id]}########"        
         create! do           
-       
-             logger.info "#### unique email created ##  #{params[:user][:email]} ###########{params[:id]}########"
+         if !params[:user][:is_affiliate_admin]
+             #logger.info "#### unique email created ##  #{params[:user][:email]} ###########{params[:id]}########"
              redirect_to("/admin/affiliate/#{params[:user][:username]}")        
-             return                     
+             return                                  
+          end   
         end
       else
           create!
@@ -142,7 +172,8 @@ ActiveAdmin.register User do
          logger.info "###### username false  ########"
          false
        end
-    end    
+    end
+     
     
   end
   
