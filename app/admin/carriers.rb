@@ -3,7 +3,7 @@ ActiveAdmin.register Carrier do
   index do                            
     column :name
     column :image do |carrier|
-      image_tag(carrier.image.url(:thumb), :alt => "Image not exists")
+      image_tag(carrier.image.url(:small), :alt => "Image not exists")
     end                      
 
     default_actions                   
@@ -22,7 +22,7 @@ ActiveAdmin.register Carrier do
             end
             tr do
               th { 'Image' }
-              td { image_tag(carrier.image.url(:thumb), :alt => "Image not exists") }
+              td { image_tag(carrier.image.url(:small), :alt => "Image not exists") }
             end
           end # table
         end # attributes_table

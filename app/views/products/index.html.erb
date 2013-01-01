@@ -9,7 +9,7 @@
     <td><%= product.name %></td>
     <td>
     	<% if !product.photo.nil? %>
-    		<%= image_tag product.photo.url %>
+    		<%= image_tag product.photo.url(:thumb) %>
     	<% end %>
     </td>
    <!-- <td><%= link_to 'Show', product %></td>

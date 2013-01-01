@@ -198,7 +198,7 @@ class ShippingDetailsController < ApplicationController
         @order_id = @shipping_detail.id
         @customer_id = @shipping_detail.id     
         
-        UserMailer.welcome_email(@shipping_detail).deliver
+        UserMailer.welcome_email(@shipping_detail,"Not Specified").deliver
         UserMailer.new_quote_request_email(@shipping_detail).deliver 
       else
         @error = @shipping_detail.errors.inspect

@@ -7,12 +7,18 @@ ActiveAdmin.register ShippingDetail, :as => "Shipping Requests" do
     column :last_name
     column :product
     column :email
-    column :status_code
+#    column :status_code
     column :referer
     column :offer
     column :final_offer
+    column "Referrer Status" do |status|
+      (status.devices.map{|s| s.status_code}).join(',')
+    end
+    column "Depstar Status", :status_code
+
     #column :phone
     column :payment_method  
+    column "Date",:created_at
 
     default_actions                   
   end                                 
@@ -49,7 +55,7 @@ ActiveAdmin.register ShippingDetail, :as => "Shipping Requests" do
     f.inputs :paypal_email
     f.inputs :uuid
     f.inputs "Shipping" do
-      f.input :status_code, :as => :select, :collection => ShippingDetail::ShippingStatus   
+      f.input :status_code, :as => :select, :collection =>ShippingDetail::ShippingStatus   
     end
     f.inputs :serial
     f.inputs :offer

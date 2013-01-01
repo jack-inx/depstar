@@ -1,4 +1,4 @@
-ActiveAdmin.register Product do
+ActiveAdmin.register Product, :as => "Catologue" do
   index do                            
     column :name                     
     column :category
@@ -10,7 +10,7 @@ ActiveAdmin.register Product do
     column "Price (Broken)",:broken_price
     
     column :photo do |product|
-      image_tag(product.photo.url(:thumb), :alt => "Image not exists")
+      image_tag(product.photo.url(:small), :alt => "Image not exists")
     end
     
     default_actions                   
@@ -20,47 +20,47 @@ ActiveAdmin.register Product do
     div :class => 'panel' do
       h3 'Product Details'
       div :class => 'panel_contents' do
-        div :class => 'attributes_table product' do
+        div :class => 'attributes_table catologue' do
           table do
             tr do
               th { 'Name' }
-              td { product.name.nil? ? "" : product.name  }
+              td {  catologue.name.nil? ? "" :  catologue.name  }
             end
             tr do
               th { 'Description' }
-              td { product.description }
+              td {  catologue.description }
             end            
             tr do
               th { 'category' }
-              td { product.category.name }
+              td {  catologue.category.name }
             end          
             tr do
               th { 'manufacturer' }
-              td { product.manufacturer.name }
+              td {  catologue.manufacturer.name }
             end          
             tr do
               th { 'carrier' }
-              td { product.carrier.name }
+              td {  catologue.carrier.name }
             end          
             tr do
               th { 'price (flawless)' }
-              td { product.price }
+              td {  catologue.price }
             end 
              tr do
               th { 'price (used)' }
-              td { product.used_price }
+              td {  catologue.used_price }
             end 
              tr do
               th { 'price (broken)' }
-              td { product.broken_price }
+              td { catologue.broken_price }
             end  
              tr do
               th { 'Series List' }
-              td { product.series_list.name }
+              td {  catologue.series_list.name }
             end          
             tr do
               th { 'Image' }
-              td { image_tag(product.photo.url(:thumb), :alt => "Image not exists") }
+              td { image_tag( catologue.photo.url(:small), :alt => "Image not exists") }
             end
           end # table
         end # attributes_table

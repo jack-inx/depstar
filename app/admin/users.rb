@@ -1,8 +1,7 @@
 ActiveAdmin.register User do  
   menu :priority => 1,:label => "Affiliates"  
   
-  
-  index do                           
+ index do                           
     column :username                     
     column :email
     column :crypted_password

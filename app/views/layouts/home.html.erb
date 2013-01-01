@@ -209,12 +209,12 @@
 
 													<% @shippings.each do |shipping| %>
 													<li>
-														<% if shipping.product.blank?  %>
-																<img src="images/img5.png" height="61" width="48" class="alignleft" alt="" />																
-															<% else  %>	
-																<%= image_tag shipping.product.photo.url %>
-															<% end  %>
-														
+<p style="float:left;">                                                                 <% if shipping.product.blank?  %>
+								<img src="images/img5.png" height="61" width="48" class="alignleft" alt="" />																
+								<% else  %>	
+								 <%= image_tag shipping.product.photo.url(:thumb) %>
+								<% end  %></p>
+														<br>
 														<h4><%= shipping.first_name  %> <span> received </span><span class="price"> $<%= shipping.offer  %> </span><span>for:</span></h4>
 														<p>
 															<% if !shipping.product.nil?  %>

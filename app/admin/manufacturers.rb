@@ -5,7 +5,7 @@ ActiveAdmin.register Manufacturer do
       (manufacture.carriers.map{ |p| p.name }).join(',')
     end
     column :photo do |manufacture|
-      image_tag(manufacture.photo.url(:thumb), :alt => "Image not exists")
+      image_tag(manufacture.photo.url(:small), :alt => "Image not exists")
     end                      
 
     default_actions                   
@@ -28,7 +28,7 @@ ActiveAdmin.register Manufacturer do
             end
             tr do
               th { 'Image' }
-              td { image_tag(manufacturer.photo.url(:thumb), :alt => "Image not exists") }
+              td { image_tag(manufacturer.photo.url(:small), :alt => "Image not exists") }
             end            
           end # table
         end # attributes_table
@@ -40,7 +40,7 @@ ActiveAdmin.register Manufacturer do
 
     f.inputs :name
     f.inputs :carriers
-    
+    f.inputs :photo, :as => :file
     f.buttons                         
   end                                 
  

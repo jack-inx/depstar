@@ -22,12 +22,15 @@ Trunk::Application.routes.draw do
   match "/admin/affiliates/:id" => "users#product_prices_update"
   match "/suggest_price_type" => "users#suggest_prices"
   match "/update_versions" => "orders#update_versions"  
+  match "/update_versions_for_series" => "orders#update_versions_for_series"  
+  match "/update_versions_for_prices" => "orders#update_versions_for_prices"  
+
   match "/delete_affiliate_product/:id/:user_id" => "user_sessions#delete_affiliate_product"
 
   resources :question_response
   resources :categories
   resources :carriers
-  
+  resources :catologues  
   resources :series_lists
   
   resources :categories do

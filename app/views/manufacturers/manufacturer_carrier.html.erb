@@ -15,9 +15,13 @@
 				<tr>					
 					<% slice.each do |carrier| %>					
 					<td> 
-						<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier) %>
+<%if carrier.image.nil?%>						
+<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier) %>
+<% else %>
+<%= link_to image_tag(carrier.image.url(:small)), carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier) %>
+<% end %>
 						<p>
-							<%= link_to carrier.name, carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier.id) %>
+							<%= link_to carrier.name, carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier.id),:style=>'color:black;' %>
 						</p>
 					</td>
 					<% end %>					
