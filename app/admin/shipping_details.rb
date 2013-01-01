@@ -12,10 +12,11 @@ ActiveAdmin.register ShippingDetail, :as => "Shipping Requests" do
     column :offer
     column :final_offer
     column "Referrer Status" do |status|
-      (status.devices.map{|s| s.status_code}).join(',')
+      (status.devices.map{|s| ShippingDetail::ShippingStatus.at(s.status_code)[0]}).join(',')
     end
-    column "Depstar Status", :status_code
-
+    column "Depstar Status" do |s|
+      ShippingDetail::ShippingStatus.at(s.status_code)[0]
+    end
     #column :phone
     column :payment_method  
     column "Date",:created_at
