@@ -15,7 +15,7 @@ class ManufacturersController < ApplicationController
 
   def manufacturer_carrier
     @category = Category.find(params[:cat_id])
-    
+        
     if !params[:manufact_id].nil?
       @manufacturers = Manufacturer.find(params[:manufact_id])
     elsif !params[:series].nil?

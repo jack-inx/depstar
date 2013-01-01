@@ -9,9 +9,9 @@
 				<tr>					
 					<td colspan="5">						
 							<% if !@series.nil? %>
-								Choose your <%=  "#{@carrier.name} #{@series.name} " %>
+								Choose your <%=  " #{@series.name} ( #{@carrier.name} )" %> model
 							<% else %>
-								Choose your <%=  "#{@carrier.name} #{@manufacturer.name} #{@category.name.singularize.downcase}" %>
+								Choose your <%=  " #{@manufacturer.name} #{@category.name.singularize.downcase} ( #{@carrier.name} )" %>
 							<% end %>											
 					</td>
 				</tr>
@@ -28,7 +28,7 @@
 							<%= product.name %>
 						</p>
 						<p>							
-							<%= link_to "Sell Now",product,:class=>"sell" %>							
+							<%= link_to "Sell Now",product , :class=>"sell" %>							
 						</p>
 					</td>
 					<% end %>

@@ -132,7 +132,7 @@ class CategoriesController < ApplicationController
   def search_filter
     @category = Category.find(params[:id])
         
-    if @category.manufacturers.first.name.eql?("Apple")
+    if @category.manufacturers.first.name.include?("Apple")
       @apple_product = true   
       logger.info "# apple product #{@apple_product}   ####"   
     end      

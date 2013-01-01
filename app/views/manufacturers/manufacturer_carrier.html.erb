@@ -1,5 +1,7 @@
 <%#= render_breadcrumbs :separator => ' / ' %>
-<p id="notice">	<%= notice %></p>
+<p id="notice">
+	<%= notice %>
+</p>
 <div class="product">
 	<div class="items-holder">
 		<%  if !params[:manufact_id].nil?  %>
@@ -12,25 +14,25 @@
 			</thead>
 			<tbody>
 				<% @manufacturers.carriers.each_slice(5) do |slice| -%>
-				<tr>					
-					<% slice.each do |carrier| %>					
+				<tr>
+					<% slice.each do |carrier| %>
 					<td> 
-<%if carrier.image.nil?%>						
-<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier) %>
-<% else %>
-<%= link_to image_tag(carrier.image.url(:small)), carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier) %>
-<% end %>
+						<%if carrier.image.nil?%>
+							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier) %>
+						<% else %>
+							<%= link_to image_tag(carrier.image.url(:small)), carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier) %>
+						<% end %>
 						<p>
 							<%= link_to carrier.name, carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier.id),:style=>'color:black;' %>
 						</p>
 					</td>
-					<% end %>					
+					<% end %>
 				</tr>
 				<% end %>
 			</tbody>
 		</table>
 		<% else %>
-			<table class="sell-table">
+		<table class="sell-table">
 			<thead>
 				<tr>
 					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
@@ -38,16 +40,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% @series_list.manufacturer.carriers.each_slice(5) do |slice| -%>
-				<tr>					
-					<% slice.each do |carrier| %>					
-					<td> 
-						<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id ) %>
-						<p>
-							<%= link_to carrier.name, carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id) %>
-						</p>
-					</td>
-					<% end %>					
+				<% @series_list.carriers.each_slice(5) do |slice| -%>
+				<tr>
+					<% slice.each do |carrier| %>
+					<td> <%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id ) %>
+					<p>
+						<%= link_to carrier.name, carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id) %>
+					</p></td>
+					<% end %>
 				</tr>
 				<% end %>
 			</tbody>

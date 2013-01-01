@@ -1,4 +1,4 @@
-<%#= link_to 'Create New order', new_order_path %>
+<%#= session[:current_user] %>
 
 <div class="title_bar" id="title_bar">
 	<div id="titlebar_left">
@@ -28,12 +28,12 @@
 								<table border="0" cellspacing="0" cellpadding="0" id="users" class="index_table index" paginator="true">
 									<thead>
 										<tr>
-											<th class="sortable username"><a href="/admin/users?order=username_desc">First Name</a></th>
-											<th class="sortable email"><a href="/admin/users?order=last_name_desc">Last Name</a></th>
-											<th class="sortable crypted password"><a href="/admin/users?order=crypted_password_desc">Product</a></th>
-											<th class="sortable created at"><a href="#">Condition</a></th>
-											<th class="sortable created at"><a href="#">Price</a></th>
-											<th class="sortable created at"><a href="/admin/users?order=created_at_desc">Created At</a></th>
+											<th class="sortable username"><a href="/order_lists?q=first_name&s=desc">First Name</a></th>
+											<th class="sortable email"><a href="/order_lists?q=last_name&s=desc">Last Name</a></th>
+											<th class="sortable crypted password">Product</th>
+											<th class="sortable created at">Condition</th>
+											<th class="sortable created at">Price</th>
+											<th class="sortable created at"><a href="/order_lists?q=created_at&s=desc">Created At</a></th>
 
 											<th class=""></th>
 										</tr>

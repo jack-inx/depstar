@@ -1,11 +1,11 @@
 ActiveAdmin.register Manufacturer do
   index do                            
     column :name                     
-    column "carrier" do |manufacture|
-      (manufacture.carriers.map{ |p| p.name }).join(',')
+    column "carrier" do |manufacturer|
+      (manufacturer.carriers.map{ |p| p.name }).join(',')
     end
-    column :photo do |manufacture|
-      image_tag(manufacture.photo.url(:small), :alt => "Image not exists")
+    column :photo do |manufacturer|
+      image_tag(manufacturer.photo.url(:small), :alt => "Image not exists")
     end                      
 
     default_actions                   
