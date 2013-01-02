@@ -2,11 +2,24 @@ ActiveAdmin.register User do
   menu :priority => 1,:label => "Affiliates"  
   
  index do                           
-    column :username                     
-    column :email
+    #column :username                     
+    column "Username", :email
     column :crypted_password
-    column :created_at     
-    column :status
+    column :created_at    
+    column :status do |s|
+      if s.status
+        "Active"
+      else
+        "Inactive"
+      end
+    end
+    column "Affiliate Admin",:is_affiliate_admin do |a|
+      if a.is_affiliate_admin
+        "Yes"
+      else
+        "No"
+      end
+    end
     # column "Orders" do |expert|
       # link_to "View", edit_admin_expert_path(expert)
     # end    
@@ -24,21 +37,28 @@ ActiveAdmin.register User do
   end                          
   
   form do |f| 
-    f.inputs :username
-    f.inputs :email
-    f.inputs :crypted_password
-    f.inputs :products             
-    f.inputs :status 
-    f.inputs "" do
-        f.input :is_affiliate_admin, :label => "Affiliate Admin ?"
+    #f.inputs :username
+    f.inputs "Admin" do
+        f.input :email, :label => "Username"
+        f.input :crypted_password
+    end
+    #f.inputs :email, :label => "ADMIN Username"
+    
+    f.inputs :products
+    f.inputs "Status" do
+        f.input :status, :label => "Active"
+    end             
+    #f.inputs :status 
+    f.inputs "Make Affiliate Admin" do
+        f.input :is_affiliate_admin, :label => "Yes"
     end
      if f.object.new_record?
-       f.inputs "" do
-         f.input :user_id, :as => :select, :collection => User.where(:is_affiliate_admin => true ).map { |u| [u.username, u.id] }, :prompt => "Select Affiliate Admin"
+       f.inputs "Select Affiliate" do
+         f.input :user_id, :label =>"Affiliates", :as => :select, :collection => User.where(:is_affiliate_admin => true ).map { |u| [u.username, u.id] }, :prompt => "Select Affiliate Admin"
        end
      else
-        f.inputs "" do
-          f.input :user_id, :as => :select, :collection => User.where(['id != ? AND is_affiliate_admin = ?', params[:id], true] ).map { |u| [u.username, u.id] }, :prompt => "Select Affiliate Admin"
+        f.inputs "Select Affiliate" do
+          f.input :user_id, :label =>"Affiliates", :as => :select, :collection => User.where(['id != ? AND is_affiliate_admin = ?', params[:id], true] ).map { |u| [u.username, u.id] }, :prompt => "Select Affiliate Admin"
         end
      end
      
@@ -51,12 +71,12 @@ ActiveAdmin.register User do
       div :class => 'panel_contents' do
         div :class => 'attributes_table users' do
           table do
+            # tr do
+              # th { 'Username' }
+              # td { user.username }
+            # end
             tr do
               th { 'Username' }
-              td { user.username }
-            end
-            tr do
-              th { 'Email' }
               td { user.email }
             end
             tr do
@@ -70,7 +90,14 @@ ActiveAdmin.register User do
             end
             tr do
               th { 'Affiliate Admin' }
-              td { user.is_affiliate_admin }              
+              td {
+                if user.is_affiliate_admin
+                  "Yes"
+                else
+                  "No"
+                end
+                  #user.is_affiliate_admin 
+                }              
             end
             if !user.is_affiliate_admin
               tr do
@@ -108,7 +135,7 @@ ActiveAdmin.register User do
       update! do
         #logger.info "555555555555555555555555555555#{params[:user][:is_affiliate_admin]}44444444444444444444444444444444444444444" 
         if params[:user][:is_affiliate_admin].eql?("1")
-          #logger.info "######  #{params[:user][:email]} ###########{params[:id]}########"
+          logger.info "######  #{params[:user][:email]} ###########{params[:id]}########"
           redirect_to("/admin/affiliates/#{params[:id]}")        
           return  
         end

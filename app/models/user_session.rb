@@ -8,8 +8,8 @@ class UserSession < ActiveRecord::Base
     # false
   # end
   
-  def self.check(username, password)
-    @user = User.find_by_username_and_crypted_password(username, password)
+  def self.check(email, password)
+    @user = User.find_by_email_and_crypted_password(email, password)
     if @user.nil?
       false
     else

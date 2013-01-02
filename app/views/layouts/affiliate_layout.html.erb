@@ -25,16 +25,22 @@
 					</li>
 					<li id="carriers">
 						<a href="/admin/carriers">Carriers</a>
-					</li>
-					<li id="categories">
-						<a href="/admin/categories">Categories</a>
-					</li>
-					<li id="manufacturers">
-						<a href="/admin/manufacturers">Manufacturers</a>
 					</li>-->
+					
 					<li id="orders">
 						<a href="/orders">Orders</a>
 					</li>
+					<% if session[:admin].eql?(true) %>
+						<li id="categories">
+							<a href="/admin/categories">All Orders</a>
+						</li>
+						<li id="categories">
+							<a href="/admin/categories">All Users</a>
+						</li>
+						<li id="manufacturers">
+							<a href="/admin/manufacturers">Pricing</a>
+						</li>						
+					<% end %>					
 					<!--
 					<li id="payment_methods">
 						<a href="/admin/payment_methods">Payment Methods</a>

@@ -82,7 +82,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.update_attributes(params[:order])
-        logger.info "6666666666666666666666666666666#{params[:products][:price]}"
+        #logger.info "6666666666666666666666666666666#{params[:products][:price]}"
 
         OrderProductPriceType.where(:order_id => @order.id).delete_all
 

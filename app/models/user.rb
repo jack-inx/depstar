@@ -43,8 +43,8 @@ class User < ActiveRecord::Base
     self.is_admin == true unless self == nil    
   end
   
-    def self.checkStatus(username, password)
-    @user = self.find_by_username_and_crypted_password_and_status(username, password,true)
+    def self.checkStatus(email, password)
+    @user = self.find_by_email_and_crypted_password_and_status(email, password,true)
     if @user.nil?
       false
     else

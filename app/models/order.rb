@@ -1,4 +1,5 @@
 class Order < ActiveRecord::Base
+    
   attr_accessible :user_id, :first_name, :last_name, :address, :state, :city, :phone_number, :email,
                   :product_ids, :zip, :order_id, :notes, :serial_no
   
@@ -9,13 +10,15 @@ class Order < ActiveRecord::Base
   Condition = [["Flawless",1],["Used",2],["Broken",3]]
   AffiliateConditionCategory = [["Broken",1],["Used",2]]
   
+  validates :first_name, :presence => true, :length => { :within => 1..30 }
+  validates :last_name, :presence => true, :length => { :within => 1..30 }
   
-  before_save :create_order_id
+  before_create :create_order_id
   
   def create_order_id
     #@order = Order.find(self.id)
-    self.order_id = "#{self.id}_#{self.user.username}_#{self.products.count}_#{self.first_name}"
-    #logger.info "#####################################################################################"
+    self.order_id = SecureRandom.hex(3)
+    #logger.info "############## #{self.order_id}######################################################################"
   end
 
 end
