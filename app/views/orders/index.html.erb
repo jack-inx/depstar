@@ -28,6 +28,7 @@
 								<table border="0" cellspacing="0" cellpadding="0" id="users" class="index_table index" paginator="true">
 									<thead>
 										<tr>
+											<th class="sortable order_id"><a href="/order_lists?q=order_id&s=desc">Order#</a></th>
 											<th class="sortable username"><a href="/order_lists?q=first_name&s=desc">First Name</a></th>
 											<th class="sortable email"><a href="/order_lists?q=last_name&s=desc">Last Name</a></th>
 											<th class="sortable crypted password">Product</th>
@@ -41,6 +42,7 @@
 									<tbody>
 										<% @orders.each do |order| %>
 										<tr class="odd" id="user_10">
+											<td class="order_id"><%= order.order_id %></td>
 											<td class="username"><%= order.first_name %></td>
 											<td class="last_name"><%= order.last_name %></td>
 											<td class="crypted_password"><%= order.products.all.collect{ |p| [p.name] }.join(", ") %></td>
@@ -51,7 +53,7 @@
 											<%= price_type.all.collect{ |p| p.price }.join(' ') %>
 											<% end %> </td>
 											<td class="created_at"><%= order.created_at.strftime("%d/%m/%Y %I:%M%p") %></td>
-											<td class=""><%= link_to 'Show', order,:class=>"member_link view_link" %> <%= link_to 'Edit', edit_order_path(order),:class=>"member_link edit_link" %> <%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
+											<td class=""><%= link_to 'Show', order,:class=>"member_link view_link" %> <%= link_to 'Edit', edit_order_path(order),:class=>"member_link edit_link" %> <% if get_user(session[:current_user]).is_affiliate_admin %><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %> <% end %> </td>
 										</tr>
 										<% end %>
 									</tbody>
