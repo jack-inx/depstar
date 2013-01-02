@@ -9,7 +9,7 @@
 		<% @carrier_list = Array.new %>
 	<% end %>
 	
-	<%= select_tag "series_id", options_for_select(@series_list.uniq), :prompt => "Select #{@name}" , :onchange => "update_versions_series_div('series',this.value,#{session[:current_user]})" %>
+	<%= select_tag "series_id", options_for_select(@series_list.uniq), :prompt => "Select #{@name}" , :onchange => "update_versions_series_div( '#{@category_name}' ,this.value , #{session[:current_user]})" %>
 </div>
 
 <li id="versionsDivlatest"></li>
