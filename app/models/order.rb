@@ -10,8 +10,8 @@ class Order < ActiveRecord::Base
   Condition = [["Flawless",1],["Used",2],["Broken",3]]
   AffiliateConditionCategory = [["Broken",1],["Used",2]]
   
-  validates :first_name, :presence => true, :length => { :within => 1..30 }
-  validates :last_name, :presence => true, :length => { :within => 1..30 }
+  validates :first_name, :presence => true, :length => { :within => 3..30 }
+  validates :last_name, :presence => true, :length => { :within => 3..30 }
   
   before_create :create_order_id
   

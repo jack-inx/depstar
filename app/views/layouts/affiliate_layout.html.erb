@@ -30,7 +30,7 @@
 					<li id="orders">
 						<a href="/orders">Orders</a>
 					</li>
-					<% if session[:admin].eql?(true) %>
+					<% if get_user(session[:current_user]).is_affiliate_admin %>
 						<li id="categories">
 							<a href="/admin/categories">All Orders</a>
 						</li>
