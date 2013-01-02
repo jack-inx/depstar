@@ -178,8 +178,8 @@ class OrdersController < ApplicationController
     @user = User.find(params[:user])
     @series_new = SeriesList.find_by_name(params[:type])
     @carrier = Carrier.find_by_name(params[:carrier])
-   # @series = @user.products.find_all_by_carrier_id_and_series_list_id(@carrier,@series_new)
-    @series = @user.products.find(:all, :conditions => ["carrier_id = ? AND series_list_id = ?",@carrier,@series_new])
+    @series = @user.products.find_all_by_carrier_id_and_series_list_id(@carrier.id.to_s,@series_new.id.to_s)
+   # @series = @user.products.find(:all, :conditions => ["carrier_id = ? AND series_list_id = ?",@carrier,@series_new])
     @series.each do |p|
       @carrier_list << p.carrier.name
       @product_list["#{p.name}"] = "#{p.id}"
