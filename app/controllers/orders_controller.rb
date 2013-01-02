@@ -134,13 +134,16 @@ class OrdersController < ApplicationController
     @carrier_list = Array.new
     @user = User.find(params[:user])
     if params[:type].eql?("category")
-      if !params[:category_name].nil?
+      
+      if !params[:category_name].nil?        
         @category = Category.find_by_name(params[:category_name])
+        
         if params[:category_name] == "iPhones" || params[:category_name] == "iPad" || params[:category_name] == "iPod"
           @name = "Product list"
         else
           @name = "Brand List"
         end
+        
         @series_new = @user.products.find_all_by_category_id(@category)
         @series_new.each do |i|
           @series_list << i.series_list.name
@@ -150,6 +153,7 @@ class OrdersController < ApplicationController
         format.js
       end
     end
+
   end
 
   def update_versions_for_series

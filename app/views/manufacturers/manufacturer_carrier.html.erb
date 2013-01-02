@@ -9,9 +9,10 @@
 			<thead>
 				<tr>
 					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
-					<td colspan="5">Choose your <%= @manufacturers.name %> <%= @category.name.singularize %> carrier </td>
+					<td colspan="5">Choose your <%= @manufacturers.name %> <%= @category.name.singularize %></td>
 				</tr>
 			</thead>
+			<% if !@category.name.include?('Tablet')   %>
 			<tbody>
 				<% @manufacturers.carriers.each_slice(5) do |slice| -%>
 				<tr>
@@ -30,6 +31,26 @@
 				</tr>
 				<% end %>
 			</tbody>
+			<% else %>
+				<tbody>
+				<% @products.each_slice(5) do |slice| -%>
+				<tr>
+					<% slice.each do |carrier| %>
+					<td> 
+						<%if carrier.photo %>
+							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier %>
+						<% else %>
+							<%= link_to image_tag(carrier.image.url(:small)), carrier %>
+						<% end %>
+						<p>
+							<%= link_to carrier.name, carrier,:style=>'color:black;' %>
+						</p>
+					</td>
+					<% end %>
+				</tr>
+				<% end %>
+			</tbody>
+			<% end %>		
 		</table>
 		<% else %>
 		<table class="sell-table">
