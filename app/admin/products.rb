@@ -38,9 +38,11 @@ ActiveAdmin.register Product, :as => "Catologue" do
               th { 'manufacturer' }
               td {  catologue.manufacturer.name }
             end          
-            tr do
-              th { 'carrier' }
-              td {  catologue.carrier.name }
+            if catologue.carrier
+              tr do
+                th { 'carrier' }
+                td {  catologue.carrier.name  }
+              end
             end          
             tr do
               th { 'price (flawless)' }
@@ -53,10 +55,12 @@ ActiveAdmin.register Product, :as => "Catologue" do
              tr do
               th { 'price (broken)' }
               td { catologue.broken_price }
-            end  
-             tr do
-              th { 'Series List' }
-              td {  catologue.series_list.name }
+            end
+            if catologue.carrier  
+              tr do
+                th { 'Series List' }
+                td {  catologue.series_list.name if catologue.series_list }
+              end
             end          
             tr do
               th { 'Image' }

@@ -4,7 +4,7 @@ ActiveAdmin.register Carrier do
     column :name
     #column :series_lists
     column "Products" do |p|
-      (p.series_lists.map{ |p| p.name }).join(',')
+      (p.series_lists.map{ |s| s.name }).join(',')
     end
     column :image do |carrier|
       image_tag(carrier.image.url(:small), :alt => "Image not exists")

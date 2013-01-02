@@ -22,15 +22,17 @@
 					<% @counter = 0 %>
 					<% slice.each do |manufact| %>
 					<% @counter += 1 %>
-					<td><% if manufact.photo.nil? %>
-					<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"),manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact) %>
-					<% else %>
-					<%= link_to image_tag("#{manufact.photo.url(:small)}"),manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact) %>
-					<%#= manufact.photo.url %>
-					<% end %>
-					<p>
-						<%= link_to manufact.name, manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact),:style=>"color:black;" %>
-					</p></td>
+					<td>
+						<% if manufact.photo.nil? %>
+							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"),manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact) %>
+						<% else %>
+							<%= link_to image_tag("#{manufact.photo.url(:small)}"),manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact) %>
+							<%#= manufact.photo.url %>
+						<% end %>
+						<p>
+							<%= link_to manufact.name, manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact),:style=>"color:black;" %>
+						</p>
+					</td>
 					<% end %>
 				</tr>
 				<% end %>
@@ -41,7 +43,7 @@
 			<thead>
 				<tr>
 					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
-					<td colspan="5">Select your <%= @category.name.singularize %> series </td>
+					<td colspan="5">Select your <%= @category.name.singularize %></td>
 				</tr>
 			</thead>
 			<tbody>

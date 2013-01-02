@@ -119,6 +119,29 @@ $(document).ready(function() {
 			$("#user_user_id_input").show();
 		}
 	});
+	
+	//alert($("#catologue_category_id :selected").text());
+	
+	if ($("#catologue_category_id :selected").text() == "Tablet") {
+			//	alert("yes checked");
+			$("#catologue_series_list_input").hide();
+			$("#catologue_carrier_input").hide();
+			
+		} else {
+			$("#catologue_series_list_input").show();
+			$("#catologue_carrier_input").show();
+	}
+		
+	$("#catologue_category_id").live('change', function(){
+		if ($("#catologue_category_id :selected").text() == "Tablet") {
+			//	alert("yes checked");
+			$("#catologue_series_list_input").hide();
+			$("#catologue_carrier_input").hide();
+		} else {
+			$("#catologue_series_list_input").show();
+			$("#catologue_carrier_input").show();
+		}
+	});
 });
 
 /*

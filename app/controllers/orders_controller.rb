@@ -132,32 +132,34 @@ class OrdersController < ApplicationController
   def update_versions
     @series_list = Array.new
     @carrier_list = Array.new
-    #@product_list = Array.new
-    
+    #@product_list = Array.new    
     @user = User.find(params[:user])
     
     if params[:type].eql?("category")
-      if !params[:category_name].nil?
+      
+      if !params[:category_name].nil?        
         @category = Category.find_by_name(params[:category_name])
+        
         if params[:category_name] == "iPhones" || params[:category_name] == "iPad" || params[:category_name] == "iPod"
           @name = "Product list"
         else
           @name = "Brand List"
         end
+        
         @series_new = @user.products.find_all_by_category_id(@category)
         @series_new.each do |i|
-          @series_list << i.series_list.name
-        end
+        @series_list << i.series_list.name
+      end
       #@series_list << @series_list_new.series_list.name
       #@carrier_list << @series_list_new.carrier.name
       #@product_list << @series_list_new
       #render :partial => "series_list", :object => @series_list
-      end
-      respond_to do |format|
-        format.js
-      end
-
     end
+    
+    respond_to do |format|
+      format.js
+    end
+  end
   #if params[:type].eql?("series")
   # @series_list_detail = SeriesList.find_by_name(params[:series_name])
   # @carrier_new= @user.products.find_by_series_list_id(@series_list_detail)
@@ -173,6 +175,7 @@ class OrdersController < ApplicationController
     @carrier_list = Array.new
     @product_list = Hash.new
     @user = User.find(params[:user])
+    
     # if params[:type].eql?("series")
     #   if !params[:category_name].nil?
     #     @category = Category.find_by_name(params[:category_name])
@@ -181,9 +184,11 @@ class OrdersController < ApplicationController
     #     else
     #       @name = "Brand List"
     #     end
+    
     @series_list = SeriesList.find_by_name(params[:series])
     @series = @user.products.find_all_by_series_list_id(@series_list)
     #@series_list << @series_list_new.series_list.name
+    
     @series.each do |p|
       @carrier_list << p.carrier.name
       @product_list["#{p.name}"] = "#{p.id}"

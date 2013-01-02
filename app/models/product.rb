@@ -13,7 +13,7 @@ class Product < ActiveRecord::Base
   
   has_many :devices
 
-  validates_presence_of :price, :category_id, :manufacturer_id , :series_list_id
+  validates_presence_of :price, :category_id, :manufacturer_id #, :series_list_id
   validates_numericality_of :price
   validates_numericality_of :used_price
   validates_numericality_of :broken_price

@@ -15,12 +15,19 @@ class ManufacturersController < ApplicationController
 
   def manufacturer_carrier
     @category = Category.find(params[:cat_id])
-        
-    if !params[:manufact_id].nil?
+    
+    #logger.info "!!!!!!!!!!!!!!!!!!#{@category.name}!!!!!!!!!!!!!!!!!!!!!"
+     
+    if !@category.name.include?('Tablet')  
+      if !params[:manufact_id].nil?
+        @manufacturers = Manufacturer.find(params[:manufact_id])
+      elsif !params[:series].nil?
+        @series_list = SeriesList.find(params[:series])
+      end
+    else
       @manufacturers = Manufacturer.find(params[:manufact_id])
-    elsif !params[:series].nil?
-      @series_list = SeriesList.find(params[:series])
-    end         
+      @products = @category.products     
+    end             
   end
 
 
