@@ -1,0 +1,37 @@
+<% if !@product_list.blank? %>
+<li class="string input optional stringish" id="user_username_input" , style= 'display:none;'>
+<li class="user_username_input" style="display:none;">
+  <lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">
+    Models
+  </lable>
+  <%= select_tag "order[product_ids]",options_for_select(@product_list), :prompt => "Select Model" , :onchange => "update_versions_product_price('series',this.value,#{session[:current_user]})"%>
+</li>
+
+<%#= @product_list  %>
+</li>
+<li></li>
+
+<% end %>
+<li id="versionsDivprice"></li>
+
+<script>
+  $('#order_product_ids').live("change", function() {
+    $('#product_display').show();
+  });
+
+  function update_versions_product_price(type, category_name, user_data) {
+    jQuery.ajax({
+      url : "/update_versions_for_prices",
+      type : "POST",
+      data : {
+        "product_id" : category_name,
+        "user" : user_data,
+        "type" : type
+      },
+      success : function(data) {
+         $('.carrier_new_123').show();
+      }
+    });
+
+  }
+</script>

@@ -27,7 +27,7 @@ ActiveAdmin.register User do
   end                                 
 
   filter :username
-  filter :email     
+  filter :products
   filter :status                  
 
   csv :separator => ';' do

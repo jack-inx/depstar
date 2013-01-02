@@ -14,14 +14,7 @@
 
 <li id="versionsDivlatest"></li>
 <script>
-	//$('#series_id').live("change", function () {
-	//  $('.carrier_new_123').show();
-	//});
-	$('#carrier_ids').live("change", function() {
-		//ajax query reqired for asking related products with carriers
-		alert($(this).val());
-		//$('.user_username_input').show();
-	});
+	
 	$('#order_product_ids').live("change", function() {
 		$('#product_display').show();
 	});
@@ -36,8 +29,7 @@
 				"type" : type
 			},
 			success : function(data) {
-				//$('.series_list').show();
-				$('.carrier_new_123').show();
+					$('.carrier_new_123').show();
 			}
 		});
 

@@ -24,7 +24,7 @@ Trunk::Application.routes.draw do
   match "/update_versions" => "orders#update_versions"  
   match "/update_versions_for_series" => "orders#update_versions_for_series"  
   match "/update_versions_for_prices" => "orders#update_versions_for_prices"  
-
+  match "/update_versions_for_carrier" => "orders#update_versions_for_carrier"
   match "/delete_affiliate_product/:id/:user_id" => "user_sessions#delete_affiliate_product"
   match "/order_lists" => "orders#order_list"
 
