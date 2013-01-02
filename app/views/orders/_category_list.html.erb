@@ -4,26 +4,13 @@
 	<lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">
 		Carrier list
 	</lable>
-	<%= select_tag "carrier_ids",options_for_select(@carrier_list.uniq), :prompt => "Select Carrier" %>
+	<%= select_tag "carrier_ids",options_for_select(@carrier_list.uniq), :prompt => "Select Carrier" , :onchange => "update_versions_carrier_div('#{@series_name}', this.value, #{session[:current_user]})" %>
 </li>
 
 <%end%>
 </br>
-<% if !@product_list.blank? %>
-<li class="string input optional stringish" id="user_username_input" , style= 'display:none;'>
-<li class="user_username_input" style="display:none;">
-	<lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">
-		Models
-	</lable>
-	<%= select_tag "order[product_ids]",options_for_select(@product_list), :prompt => "Select Model" , :onchange => "update_versions_series_price('series',this.value,#{session[:current_user]})"%>
-</li>
 
-<%#= @product_list  %>
-</li>
-<li></li>
-
-<% end %>
-<li id="versionsDivprice"></li>
+<li id="versionsDivcarrier"></li>
 
 <script>
 	//$('#series_id').live("change", function () {
@@ -36,18 +23,18 @@
 		$('#product_display').show();
 	});
 
-	function update_versions_series_price(type, category_name, user_data) {
+	function update_versions_carrier_div(type, category_name, user_data) {
 		jQuery.ajax({
-			url : "/update_versions_for_prices",
+			url : "/update_versions_for_carrier",
 			type : "POST",
 			data : {
-				"product_id" : category_name,
+				"carrier" : category_name,
 				"user" : user_data,
 				"type" : type
 			},
 			success : function(data) {
 				//$('.series_list').show();
-				$('.carrier_new_123').show();
+				$('.user_username_input').show();
 			}
 		});
 
