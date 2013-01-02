@@ -150,9 +150,7 @@ class OrdersController < ApplicationController
         @series_new = @user.products.find_all_by_category_id(@category)
         if params[:category_name] == "Tablet"
           @series_new.each do |i|
-            i.category.manufacturers.each do |p|
-              @series_list << p.name
-            end            
+            @series_list << i.manufacturer.name
           end
         else
           @series_new.each do |i|
