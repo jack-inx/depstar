@@ -3,9 +3,9 @@ ActiveAdmin.register User do
   
  index do                           
     #column :username                     
-    column "Username", :email
-    column :crypted_password
-    column :created_at    
+    column "Username", :email, :sortable => false
+    column :crypted_password, :sortable => false
+    column :created_at, :sortable => false
     column :status do |s|
       if s.status
         "Active"
