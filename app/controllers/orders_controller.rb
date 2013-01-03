@@ -173,7 +173,8 @@ class OrdersController < ApplicationController
     @series_name = params[:series]
     if @category_name == "Tablet"
       @manufacturer = Manufacturer.find_by_name(@series_name)
-      @series = @user.products.find_all_by_manufacturer_id(@manufacturer)
+      @category = Category.find_by_name(@category_name)
+      @series = @user.products.find_all_by_manufacturer_id_and_category_id(@manufacturer.id.to_s,@category.id.to_s)
       @series.each do |p|
         @product_list["#{p.name}"] = "#{p.id}"
       end
