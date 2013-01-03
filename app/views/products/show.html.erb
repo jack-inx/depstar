@@ -9,12 +9,12 @@
 						<div class="aside-block">
 							<!-- <a href="#"><img src="/images/img-phone9.png" alt="image description" width="166" height="228" /></a> -->
 							<%= image_tag @product.photo.url(:small) %>
-							<p><%= @product.name %></p>
+							<p><%= @product.name %> <%= @product.manufacturer.name %></p>
 							<!-- <a href="#" class="btn"><span>Change Model</span></a> -->
 						</div>
 						<div class="block-content">
 							<div class="heading">
-								<h2>My <%= @product.manufacturer.name %> <%= @product.name[0,15] %> <%= @product.carrier.name  if !@product.carrier.nil? %><%#= truncate(@product.name, :length=>20, :omission => '...') %> is..</h2>
+								<h2>My <%= @product.manufacturer.name if !@product.category.name.include?("Tablet")%> <%= @product.name[0,15] %> <%= @product.carrier.name  if !@product.carrier.nil? %><%#= truncate(@product.name, :length=>20, :omission => '...') %> is..</h2>
 							</div>
 							<!-- <form class="phone-status" action="/"> -->
 								<%#= form_tag '/checkout_steps/email', :id=>'select_product', :html => { :class => 'phone-status' }, :method => :put do |f| %>

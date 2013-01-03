@@ -56,7 +56,7 @@
 			<thead>
 				<tr>
 					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
-					<td colspan="5">Select your <%= @category.name if !@category.name.include?("iPhone")  %> <%= @series_list.name %> <%= "Carrier" if @category.name.include?("iPhone")  %></td>
+					<td colspan="5">Select your <%= @category.name if !@category.name.include?("iPhone") and !@category.name.include?("iPod") and !@category.name.include?("iPad")  %> <%= @series_list.name %> <%= "Carrier" if @category.name.include?("iPhone") or @category.name.include?("iPod")  %></td>
 				</tr>
 			</thead>
 			<tbody>
