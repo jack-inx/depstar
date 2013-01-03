@@ -7,9 +7,8 @@
 		<%  if !params[:manufact_id].nil?  %>
 		<table class="sell-table">
 			<thead>
-				<tr>
-					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
-					<td colspan="5">Choose your <%= @manufacturers.name %> <%= @category.name.singularize %></td>
+				<tr>					
+					<td colspan="5">Select your <%= @manufacturers.name %> <%= @category.name.singularize %> Carrier</td>
 				</tr>
 			</thead>
 			<% if !@category.name.include?('Tablet')   %>
@@ -57,7 +56,7 @@
 			<thead>
 				<tr>
 					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
-					<td colspan="5">Choose your <%= @series_list.name %> carrier</td>
+					<td colspan="5">Select your <%= @category.name if !@category.name.include?("iPhone")  %> <%= @series_list.name %> <%= "Carrier" if @category.name.include?("iPhone")  %></td>
 				</tr>
 			</thead>
 			<tbody>

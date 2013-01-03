@@ -26,7 +26,9 @@ class ManufacturersController < ApplicationController
       end
     else
       @manufacturers = Manufacturer.find(params[:manufact_id])
+
       @products = @category.products.where(:manufacturer_id => params[:manufact_id] )     
+
     end             
   end
 

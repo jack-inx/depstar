@@ -9,9 +9,9 @@
 				<tr>					
 					<td colspan="5">						
 							<% if !@series.nil? %>
-								Choose your <%=  " #{@series.name} ( #{@carrier.name} )" %> model
+								Select your <%=   @carrier.name %> <%= @category.name if !@category.name.include?("iPhone") %> <%= @series.name %> 
 							<% else %>
-								Choose your <%=  " #{@manufacturer.name} #{@category.name.singularize.downcase} ( #{@carrier.name} )" %>
+								Select your <%=  " #{@manufacturer.name} #{@category.name.singularize.downcase} ( #{@carrier.name} )" %>
 							<% end %>											
 					</td>
 				</tr>
@@ -22,7 +22,8 @@
 					<% @counter = 0 %>
 					<% slice.each do |product| %>
 					<% @counter += 1 %>
-					<td width=177px> <%#= link_to image_tag(carrier.photo.url(:small)), carrier %>
+					<td width=177px>
+						<%#= link_to image_tag(carrier.photo.url(:small)), carrier %>
 						<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), product %>
 						<p>
 							<%= product.name %>

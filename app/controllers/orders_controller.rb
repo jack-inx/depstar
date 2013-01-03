@@ -135,18 +135,27 @@ class OrdersController < ApplicationController
     @user = User.find(params[:user])
     if params[:type].eql?("category")
       
-      if !params[:category_name].nil?        
+      if !params[:category_name].nil?
+      @category_name = params[:category_name]
         @category = Category.find_by_name(params[:category_name])
         
         if params[:category_name] == "iPhones" || params[:category_name] == "iPad" || params[:category_name] == "iPod"
           @name = "Product list"
+        elsif params[:category_name] == "Tablet"
+          @name = "Manufacturer List"
         else
           @name = "Brand List"
         end
         
         @series_new = @user.products.find_all_by_category_id(@category)
-        @series_new.each do |i|
-          @series_list << i.series_list.name
+        if params[:category_name] == "Tablet"
+          @series_new.each do |i|
+            @series_list << i.manufacturer.name
+          end
+        else
+          @series_new.each do |i|
+            @series_list << i.series_list.name
+          end          
         end
       end
       respond_to do |format|
@@ -159,13 +168,22 @@ class OrdersController < ApplicationController
   def update_versions_for_series
     @carrier_list = Array.new
     @product_list = Hash.new
-    @series_name = params[:series]
+    @category_name = params[:type]
     @user = User.find(params[:user])
-    @series_list = SeriesList.find_by_name(params[:series])
-    @series = @user.products.find_all_by_series_list_id(@series_list)
-    @series.each do |p|
-      @carrier_list << p.carrier.name
-      @product_list["#{p.name}"] = "#{p.id}"
+    @series_name = params[:series]
+    if @category_name == "Tablet"
+      @manufacturer = Manufacturer.find_by_name(@series_name)
+      @series = @user.products.find_all_by_manufacturer_id(@manufacturer)
+      @series.each do |p|
+        @product_list["#{p.name}"] = "#{p.id}"
+      end
+    else    
+      @series_list = SeriesList.find_by_name(params[:series])
+      @series = @user.products.find_all_by_series_list_id(@series_list)
+      @series.each do |p|
+        @carrier_list << p.carrier.name
+        @product_list["#{p.name}"] = "#{p.id}"
+      end
     end
     respond_to do |format|
       format.js
