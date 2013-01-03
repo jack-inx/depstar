@@ -78,15 +78,32 @@
 					<div style="margin:0;padding:0;display:inline">
 						<input name="utf8" type="hidden" value="&#x2713;" />
 					</div>
+					
 					<div class="filter_form_field filter_string">
-						<label class=" label" for="q_name">Search Name</label>
+						<label class=" label" for="q_name">Purchase Order Number</label>
+						<input id="q_name" name="q[purchase_number]" type="text" MaxLength="6" style="width:51px !important;"/>
+					</div>					
+					<% if @user.is_affiliate_admin == true %>
+					<div class="filter_form_field filter_string">
+						<label class=" label" for="q_name">User Name</label>
 						<input id="q_name" name="q[name_contains]" type="text" />
 					</div>					
+					<%end%>
+					<label class=" label" for="q_name">Carrier</label>
+					<%= select_tag "payment_carrier", options_for_select(Carrier.all.map{ |p| p.name }) ,:prompt => "Select Carrier"%>
+					<label class=" label" for="q_name">Product</label>
+					<%= select_tag "payment_product", options_for_select(@user.products.all.map{ |p| p.name }) ,:prompt => "Select Product"%>
 					<div class="filter_form_field filter_date_range">
-						<label class=" label" for="q_created_at_gte">Created at</label>
-						<input class="datepicker" id="q_created_at_gte" max="10" name="q[created_at_gte]" size="12" type="text" value="" />
-						<span class="seperator">-</span>
-						<input class="datepicker" id="q_created_at_lte" max="10" name="q[created_at_lte]" size="12" type="text" value="" />
+						<label class=" label" for="q_created_at_gte">Date</label>
+						<input class="datepicker" id="q_created_at_gte" max="10" name="q[created_at_gte]" size="12" type="text" value="" style="width:197px !important;"/>
+					</div>
+					<div class="filter_form_field filter_string">
+						<label class=" label" for="q_name">First Name</label>
+						<input id="q_name" name="q[name_contains]" type="text" />
+					</div>					
+					<div class="filter_form_field filter_string">
+						<label class=" label" for="q_name">Last Name</label>
+						<input id="q_name" name="q[name_contains]" type="text" />
 					</div>					
 					<div class="buttons">
 						<input name="commit" type="submit" value="Filter" />

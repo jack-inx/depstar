@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   # GET /manufacturers
   # GET /manufacturers.xml
   def index
-
+    @user = User.find(session[:current_user])
     if !params[:q].nil?
       if !params[:q][:name_contains].nil?
         @orders = Order.where("first_name LIKE ? AND user_id = ?","%#{params[:q][:name_contains]}%", session[:current_user])
