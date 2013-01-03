@@ -31,20 +31,20 @@
 						<%= form_for @shipping_detail, :html => { :class => 'contact-form' }, :url => wizard_path, :method => :put  do |f| %>	
 							<fieldset>
 								<div class="row">
-									<%= f.text_field :check_payment_name, :value => (@shipping_detail.check_payment_name.nil? ? 'Payable to' : @shipping_detail.check_payment_name) %>
+									<%= f.text_field :check_payment_name, :value => (@shipping_detail.check_payment_name.nil? ? 'Payable to' : @shipping_detail.check_payment_name) ,:style => "width:500px !important;"%>
 								</div>
 								<div class="row">
-									<%= f.text_field :check_payment_address1, :value => (@shipping_detail.check_payment_address1.nil? ? 'Address' : @shipping_detail.check_payment_address1) %>
+									<%= f.text_field :check_payment_address1, :value => (@shipping_detail.check_payment_address1.nil? ? 'Address' : @shipping_detail.check_payment_address1) ,:style => "width:500px !important;"%>
 								</div>
 								<div class="row">
-									<%= f.text_field :check_payment_address2 %>
+									<%= f.text_field :check_payment_address2 ,:style => "width:500px !important;"%>
 								</div>
 								<div class="row">
-									<%= f.text_field :check_payment_city, :value => (@shipping_detail.check_payment_city.nil? ? 'City' : @shipping_detail.check_payment_city) %>
+									<%= f.text_field :check_payment_city, :value => (@shipping_detail.check_payment_city.nil? ? 'City' : @shipping_detail.check_payment_city) ,:style => "width:500px !important;"%>
 								</div>
 								<div class="row">
-									<%= f.text_field :check_payment_state, :value => (@shipping_detail.check_payment_state.nil? ? 'State' : @shipping_detail.check_payment_state), :class => 'state' %>
-									<%= f.text_field :check_payment_zip, :value => (@shipping_detail.check_payment_zip.nil? ? 'Zip' : @shipping_detail.check_payment_zip), :class => 'zip' %>
+									<%= f.text_field :check_payment_state, :value => (@shipping_detail.check_payment_state.nil? ? 'State' : @shipping_detail.check_payment_state), :class => 'state' ,:style => "width:220px !important;"%>
+									<%= f.text_field :check_payment_zip, :value => (@shipping_detail.check_payment_zip.nil? ? 'Zip' : @shipping_detail.check_payment_zip), :class => 'zip' ,:style => "width:220px !important;"%>
 								</div>
 								<div class="box-frame" style="margin-left: auto; margin-right: auto; float: none; clear: both;"> <!-- Tmp override styles -->
 									<span class="box-title">Send me a Check</span>
