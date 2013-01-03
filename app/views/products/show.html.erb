@@ -14,7 +14,7 @@
 						</div>
 						<div class="block-content">
 							<div class="heading">
-								<h2>My <%= @product.manufacturer.name %> <%= @product.name[0,15] %> <%= @product.carrier.name %><%#= truncate(@product.name, :length=>20, :omission => '...') %> is..</h2>
+								<h2>My <%= @product.manufacturer.name %> <%= @product.name[0,15] %> <%= @product.carrier.name  if !@product.carrier.nil? %><%#= truncate(@product.name, :length=>20, :omission => '...') %> is..</h2>
 							</div>
 							<!-- <form class="phone-status" action="/"> -->
 								<%#= form_tag '/checkout_steps/email', :id=>'select_product', :html => { :class => 'phone-status' }, :method => :put do |f| %>
