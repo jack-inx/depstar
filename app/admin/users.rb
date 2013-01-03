@@ -54,11 +54,11 @@ ActiveAdmin.register User do
     end
      if f.object.new_record?
        f.inputs "Select Affiliate" do
-         f.input :user_id, :label =>"Affiliates", :as => :select, :collection => User.where(:is_affiliate_admin => true ).map { |u| [u.username, u.id] }, :prompt => "Select Affiliate Admin"
+         f.input :user_id, :label =>"Affiliates", :as => :select, :collection => User.where(:is_affiliate_admin => true ).map { |u| [u.email, u.id] }, :prompt => "Select Affiliate Admin"
        end
      else
         f.inputs "Select Affiliate" do
-          f.input :user_id, :label =>"Affiliates", :as => :select, :collection => User.where(['id != ? AND is_affiliate_admin = ?', params[:id], true] ).map { |u| [u.username, u.id] }, :prompt => "Select Affiliate Admin"
+          f.input :user_id, :label =>"Affiliates", :as => :select, :collection => User.where(['id != ? AND is_affiliate_admin = ?', params[:id], true] ).map { |u| [u.email, u.id] }, :prompt => "Select Affiliate Admin"
         end
      end
      
@@ -102,12 +102,12 @@ ActiveAdmin.register User do
             if !user.is_affiliate_admin
               tr do
                 th { 'Affilate Admin Name' }
-                td { User.find(user.user_id).username if !user.user_id.nil?  }              
+                td { User.find(user.user_id).email if !user.user_id.nil?  }              
               end
             end            
             tr do
               th { 'Login as' }
-              td { link_to user.username, "/admin_as_affiliate/#{user.id}/affiliate" }
+              td { link_to user.email, "/admin_as_affiliate/#{user.id}/affiliate" }
             end
       
             

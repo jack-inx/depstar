@@ -27,7 +27,18 @@ Trunk::Application.routes.draw do
   match "/update_versions_for_carrier" => "orders#update_versions_for_carrier"
   match "/delete_affiliate_product/:id/:user_id" => "user_sessions#delete_affiliate_product"
   match "/order_lists" => "orders#order_list"
-
+  match "/affiliates/orders" => "orders#order_by_sub_affiliates"
+  
+  match "/affiliates/users" => "orders#sub_affiliates"
+  match "/affiliate/users/:id" => "orders#show_sub_affiliates" #show page for affiliate user
+   
+  match "/affiliate/users/:id/edit" => "orders#edit_sub_affiliates"
+  match "/affiliate/users/:id/delete" => "orders#delete_sub_affiliates"
+  match "/affiliates/users/new" => "orders#new_sub_affiliates"
+  match "/affiliates/create" => "orders#create_sub_affiliates"
+  match "/affiliates/update/:id" => "orders#update_sub_affiliates"
+  match "/affilate/search" => "orders#sub_affiliates"
+  
   resources :question_response
   resources :categories
   resources :carriers
