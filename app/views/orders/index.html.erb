@@ -78,6 +78,7 @@
 		<div class="sidebar_section panel" id="filters_sidebar_section">
 			<h3>Filters</h3>
 			<div class="panel_contents">
+
 		
 	<%= form_tag (order_search_path) do %>
 		<div class="filter_form_field filter_string">
@@ -88,7 +89,7 @@
 			<label class=" label" for="q_name">Last Name</label>
 		 	<%= text_field_tag "search[last_name]" %>
 	 </div>
-		<% if @user.is_affiliate_admin == true %>
+		<% if !@user.nil? and @user.is_affiliate_admin == true %>
 			<div class="filter_form_field filter_string">
 				<label class=" label" for="q_name">User Name</label>
 				<%= text_field_tag "search[user_name]" %>			
@@ -100,20 +101,22 @@
 		</div>
 		<label class=" label" for="q_name">Carrier</label>
 		<%= select_tag "search[payment_carrier]", options_for_select(Carrier.all.map{ |p| p.name }) ,:prompt => "Select Carrier"%>
+		<% if !@user.nil? and @user.is_affiliate_admin == true %>
 		<label class=" label" for="q_name">Product</label>
 		<%= select_tag "search[payment_product]", options_for_select(@user.products.all.map{ |p| p.name }) ,:prompt => "Select Product"%>
-
+		<%end%>
 	  <label class=" label" for="q_name">Date</label>
 		<%= text_field_tag "search[date]", nil, :class=> "datepicker",:style=>"background:url('/images/active_admin/datepicker/datepicker-input-icon.png') no-repeat scroll 100% 7px white;" %>
 
 	 <div class="button" style="margin-top:12px;"><%= submit_tag "Filter" %></div>  
 <% end %>
+
 			</div>
 		</div>
 	</div>
 	 <div id="index_footer">
                   
-                  <div class="download_links"><%= link_to "Download CSV",orders_path(:format=>'xls') %></div>
+                  <div class="download_links"><%= link_to "Download CSV",orders_path(:format=>'xls') if !@user.nil? %></div>
                   
                 </div>
               </div>

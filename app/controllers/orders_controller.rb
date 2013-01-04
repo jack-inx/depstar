@@ -324,5 +324,9 @@ class OrdersController < ApplicationController
         
     render "affiliate_index"
   end 
-  
+  def order_pricing    
+    @user = User.find(session[:current_user])
+         
+    render "order_prices"     
+  end
 end
