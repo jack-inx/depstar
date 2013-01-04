@@ -224,6 +224,24 @@ class OrdersController < ApplicationController
     end
     render "index"    
   end
+
+  def search_filter
+    @user = User.find(session[:current_user])
+    @orders = Order.where("first_name = ? OR last_name = ? OR order_id = ? OR DATE(created_at) = DATE(?) OR email = ?",params[:search][:first_name], params[:search][:last_name], params[:search][:order_id], params[:search][:date], params[:search][:user_name])
+    if !params[:search][:payment_product].blank?
+      @product_name = Product.find_by_name(params[:search][:payment_product])
+      @product_list = @user.products.find(@product_name)
+      @orders << @product_list.orders
+    end
+    if !params[:search][:payment_carrier].blank?
+      @carrier_name = Carrier.find_by_name(params[:search][:payment_carrier])
+      @carrier_list = @user.products.find_all_by_carrier_id(@carrier_name)
+      @orders << @carrier_list
+    end
+
+    @orders.flatten!
+    render "index"
+  end
   
   def order_by_sub_affiliates
     @users = User.where(:user_id => session[:current_user], :is_affiliate_admin => false)
