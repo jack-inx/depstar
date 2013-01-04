@@ -24,7 +24,7 @@ module ApplicationHelper
   end
   def get_user(id)
     @user = User.find(id)
-    if @user.is_affiliate_admin == false
+    if @user.is_affiliate_admin == false and !@user.user_id.nil?
       @user_list = @user.user_id
       @user = User.find(@user_list)
     end     
