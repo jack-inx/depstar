@@ -227,7 +227,12 @@ class OrdersController < ApplicationController
 
   def search_filter
     @user = User.find(session[:current_user])
-    @orders = Order.where("first_name = ? OR last_name = ? OR order_id = ? OR DATE(created_at) = DATE(?) OR email = ?",params[:search][:first_name], params[:search][:last_name], params[:search][:order_id], params[:search][:date], params[:search][:user_name])
+    if params[:search][:date].blank?
+      @orders = Order.where("first_name = ? OR last_name = ? OR order_id = ? OR DATE(created_at) = DATE(?) OR email = ?",params[:search][:first_name], params[:search][:last_name], params[:search][:order_id], params[:search][:date], params[:search][:user_name])    
+    else
+      @orders = Order.where("first_name = ? OR last_name = ? OR order_id = ? OR email = ?",params[:search][:first_name], params[:search][:last_name], params[:search][:order_id], params[:search][:user_name])
+    end
+    
     if !params[:search][:payment_product].blank?
       @product_name = Product.find_by_name(params[:search][:payment_product])
       @product_list = @user.products.find(@product_name)
