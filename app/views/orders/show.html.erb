@@ -35,7 +35,7 @@
 							</tr>
 							<tr>
 								<th>State</th>
-								<td><%= @order.state %></td>
+								<td><%= Order::States[@order.state.to_i][0] %></td>
 							</tr>
 							<tr>
 								<th>City</th>
