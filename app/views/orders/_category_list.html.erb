@@ -4,7 +4,7 @@
 	<lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">
 		Carrier list
 	</lable>
-	<%= select_tag "carrier_ids",options_for_select(@carrier_list.uniq), :prompt => "Select Carrier" , :onchange => "update_versions_carrier_div('#{@series_name}', this.value, #{session[:current_user]})" %>
+	<%= select_tag "carrier_ids",options_for_select(@carrier_list.uniq), :prompt => "Select Carrier" , :onchange => "update_versions_carrier_div('#{@series_name}', this.value, #{@user.id})" %>
 </li>
 
 <%end%>

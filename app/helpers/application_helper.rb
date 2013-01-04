@@ -18,10 +18,17 @@ module ApplicationHelper
     category = Category.arel_table
     return Category.where(category[:name].matches("%iph%")).first.id
   end
-  
+  def get_user_affiliate(id)
+    @user_check = User.find(id)
+    return @user_check 
+  end
   def get_user(id)
     @user = User.find(id)
-    return @user
+    if @user.is_affiliate_admin == false
+      @user_list = @user.user_id
+      @user = User.find(@user_list)
+    end     
+    return @user 
   end
   
   def get_suggested_price(product_id)
