@@ -7,7 +7,7 @@
   <lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">
     Models
   </lable>
-  <%= select_tag "order[product_ids]",options_for_select(@product_list), :prompt => "Select Model" , :onchange => "update_versions_product_price('series',this.value,#{session[:current_user]})"%>
+  <%= select_tag "order[product_ids]",options_for_select(@product_list), :prompt => "Select Model" , :onchange => "update_versions_product_price('series',this.value,#{@user.id})"%>
 </li>
 
 <%#= @product_list  %>
