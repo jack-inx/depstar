@@ -87,16 +87,17 @@
 						<label class=" label" for="q_name">Purchase Order Number</label>
 						<input id="q_name" name="q[purchase_number]" type="text" MaxLength="6" style="width:51px !important;"/>
 					</div>					
-					<% if @user.is_affiliate_admin == true %>
+					<% if !@user.nil? and @user.is_affiliate_admin == true %>
 					<div class="filter_form_field filter_string">
 						<label class=" label" for="q_name">User Name</label>
 						<input id="q_name" name="q[name_contains]" type="text" />
 					</div>					
-					<%end%>
+					
 					<label class=" label" for="q_name">Carrier</label>
 					<%= select_tag "payment_carrier", options_for_select(Carrier.all.map{ |p| p.name }) ,:prompt => "Select Carrier"%>
 					<label class=" label" for="q_name">Product</label>
-					<%= select_tag "payment_product", options_for_select(@user.products.all.map{ |p| p.name }) ,:prompt => "Select Product"%>
+					<%= select_tag "payment_product", options_for_select(@user.products.all.map{ |p| p.name }) ,:prompt => "Select Product" %>
+					<% end %>
 					<div class="filter_form_field filter_date_range">
 						<label class=" label" for="q_created_at_gte">Date</label>
 						<input class="datepicker" id="q_created_at_gte" max="10" name="q[created_at_gte]" size="12" type="text" value="" style="width:197px !important;"/>
@@ -120,7 +121,7 @@
 	</div>
 	 <div id="index_footer">
                   
-                  <div class="download_links"><%= link_to "Download CSV",orders_path(:format=>'xls') %></div>
+                  <div class="download_links"><%= link_to "Download CSV",orders_path(:format=>'xls') if !@user.nil? %></div>
                   
                 </div>
               </div>

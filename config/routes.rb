@@ -31,6 +31,7 @@ Trunk::Application.routes.draw do
   
   match "/affiliates/users" => "orders#sub_affiliates"
   match "/affiliate/users/:id" => "orders#show_sub_affiliates" #show page for affiliate user
+  match "/affiliates/pricing" => "orders#order_pricing"
    
   match "/affiliate/users/:id/edit" => "orders#edit_sub_affiliates"
   match "/affiliate/users/:id/delete" => "orders#delete_sub_affiliates"
