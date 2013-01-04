@@ -23,8 +23,8 @@
 					<% slice.each do |product| %>
 					<% @counter += 1 %>
 					<td width=177px>
-						<% if !product.photo %>
-							<%= link_to image_tag(carrier.photo.url(:small)), carrier %>
+						<% if product.photo %>
+							<%= link_to image_tag(product.photo.url(:small)), product %>
 						<% else %>
 							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), product %>
 						<% end %>

@@ -52,7 +52,7 @@
 					<% slice.each do |series| %>
 					<td> <%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), manufact_carrier_path(:cat_id => params[:id],:series => series) %>
 					<p>
-						<%= link_to series.name, manufact_carrier_path(:cat_id => params[:id],:series => series) %>
+						<%= link_to series.name, manufact_carrier_path(:cat_id => params[:id],:series => series),:style=>"color:black;" %>
 					</p></td>
 					<% end %>
 				</tr>
