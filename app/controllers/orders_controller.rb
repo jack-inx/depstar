@@ -243,4 +243,81 @@ class OrdersController < ApplicationController
     render "index"
   end
   
+  def order_by_sub_affiliates
+    @users = User.where(:user_id => session[:current_user], :is_affiliate_admin => false)
+    @orders = Array.new
+    
+    @users.each do |user|
+       @orders << Order.where(:user_id => user.id)
+    end  
+    
+    @orders = @orders.first
+    logger.info "#{@orders.inspect}"
+    render "index"
+  end
+  
+  def sub_affiliates
+    if !params[:q].nil? and !params[:q][:username].nil? 
+      @users = User.where("email LIKE ? and is_affiliate_admin = ? ","%#{params[:q][:username]}%",false)
+    else
+      @users = User.where(:user_id => session[:current_user], :is_affiliate_admin => false)    
+    end   
+    
+    #logger.info "#{@orders.inspect}"
+    render "affiliate_index"
+  end
+  
+  def new_sub_affiliates
+    @user = User.new
+    
+    render "affiliate_new"
+  end
+  
+  def create_sub_affiliates
+    @user = User.new(params[:user])
+    @user.is_affiliate_admin = params[:is_affiliate_admin]
+    @user.user_id = params[:user_id]
+    
+    if @user.save
+      #flash[:notice] = "Registration successful."
+      redirect_to "/affiliates/users"
+    else
+      render :action => 'affiliate_new'
+    end
+        
+    #render "affiliate_show"
+  end
+  
+  def show_sub_affiliates
+    @user = User.find(params[:id]) 
+    
+    render "affiliate_show"
+  end
+  
+  def edit_sub_affiliates
+    @user = User.find(params[:id]) 
+    
+    render "affiliate_edit"
+  end
+    
+  def update_sub_affiliates
+    @user = User.find(params[:id])
+    
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "Successfully updated profile."
+      
+      redirect_to "/affiliates/users"
+    else
+      render :action => 'affiliate_edit'
+    end  
+  end
+  
+  def delete_sub_affiliates 
+    @user = User.find(params[:id])
+    #@user.destroy
+    @users = User.where(:user_id => session[:current_user], :is_affiliate_admin => false)
+        
+    render "affiliate_index"
+  end 
+  
 end
