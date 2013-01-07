@@ -134,7 +134,11 @@
 			<fieldset class="actions">
 				<ol>
 					<li class="action input_action " id="user_submit_action">
-						<%= f.submit "Create Order" %>
+						<% if params[:id].nil? %>
+							<%= f.submit "Create Order" %>
+						<% else %>
+							<%= f.submit "Update Order" %>
+						<% end %>
 					</li>
 					<li class="cancel">
 						<a href="/orders">Cancel</a>

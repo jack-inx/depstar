@@ -42,23 +42,7 @@
 									</thead>
 									<tbody>
 										<% if !@orders.blank? %>
-										<% @orders.each do |order| %>
-										<tr class="odd" id="user_10">
-											<td class="order_id"><%= order.order_id %></td>
-											<td class="username"><%= order.user.email %></td>
-											<td class="username"><%= order.first_name %></td>
-											<td class="last_name"><%= order.last_name %></td>
-											<td class="crypted_password"><%= order.products.all.collect{ |p| [p.name] }.join(", ") %></td>
-											<td class="created_at"> <% get_product_price(order.products, order.id).each do |price_type| %>
-											<%= price_type.all.collect{ |p| Order::AffiliateConditionCategory[p.price_type_id - 1][0] }.join(', ') %>
-											<% end %> </td>
-											<td class="created_at"> <% get_product_price(order.products, order.id).each do |price_type| %>
-											<%= price_type.all.collect{ |p| p.price }.join(' ') %>
-											<% end %> </td>
-											<td class="created_at"><%= order.created_at.strftime("%d/%m/%Y %I:%M%p") %></td>
-											<td class=""><%= link_to 'Show', order,:class=>"member_link view_link" %> <%= link_to 'Edit', edit_order_path(order),:class=>"member_link edit_link" %> <% if get_user(session[:current_user]).is_affiliate_admin %><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %> <% end %> </td>
-										</tr>
-										<% end %>
+											<%= render :partial=> "orders" %>
 										<% end %>
 									</tbody>
 								</table>
@@ -114,10 +98,12 @@
 			</div>
 		</div>
 	</div>
-	 <div id="index_footer">
-                  
-                  <div class="download_links"><%= link_to "Download CSV",orders_path(:format=>'xls') if !@user.nil? %></div>
-                  
-                </div>
-              </div>
+<div id="index_footer">
+
+		<div class="download_links">
+			<%= link_to "Download CSV",orders_path(:format=>'xls') if session[:admin] %>
+		</div>
+
+	</div>
+	</div>
 </div>

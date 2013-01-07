@@ -29,7 +29,8 @@ Trunk::Application.routes.draw do
   match "/order_lists" => "orders#order_list"
   match "/order_search" => "orders#search_filter"
   match "/affiliates/orders" => "orders#order_by_sub_affiliates"
-  
+  match "/cancel/:id/order" => "orders#cancel_order"
+    
   match "/affiliates/users" => "orders#sub_affiliates"
   match "/affiliate/users/:id" => "orders#show_sub_affiliates" #show page for affiliate user
   match "/affiliates/pricing" => "orders#order_pricing"
@@ -40,6 +41,7 @@ Trunk::Application.routes.draw do
   match "/affiliates/create" => "orders#create_sub_affiliates"
   match "/affiliates/update/:id" => "orders#update_sub_affiliates"
   match "/affilate/search" => "orders#sub_affiliates"
+  
   resources :question_response
   resources :categories
   resources :carriers

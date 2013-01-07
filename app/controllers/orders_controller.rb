@@ -8,12 +8,13 @@ class OrdersController < ApplicationController
     @user = User.find(session[:current_user])
     if !params[:q].nil?
       if !params[:q][:name_contains].nil?
-        @orders = Order.where("first_name LIKE ? AND user_id = ?","%#{params[:q][:name_contains]}%", session[:current_user])
+        @orders = Order.where("first_name LIKE ? AND user_id = ? and status = ?","%#{params[:q][:name_contains]}%", session[:current_user], true)
       else
-        @orders = Order.where(:created_at =>(("#{params[:q][:created_at_gte]}")..("#{params[:q][:created_at_lte]}")),:user_id => session[:current_user] )
+        @orders = Order.where(:created_at =>(("#{params[:q][:created_at_gte]}")..("#{params[:q][:created_at_lte]}")),:user_id => session[:current_user],:status => true )
       end
     else
-      @orders = Order.where(:user_id => session[:current_user])
+      @orders = Order.where(:user_id => session[:current_user], :status => true)
+      @order_index = "current"
     end
 
     respond_to do |format|
@@ -218,9 +219,9 @@ class OrdersController < ApplicationController
   
   def order_list
     if !params[:q].nil? and !params[:s].nil?      
-      @orders = Order.where(:user_id => session[:current_user]).order("#{params[:q]} #{params[:s]}")
+      @orders = Order.where(:user_id => session[:current_user], :status => true).order("#{params[:q]} #{params[:s]}")
     else
-      @orders = Order.where(:user_id => session[:current_user])
+      @orders = Order.where(:user_id => session[:current_user], :status => true)
     end
     render "index"    
   end
@@ -228,9 +229,11 @@ class OrdersController < ApplicationController
   def search_filter
     @user = User.find(session[:current_user])
     if params[:search][:date].blank?
-      @orders = Order.where("first_name = ? OR last_name = ? OR order_id = ? OR email = ?",params[:search][:first_name], params[:search][:last_name], params[:search][:order_id], params[:search][:user_name])    
+      @orders = Order.where("first_name LIKE ? AND last_name LIKE ? AND order_id LIKE ? AND email LIKE ? AND status = ?",
+      "%#{params[:search][:first_name]}%", "%#{params[:search][:last_name]}%", "%#{params[:search][:purchase_order]}%", "%#{params[:search][:user_name]}%",true)    
     else
-      @orders = Order.where("first_name = ? OR last_name = ? OR order_id = ? OR DATE(created_at) = DATE(?) OR email = ?",params[:search][:first_name], params[:search][:last_name], params[:search][:order_id], params[:search][:date], params[:search][:user_name])
+      @orders = Order.where("first_name = ? AND last_name = ? AND order_id = ? AND created_at = ? AND email LIKE ? and status = ?",
+      "%#{params[:search][:first_name]}%", "%#{params[:search][:last_name]}%", "%#{params[:search][:purchase_order]}%",params[:search][:date], "%#{params[:search][:user_name]}%",true)
     end
     
     if !params[:search][:payment_product].blank?
@@ -249,15 +252,16 @@ class OrdersController < ApplicationController
   end
   
   def order_by_sub_affiliates
-    @users = User.where(:user_id => session[:current_user], :is_affiliate_admin => false)
+    @users = User.where("user_id = ? or id = ? ", session[:current_user],  session[:current_user])
     @orders = Array.new
     
     @users.each do |user|
-       @orders << Order.where(:user_id => user.id)
+       @orders << Order.where(:user_id => user.id, :status => true)            
     end  
     
-    @orders = @orders.first
-    logger.info "#{@orders.inspect}"
+    @order_index_sub_affilaites = "current"
+    @orders = @orders.flatten!
+    
     render "index"
   end
   
@@ -267,7 +271,7 @@ class OrdersController < ApplicationController
     else
       @users = User.where(:user_id => session[:current_user], :is_affiliate_admin => false)    
     end   
-    
+    @sub_affiliates = "current"
     #logger.info "#{@orders.inspect}"
     render "affiliate_index"
   end
@@ -323,10 +327,22 @@ class OrdersController < ApplicationController
     @users = User.where(:user_id => session[:current_user], :is_affiliate_admin => false)
         
     render "affiliate_index"
-  end 
+  end
+   
   def order_pricing    
     @user = User.find(session[:current_user])
-         
+    @order_pricing = "current"     
     render "order_prices"     
+  end
+  
+  def cancel_order
+    if !params[:id].nil?
+      @order = Order.find(params[:id])
+      @order.status = false
+      @order.save      
+    end  
+    @orders = Order.where(:user_id => session[:current_user], :status => true)
+    
+    render "index"
   end
 end

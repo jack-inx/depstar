@@ -4,7 +4,9 @@
 	</div>
 	<div id="titlebar_right">
 		<div class="action_items">
+			<% if session[:admin] %>
 			<span class="action_item"><a href="/admin/users/new">New Affiliate User</a></span>
+			<% end %>
 		</div>
 	</div>
 </div>
@@ -48,7 +50,7 @@
 			<fieldset class="actions">
 				<ol>
 					<li class="action input_action " id="user_submit_action">
-						<%= f.submit "Create Affiliate" %>
+						<%= f.submit "Edit Affiliate" %>
 					</li>
 					<li class="cancel">
 						<a href="/affiliates/users">Cancel</a>

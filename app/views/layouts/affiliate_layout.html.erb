@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 		<title>Orders | Depstar</title>
 		<link href="/stylesheets/active_admin.css?1353683216" media="screen" rel="stylesheet" type="text/css" />
-		<link href="/stylesheets/active_admin/print.css" media="print" rel="stylesheet" type="text/css" />
+	
 		<script src="/javascripts/jquery.min.js?1353057840" type="text/javascript"></script>
 		<script src="/javascripts/jquery-ui.min.js?1353682084" type="text/javascript"></script>
 		<script src="/javascripts/jquery_ujs.js?1352458252" type="text/javascript"></script>
@@ -27,17 +27,17 @@
 						<a href="/admin/carriers">Carriers</a>
 					</li>-->
 					
-					<li id="orders">
-						<a href="/orders">Orders</a>
+					<li id="orders" class="<%= @order_index %>">
+						<a href="/orders" >Orders</a>
 					</li>
 					<% if get_user_affiliate(session[:current_user]).is_affiliate_admin %>
-						<li id="categories">
+						<li id="categories" class="<%= @order_index_sub_affilaites %>">
 							<a href="/affiliates/orders">All Orders</a>
 						</li>
-						<li id="categories">
+						<li id="categories" class="<%= @sub_affiliates %>">
 							<a href="/affiliates/users">All Users</a>
 						</li>
-						<li id="manufacturers">
+						<li id="manufacturers" class="<%= @order_pricing %>">
 							<a href="/affiliates/pricing">Pricing</a>
 						</li>						
 					<% end %>					

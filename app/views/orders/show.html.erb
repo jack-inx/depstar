@@ -5,7 +5,9 @@
 	<div id="titlebar_right">
 		<div class="action_items">
 			<span class="action_item"><%= link_to 'Edit Order', edit_order_path(@order) %></span>
+			<% if session[:admin] %>
 			<span class="action_item"><%= link_to 'Delete Order', @order, :confirm => 'Are you sure?', :method => :delete %></span>
+			<% end %>
 		</div>
 	</div>
 </div>

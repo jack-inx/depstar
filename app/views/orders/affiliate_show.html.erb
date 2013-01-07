@@ -5,7 +5,11 @@
         <div id="titlebar_right">
           <div class="action_items">
             <span class="action_item"><a href="/affiliate/users/<%= @user.id %>/edit">Edit User</a></span>
-            <span class="action_item"><a href="/affiliate/users/<%= @user.id %>/delete" data-confirm="Are you sure you want to delete this?" data-method="delete" rel="nofollow">Delete User</a></span>
+            <% if session[:admin] %>
+            <span class="action_item">
+            	<a href="/affiliate/users/<%= @user.id %>/delete" data-confirm="Are you sure you want to delete this?" data-method="delete" rel="nofollow">Delete User</a>
+           	</span>
+           	<% end %>
           </div>
         </div>
       </div>
