@@ -111,7 +111,7 @@
 					<li class="email input optional stringish" id="user_email_input">
 						<%= f.label :state %>
 						<%#= f.text_field :state %>
-						<%= f.select :state, options_for_select(Order::States,@order.state) %>
+						<%= f.select :state_id, options_for_select(State.all.map{|p|[p.state, p.id]},@order.state_id) %>
 						<%= @order.errors[:state].join(", ") %>
 					</li>
 				</ol>
