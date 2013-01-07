@@ -27,21 +27,24 @@
 
 					<%end%>
 					<li id="versionsDiv"></li>
-
-					<% if !@product_list.blank? %>
-					<li class="string input optional stringish" id="user_username_input" , style= 'display:none;'>
-						<%#= f.label :products, :class=>" label" %>
-						<%#= f.select :product_ids, @product_list.collect {|x| [x.name, x.id]}, { :prompt => "Select Product" } %>
-						<!--li class="user_username_input" style="display:none;"><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">Products</lable><%#= select_tag "product_ids",options_for_select(@product_list), :prompt => "Select Product" %></li-->
-
-						<%#= session[:current_user].inspect  %>
-
-					</li>
-					<% end %>
 					<%if !params[:id].nil?%>
 					<div class="edit_product">
-					<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;">Models</lable><%= select_tag "product_ids",options_for_select(@product_order_list.map{|p| p.name}, @product_list.name), :prompt => "Select Model", :disabled => true %></li>
+
+						<%if @product_list.category.name != "Tablet" %>
+						<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;"><%= @name%></lable><%= select_tag "product_ids",options_for_select([@product_list.series_list.name],@product_list.series_list.name), :prompt => "Select Product" , :disabled => true%></li>
+					</br>
+						<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;">Carrier List</lable><%= select_tag "product_ids",options_for_select([@product_list.carrier.name], @product_list.carrier.name), :prompt => "Select Carrier", :disabled => true %></li>
+						</br>
+						<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;">Models</lable><%= select_tag "product_ids",options_for_select(@product_order_list.map{|p| p.name}, @product_list.name), :prompt => "Select Model", :disabled => true %></li>
 					
+
+						<% else %>
+						<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;"><%= @name%></lable><%= select_tag "product_ids",options_for_select([@product_list.manufacturer.name],@product_list.manufacturer.name), :prompt => "Select Product" , :disabled => true%></li>
+						</br>
+						<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;">Models</lable><%= select_tag "product_ids",options_for_select(@product_order_list.map{|p| p.name}, @product_list.name), :prompt => "Select Model", :disabled => true %></li>
+					
+
+						<%end%>
 						<li id="manufacturerDiv">
 						<%= render :partial => 'prices' %>
 					</li>

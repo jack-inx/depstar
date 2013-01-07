@@ -50,6 +50,13 @@ class OrdersController < ApplicationController
     p "==============================#{@order.products.name}============================="
     @product_order_list = @order.products
     @product_list = @order.products.first
+    if @product_list.category.name  == "iPhones" || @product_list.category.name == "iPad" || @product_list.category.name == "iPod"
+          @name = "Product list"
+        elsif @product_list.category.name == "Tablet"
+          @name = "Manufacturer List"
+        else
+          @name = "Brand List"
+        end
     p "==============================#{@product_list.category}============================="
   end
 
