@@ -31,8 +31,8 @@ module ApplicationHelper
     return @user 
   end
   
-  def get_suggested_price(product_id)
-    @suggestion = Suggestion.find_by_product_id(product_id) 
+  def get_suggested_price(product_id, user_id)
+    @suggestion = Suggestion.find_by_product_id_and_user_id(product_id, user_id) 
   end
   # def link_to_add_fields(name, f, association)
     # new_object = f.object.class.reflect_on_association(association).klass.new

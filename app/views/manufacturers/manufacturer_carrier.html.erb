@@ -8,7 +8,7 @@
 		<table class="sell-table">
 			<thead>
 				<tr>					
-					<td colspan="5">Select your <%= @manufacturers.name %> <%= @category.name.singularize %> Carrier</td>
+					<td colspan="5">Select your <%= @manufacturers.name %> <%= @category.name.singularize %> <%= "Carrier" if !@category.name.include?("Tablet")  %></td>
 				</tr>
 			</thead>
 			<% if !@category.name.include?('Tablet')   %>
@@ -42,7 +42,10 @@
 							<%= link_to image_tag(carrier.photo.url(:small)), carrier %>
 						<% end %>
 						<p>
-							<%= link_to carrier.name, carrier,:style=>'color:black;' %>
+							<%= carrier.name %>
+						</p>
+						<p>
+							<%= link_to "Sell Now",carrier , :class=>"sell" %>
 						</p>
 					</td>
 					<% end %>
@@ -56,7 +59,7 @@
 			<thead>
 				<tr>
 					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
-					<td colspan="5">Select your <%= @category.name if !@category.name.include?("iPhone") and !@category.name.include?("iPod") and !@category.name.include?("iPad")  %> <%= @series_list.name %> <%= "Carrier" if @category.name.include?("iPhone") or @category.name.include?("iPod")  %></td>
+					<td colspan="5">Select your <%= @category.name if !@category.name.include?("iPhone") and !@category.name.include?("iPod") and !@category.name.include?("iPad")  %> <%= @series_list.name %> <%= "Carrier" if !@category.name.include?("iPod")  %></td>
 				</tr>
 			</thead>
 			<tbody>

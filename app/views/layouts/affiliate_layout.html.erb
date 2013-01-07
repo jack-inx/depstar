@@ -56,7 +56,7 @@
 					</li> -->
 				</ul>
 				<p class="header-item" id="utility_nav">
-					<span class="current_user"><%= get_user(session[:current_user]).email %></span>
+					<span class="current_user"><%= get_user_affiliate(session[:current_user]).email %></span>
 					<% if session[:admin].eql?(true) %>
 						<%= link_to 'Admin Logout', "/admin_logout_as_affiliate" %>
 					<% else %>
