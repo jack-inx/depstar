@@ -10,6 +10,14 @@
 			<%= form_for(@order, :html => {:multipart => true}) do |f| %>
 			<fieldset class="inputs">
 				<ol>
+					<%if !params[:id].nil?%>
+					<li>
+						<lable style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">
+							Category
+						</lable>
+						<%= select_tag "category_ids",options_for_select(get_category(get_user(session[:current_user]),"category"),@product_list.category.name), :prompt => "Select Category" , :onchange => "update_versions_div('category',this.value,#{@user.id})"%>
+					</li>
+					<%else%>
 					<li>
 						<lable style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">
 							Category
@@ -17,6 +25,7 @@
 						<%= select_tag "category_ids",options_for_select(get_category(get_user(session[:current_user]),"category")), :prompt => "Select Category" , :onchange => "update_versions_div('category',this.value,#{@user.id})"%>
 					</li>
 
+					<%end%>
 					<li id="versionsDiv"></li>
 
 					<% if !@product_list.blank? %>
@@ -29,11 +38,15 @@
 
 					</li>
 					<% end %>
-
-					<li id="manufacturerDiv">
-						<%#= render :partial => 'manufacturer' %>
+					<%if !params[:id].nil?%>
+					<div class="edit_product">
+					<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;">Models</lable><%= select_tag "product_ids",options_for_select(@product_order_list.map{|p| p.name}, @product_list.name), :prompt => "Select Model", :disabled => true %></li>
+					
+						<li id="manufacturerDiv">
+						<%= render :partial => 'prices' %>
 					</li>
-
+				</div>
+				<%end%>
 				</ol>
 			</fieldset>
 			<fieldset class="inputs">
@@ -134,7 +147,11 @@
 			<fieldset class="actions">
 				<ol>
 					<li class="action input_action " id="user_submit_action">
+						<%if params[:id].nil?%>
 						<%= f.submit "Create Order" %>
+						<%else%>
+						<%= f.submit "Update Order" %>
+						<%end%>
 					</li>
 					<li class="cancel">
 						<a href="/orders">Cancel</a>
@@ -175,6 +192,7 @@
 			},
 			success : function(data) {
 				$('.series_list').show();
+				$('.edit_product').hide();
 			}
 		});
 

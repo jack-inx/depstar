@@ -47,6 +47,10 @@ class OrdersController < ApplicationController
   # GET /manufacturers/1/edit
   def edit
     @order = Order.find(params[:id])
+    p "==============================#{@order.products.name}============================="
+    @product_order_list = @order.products
+    @product_list = @order.products.first
+    p "==============================#{@product_list.category}============================="
   end
 
   # POST /manufacturers
