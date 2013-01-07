@@ -243,7 +243,7 @@ class OrdersController < ApplicationController
       @orders = Order.where("first_name LIKE ? AND last_name LIKE ? AND order_id LIKE ? AND email LIKE ? AND status = ?",
       "%#{params[:search][:first_name]}%", "%#{params[:search][:last_name]}%", "%#{params[:search][:purchase_order]}%", "%#{params[:search][:user_name]}%",true)    
     else
-      @orders = Order.where("first_name = ? AND last_name = ? AND order_id = ? AND created_at = ? AND email LIKE ? and status = ?",
+      @orders = Order.where("first_name = ? AND last_name = ? AND order_id = ? OR Date(created_at) = Date(?) AND email LIKE ? and status = ?",
       "%#{params[:search][:first_name]}%", "%#{params[:search][:last_name]}%", "%#{params[:search][:purchase_order]}%",params[:search][:date], "%#{params[:search][:user_name]}%",true)
     end
     
