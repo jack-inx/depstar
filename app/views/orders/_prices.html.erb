@@ -1,12 +1,12 @@
 <br />
 <br />
-<div class="attributes_table users">
+<li class="attributes_table users" >
 	<%#= form_tag("/submit_price_type") do -%>
 	<table border="0" cellspacing="0" cellpadding="0">
 		<%# @product_list.each do |product| %>
 		<tr>
-			<td> <%= @product_list.name %> </td>
-			<td> <%= select_tag "products[product_price_type][]", options_for_select(Order::AffiliateConditionCategory.collect.map{ |i| [i.first, i.last]}), :id=>"product_price_list" %>
+			<td style="width:230px;"><b>Selected Model: </b> <%= @product_list.name %> </td>
+			<td style="margin-left:1px !important;"> <%= select_tag "products[product_price_type][]", options_for_select(Order::AffiliateConditionCategory.collect.map{ |i| [i.first, i.last]}), :id=>"product_price_list" %>
 			<%= hidden_field_tag "products[product_id][]", @product_list.id %> </td>
 			<!--<td> Price ($) </td>-->
 			<td> <%= hidden_field_tag "products[price][]",get_suggested_price(@product_list.id, params[:user]).broken_price, :id=>"product_price_value"  %> </td>
@@ -22,7 +22,7 @@
 		<%#= submit_tag "Submit" %>
 	</div>
 	<%# end -%>
-</div>
+</li>
 
 <script >      
 

@@ -10,6 +10,14 @@
 			<%= form_for(@order, :html => {:multipart => true}) do |f| %>
 			<fieldset class="inputs">
 				<ol>
+					<%if !params[:id].nil?%>
+					<li>
+						<lable style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">
+							Category
+						</lable>
+						<%= select_tag "category_ids",options_for_select(get_category(get_user(session[:current_user]),"category"),@product_list.category.name), :prompt => "Select Category" , :onchange => "update_versions_div('category',this.value,#{@user.id})"%>
+					</li>
+					<%else%>
 					<li>
 						<lable style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">
 							Category
@@ -17,23 +25,31 @@
 						<%= select_tag "category_ids",options_for_select(get_category(get_user(session[:current_user]),"category")), :prompt => "Select Category" , :onchange => "update_versions_div('category',this.value,#{@user.id})"%>
 					</li>
 
+					<%end%>
 					<li id="versionsDiv"></li>
+					<%if !params[:id].nil?%>
+					<div class="edit_product">
 
-					<% if !@product_list.blank? %>
-					<li class="string input optional stringish" id="user_username_input" , style= 'display:none;'>
-						<%#= f.label :products, :class=>" label" %>
-						<%#= f.select :product_ids, @product_list.collect {|x| [x.name, x.id]}, { :prompt => "Select Product" } %>
-						<!--li class="user_username_input" style="display:none;"><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">Products</lable><%#= select_tag "product_ids",options_for_select(@product_list), :prompt => "Select Product" %></li-->
+						<%if @product_list.category.name != "Tablet" %>
+						<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;"><%= @name%></lable><%= select_tag "product_ids",options_for_select([@product_list.series_list.name],@product_list.series_list.name), :prompt => "Select Product" , :disabled => true%></li>
+					</br>
+						<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;">Carrier List</lable><%= select_tag "product_ids",options_for_select([@product_list.carrier.name], @product_list.carrier.name), :prompt => "Select Carrier", :disabled => true %></li>
+						</br>
+						<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;">Models</lable><%= select_tag "product_ids",options_for_select(@product_order_list.map{|p| p.name}, @product_list.name), :prompt => "Select Model", :disabled => true %></li>
+					
 
-						<%#= session[:current_user].inspect  %>
+						<% else %>
+						<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;"><%= @name%></lable><%= select_tag "product_ids",options_for_select([@product_list.manufacturer.name],@product_list.manufacturer.name), :prompt => "Select Product" , :disabled => true%></li>
+						</br>
+						<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;">Models</lable><%= select_tag "product_ids",options_for_select(@product_order_list.map{|p| p.name}, @product_list.name), :prompt => "Select Model", :disabled => true %></li>
+					
 
+						<%end%>
+						<li id="manufacturerDiv">
+						<%= render :partial => 'prices' %>
 					</li>
-					<% end %>
-
-					<li id="manufacturerDiv">
-						<%#= render :partial => 'manufacturer' %>
-					</li>
-
+				</div>
+				<%end%>
 				</ol>
 			</fieldset>
 			<fieldset class="inputs">
@@ -95,7 +111,7 @@
 					<li class="email input optional stringish" id="user_email_input">
 						<%= f.label :state %>
 						<%#= f.text_field :state %>
-						<%= f.select :state, options_for_select(Order::States,@order.state) %>
+						<%= f.select :state_id, options_for_select(State.all.map{|p|[p.state, p.id]},@order.state_id) %>
 						<%= @order.errors[:state].join(", ") %>
 					</li>
 				</ol>
@@ -134,11 +150,13 @@
 			<fieldset class="actions">
 				<ol>
 					<li class="action input_action " id="user_submit_action">
+
 						<% if params[:id].nil? %>
 							<%= f.submit "Create Order" %>
 						<% else %>
 							<%= f.submit "Update Order" %>
 						<% end %>
+
 					</li>
 					<li class="cancel">
 						<a href="/orders">Cancel</a>
@@ -179,6 +197,7 @@
 			},
 			success : function(data) {
 				$('.series_list').show();
+				$('.edit_product').hide();
 			}
 		});
 
