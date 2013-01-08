@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :orders 
   has_and_belongs_to_many :products
-  has_one :user, :foreign_key => "user_id", :class_name => "User"  
+  #has_one :user, :foreign_key => "user_id", :class_name => "User"  
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -29,17 +29,17 @@ class User < ActiveRecord::Base
   # end
     
 
-  def empty?
-    if username == nil || email == nil || crypted_password == nil
-      true
-    else
-      false
-    end    
-  end
+  # def empty?
+    # if username == nil || email == nil || crypted_password == nil
+      # true
+    # else
+      # false
+    # end    
+  # end
   
-  def is_admin?
-    self.is_admin == true unless self == nil    
-  end
+  # def is_admin?
+    # self.is_admin == true unless self == nil    
+  # end
   
     def self.checkStatus(email, password)
     @user = self.find_by_email_and_crypted_password_and_status(email, password,true)
