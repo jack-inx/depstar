@@ -8,12 +8,12 @@ class OrdersController < ApplicationController
     @user = User.find(session[:current_user])
     if !params[:q].nil?
       if !params[:q][:name_contains].nil?
-        @orders = Order.where("first_name LIKE ? AND user_id = ? and status = ?","%#{params[:q][:name_contains]}%", session[:current_user], true)
+        @orders = Order.where("first_name LIKE ? AND user_id = ?","%#{params[:q][:name_contains]}%", session[:current_user])
       else
-        @orders = Order.where(:created_at =>(("#{params[:q][:created_at_gte]}")..("#{params[:q][:created_at_lte]}")),:user_id => session[:current_user],:status => true )
+        @orders = Order.where(:created_at =>(("#{params[:q][:created_at_gte]}")..("#{params[:q][:created_at_lte]}")),:user_id => session[:current_user])
       end
     else
-      @orders = Order.where(:user_id => session[:current_user], :status => true)
+      @orders = Order.where(:user_id => session[:current_user])
       @order_index = "current"
     end
 
@@ -230,9 +230,9 @@ class OrdersController < ApplicationController
   
   def order_list
     if !params[:q].nil? and !params[:s].nil?      
-      @orders = Order.where(:user_id => session[:current_user], :status => true).order("#{params[:q]} #{params[:s]}")
+      @orders = Order.where(:user_id => session[:current_user]).order("#{params[:q]} #{params[:s]}")
     else
-      @orders = Order.where(:user_id => session[:current_user], :status => true)
+      @orders = Order.where(:user_id => session[:current_user])
     end
     render "index"    
   end
@@ -240,11 +240,11 @@ class OrdersController < ApplicationController
   def search_filter
     @user = User.find(session[:current_user])
     if params[:search][:date].blank?
-      @orders = Order.where("first_name LIKE ? AND last_name LIKE ? AND order_id LIKE ? AND email LIKE ? AND status = ?",
-      "%#{params[:search][:first_name]}%", "%#{params[:search][:last_name]}%", "%#{params[:search][:purchase_order]}%", "%#{params[:search][:user_name]}%",true)    
+      @orders = Order.where("first_name LIKE ? AND last_name LIKE ? AND order_id LIKE ? AND email LIKE ?",
+      "%#{params[:search][:first_name]}%", "%#{params[:search][:last_name]}%", "%#{params[:search][:purchase_order]}%", "%#{params[:search][:user_name]}%")    
     else
-      @orders = Order.where("first_name = ? AND last_name = ? AND order_id = ? OR Date(created_at) = Date(?) AND email LIKE ? and status = ?",
-      "%#{params[:search][:first_name]}%", "%#{params[:search][:last_name]}%", "%#{params[:search][:purchase_order]}%",params[:search][:date], "%#{params[:search][:user_name]}%",true)
+      @orders = Order.where("first_name = ? AND last_name = ? AND order_id = ? OR Date(created_at) =Date(?) AND email LIKE ?",
+      "%#{params[:search][:first_name]}%", "%#{params[:search][:last_name]}%", "%#{params[:search][:purchase_order]}%",params[:search][:date], "%#{params[:search][:user_name]}%")
     end
     
     if !params[:search][:payment_product].blank?
@@ -267,7 +267,7 @@ class OrdersController < ApplicationController
     @orders = Array.new
     
     @users.each do |user|
-       @orders << Order.where(:user_id => user.id, :status => true)            
+       @orders << Order.where(:user_id => user.id)            
     end  
     
     @order_index_sub_affilaites = "current"
@@ -352,7 +352,7 @@ class OrdersController < ApplicationController
       @order.status = false
       @order.save      
     end  
-    @orders = Order.where(:user_id => session[:current_user], :status => true)
+    @orders = Order.where(:user_id => session[:current_user])
     
     render "index"
   end
