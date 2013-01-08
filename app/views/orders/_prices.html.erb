@@ -9,9 +9,9 @@
 			<td style="margin-left:1px !important;"> <%= select_tag "products[product_price_type][]", options_for_select(Order::AffiliateConditionCategory.collect.map{ |i| [i.first, i.last]}), :id=>"product_price_list" %>
 			<%= hidden_field_tag "products[product_id][]", @product_list.id %> </td>
 			<!--<td> Price ($) </td>-->
-			<td> <%= hidden_field_tag "products[price][]",get_suggested_price(@product_list.id, params[:user]).broken_price, :id=>"product_price_value"  %> </td>
-			<td> Broken Price: $<span id="broken_td"><%= get_suggested_price(@product_list.id, params[:user]).broken_price  %></span></td>
-			<td> Used Price : $<span id="used_td"><%= get_suggested_price(@product_list.id, params[:user]).used_price  %></span> </td>
+			<td> <%= hidden_field_tag "products[price][]",get_suggested_price(@product_list.id, session[:current_user]).broken_price, :id=>"product_price_value"  %> </td>
+			<td> Broken Price: $<span id="broken_td"><%= get_suggested_price(@product_list.id, session[:current_user]).broken_price  %></span></td>
+			<td> Used Price : $<span id="used_td"><%= get_suggested_price(@product_list.id, session[:current_user]).used_price  %></span> </td>
 
 
 		</tr>
