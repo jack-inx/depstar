@@ -117,13 +117,7 @@ ActiveAdmin.register User do
     end # panel
   end #
   
-  controller do
-    def create
-      # my custom code
-      create!
-      redirect_to root_url
-    end
-  end
+  
   
   controller do
     def update      
