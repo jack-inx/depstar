@@ -120,16 +120,26 @@ ActiveAdmin.register User do
   
   
   controller do
-    def update      
+    def update
+      logger.info "######  #{params[:user][:user_id]} ###########{params[:id]}########"
+      logger.info "######  #{params[:user][:is_affiliate_admin].eql?("1")} ########### inside update  ########"
+            
       if !params[:user][:is_affiliate_admin].eql?("1")
           params[:user][:product_ids] = []
           params[:user][:user_id] = nil           
       end
       # my custom code
+      logger.info "######  #{params[:user][:user_id]} ###########{params[:id]}########"
+      
       @user = User.find(params[:id])
       @user.is_affiliate_admin = params[:user][:is_affiliate_admin]
       @user.user_id = params[:user][:user_id]
       @user.product_ids = params[:user][:product_ids]
+      
+      logger.info "######  #{params[:user][:user_id]} ###########{params[:id]}########"
+      logger.info "######  #{params[:user][:is_affiliate_admin]} ###########{params[:id]}########"
+      logger.info "######  #{params[:user][:product_ids]} ###########{params[:id]}########"
+      logger.info "######  #{params[:user][:id]} ###########{params[:id]}########"
       
       if @user.save         
         if params[:user][:is_affiliate_admin].eql?("1")               
@@ -152,7 +162,7 @@ ActiveAdmin.register User do
       @check_email = User.find_all_by_email(params[:user][:email])
       
       if username_match(@username) and email_match(@email) and password_match(@password) and @check_name.count < 1 and @check_email.count < 1         
-        #logger.info "######  #{params[:user][:email]} ###########{params[:id]}########"        
+        logger.info "######  #{params[:user][:email]} ###########{params[:id]}########"        
         create! do           
          if !params[:user][:is_affiliate_admin]
              #logger.info "#### unique email created ##  #{params[:user][:email]} ###########{params[:id]}########"
