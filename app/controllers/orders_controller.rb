@@ -67,9 +67,9 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(params[:order])
 
-    respond_to do |format|
-      if @order.save
-        logger.info "6666666666666666666666666666666#{params[:products][:price]}"
+    respond_to do |format|     
+      if @order.save and !params[:products].nil?
+        logger.info "6666666666666666666666666666666#{params[:products][:product_ids]}"
         OrderProductPriceType.where(:order_id => @order.id).delete_all
 
         params[:products][:product_id].each_with_index do |product,index|
@@ -82,6 +82,9 @@ class OrdersController < ApplicationController
         format.html { redirect_to("/orders", :notice => 'Please Select Price Type for each product.') }
         format.xml  { render :xml => @order, :status => :created, :location => @order }
       else
+        if params[:products].nil?
+          flash[:notice] = "Please select a product."
+        end 
         format.html { render :action => "new" }
         format.xml  { render :xml => @order.errors, :status => :unprocessable_entity }
       end
@@ -94,7 +97,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
 
     respond_to do |format|
-      if @order.update_attributes(params[:order])
+      if @order.update_attributes(params[:order]) and !params[:products].nil?
         #logger.info "6666666666666666666666666666666#{params[:products][:price]}"
 
         OrderProductPriceType.where(:order_id => @order.id).delete_all
@@ -119,8 +122,9 @@ class OrdersController < ApplicationController
         else
           @name = "Brand List"
         end
-        
-                        
+        if params[:products].nil?
+          flash[:notice] = "Please select a product."
+        end                         
         format.html { render :action => "edit" }
         format.xml  { render :xml => @order.errors, :status => :unprocessable_entity }
       end

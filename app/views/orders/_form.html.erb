@@ -16,6 +16,7 @@
 							Category
 						</lable>
 						<%= select_tag "category_ids",options_for_select(get_category(get_user(session[:current_user]),"category"),@product_list.category.name ), :prompt => "Select Category" , :onchange => "update_versions_div('category',this.value,#{@user.id})"%>
+						<%= notice if notice %>
 					</li>
 					<%else%>
 					<li>
@@ -23,6 +24,7 @@
 							Category
 						</lable>
 						<%= select_tag "category_ids",options_for_select(get_category(get_user(session[:current_user]),"category")), :prompt => "Select Category" , :onchange => "update_versions_div('category',this.value,#{@user.id})"%>
+						<%= notice if notice %>
 					</li>
 
 					<%end%>
