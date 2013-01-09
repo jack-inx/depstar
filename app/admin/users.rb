@@ -122,10 +122,11 @@ ActiveAdmin.register User do
   controller do
     def update
       logger.info "######  #{params[:user][:user_id]} ###########{params[:id]}########"
-      logger.info "######  #{params[:user][:is_affiliate_admin].eql?("1")} ########### inside update  ########"
+      logger.info "######  #{!params[:user][:is_affiliate_admin].eql?("1")} ########### inside update  ########"
             
       if !params[:user][:is_affiliate_admin].eql?("1")
           params[:user][:product_ids] = []
+      else
           params[:user][:user_id] = nil           
       end
       # my custom code
@@ -143,9 +144,11 @@ ActiveAdmin.register User do
       
       if @user.save         
         if params[:user][:is_affiliate_admin].eql?("1")               
+          logger.info "###### going to affilaite ########"
           redirect_to("/admin/affiliates/#{params[:id]}")         
           return
-        else        
+        else
+          logger.info "###### going admin users ########"        
           redirect_to admin_users_url
           return  
         end        
