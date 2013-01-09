@@ -31,11 +31,7 @@ ActiveAdmin.register AdminUser do
             tr do
               th { 'Username' }
               td { admin_user.email }
-            end
-            tr do
-              th { 'Email' }
-              td { admin_user.password }
-            end         
+            end        
       
             
           end # table

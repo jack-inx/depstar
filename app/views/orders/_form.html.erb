@@ -15,7 +15,7 @@
 						<lable style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">
 							Category
 						</lable>
-						<%= select_tag "category_ids",options_for_select(get_category(get_user(session[:current_user]),"category"),@product_list.category.name), :prompt => "Select Category" , :onchange => "update_versions_div('category',this.value,#{@user.id})"%>
+						<%= select_tag "category_ids",options_for_select(get_category(get_user(session[:current_user]),"category"),@product_list.category.name ), :prompt => "Select Category" , :onchange => "update_versions_div('category',this.value,#{@user.id})"%>
 					</li>
 					<%else%>
 					<li>

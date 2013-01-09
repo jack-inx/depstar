@@ -63,7 +63,7 @@ class UsersController < ApplicationController
     
    def product_prices
      #@user = User.where(:username => params[:username])
-     @user = User.find_by_username(params[:username])
+     @user = User.find(params[:id])
      
      #logger.info "$$$$$$$$$$$$$$$$$$$$$$ #{@user.crypted_password}  $$$$$$$$$$$$$$$$$$$$$$$$"
      respond_to do |format|

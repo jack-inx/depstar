@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @orders }
+      format.xls { send_data   @orders.to_csv(col_sep: ";") }
     end
   end
 
@@ -107,6 +108,19 @@ class OrdersController < ApplicationController
         format.html { redirect_to("/orders", :notice => 'Order was successfully updated.') }
         format.xml  { head :ok }
       else
+        
+        @product_list = @order.products.first
+        @product_order_list = @order.products
+        
+        if @product_list.category.name  == "iPhones" || @product_list.category.name == "iPad" || @product_list.category.name == "iPod"
+          @name = "Product list"
+        elsif @product_list.category.name == "Tablet"
+          @name = "Manufacturer List"
+        else
+          @name = "Brand List"
+        end
+        
+                        
         format.html { render :action => "edit" }
         format.xml  { render :xml => @order.errors, :status => :unprocessable_entity }
       end

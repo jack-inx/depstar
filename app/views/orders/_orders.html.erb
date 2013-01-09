@@ -11,6 +11,13 @@
 	<td class="created_at"> <% get_product_price(order.products, order.id).each do |price_type| %>
 	<%= price_type.all.collect{ |p| p.price }.join(' ') %>
 	<% end %> </td>
+	<td class="last_name">
+		<% if order.status %>	
+			Completed
+		<% else %>
+			Canceled
+		<% end %>
+	</td>
 	<td class="created_at"><%= order.created_at.strftime("%d/%m/%Y %I:%M%p") %></td>
 	<td class=""> <%= link_to 'Show', order,:class=>"member_link view_link" %>
 	<%= link_to 'Edit', edit_order_path(order),:class=>"member_link edit_link" %>

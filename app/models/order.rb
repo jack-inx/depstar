@@ -20,5 +20,14 @@ class Order < ActiveRecord::Base
     self.order_id = SecureRandom.hex(3)
     #logger.info "############## #{self.order_id}######################################################################"
   end
-
+  
+   def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |product|
+        csv << product.attributes.values_at(*column_names)
+      end
+    end
+  end
+  
 end

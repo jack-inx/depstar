@@ -18,7 +18,7 @@ Trunk::Application.routes.draw do
 
   match "/product_price" => "orders#add_price_type"
   match "/submit_price_type" => "orders#submit_price_type"
-  match "/admin/affiliate/:username" => "users#product_prices"
+  match "/admin/affiliate/:id" => "users#product_prices"
   match "/admin/affiliates/:id" => "users#product_prices_update"
   match "/suggest_price_type" => "users#suggest_prices"
   match "/update_versions" => "orders#update_versions"  
