@@ -68,7 +68,7 @@ class OrdersController < ApplicationController
     @order = Order.new(params[:order])
 
     respond_to do |format|     
-      if @order.save and !params[:products].nil?
+      if !params[:products].nil? and @order.save 
         logger.info "6666666666666666666666666666666#{params[:products][:product_ids]}"
         OrderProductPriceType.where(:order_id => @order.id).delete_all
 
@@ -97,7 +97,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
 
     respond_to do |format|
-      if @order.update_attributes(params[:order]) and !params[:products].nil?
+      if !params[:products].nil? and @order.update_attributes(params[:order]) 
         #logger.info "6666666666666666666666666666666#{params[:products][:price]}"
 
         OrderProductPriceType.where(:order_id => @order.id).delete_all
