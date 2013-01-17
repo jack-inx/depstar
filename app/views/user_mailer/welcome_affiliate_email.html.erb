@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h3>Hello <%= @username %>,</h3>
+	
+		<h3>Congratulations!, Your profile has been created on Depstar.com</h3>
+		
+		<p>You can now login to Depstar.com with the help of credentials below provided.</p>
+		
+		<p>
+			<b>Username:</b> <%= @username %> 
+		</p>
+		<p>
+			<b>Password:</b> <%= @password %> 
+		</p>
+		<p>
+			<b>Url:</b> Click Here to <%= link_to "Login","#{@root}/affiliate" %>. 
+		</p>		
+		<p>
+			~ The Depstar Team ~ <br>
+			www.depstar.com <br>
+			info@depstar.com
+		</p>
+		<p>
+			<img src='http://depstar.com/images/logo.png' width='150'>
+		</p>
+		
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<div class="product-description">
+	<div style="width: 100%; padding: 0px 50px;">
+		<h3 id="notice"><%= notice %></h3>
+	</div>
+	<div class="image">						
+		<div style='margin-bottom: 10px'>
+			<%= image_tag @shipping_detail.product.photo.url(:small) %>
+		</div>
+		<div style='text-align: center; width: 125px;'>
+			<span class='product-title'><%= @shipping_detail.product.name %></span>
+		</div>
+	</div>
+	<div class="conditions" style="padding-top: 0px;">
+		<h2>Order Confirmation</h2>
+		<h4 style="margin-top: 0px;">Amount you will receive:</h4>
+		<%=  number_to_currency(@shipping_detail.question_response.quote) %>
+			
+		<%= form_for @shipping_detail.question_response, :method => :get, :remote => true do |f| %>
+
+			<% if @shipping_detail.product.try(:question_1_is_enabled) %>
+				<p>
+					<b><%= @shipping_detail.product.question_1_name %> </b> <br/>
+					<%= f.radio_button(:question_1, "True", :disabled => true) %> Yes
+					<%= f.radio_button(:question_1, "False", :disabled => true) %> No
+				</p>
+			<% end %>
+
+			<% if @shipping_detail.product.try(:question_2_is_enabled) %>
+				<p>
+					<b><%= @shipping_detail.product.question_2_name %> </b> <br/>
+					<%= f.radio_button(:question_2, "True", :disabled => true) %> Yes
+					<%= f.radio_button(:question_2, "False", :disabled => true) %> No
+				</p>
+			<% end %>
+
+			<% if @shipping_detail.product.try(:question_3_is_enabled) %>
+				<p>
+					<b><%= @shipping_detail.product.question_3_name %> </b> <br/>
+					<%= f.radio_button(:question_3, "1", :disabled => true) %> Heavy Wear <br/>
+					<%= f.radio_button(:question_3, "2", :disabled => true) %> Average Wear <br/>
+					<%= f.radio_button(:question_3, "3", :disabled => true) %> Light Wear <br/>
+					<%= f.radio_button(:question_3, "4", :disabled => true) %> Like New <br/>						
+				</p>
+			<% end %>
+
+			<% if @shipping_detail.product.try(:question_4_is_enabled) %>
+				<% unless @shipping_detail.question_response.question_4.nil? %>
+				<p>
+					<b><%= @shipping_detail.product.question_4_name %> </b> <br/>
+					<% @shipping_detail.product.question_options.each do |question_option| %>						
+							<%= check_box_tag "question_response[question_4][]", question_option.id, (@shipping_detail.question_response.question_4.split(", ").include?(question_option.id.to_s) ? true : false), :disabled => true %> <%= question_option.name %> <br/>
+					<% end %>
+				</p>
+				<% end %>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="customer-details">
+		<p>
+		  <b>Name:</b>
+		  <%= @shipping_detail.first_name %> <%= @shipping_detail.last_name %>
+		</p>
+		
+		<p>
+		  <b>Email:</b>
+		  <%= @shipping_detail.email %>
+		</p>	
+		
+		<p>
+		  <b>Phone:</b>
+		  <%= @shipping_detail.phone %>
+		</p>
+		
+		<p>
+		  <b>Address:</b>
+		  <%= @shipping_detail.address1 %>; <%= @shipping_detail.address2 %><br/>
+		  <%= @shipping_detail.city %>, <%= @shipping_detail.state %> <%= @shipping_detail.zip %>
+		</p>
+			
+		<p>
+		  <b>Payment method:</b>
+		  <%= @shipping_detail.payment_method.name %>
+		</p>
+		
+		<% if @shipping_detail.payment_method.short_code == "paypal" %>
+		<p>
+		  <b>Paypal email:</b>
+		  <%= @shipping_detail.paypal_email %>
+		</p>
+		<% end %>
+		
+		<p>
+		  <b>Do you requires a box?</b>
+		  <%= (@shipping_detail.requires_box ? "Yes" : "No" ) %>
+		</p>
+	</div>
+</div>

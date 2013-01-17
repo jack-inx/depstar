@@ -1,0 +1,57 @@
+
+		<div class="product">
+			<div class="area">
+				<div class="block">
+					<div class="block-holder">
+						<div class="block-frame">
+							<h2>How it Works</h2>
+							<div class="box-holder" style="padding: 65px 0 66px;">
+								<div class="box box_image" style="line-height: 25px;">
+									<img src="/images/img10.png" alt="image description" width="140" height="100" />
+									<h3>Get a Quote</h3>
+									<p>Find your item using the search bar or the easy drop down menu</p>
+								</div>
+								<div class="box box_image" style="line-height: 25px;">
+									<img src="/images/img11.png" alt="image description" width="133" height="100" />
+									<h3>Ship It</h3>
+									<p>We supply a prepaid shipping label so there is no cost to you. Simply wait for our free shipping kit in the mail.</p>
+								</div>
+								<div class="box box_image" style="line-height: 25px;">
+									<img src="/images/img12.png" alt="image description" width="111" height="101" />
+									<h3>Get Paid</h3>
+									<p>When we receive your package we inspect and issue your payment the same day. If you selected to be paid by check you will receive it in 2-3 business days. If you selected PayPal your payment will be sent to your instantly.</p>
+								</div>
+							</div>
+							
+							
+							<%= form_tag(search_path, :method => :get, :class => 'product-search') do %>
+							<h2 style=" margin: 0 0 40px;">Select your Item and begin Selling now</h2>
+							<fieldset>
+								<%= select_tag('id', options_for_select(@categories.collect {|p| [ p.name.truncate(21, :omission => '...'), p.id ] }) ) %>								
+								</select>
+								<span class="btn-go" style="padding-left: 10px;">
+									<%= submit_tag 'go' %>
+								</span>
+							</fieldset>
+							<% end %>
+
+							<!-- 							
+							<form action="#" class="product-search">
+								<h2>Select your Item and begin Selling for cash</h2>
+								<fieldset>
+									<select>
+										<option>Select a Product</option>
+										<option>Select a Product</option>
+									</select>
+									<span class="btn-go">
+										<input type="submit" value="go" />
+									</span>
+								</fieldset>
+							</form>							
+							 -->
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

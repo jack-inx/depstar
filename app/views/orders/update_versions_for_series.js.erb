@@ -1,0 +1,7 @@
+$("#versionsDivlatest").empty();
+<% if @category_name  == "Tablet" %>
+   $("#versionsDivlatest").append("<%= escape_javascript(render :partial => 'carrier_list') %>");
+   $('.user_username_input').show();
+<%else%>
+  $("#versionsDivlatest").append("<%= escape_javascript(render :partial => 'category_list') %>");
+<%end%>

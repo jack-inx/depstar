@@ -1,0 +1,73 @@
+<script>
+  $(function(){
+    $("#slides").slides();
+  });
+</script>
+<%= javascript_include_tag 'autoadvance.js', 'script.js', 'slides.min.jquery.js' %> <!-- '  -->
+<%= form_for :product, :url => { :controller => "products", :action => "search" }, :html => { :class => 'cash-form' } do |f|%>	
+	<fieldset>
+		<label for="text">Get Cash Now!</label>
+		<div class="text">
+			<%= autocomplete_field_tag 'name', '', home_autocomplete_product_name_path, :size => 75, :value => "example: Apple iPhone 4S", :class => 'cleardefault' %>
+		</div>
+		<%= f.submit :class => 'btn-go' %>
+	</fieldset>
+<% end %>
+<div id="sidebar">
+	
+	<ul class="list-categories">
+		<% @categories.each do |category| %>
+			<li>
+			<%= link_to(category) do %>
+			    <span><%= category.name %></span>
+			  <% end %>
+			</li>
+		<% end %>
+	</ul>
+	<%= link_to 'See all categories', categories_path, :class => 'all-categories' %>
+</div>
+<div class="content-holder">
+	<div class="products-holder">
+		<div class="t">
+			<div class="b">
+				<div class="products-box">
+					
+					<div id="slides">
+					  <div class="slides_container">
+					    <div>
+					      <img src="images/slideshow/1.jpg" width="584" height="298" alt="Sell in 3 Easy Steps" />
+							</div>
+					    <div>
+					      <img src="images/slideshow/2.jpg" width="584" height="298" alt="No Risk" />
+					    </div>
+					    <!-- <div>
+					   					      <img src="images/slideshow/3.jpg" width="584" height="298" alt="We Pay 10% More on Average Than Any Other Company" />
+					   					    </div> -->
+					    <div>
+					      <img src="images/slideshow/4.jpg" width="584" height="298" alt="Get Paid and Help the Enviroment" />
+					    </div>
+					  </div>
+						<span class="arrow previous"></span>
+				    <span class="arrow next"></span>
+					</div>
+					<div class="product">
+						<h3>Just Sold Now</h3>
+						<div class="image">
+							<img src="images/img-9.gif" width="63" height="148" alt="image description" />
+						</div>
+						<div class="description">
+							<p>A Depstar customer from Columbus, OH just got paid:</p>
+							<span>$178</span>
+							<p>For Their iPhone</p>
+						</div>
+						<div class="btn-sell-now">
+							<%= link_to :controller => :products, :action => :search, :name => "iphone" do %>
+								<span>Sell Your's Now</span>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

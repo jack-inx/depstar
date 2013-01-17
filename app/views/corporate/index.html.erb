@@ -1,0 +1,70 @@
+<% content_for :title, "Corporate - " %>
+
+		<div class="product">
+			<div class="area">
+				<div class="block">
+					<div class="block-holder corporate">
+						<div class="corporate-holder">
+														
+							<% if notice %>
+							<div id='flash_notice'><%= notice %></div>
+							<% end %>
+							
+							<% if @corporate_message.errors.any? %>
+								<div id="error_explanation">
+							   		<h2><%= pluralize(@corporate_message.errors.count, "error") %> prohibited this message from being sent:</h2>
+							   		<ul>
+							   		<% @corporate_message.errors.full_messages.each do |msg| %>
+							    		<li><%= msg %></li>
+							   		<% end %>
+							   		</ul>
+								</div>
+							<% end %>
+
+							<div class="heading">
+								<h2>Depstar's Corporate Buy Back Program </h2>
+								<h3>We Make It Easy For You To Be a <span class="green">Green</span> Leader</h3>
+								<p>Depstar provides you with an easy remedy to recycle your company's old devices</p>
+							</div>
+							<h4>For your organization</h4>
+							<ul class="for-organization">
+								<li class="pos1">We take care of packing supplies, postage fees, and shipment- you don't have to pay any out of pocket costs</li>
+								<li class="pos2">Your organization reduces it's cost in replacing and upgrading to new devices.</li>
+							</ul>
+							<h4>Respecting Your Company's Privacy Guidelines</h4>
+							<ul class="privacy-guidelines">
+								<li class="pos1">All devices are processed in a secure and controlled environment based in the US</li>
+								<li class="pos2">Each device is data wiped both using software and manual  confirmation</li>
+								<li class="pos3">We don't share your information or the device user's information with any third party providers</li>
+							</ul>
+							<%= form_for @corporate_message, :url => {:action => "index"}, :html => { :class => 'contact-form'} do |f| %>
+							<!-- <form class="contact-form" action="#"> -->
+								<fieldset>
+									<h3><span class="green">Put Depstar to work for your business now:</span></h3>
+									<p>Request information on how we can help your company be greener and save money.</p>
+									<div class="row">
+										<%= f.text_field :name, :value => 'Enter your name', :class => 'text' %>
+										<!-- <input type="text" value="Enter your name" /> -->
+										<%= f.text_field :email, :value => 'Enter your email', :class => 'text' %>
+										<!-- <input type="text" value="Enter your email" /> -->
+									</div>
+									<div class="row">
+										<%= f.text_field :company, :value => 'Enter your company name', :class => 'text' %>
+										<!-- <input type="text" value="Enter your company name" /> -->
+										<%= f.text_field :phone, :value => 'Enter your phone', :class => 'text' %>
+										<!-- <input type="text" value="Enter your phone" /> -->
+									</div>
+									<div class="row row-submit">
+										<span class="submit">
+											<input type="submit" value="Get More Info" />
+										</span>
+										<span class="notice">We respect your privacy and will not <br />share your contact information.</span>
+									</div>
+								</fieldset>
+							<!-- </form> -->
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

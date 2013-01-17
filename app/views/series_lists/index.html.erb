@@ -1,0 +1,26 @@
+<%= render :file => "/admin/index"  %>
+<h1>Listing Series Lists</h1>
+
+<table class="hovertable">
+  <tr>
+  	<th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @series_lists.each do |series_list| %>
+  <tr>
+  	<td>
+  		<%= series_list.name %>
+  	</td>
+    <td><%= link_to 'Show', series_list %></td>
+    <td><%= link_to 'Edit', edit_series_list_path(series_list) %></td>
+    <td><%= link_to 'Destroy', series_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Series Item', new_series_list_path %>

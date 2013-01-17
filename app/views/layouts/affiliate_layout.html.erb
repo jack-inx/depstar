@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+		<title>Orders | Depstar</title>
+		<link href="/stylesheets/active_admin.css?1353683216" media="screen" rel="stylesheet" type="text/css" />
+	
+		<script src="/javascripts/jquery.min.js?1353057840" type="text/javascript"></script>
+		<script src="/javascripts/jquery-ui.min.js?1353682084" type="text/javascript"></script>
+		<script src="/javascripts/jquery_ujs.js?1352458252" type="text/javascript"></script>
+		<script src="/javascripts/active_admin.js?1353682084" type="text/javascript"></script>
+		<%= csrf_meta_tag %>
+	</head>
+	<body class="index admin_users active_admin logged_in admin_namespace">
+		<div id="wrapper">
+			<div class="header" id="header">
+				<!--h1 class="site_title" id="site_title"><a href="/">Depstar</a></h1-->
+				<ul class="header-item" id="tabs">
+					<!--
+					<li class="current" id="users">
+						<a href="/admin/users">Affiliates</a>
+					</li>
+					<li id="dashboard">
+						<a href="/admin/dashboard">Dashboard</a>
+					</li>
+					<li id="carriers">
+						<a href="/admin/carriers">Carriers</a>
+					</li>-->
+					
+					<li id="orders" class="<%= @order_index %>">
+						<a href="/orders" >Orders</a>
+					</li>
+					<% if get_user_affiliate(session[:current_user]).is_affiliate_admin %>
+						<li id="categories" class="<%= @order_index_sub_affilaites %>">
+							<a href="/affiliates/orders">All Orders</a>
+						</li>
+						<li id="categories" class="<%= @sub_affiliates %>">
+							<a href="/affiliates/users">All Users</a>
+						</li>
+						<li id="manufacturers" class="<%= @order_pricing %>">
+							<a href="/affiliates/pricing">Pricing</a>
+						</li>						
+					<% end %>					
+					<!--
+					<li id="payment_methods">
+						<a href="/admin/payment_methods">Payment Methods</a>
+					</li>
+					<li id="products">
+						<a href="/admin/products">Products</a>
+					</li>
+					<li id="series_lists">
+						<a href="/admin/series_lists">Series Lists</a>
+					</li>
+					<li id="shipping_details">
+						<a href="/admin/shipping_details">Shipping Details</a>
+					</li> -->
+				</ul>
+				<p class="header-item" id="utility_nav">
+					<span class="current_user"><%= get_user_affiliate(session[:current_user]).email %></span>
+					<% if session[:admin].eql?(true) %>
+						<%= link_to 'Admin Logout', "/admin_logout_as_affiliate" %>
+					<% else %>
+						<%= link_to 'Logout', logout_url %>
+					<% end %>				
+										
+				</p>
+			</div>
+			<%= yield %>
+			
+		</div>
+	</body>
+</html>

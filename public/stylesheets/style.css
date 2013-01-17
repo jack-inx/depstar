@@ -1,0 +1,13 @@
+/*
+body {
+	background-color: #cdc9c9;
+	margin: 15px 25px;
+	font-family: Helvetica, Arial, sans-serif;
+}
+*/
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}

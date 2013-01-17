@@ -1,0 +1,25 @@
+<%= render 'layouts/inner_head' %>
+<body>
+	<div id="wrapper">
+	<div class="w1">
+		<div class="w2">
+			<div class="wrapper-t"></div>
+				<div class="wrapper-c">
+					<div class="wrapper-holder">
+						
+						<%= render 'layouts/header' %>
+						
+						<div class="get-paid-holder">
+							<%= yield %>							
+						</div>
+						
+						<%= render "layouts/threecolumns" %>
+						<%= render "layouts/footer" %>
+					</div>
+				</div>
+			<div class="wrapper-b"></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

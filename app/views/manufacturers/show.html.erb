@@ -1,0 +1,18 @@
+<%= render :file => "/admin/index"  %>
+<p id="notice"><%= notice %></p>
+<h2>Manufacturer</h2>
+<p>
+  <b>Name:</b>
+  <%= @manufacturer.name %>
+</p>
+<p>
+  <b>Carriers:</b>
+  <br>
+  <% @manufacturer.carriers.each do |carrier| %>
+  	<%=  carrier.name  %><br>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %> |
+<%= link_to 'Back to Manufacturers', manufacturers_path %>

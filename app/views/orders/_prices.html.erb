@@ -1,0 +1,43 @@
+<br />
+<br />
+<li class="attributes_table users" >
+	<%#= form_tag("/submit_price_type") do -%>
+	<table border="0" cellspacing="0" cellpadding="0">
+		<%# @product_list.each do |product| %>
+		<tr>
+			<td style="width:230px;"><b>Selected Model: </b> <%= @product_list.name %> </td>
+			<td style="margin-left:1px !important;"> <%= select_tag "products[product_price_type][]", options_for_select(Order::AffiliateConditionCategory.collect.map{ |i| [i.first, i.last]}), :id=>"product_price_list" %>
+			<%= hidden_field_tag "products[product_id][]", @product_list.id %> </td>
+			<!--<td> Price ($) </td>-->
+			<td> <%= hidden_field_tag "products[price][]",get_suggested_price(@product_list.id, @user.id).broken_price, :id=>"product_price_value"  %> </td>
+			<td> Broken Price: $<span id="broken_td"><%= get_suggested_price(@product_list.id, @user.id).broken_price  %></span></td>
+			<td> Used Price : $<span id="used_td"><%= get_suggested_price(@product_list.id, @user.id).used_price  %></span> </td>
+
+
+		</tr>
+		<%# end %>
+		<%#= hidden_field_tag "order_id", @order.id %>
+	</table>
+	<div class="actions">
+		<%#= submit_tag "Submit" %>
+	</div>
+	<%# end -%>
+</li>
+
+<script >      
+
+$('#product_price_list').live("change", function () {
+  
+  if ($(this).val() == 1)
+  	{
+  		$("#product_price_value").val($("#broken_td").text());
+  	}
+  	if ($(this).val() == 2)
+  	{
+  		$("#product_price_value").val($("#used_td").text());
+  	}
+  	
+});
+
+
+</script>

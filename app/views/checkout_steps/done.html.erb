@@ -1,0 +1,69 @@
+
+		<div class="checkout-block">
+			<h2>You're Done!</h2>
+			<div class="thank-block">
+				<p>Thank you for selling your device</p>
+			</div>
+			<div class="steps-area">
+				<div class="text-block">
+					<p>What Next?</p>
+				</div>
+				<div class="container">
+					<img src="/images/img14.png" alt="image description" width="245" height="167" />
+					<p>We’ll get a box out to you quickly to collect your items, and include a label to send it back. Learn more about the<br />
+						<%= link_to 'shipping process here', how_it_works_path %>.</p>
+				</div>
+				<div class="text-block">
+					<p>Don’t Forget</p>
+				</div>
+				<ul class="forget-list">
+					<li><img src="/images/icon-forget1.png" alt="image description" width="38" height="76" /><strong>Deactivate</strong>Deactivate your accounts</li>
+					<li><img src="/images/icon-forget2.png" alt="image description" width="52" height="78" /><strong>H2O Damage</strong>Check for water damage</li>
+					<li class="pos3"><img src="/images/icon-forget3.png" alt="image description" width="65" height="76" /><strong>SIM Card</strong>Remove your SIM Card</li>
+					<li><img src="/images/icon-forget4.png" alt="image description" width="75" height="77" /><strong>Pack</strong>Securely package your order</li>
+				</ul>
+			</div>
+			<div class="checkout-content">
+				<div class="heading">
+					<h4>Order Summary</h4>
+				</div>
+				<div class="wrapper">
+					<!-- <img src="/images/img13.png" alt="image description" width="67" height="66" /> -->
+					<%= image_tag @shipping_detail.product.photo.url(:small), :width => '67' %>
+					<div class="info">
+						<span class="name"><%= @shipping_detail.product.name %></span>
+						<!-- <span class="price">$314 <a class="remove" href="#">remove</a></span> -->
+					</div>
+				</div>
+				<span class="total-price">Total Estimated Value <strong><%= number_to_currency(@shipping_detail.offer_or_default, :precision => 0) %></strong></span>
+				<dl>
+					<dt>Payment Method: </dt>
+					<dd><%= @shipping_detail.payment_method.name %></dd>
+					<% if @shipping_detail.payment_method.name == "Check" %>
+						<dt>Payable to: </dt>
+						<dd class="address">
+							<%= @shipping_detail.check_payment_name %> <br />
+							<%= @shipping_detail.check_payment_address1 %><br />
+							<% unless @shipping_detail.check_payment_address2.empty? %>
+								<%= @shipping_detail.check_payment_address2 %><br />
+							<% end %>
+							<%= @shipping_detail.check_payment_city %>
+							<%= @shipping_detail.check_payment_state %>, <%= @shipping_detail.check_payment_zip %>
+						</dd>
+					<% elsif @shipping_detail.payment_method.name == "Paypal" %>
+						<dt>Paypal email:</dt>
+						<dd><%= @shipping_detail.paypal_email[0..10] %>..</dd>
+					<% end %>
+					<dt>Shipping info:</dt>
+					<dd class="address">
+						<%= @shipping_detail.first_name %> <%= @shipping_detail.last_name %><br />
+						<%= @shipping_detail.address1 %><br />
+						<% unless @shipping_detail.address2.empty? %>
+							<%= @shipping_detail.address2 %><br />
+						<% end %>
+						<%= @shipping_detail.city %>
+						<%= @shipping_detail.state %>, <%= @shipping_detail.zip %>
+					</dd>
+				</dl>
+			</div>
+		</div>

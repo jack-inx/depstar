@@ -1,0 +1,208 @@
+<div class="title_bar" id="title_bar">
+	<div id="titlebar_left">
+		<h2 id="page_title">Order</h2>
+	</div>
+	<div id="titlebar_right"></div>
+</div>
+<div id="active_admin_content" class="without_sidebar">
+	<div id="main_content_wrapper">
+		<div id="main_content">
+			<%= form_for(@order, :html => {:multipart => true}) do |f| %>
+			<fieldset class="inputs">
+				<ol>
+					<%if !params[:id].nil?%>
+					<li>
+						<lable style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">
+							Category
+						</lable>
+						<%= select_tag "category_ids",options_for_select(get_category(get_user(session[:current_user]),"category"),@product_list.category.name ), :prompt => "Select Category" , :onchange => "update_versions_div('category',this.value,#{@user.id})"%>
+						<%= notice if notice %>
+					</li>
+					<%else%>
+					<li>
+						<lable style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">
+							Category
+						</lable>
+						<%= select_tag "category_ids",options_for_select(get_category(get_user(session[:current_user]),"category")), :prompt => "Select Category" , :onchange => "update_versions_div('category',this.value,#{@user.id})"%>
+						<%= notice if notice %>
+					</li>
+
+					<%end%>
+					<li id="versionsDiv"></li>
+					<%if !params[:id].nil?%>
+					<div class="edit_product">
+
+						<%if @product_list.category.name != "Tablet" %>
+						<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;"><%= @name%></lable><%= select_tag "product_ids",options_for_select([@product_list.series_list.name],@product_list.series_list.name), :prompt => "Select Product" , :disabled => true%></li>
+					</br>
+						<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;">Carrier List</lable><%= select_tag "product_ids",options_for_select([@product_list.carrier.name], @product_list.carrier.name), :prompt => "Select Carrier", :disabled => true %></li>
+						</br>
+						<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;">Models</lable><%= select_tag "product_ids",options_for_select(@product_order_list.map{|p| p.name}, @product_list.name), :prompt => "Select Model", :disabled => true %></li>
+					
+
+						<% else %>
+						<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;"><%= @name%></lable><%= select_tag "product_ids",options_for_select([@product_list.manufacturer.name],@product_list.manufacturer.name), :prompt => "Select Product" , :disabled => true%></li>
+						</br>
+						<li class="user_username_input" ><lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%; margin-left:10px;">Models</lable><%= select_tag "product_ids",options_for_select(@product_order_list.map{|p| p.name}, @product_list.name), :prompt => "Select Model", :disabled => true %></li>
+					
+
+						<%end%>
+						<li id="manufacturerDiv">
+						<%= render :partial => 'prices' %>
+					</li>
+				</div>
+				<%end%>
+				</ol>
+			</fieldset>
+			<fieldset class="inputs">
+				<ol>
+					<li class="email input optional stringish" id="user_email_input">
+						<%= f.label :serial_no,:class=>" label" %>
+						<%= f.text_field :serial_no %>
+						<%= @order.errors[:serial_no].join(", ") %>
+					</li>
+				</ol>
+			</fieldset>
+			<fieldset class="inputs">
+				<ol>
+					<li class="email input optional stringish" id="user_email_input">
+						<%= f.label :first_name,:class=>" label" %>
+						<%= f.text_field :first_name %>
+						<%= @order.errors[:first_name].join(", ") %>
+					</li>
+				</ol>
+			</fieldset>
+			<fieldset class="inputs">
+				<ol>
+					<li class="email input optional stringish" id="user_email_input">
+						<%= f.label :last_name %>
+						<%= f.text_field :last_name %>
+						<%= @order.errors[:last_name].join(", ") %>
+					</li>
+				</ol>
+			</fieldset>
+			<fieldset class="inputs">
+				<ol>
+					<li class="email input optional stringish" id="user_email_input">
+						<%= f.label :email %>
+						<%= f.text_field :email %>
+						<%= @order.errors[:email].join(", ") %>
+					</li>
+				</ol>
+			</fieldset>
+			<fieldset class="inputs">
+				<ol>
+					<li class="email input optional stringish" id="user_email_input">
+						<%= f.label :address %>
+						<%= f.text_field :address %>
+						<%= @order.errors[:address].join(", ") %>
+					</li>
+				</ol>
+			</fieldset>
+			<fieldset class="inputs">
+				<ol>
+					<li class="email input optional stringish" id="user_email_input">
+						<%= f.label :city %>
+						<%= f.text_field :city %>
+						<%= @order.errors[:city].join(", ") %>
+					</li>
+				</ol>
+			</fieldset>
+			<fieldset class="inputs">
+				<ol>
+					<li class="email input optional stringish" id="user_email_input">
+						<%= f.label :state %>
+						<%#= f.text_field :state %>
+						<%= f.select :state_id, options_for_select(State.all.map{|p|[p.state, p.id]},@order.state_id) %>
+						<%= @order.errors[:state].join(", ") %>
+					</li>
+				</ol>
+			</fieldset>
+			<fieldset class="inputs">
+				<ol>
+					<li class="email input optional stringish" id="user_email_input">
+						<%= f.label :zip %>
+						<%= f.text_field :zip %>
+						<%= @order.errors[:zip].join(", ") %>
+					</li>
+				</ol>
+			</fieldset>
+
+			<fieldset class="inputs">
+				<ol>
+					<li class="input optional stringish" id="user_phone_number_input">
+
+						<%= f.label :phone_number,:class=>" label" %>
+						<%= f.text_field :phone_number %>
+						<%= @order.errors[:phone_number].join(", ") %>
+						<%= f.hidden_field :user_id,:value => "#{session[:current_user]}" %>
+
+					</li>
+				</ol>
+			</fieldset>
+			<fieldset class="inputs">
+				<ol>
+					<li class="email input optional stringish" id="user_email_input">
+						<%= f.label :notes %>
+						<%= f.text_area :notes %>
+						<%= @order.errors[:notes].join(", ") %>
+					</li>
+				</ol>
+			</fieldset>
+			<fieldset class="actions">
+				<ol>
+					<li class="action input_action " id="user_submit_action">
+
+						<% if params[:id].nil? %>
+							<%= f.submit "Create Order" %>
+						<% else %>
+							<%= f.submit "Update Order" %>
+						<% end %>
+
+					</li>
+					<li class="cancel">
+						<a href="/orders">Cancel</a>
+					</li>
+				</ol>
+			</fieldset>
+			<% end %>
+		</div>
+	</div>
+</div>
+<script>
+	/*
+	 //$('#category_ids').live("change", function () {
+	 //var name = $(this).val();
+	 //if (name == "iPhones" || name == "iPad" || name == "iPod"){
+	 //$('.series_list').show();
+	 //}else if(name == "Cell Phones" || name == "Blackberry" || name == "Camera"){
+	 //$('.manufacture_list').show();
+	 }
+	 });
+	 $('#series_list_ids').live("change", function () {
+	 $('.carrier').show();
+	 });
+	 $('#carrier_ids').live("change", function () {
+	 $('#user_username_input').show();
+	 });
+	 $('#manufacturer_ids').live("change", function () {
+	 $('.carrier').show();
+	 });*/
+	function update_versions_div(type, category_name, user_data) {
+		jQuery.ajax({
+			url : "/update_versions",
+			type : "POST",
+			data : {
+				"category_name" : category_name,
+				"user" : user_data,
+				"type" : type
+			},
+			success : function(data) {
+				$('.series_list').show();
+				$('.edit_product').hide();
+			}
+		});
+
+	}
+
+</script>

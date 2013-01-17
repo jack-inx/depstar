@@ -1,0 +1,38 @@
+</br>
+<% if !@carrier_list.blank? %>
+<li class="carrier_new_123" style="display:none;">
+	<lable  style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">
+		Carrier list
+	</lable>
+	<%= select_tag "carrier_ids",options_for_select(@carrier_list.uniq), :prompt => "Select Carrier" , :onchange => "update_versions_carrier_div('#{@series_name}', this.value, #{@user.id})" %>
+</li>
+
+<%end%>
+</br>
+
+<li id="versionsDivcarrier"></li>
+
+<script>
+	$('#carrier_ids').live("change", function() {
+		$('.user_username_input').show();
+	});
+	$('#order_product_ids').live("change", function() {
+		$('#product_display').show();
+	});
+
+	function update_versions_carrier_div(type, category_name, user_data) {
+		jQuery.ajax({
+			url : "/update_versions_for_carrier",
+			type : "POST",
+			data : {
+				"carrier" : category_name,
+				"user" : user_data,
+				"type" : type
+			},
+			success : function(data) {
+				$('.user_username_input').show();
+			}
+		});
+
+	}
+</script>

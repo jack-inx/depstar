@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Thanks for selecting Depstar.com, <%= @shipping_detail.first_name %></h1>
+		
+	<% @shipping_detail.devices.each do |device| %>
+	<div class="conditions">		
+		<h3><%= device.product.name unless device.product.nil? %></h3>
+		<h3>Condition : <%= @condition.camelize %></h3>
+		<h4>Amount you will receive: <%=  number_to_currency(device.offer) %>
+		
+		<% unless device.question_response.nil? %>
+		
+			<% if device.product.try(:question_1_is_enabled) %>
+				<p>
+					<b><%= device.product.question_1_name %> </b> <br/>
+					<%= radio_button_tag('question_response1_' + device.question_response.id.to_s, 'question_1', (device.question_response.question_1 == "True" ? true : false), :disabled => true) %> Yes
+					<%= radio_button_tag('question_response1_' + device.question_response.id.to_s, 'question_1', (device.question_response.question_1 == "True" ? false : true), :disabled => true) %> No
+				</p>
+			<% end %>
+
+			<% if device.product.try(:question_2_is_enabled) %>
+				<p>
+					<b><%= device.product.question_2_name %> </b> <br/>
+					<%= radio_button_tag('question_response2_' + device.question_response.id.to_s, 'question_2', (device.question_response.question_2 == "True" ? true : false), :disabled => true) %> Yes
+					<%= radio_button_tag('question_response2_' + device.question_response.id.to_s, 'question_2', (device.question_response.question_2 == "True" ? false : true), :disabled => true) %> No
+				</p>
+			<% end %>
+
+			<% if device.product.try(:question_3_is_enabled) %>
+				<p>
+					<b><%= device.product.question_3_name %> </b> <br/>
+					<%= radio_button_tag('question_response3_' + device.question_response.id.to_s, 'question_3', (device.question_response.question_3 == "1" ? true : false), :disabled => true) %> Heavy Wear <br/>
+					<%= radio_button_tag('question_response3_' + device.question_response.id.to_s, 'question_3', (device.question_response.question_3 == "2" ? true : false), :disabled => true) %> Average Wear <br/>
+					<%= radio_button_tag('question_response3_' + device.question_response.id.to_s, 'question_3', (device.question_response.question_3 == "3" ? true : false), :disabled => true) %> Light Wear <br/>
+					<%= radio_button_tag('question_response3_' + device.question_response.id.to_s, 'question_3', (device.question_response.question_3 == "4" ? true : false), :disabled => true) %> Like New <br/>
+				</p>
+			<% end %>
+
+			<% if device.product.try(:question_4_is_enabled) %>
+				<% unless device.question_response.question_4.nil? %>
+				<p>
+					<b><%= device.product.question_4_name %> </b> <br/>
+					<% device.product.question_options.each do |question_option| %>						
+							<%= check_box_tag "question_response[question_4_" + device.question_response.id.to_s + "][]", question_option.id, (device.question_response.question_4.split(", ").include?(question_option.id.to_s) ? true : false), :disabled => true %> <%= question_option.name %> <br/>
+					<% end %>
+				</p>
+				<% end %>
+			<% end %>
+		
+		<% end %>
+		
+	</div>
+	<% end %>
+	<div class="customer-details">
+		<p>
+		  <b>Name:</b>
+		  <%= @shipping_detail.first_name %> <%= @shipping_detail.last_name %>
+		</p>
+		
+		<p>
+		  <b>Email:</b>
+		  <%= @shipping_detail.email %>
+		</p>
+		
+		<p>
+		  <b>Phone:</b>
+		  <%= @shipping_detail.phone %>
+		</p>
+		
+		<p>
+		  <b>Address:</b>
+		  <%= @shipping_detail.address1 %>; <%= @shipping_detail.address2 %><br/>
+		  <%= @shipping_detail.city %>, <%= @shipping_detail.state %> <%= @shipping_detail.zip %>
+		</p>
+			
+		<p>
+		  <b>Payment method:</b>
+		  <%= @shipping_detail.payment_method.name %>
+		</p>
+		
+		<% if @shipping_detail.payment_method.short_code == "paypal" %>
+		<p>
+		  <b>Paypal email:</b>
+		  <%= @shipping_detail.paypal_email %>
+		</p>
+		<% end %>
+	</div>
+	
+		<h3>What happens next?</h3>
+		
+		<p>First, a FREE Depstar "shipping kit" is being sent to the address you provided. This kit includes a prepaid mailing pack. Once you receive this kit, simply put your device in the prepaid package and pop it in any USPS box, hand it to your mail man or bring it to your local post office. If you are sending more than one device, please include each device in the same package. Depstar will receive your product within 2-3 days. Depstar uses priority shipping to help get you paid faster.</p>
+
+		<p>Next, it's time to get you paid. Depstar receives, inspects, and issues payment for your order all same-day. Expect your payment fast. If you selected PayPal, your payment posts the same day we receive your device(s). If you selected to be paid by check, your check is processed and mailed immediately upon receiving your device(s).</p>
+
+		<p>As always, Depstar wants to make sure you are 100% satisfied with your transaction. If at any point you have questions or concerns, send us an email.</p>
+
+		<p>Thank you for your business and support. We appreciate your help in trying to make Depstar your one-stop-shop for selling your electronics!</p>
+
+		<p>
+			~ The Depstar Team ~ <br>
+			www.depstar.com <br>
+			info@depstar.com
+		</p>
+		<p>
+			<img src='http://depstar.com/images/logo.png' width='150'>
+		</p>
+		
+  </body>
+</html>

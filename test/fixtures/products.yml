@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  is_popular: true
+  photo_file_size: 100
+  photo_updated_at: 2010-10-06 11:04:37
+  price: 1.234
+  category_id: 1
+  
+two:
+  name: MyString
+  description: MyString
+  is_popular: false
+  photo_file_size: 100
+  photo_updated_at: 2010-10-06 11:04:37
+  price: 1.234
+  category_id: 1

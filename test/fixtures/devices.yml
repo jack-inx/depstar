@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  product_id: 1
+  question_response_id: 1
+  final_offer: 1.5
+  status_code: 1
+  notes: MyString
+  serial: MyText
+  offer: 1.5
+
+two:
+  product_id: 1
+  question_response_id: 1
+  final_offer: 1.5
+  status_code: 1
+  notes: MyString
+  serial: MyText
+  offer: 1.5

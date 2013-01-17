@@ -1,0 +1,90 @@
+<% content_for :javascript do %>
+<script type="text/javascript">
+	//window.removeEventListener("load", initPage, false);
+
+	function initInputs() {
+		// replace options
+		var opt = {
+			clearInputs: false,
+			clearTextareas: true,
+			clearPasswords: true
+		}
+		// collect all items
+		var inputs = [].concat(
+			PlaceholderInput.convertToArray(document.getElementsByTagName('input')),
+			PlaceholderInput.convertToArray(document.getElementsByTagName('textarea'))
+		);
+		// apply placeholder class on inputs
+		for(var i = 0; i < inputs.length; i++) {
+			if(inputs[i].className.indexOf('default') < 0) {
+				var inputType = PlaceholderInput.getInputType(inputs[i]);
+				if((opt.clearInputs && inputType === 'text') ||
+					(opt.clearTextareas && inputType === 'textarea') || 
+					(opt.clearPasswords && inputType === 'password')
+				) {
+					new PlaceholderInput({
+						element:inputs[i],
+						wrapWithElement:false,
+						showUntilTyping:false,
+						getParentByClass:false,
+						placeholderAttr:'value'
+					});
+				}
+			}
+		}
+	}
+
+</script>
+<% end %>
+
+<%= form_for @product, :html => { :multipart => true } do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :category_id %><br />
+	<%= f.select :category_id, Category.all.map { |x| [x.name, x.id ]}, :prompt => "Select Category" %>
+  </div>
+		
+  <div class="field">
+    <%= f.label :manufacturer %><br />
+	<%= f.select :manufacturer_id, Manufacturer.all.map { |x| [x.name, x.id ]}, :prompt => "Manufacturer" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :carrier_id %><br />
+  	<%= f.select :carrier_id, Carrier.all.map { |x| [x.name, x.id ]}, :prompt => "Select Carrier" %>
+  </div>
+	
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.file_field :photo %>
+  </div> 
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

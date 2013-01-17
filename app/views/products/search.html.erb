@@ -1,0 +1,106 @@
+<% content_for :title, "Search - " %>
+<p id="notice"><%= notice %></p>
+
+		<div class="product">
+			<!-- <h2>Sell your Blackberry cell phone <span>Choose your carrier</span></h2>
+						<ul class="carrier">
+							<li>
+								<a href="#"><span><img src="/images/logo1.png" alt="image description" width="146" height="66" /></span></a>
+							</li>
+							<li>
+								<a href="#"><span><img src="/images/logo2.png" alt="image description" width="118" height="66" /></span></a>
+							</li>
+							<li>
+								<a href="#"><span><img src="/images/logo3.png" alt="image description" width="161" height="67" /></span></a>
+							</li>
+							<li>
+								<a href="#"><span><img src="/images/logo4.png" alt="image description" width="170" height="28" /></span></a>
+							</li>
+						</ul> -->
+			<div class="items-holder">				
+				<table class="sell-table">
+					<thead>
+						<tr>
+							<!-- <td colspan="5">These are the AT&amp;T Blackberry phones we currently buy: </td> -->
+							<!-- <td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
+						</tr>
+					</thead>
+					<tbody>
+						<% @products.each_slice(5) do |slice| -%>
+						<tr>
+							<% @counter = 0 %>
+							<% slice.each do |product| %>
+								<% @counter += 1 %>
+							<td width=177px>
+								<%= link_to image_tag(product.photo.url(:small)), product %>
+								<p><%= product.name %></p><%= link_to "Sell Now", product, :class => "sell" %>
+							</td>							
+							<% end %>
+							<% for i in @counter..4 %>
+								<td></td>
+							<% end %>
+							</tr>
+							<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+
+<!-- <div style='padding: 0px 20px 0px 20px; '>
+	<%# if @products.size == 0 %>
+	<div class='search_no_items_found'>
+		We are sorry that the item has not been added to our system yet.<br/>
+		<%#= mail_to "offers@depstar.com", "Email", :subject => "Instant offer request" %> us for an instant offer<br/>
+		or<br/>
+		<a href="https://livechat.boldchat.com/aid/140369408601088650/bc.chat?cwdid=2429043129259919230" target="_blank" onclick="window.open((window.pageViewer && pageViewer.link || function(link){return link;})(this.href + (this.href.indexOf('?')>=0 ? '&amp;' : '?') + 'url=' + escape(document.location.href)), 'Chat2325828698917037556', 'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=640,height=480');return false;">Click here</a> for live support!<br/>
+		Thank you for choosing Depstar<br/>
+	</div>
+	<%# end %>
+	<div class="b" style='padding-bottom: 0px; width: 746px;'>
+		<%# if @products.count > 0 %>
+		<h2 style='color: gray; float: left;'>Select Your Product</h2>
+		<div class="custom_pagination">
+			<%#= will_paginate @products, :params=>{:name=> params[:name]}, :container => false %>
+			<div class="page_info">
+	      <%#= page_entries_info @products %>
+	    </div>
+	  </div>
+		<%# end %>
+		<ul class="list-products">
+			<%# @products.each do |product| %>
+			<div style="float: left; width: 150px; text-align: center;">
+				<li style='padding-top: 0px; margin: 0px 0px 50px 0px;'>
+					<div>	
+						<ul style='position: relative; top: 10px;'>
+							<li>
+								<%#= image_tag(product.photo.url(:small)) %>
+							</li>
+							<li style='min-height: 30px;'><strong><%#= product.name %></strong></li>
+							<li>
+								<%#= link_to "Sell Now", product %>
+							</li>
+						</ul>
+						<%# if current_user %>
+							<br/>
+							<%#= link_to 'Show', product %>
+			    			<%#= link_to 'Edit', edit_product_path(product) %>
+			    			<%#= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %>
+						<%# end %>
+					</div>	
+				</li>
+			</div>
+			<%# end %>
+
+		</ul>
+		<%# if @products.count > 0 %>
+		<div class="custom_pagination">
+			<%#= will_paginate @products, :params=>{:name=> params[:name]}, :container => false %>
+			<div class="page_info">
+	      <%#= page_entries_info @products %>
+	    </div>
+	  </div>
+		<%# end %>
+		
+	</div>
+</div> -->

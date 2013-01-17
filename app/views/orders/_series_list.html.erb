@@ -1,0 +1,37 @@
+<div class="series_list" id="versionsDiv" style="display:none;">
+	<lable style="color: #5E6469;display: block;float: left;font-size: 1em;font-weight: bold;width: 20%;">
+		<%= @name %>
+	</lable>
+	<% if @series_list.nil? %>
+		<% @series_list = Array.new %>
+	<% end %>
+	<% if @carrier_list.nil? %>
+		<% @carrier_list = Array.new %>
+	<% end %>
+	
+	<%= select_tag "series_id", options_for_select(@series_list.uniq), :prompt => "Select #{@name}" , :onchange => "update_versions_series_div( '#{@category_name}' ,this.value , #{@user.id})" %>
+</div>
+
+<li id="versionsDivlatest"></li>
+<script>
+	
+	$('#order_product_ids').live("change", function() {
+		$('#product_display').show();
+	});
+
+	function update_versions_series_div(type, category_name, user_data) {
+		jQuery.ajax({
+			url : "/update_versions_for_series",
+			type : "POST",
+			data : {
+				"series" : category_name,
+				"user" : user_data,
+				"type" : type
+			},
+			success : function(data) {
+					$('.carrier_new_123').show();
+			}
+		});
+
+	}
+</script>

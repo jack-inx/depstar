@@ -1,0 +1,46 @@
+<div class="title_bar" id="title_bar">
+        <div id="titlebar_left">         
+          <h2 id="page_title"><%= @user.email %></h2>
+        </div>
+        <div id="titlebar_right">
+          <div class="action_items">
+            <span class="action_item"><a href="/affiliate/users/<%= @user.id %>/edit">Edit User</a></span>
+            <% if session[:admin] %>
+            <span class="action_item">
+            	<a href="/affiliate/users/<%= @user.id %>/delete" data-confirm="Are you sure you want to delete this?" data-method="delete" rel="nofollow">Delete User</a>
+           	</span>
+           	<% end %>
+          </div>
+        </div>
+      </div>
+      <div id="active_admin_content" class="without_sidebar">
+        <div id="main_content_wrapper">
+          <div id="main_content">
+            <div class="panel">
+              <h3>Affiliate User</h3>
+              <div class="panel_contents">
+                <div class="attributes_table users">
+                  <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <th>Username</th>
+                      <td><%= @user.email %></td>
+                    </tr>
+                    <tr>
+                      <th>Password</th>
+                      <td><%= @user.crypted_password %></td>
+                    </tr>                    
+                    <tr>
+                      <th>Affiliate Admin</th>
+                      <td><%= @user.is_affiliate_admin ? "Yes" : "No" %></td>
+                    </tr>
+                    <tr>
+                      <th>Status</th>
+                      <td><%= @user.status ? "Active" : "Inactive" %></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

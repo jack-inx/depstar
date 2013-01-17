@@ -1,0 +1,82 @@
+<% content_for :javascript do %>
+<script type="text/javascript">
+	//window.removeEventListener("load", initPage, false);
+
+	function initInputs() {
+		// replace options
+		var opt = {
+			clearInputs: false,
+			clearTextareas: true,
+			clearPasswords: true
+		}
+		// collect all items
+		var inputs = [].concat(
+			PlaceholderInput.convertToArray(document.getElementsByTagName('input')),
+			PlaceholderInput.convertToArray(document.getElementsByTagName('textarea'))
+		);
+		// apply placeholder class on inputs
+		for(var i = 0; i < inputs.length; i++) {
+			if(inputs[i].className.indexOf('default') < 0) {
+				var inputType = PlaceholderInput.getInputType(inputs[i]);
+				if((opt.clearInputs && inputType === 'text') ||
+					(opt.clearTextareas && inputType === 'textarea') || 
+					(opt.clearPasswords && inputType === 'password')
+				) {
+					new PlaceholderInput({
+						element:inputs[i],
+						wrapWithElement:false,
+						showUntilTyping:false,
+						getParentByClass:false,
+						placeholderAttr:'value'
+					});
+				}
+			}
+		}
+	}
+
+</script>
+<% end %>
+
+<%= form_for(@category, :html => {:multipart => true}) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_popular %><br />
+    <%= f.check_box :is_popular %><br />
+  </div>
+
+  <div class="field">
+    <%#= f.label :usell_category_code %><br />
+    <%#= f.select :usell_category_code, options_for_select([['Cell Phones', 1], ['Tablets', 2], ['MP3 Players', 3], ['Game Consoles', 4], ['E-Readers', 5], ['Digital Cameras', 6] ], @category.usell_category_code), :include_blank => true %>
+    <%= f.label :manufacturer %><br />
+    <%= f.select :manufacturer_ids, @manufacturers.collect{|x|[x.name,x.id]}, {}, :multiple => true %>
+    <%#= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
+  
+  </div>
+
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.file_field :photo %>
+  </div>
+
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

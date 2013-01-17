@@ -1,0 +1,86 @@
+
+		<div class="product">
+			<div class="area">
+				<div class="contact-block">
+					
+					<p id="notice"><%= notice %></p>
+
+					<% if @contact_message.errors.any? %>
+						<div id="error_explanation">
+					   		<h2><%= pluralize(@contact_message.errors.count, "error") %> prohibited this message from being sent:</h2>
+					   		<ul>
+					   		<% @contact_message.errors.full_messages.each do |msg| %>
+					    		<li><%= msg %></li>
+					   		<% end %>
+					   		</ul>
+						</div>
+					<% end %>
+
+					<div class="heading">
+						<h2>Contact Us</h2>
+						<p>Please submit your information and a member of our support team will contact you shortly.</p>
+					</div>
+					<div class="content">
+						<!-- <form class="contact-form" action="#"> -->
+						<%= form_for @contact_message, :url => {:action => "index"}, :html => { :class => 'contact-form'} do |f| %>
+							<!-- <div class="row error"> -->
+							<div class="row">
+								<label for="name">Name :</label>
+								<!-- <input type="text" id="name" /> -->
+								<%= f.text_field :name, :class => 'text' %>
+								<!-- <div class="error-message">
+									<div class="holder">
+										<span>Please enter your full name</span>
+									</div>
+								</div> -->
+							</div>
+							<div class="row">
+<!-- 								
+								<label for="contact">Contact Method :</label>
+								<select id="contact">
+									<option>Email</option>
+								</select>
+								 -->
+								
+								<%= f.label :contact, :class => 'label' %>
+								<%= f.select :contact, options_for_select(['Email', 'Phone']) %>
+								
+							</div>
+							<!-- <div class="row right"> -->
+							<div class="row">
+								<label for="mail">Email :</label>
+								<!-- <input type="text" id="mail" value="hello@indezoo.com" /> -->
+								<%= f.text_field :email, :class => 'text' %>
+							</div>
+							<div class="row">
+								<label for="phone">Phone :</label>
+								<!-- <input type="text" id="phone" /> -->
+								<%= f.text_field :phone, :class => 'text' %>
+							</div>
+							<div class="row">
+								<!-- <label for="contact1">Subject :</label>
+																<select id="contact1">
+																	<option>Order Enquiry</option>
+																</select> -->
+								<%= f.label :subject, :class => 'label' %>
+								<%= f.select :subject, options_for_select(['Order Inquiry', 'Feedback and Suggestions', 'Media Inquiry']) %>
+							</div>
+							<div class="row">
+								<label for="text">Message :</label>
+								<!-- <textarea id="text" cols="30" rows="5"></textarea> -->
+								<%= f.text_area :message, :size => "30x5" %>
+							</div>
+							<div class="row row-submit" style="text-align: left;">
+								<span class="btn-submit">
+									<input type="submit" value="Submit" />
+								</span>
+							</div>
+						<!-- </form> -->
+						<% end %>
+					</div>
+					<div class="bottom">
+						<address>Depstar.com<br />PO Box 55923, Boston, MA 02205</address>
+					</div>
+				</div>
+			</div>
+		</div>

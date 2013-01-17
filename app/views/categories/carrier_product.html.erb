@@ -1,0 +1,48 @@
+<p id="notice">
+	<%= notice %>
+</p>
+
+<div class="product">	
+	<div class="items-holder">
+		<table class="sell-table">
+			<thead>
+				<tr>					
+					<td colspan="5">						
+							<% if !@series.nil? %>
+								Select your <%=   @carrier.name %> <%= @category.name if !@category.name.include?("iPhone") and !@category.name.include?("iPad") and !@category.name.include?("iPod")%> <%= @series.name %> 
+							<% else %>
+								Select your <%=  " #{@carrier.name} #{@manufacturer.name} #{@category.name.singularize.camelize}" %>
+							<% end %>											
+					</td>
+				</tr>
+			</thead>
+			<tbody>
+				<% @products.each_slice(5) do |slice| -%>
+				<tr>
+					<% @counter = 0 %>
+					<% slice.each do |product| %>
+					<% @counter += 1 %>
+					<td width=177px>
+						<% if product.photo %>
+							<%= link_to image_tag(product.photo.url(:small)), product %>
+						<% else %>
+							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), product %>
+						<% end %>
+						<p>
+							<%= product.name %>
+						</p>
+						<p>							
+							<%= link_to "Sell Now",product , :class=>"sell" %>							
+						</p>
+					</td>
+					<% end %>
+					
+					
+					</tr>
+				<% end %>
+
+			</tbody>
+		</table>
+	</div>
+</div>
+

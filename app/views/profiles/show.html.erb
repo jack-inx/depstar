@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>About Me:</b>
+  <%= @profile.about_me %>
+</p>
+
+<p>
+  <b>Website Url:</b>
+  <%= @profile.website_url %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= image_tag @profile.logo.url %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %>
+

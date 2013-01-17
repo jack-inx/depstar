@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+		<title>Depstar Login | Depstar</title>
+
+		<link href="/stylesheets/active_admin.css?1353683216" media="screen" rel="stylesheet" type="text/css" />
+		<link href="/stylesheets/active_admin/print.css" media="print" rel="stylesheet" type="text/css" />
+		<script src="/javascripts/jquery.min.js?1353057840" type="text/javascript"></script>
+		<script src="/javascripts/jquery-ui.min.js?1353682084" type="text/javascript"></script>
+		<script src="/javascripts/jquery_ujs.js?1352458252" type="text/javascript"></script>
+		<script src="/javascripts/active_admin.js?1353682084" type="text/javascript"></script>
+
+		<%= csrf_meta_tag %>
+	</head>
+	<body class="active_admin logged_out new">
+		<div id="wrapper">
+
+			<div id="content_wrapper">
+				<div class="alert">
+					<%= alert %>
+				</div>
+				<div class="flash flash_alert">If you are having trouble logging-in please ask your Supervisor to have a new Username or Password sent to you.</div>
+				<div id="active_admin_content">
+					<%= yield %>
+				</div>
+			</div>
+			<div id="footer">
+
+			</div>
+		</div>
+	</body>
+</html>

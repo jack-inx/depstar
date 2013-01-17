@@ -1,0 +1,22 @@
+<%= render :file => "/admin/index"  %>
+
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Name:</b>
+  <%= @category.name %>
+</p>
+<p>
+  <b>Manufacturers:</b>
+  <br>
+  <% @category.manufacturers.each do |manufacturer| %>
+  	<%=  manufacturer.name  %><br>
+  <% end %>
+</p>
+
+
+
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back to Categories', categories_path %>

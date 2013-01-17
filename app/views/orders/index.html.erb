@@ -1,0 +1,110 @@
+
+
+<div class="title_bar" id="title_bar">
+	<div id="titlebar_left">
+		<span class="breadcrumb"> </span>
+		<h2 id="page_title">Orders</h2>
+	</div>
+	<div id="titlebar_right">
+		<div class="action_items">
+			<span class="action_item"><%= link_to 'New order', new_order_path %></span>
+		</div>
+	</div>
+</div>
+<div id="active_admin_content" class="with_sidebar">
+	<div id="main_content_wrapper">
+		<div id="main_content">
+			<form accept-charset="UTF-8" action="/admin/users/batch_action" id="collection_selection" method="post">
+				<div style="margin:0;padding:0;display:inline">
+					<input name="utf8" type="hidden" value="&#x2713;" />
+					<input name="authenticity_token" type="hidden" value="W56Sl/0wERHp6ttqwX96sJ8IVW7zqvAboToL4EOXXUY=" />
+				</div>
+				<input name="batch_action" id="batch_action" type="hidden">
+				</input>
+				<div class="paginated_collection">
+					<div class="paginated_collection_contents">
+						<div class="index_content">
+							<div class="index_as_table">
+								<table border="0" cellspacing="0" cellpadding="0" id="users" class="index_table index" paginator="true">
+									<thead>
+										<tr>
+											<th class="sortable order_id"><a href="/order_lists?q=order_id&s=desc">Order#</a></th>
+											<th class="sortable email"><a href="/order_lists?q=email&s=desc">Affiliate</a></th>
+											<th class="sortable username"><a href="/order_lists?q=first_name&s=desc">First Name</a></th>
+											<th class="sortable email"><a href="/order_lists?q=last_name&s=desc">Last Name</a></th>
+											<th class="sortable crypted password">Product</th>
+											<th class="sortable created at">Condition</th>
+											<th class="sortable created at">Price</th>
+											<th class="sortable created at">Status</th>
+											<th class="sortable created at"><a href="/order_lists?q=created_at&s=desc">Created At</a></th>
+
+											<th class=""></th>
+										</tr>
+									</thead>
+									<tbody>
+										<% if !@orders.blank? %>
+											<%= render :partial=> "orders" %>
+										<% end %>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div id="index_footer">
+						<div class="pagination_information">
+							Displaying <b><%= @orders.count if !@orders.blank? %></b> Order
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="sidebar">
+		<div class="sidebar_section panel" id="filters_sidebar_section">
+			<h3>Filters</h3>
+			<div class="panel_contents">
+
+		
+	<%= form_tag (order_search_path) do %>
+		<div class="filter_form_field filter_string">
+		 	<label class=" label" for="q_name">First Name</label>
+		 	<%= text_field_tag "search[first_name]" %>
+	 </div>
+		<div class="filter_form_field filter_string">
+			<label class=" label" for="q_name">Last Name</label>
+		 	<%= text_field_tag "search[last_name]" %>
+	 </div>
+		<% if !@user.nil? and @user.is_affiliate_admin == true %>
+			<div class="filter_form_field filter_string">
+				<label class=" label" for="q_name">User Name</label>
+				<%= text_field_tag "search[user_name]" %>			
+			</div>
+		<%end%>
+		<div class="filter_form_field filter_string">
+			<label class=" label" for="q_name">Purchase Order Number</label>
+			<%= text_field_tag "search[purchase_order]", nil,:maxlength => 6 , :style=>"width:51px !important;"%>
+		</div>
+		<label class=" label" for="q_name">Carrier</label>
+		<%= select_tag "search[payment_carrier]", options_for_select(Carrier.all.map{ |p| p.name }) ,:prompt => "Select Carrier"%>
+		<% if !@user.nil? and @user.is_affiliate_admin == true %>
+		<label class=" label" for="q_name">Product</label>
+		<%= select_tag "search[payment_product]", options_for_select(@user.products.all.map{ |p| p.name }) ,:prompt => "Select Product"%>
+		<%end%>
+	  <label class=" label" for="q_name">Date</label>
+		<%= text_field_tag "search[date]", nil, :class=> "datepicker",:style=>"background:url('/images/active_admin/datepicker/datepicker-input-icon.png') no-repeat scroll 100% 7px white;" %>
+
+	 <div class="button" style="margin-top:12px;"><%= submit_tag "Filter" %></div>  
+<% end %>
+
+			</div>
+		</div>
+	</div>
+<div id="index_footer">
+
+		<div class="download_links">
+			<%= link_to "Download CSV",orders_path(:format=>'xls') if session[:admin] %>
+		</div>
+
+	</div>
+	</div>
+</div>

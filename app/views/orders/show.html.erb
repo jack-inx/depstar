@@ -1,0 +1,87 @@
+<div class="title_bar" id="title_bar">
+	<div id="titlebar_left">
+		<h2 id="page_title">Order #<%= @order.order_id %></h2>
+	</div>
+	<div id="titlebar_right">
+		<div class="action_items">
+			<span class="action_item"><%= link_to 'Edit Order', edit_order_path(@order) %></span>
+			<% if session[:admin] %>
+			<span class="action_item"><%= link_to 'Delete Order', @order, :confirm => 'Are you sure?', :method => :delete %></span>
+			<% end %>
+		</div>
+	</div>
+</div>
+<div id="active_admin_content" class="without_sidebar">
+	<div id="main_content_wrapper">
+		<div id="main_content">
+			<div class="panel">
+				<h3>Order</h3>
+				<div class="panel_contents">
+					<div class="attributes_table users">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<th>First Name</th>
+								<td><%= @order.first_name %></td>
+							</tr>
+							<tr>
+								<th>Last Name</th>
+								<td><%= @order.last_name %></td>
+							</tr>
+							<tr>
+								<th>Email</th>
+								<td><%= @order.email %></td>
+							</tr>
+							<tr>
+								<th>Address</th>
+								<td><%= @order.address %></td>
+							</tr>
+							<tr>
+								<th>State</th>
+								<td><%= @order.state.state %></td>
+							</tr>
+							<tr>
+								<th>City</th>
+								<td><%= @order.city %></td>
+							</tr>
+
+							<tr>
+								<th>Phone Number</th>
+								<td><%= @order.phone_number %></td>
+							</tr>
+							<tr>
+								<th>Product</th>
+								<td><%= @order.products.first.name %></td>
+							</tr>
+							<tr>
+								<th>Product Serial</th>
+								<td><%= @order.serial_no %></td>
+							</tr>
+							<tr>
+								<th>Condition</th>
+								<td>
+									<%#= @order.products.first.id %>
+									<% get_product_price(@order.products, @order.id).each do |price_type| %>
+										<%= price_type.all.collect{ |p| Order::AffiliateConditionCategory[p.price_type_id - 1][0] }.join(', ') %>
+									<% end %>
+								</td>
+							</tr>
+							<tr>
+								<th>Price</th>
+								<td><% get_product_price(@order.products, @order.id).each do |price_type| %>
+									<%=	price_type.all.collect{ |p| p.price }.join(' ') %> 
+									<% end %>
+								</td>
+							</tr>							
+							<tr>
+								<th>Notes</th>
+								<td><%= @order.notes %></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+

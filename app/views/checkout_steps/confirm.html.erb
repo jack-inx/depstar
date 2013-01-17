@@ -1,0 +1,143 @@
+
+		<div class="checkout-block">
+			
+			<% if @shipping_detail.errors.any? %>
+			  <div class="error_messages">
+			    <h2><%= pluralize(@shipping_detail.errors.count, "error") %> prohibited this user from being saved:</h2>
+			    <ul>
+			    <% @shipping_detail.errors.full_messages.each do |msg| %>
+			      <li><%= msg %></li>
+			    <% end %>
+			    </ul>
+			  </div>
+			<% end %>
+			
+			<h2>Checkout</h2>
+			<ul id="steps">
+				<li class="checked first"><a class="email" href="checkout_steps/email"><span>Email</span></a></li>
+				<li class="checked"><a class="get-paid" href="checkout_steps/get_paid"><span>Get Paid</span></a></li>
+				<li class="checked"><a class="shipping" href="checkout_steps/shipping"><span>Shipping</span></a></li>
+				<li class="last active"><a class="confirm" href="#"><span>Confirm</span></a></li>
+			</ul>
+			<div class="steps-area contact">
+				<div class="headline">
+					<h4>Contact Email</h4>
+				</div>
+				<p>All emails about your order will be sent here:</p>
+				<div class="text-block">
+					<%#= link_to 'Edit this', wizard_path(:email), :class => 'edit' %>
+					<%#= link_to_function 'Edit this', 'history.back(-10)', :class => 'edit' %>
+					<%= @shipping_detail.email %>
+				</div>
+				<%= form_for @shipping_detail, :html => { :class => 'contact-form' }, :url => wizard_path, :method => :put  do |f| %>
+					<fieldset>
+						<div class="wrapper">
+							<div class="box-info">
+								<div class="headline">
+									<h4>Payment Address</h4>
+								</div>
+								<% if @shipping_detail.payment_method_id == 2 %>
+								<p>We’ll send your PayPal payment to:</p>
+								<div class="text-block">
+									<%= @shipping_detail.email %>
+								</div>
+								<% else %>
+								<p>We’ll send your check to:</p>
+								<div class="text-block">
+									<%= @shipping_detail.check_payment_name %><br />
+									<%= @shipping_detail.check_payment_address1 %><br />
+									<% unless @shipping_detail.check_payment_address2.empty? %>
+										<%= @shipping_detail.check_payment_address2 %><br />
+									<% end %>
+									<%= @shipping_detail.check_payment_city %> <%= @shipping_detail.check_payment_state %>, <%= @shipping_detail.check_payment_zip %>
+								</div>
+								<% end %>
+							</div>
+							<div class="box-info">
+								<div class="headline">
+									<h4>Shipping Address</h4>
+								</div>
+								<p>We’ll send a box with prepaid label to:</p>
+								<div class="text-block">
+									<address>
+										<%= @shipping_detail.first_name %> <%= @shipping_detail.last_name %><br />
+										<%= @shipping_detail.address1 %><br />
+										<% unless @shipping_detail.address2.empty? %>
+											<%= @shipping_detail.address2 %><br />
+										<% end %>
+										<%= @shipping_detail.city %>
+										<%= @shipping_detail.state %>, <%= @shipping_detail.zip %>
+									</address>
+									<%#= link_to 'Edit this', wizard_path(:shipping), :class => 'edit' %>
+								</div>
+							</div>
+						</div>
+						<div class="wrapper">
+							<div class="box-info">
+								&nbsp;
+								<!-- <h4>How did you hear about us?</h4> -->
+								<!-- <div class="text-block">
+									<select>
+										<option>Choose one</option>
+									</select>
+								</div> -->
+							</div>
+							<div class="box-info">
+								<h4>Terms of services</h4>
+								<div class="text-block check">
+									<!-- <input type="checkbox" id="ch1" /> -->
+									<%= f.check_box :tos %>
+									<label for="ch1">I Agree to <br />
+										<a href="#">Terms and Conditions</a></label>
+								</div>
+							</div>
+						</div>
+						<div class="wrapper">
+							<span class="notice">Go on to get your packing<br />and shipping instructions...</span>
+							<span class="submit">
+								
+								<%= f.hidden_field :product_id, :value => @shipping_detail.product.id  %>
+								<%= f.hidden_field :email, :value => @shipping_detail.email %>
+								
+								<%= f.hidden_field :first_name, :value => @shipping_detail.first_name %>
+								<%= f.hidden_field :last_name, :value => @shipping_detail.last_name %>
+								<%= f.hidden_field :address1, :value => @shipping_detail.address1 %>
+								<%= f.hidden_field :address2, :value => @shipping_detail.address2 %>
+								<%= f.hidden_field :city, :value => @shipping_detail.city %>
+								<%= f.hidden_field :state, :value => @shipping_detail.state %>
+								<%= f.hidden_field :zip, :value => @shipping_detail.zip %>
+								<%= f.hidden_field :phone, :value => @shipping_detail.phone %>
+								
+								<%= f.hidden_field :check_payment_name, :value => @shipping_detail.check_payment_name %>
+								<%= f.hidden_field :check_payment_address1, :value => @shipping_detail.check_payment_address1 %>
+								<%= f.hidden_field :check_payment_address2, :value => @shipping_detail.check_payment_address2 %>
+								<%= f.hidden_field :check_payment_city, :value => @shipping_detail.check_payment_city %>
+								<%= f.hidden_field :check_payment_state, :value => @shipping_detail.check_payment_state %>
+								<%= f.hidden_field :check_payment_zip, :value => @shipping_detail.check_payment_zip %>
+								
+								<%= f.hidden_field :paypal_email, :value => @shipping_detail.paypal_email %>
+								<%= f.hidden_field :offer, :value => @shipping_detail.offer %>
+								<%= f.hidden_field :payment_method_id, :value => @shipping_detail.payment_method_id %>
+								
+								<%= f.submit :value => 'Continue' %>
+							</span>
+						</div>
+					</fieldset>
+				<% end %>
+			</div>
+			<div class="checkout-content">
+				<div class="heading">
+					<h4>Your Box Contents</h4>
+				</div>
+				<div class="wrapper">
+					<!-- <img src="/images/img13.png" alt="image description" width="67" height="66" /> -->
+					<%= image_tag @shipping_detail.product.photo.url(:small), :width => '67' %>
+					<div class="info">
+						<span class="name"><%= @shipping_detail.product.name %></span>
+						<!-- <span class="price">$314 <a class="remove" href="#">remove</a> -->
+						</span>
+					</div>
+				</div>
+				<span class="total-price">Total Estimated Value <strong><%= number_to_currency(@shipping_detail.offer_or_default, :precision => 0) %></strong></span>
+			</div>
+		</div>

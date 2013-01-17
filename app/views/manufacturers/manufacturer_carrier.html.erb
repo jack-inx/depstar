@@ -1,0 +1,89 @@
+<%#= render_breadcrumbs :separator => ' / ' %>
+<p id="notice">
+	<%= notice %>
+</p>
+<div class="product">
+	<div class="items-holder">
+		<%  if !params[:manufact_id].nil?  %>
+		<table class="sell-table">
+			<thead>
+				<tr>					
+					<td colspan="5">Select your <%= @manufacturers.name %> <%= @category.name.singularize %> <%= "Carrier" if !@category.name.include?("Tablet")  %></td>
+				</tr>
+			</thead>
+			<% if !@category.name.include?('Tablet')   %>
+			<tbody>
+				<% @manufacturers.carriers.each_slice(5) do |slice| -%>
+				<tr>
+					<% slice.each do |carrier| %>
+					<td> 
+						<%if carrier.image.nil? %>
+							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier.id) %>
+						<% else %>
+							<%= link_to image_tag(carrier.image.url(:small)), carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier.id) %>
+						<% end %>
+						<p>
+							<%= link_to carrier.name, carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier.id),:style=>'color:black;' %>
+						</p>
+					</td>
+					<% end %>
+				</tr>
+				<% end %>
+			</tbody>
+			<% else %>
+				<tbody>
+				<% @products.each_slice(5) do |slice| -%>
+				<tr>
+					<% slice.each do |carrier| %>
+					<td> 
+						<%if !carrier.photo %>
+							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier %>
+						<% else %>
+							<%= link_to image_tag(carrier.photo.url(:small)), carrier %>
+						<% end %>
+						<p>
+							<%= carrier.name %>
+						</p>
+						<p>
+							<%= link_to "Sell Now",carrier , :class=>"sell" %>
+						</p>
+					</td>
+					<% end %>
+				</tr>
+				<% end %>
+			</tbody>
+			<% end %>		
+		</table>
+		<% else %>
+		<table class="sell-table">
+			<thead>
+				<tr>
+					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
+					<td colspan="5">Select your <%= @category.name if !@category.name.include?("iPhone") and !@category.name.include?("iPod") and !@category.name.include?("iPad")  %> <%= @series_list.name %> <%= "Carrier" if !@category.name.include?("iPod")  %></td>
+				</tr>
+			</thead>
+			<tbody>
+				<% @series_list.carriers.each_slice(5) do |slice| -%>
+				<tr>
+					<% slice.each do |carrier| %>
+					<td>
+						<%if !carrier.image %>
+							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id) %>
+						<% else %>
+							<%= link_to image_tag(carrier.image.url(:small)), carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id) %>
+						<% end %> 
+						<%#= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id ) %>
+						
+					<p>
+						<%= link_to carrier.name, carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id),:style=>"color:black;" %>
+					</p>
+					</td>
+					<% end %>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<% end %>
+	</div>
+</div>
+

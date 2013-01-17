@@ -1,0 +1,35 @@
+<div style='border: 1px solid gray; margin: 2px 0px 2px 0px; padding: 1px;'>
+	<div class="field">
+	  <%= f.label :name, 'Device Name' %><br />
+	  <%= f.text_field :name, :disabled => true %>
+	</div>
+	<div class="field" style='height: 50px; clear: both;'>
+	  <%= f.label :status_code %><br />
+	  <%= f.select :status_code, [
+	    ['Awaiting Receipt', 0], 
+	    ['Received', 1],
+	    ['Paid', 2],
+			['Returned', 3],
+	    ['Recycled', 4],
+	    ['Cancelled', 5],		    
+			['ReQuote', 6]],
+	    {:prompt => 'Select one'} %>
+	</div>
+	<div class="clear">&nbsp;</div>
+	<div class="field">
+	  <%= f.label :serial %><br />
+	  <%= f.text_field :serial %>
+	</div>
+	<div class="field">
+	  <%= f.label :offer %><br />
+	  <%= f.text_field :offer, :disabled => true %>
+	</div>
+	<div class="field">
+	  <%= f.label :final_offer %><br />
+	  <%= f.text_field :final_offer %>
+	</div>
+	<div class="field">
+	  <%= f.label :notes %><br />
+	  <%= f.text_area :notes %>
+	</div>
+</div>
