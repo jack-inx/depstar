@@ -1,4 +1,5 @@
 <% @orders.each do |order| %>
+
 <tr class="odd" id="user_10">
 	<td class="order_id"><%= order.order_id %></td>
 	<td class="username"><%= !order.user.nil? ? order.user.email : "Affiliate Removed" %></td>
