@@ -6,6 +6,7 @@
 		<%# @product_list.each do |product| %>
 		<tr>
 			<td style="width:230px;"><b>Selected Model: </b> <%= @product_list.name %> </td>
+
 			 
 				<%#= select_tag "products[product_price_type][]", options_for_select(Order::AffiliateConditionCategory.collect.map{ |i| [i.first, i.last]}), :id=>"product_price_list" %>
 				<% Order::AffiliateConditionCategory.collect.each do |cc| %>
@@ -33,6 +34,7 @@
 				<% end %>
 			</td>
 
+
 		</tr>
 		<%# end %>
 		<%#= hidden_field_tag "order_id", @order.id %>
@@ -42,3 +44,5 @@
 	</div>
 	<%# end -%>
 </li>
+
+

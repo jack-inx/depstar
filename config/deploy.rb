@@ -36,3 +36,5 @@ role :db,  domain, :primary => true         # This is where Rails migrations wil
      run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
    end
  end
+
+

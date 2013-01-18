@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+load 'deploy'
+# Uncomment if you are using Rails' asset pipeline
+    # load 'deploy/assets'
+=======
+load 'deploy' if respond_to?(:namespace) # cap2 differentiator
+Dir['vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
+
+>>>>>>> bf292511fb876fb5b8448c3407697a8c4fb961f5
+load 'config/deploy' # remove this line to skip loading any of the default tasks

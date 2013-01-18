@@ -120,6 +120,7 @@ $(document).ready(function() {
 		}
 	});
 
+
 	//alert($("#catologue_category_id :selected").text());
 
 	if ($("#catologue_category_id :selected").text() == "Tablet") {
@@ -133,6 +134,7 @@ $(document).ready(function() {
 	}
 
 	$("#catologue_category_id").live('change', function() {
+
 		if ($("#catologue_category_id :selected").text() == "Tablet") {
 			//	alert("yes checked");
 			$("#catologue_series_list_input").hide();
@@ -142,6 +144,7 @@ $(document).ready(function() {
 			$("#catologue_carrier_input").show();
 		}
 	});
+
 
 	$('#product_price_list').live("change", function() {
 
@@ -175,6 +178,7 @@ $(document).ready(function() {
 			$("#product_recycle_title").hide();
 		}
 	});
+
 
 });
 

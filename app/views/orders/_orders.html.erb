@@ -1,10 +1,10 @@
 <% @orders.each do |order| %>
-
 <tr class="odd" id="user_10">
 	<td class="order_id"><%= order.order_id %></td>
 	<td class="username"><%= !order.user.nil? ? order.user.email : "Affiliate Removed" %></td>
 	<td class="username"><%= order.first_name %></td>
 	<td class="last_name"><%= order.last_name %></td>
+
 	<td class="crypted_password">
 		<% get_product_price(order.products, order.id).each do |price_type| %>
 			<% price_type.first.price_type_id %>
@@ -25,6 +25,7 @@
 			<%= price_type.all.collect{ |p| p.price }.join(' ') %>
 		<% end %> 
 	</td>
+
 	<td class="last_name">
 		<% if order.status %>	
 			Completed
