@@ -6,13 +6,32 @@
 		<%# @product_list.each do |product| %>
 		<tr>
 			<td style="width:230px;"><b>Selected Model: </b> <%= @product_list.name %> </td>
-			<td style="margin-left:1px !important;"> <%= select_tag "products[product_price_type][]", options_for_select(Order::AffiliateConditionCategory.collect.map{ |i| [i.first, i.last]}), :id=>"product_price_list" %>
-			<%= hidden_field_tag "products[product_id][]", @product_list.id %> </td>
+			 
+				<%#= select_tag "products[product_price_type][]", options_for_select(Order::AffiliateConditionCategory.collect.map{ |i| [i.first, i.last]}), :id=>"product_price_list" %>
+				<% Order::AffiliateConditionCategory.collect.each do |cc| %>
+					<td>
+					<%= label_tag "products[product_price_type][]", cc.first %>
+					<br>
+  					<%= radio_button_tag "products[product_price_type][]", cc.last %>
+  					</td>   										
+				<% end %>
+				<%#= radio_button_tag "products[product_price_type][]"  %>
+				<%= hidden_field_tag "products[product_id][]", @product_list.id %> 
+			
 			<!--<td> Price ($) </td>-->
 			<td> <%= hidden_field_tag "products[price][]",get_suggested_price(@product_list.id, @user.id).broken_price, :id=>"product_price_value"  %> </td>
-			<td> Broken Price: $<span id="broken_td"><%= get_suggested_price(@product_list.id, @user.id).broken_price  %></span></td>
-			<td> Used Price : $<span id="used_td"><%= get_suggested_price(@product_list.id, @user.id).used_price  %></span> </td>
-
+			<td id="product_broken_price"> Broken Price: $<span id="broken_td"><%= get_suggested_price(@product_list.id, @user.id).broken_price  %></span></td>
+			<td id="product_used_price"> Used Price : $<span id="used_td"><%= get_suggested_price(@product_list.id, @user.id).used_price  %></span> </td>
+			<td id="product_recycle_price" style="display:none"> Recycled Price : $<span id="recycle_td">0</span> </td>
+			<td id="product_recycle_title" style="display:none"> <%= text_field_tag "order[product_title]" %> </td>
+			<td style="position:absolute;top:167px;right:386px;">
+				<% if @product_list.photo  %> 
+					<%#= image_tag @product_list.photo.url %>
+					<%= image_tag "img3.png" %>
+				<% else %>
+					<%= image_tag "missing_small.gif" %>
+				<% end %>
+			</td>
 
 		</tr>
 		<%# end %>
@@ -23,21 +42,3 @@
 	</div>
 	<%# end -%>
 </li>
-
-<script >      
-
-$('#product_price_list').live("change", function () {
-  
-  if ($(this).val() == 1)
-  	{
-  		$("#product_price_value").val($("#broken_td").text());
-  	}
-  	if ($(this).val() == 2)
-  	{
-  		$("#product_price_value").val($("#used_td").text());
-  	}
-  	
-});
-
-
-</script>

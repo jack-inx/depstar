@@ -4,13 +4,26 @@
 	<td class="username"><%= !order.user.nil? ? order.user.email : "Affiliate Removed" %></td>
 	<td class="username"><%= order.first_name %></td>
 	<td class="last_name"><%= order.last_name %></td>
-	<td class="crypted_password"><%= order.products.all.collect{ |p| [p.name] }.join(", ") %></td>
-	<td class="created_at"> <% get_product_price(order.products, order.id).each do |price_type| %>
-	<%= price_type.all.collect{ |p| Order::AffiliateConditionCategory[p.price_type_id - 1][0] }.join(', ') %>
-	<% end %> </td>
-	<td class="created_at"> <% get_product_price(order.products, order.id).each do |price_type| %>
-	<%= price_type.all.collect{ |p| p.price }.join(' ') %>
-	<% end %> </td>
+	<td class="crypted_password">
+		<% get_product_price(order.products, order.id).each do |price_type| %>
+			<% price_type.first.price_type_id %>
+			<% if price_type.first.price_type_id == 3 %>
+				<%= order.product_title %>
+			<% else %>
+				<%= order.products.all.collect{ |p| [p.name] }.join(", ") %>
+			<% end %>				
+		<% end %>	
+	</td>
+	<td class="created_at"> 
+		<% get_product_price(order.products, order.id).each do |price_type| %>
+			<%= price_type.all.collect{ |p| Order::AffiliateConditionCategory[p.price_type_id - 1][0] }.join(', ') %>
+		<% end %>
+	 </td>
+	<td class="created_at"> 
+		<% get_product_price(order.products, order.id).each do |price_type| %>
+			<%= price_type.all.collect{ |p| p.price }.join(' ') %>
+		<% end %> 
+	</td>
 	<td class="last_name">
 		<% if order.status %>	
 			Completed

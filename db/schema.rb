@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130107121807) do
+ActiveRecord::Schema.define(:version => 20130118132707) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -133,13 +133,14 @@ ActiveRecord::Schema.define(:version => 20130107121807) do
     t.string   "city"
     t.string   "zip"
     t.string   "phone_number"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.string   "order_id"
     t.text     "notes"
     t.string   "serial_no"
-    t.boolean  "status",       :default => true
+    t.boolean  "status",        :default => true
     t.integer  "state_id"
+    t.string   "product_title"
   end
 
   create_table "orders_products", :id => false, :force => true do |t|

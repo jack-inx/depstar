@@ -73,10 +73,13 @@ class OrdersController < ApplicationController
         OrderProductPriceType.where(:order_id => @order.id).delete_all
 
         params[:products][:product_id].each_with_index do |product,index|
-          OrderProductPriceType.create(:order_id => @order.id,
-          :product_id => params[:products][:product_id][index],
-          :price_type_id => params[:products][:product_price_type][index],
-          :price => params[:products][:price][index] )
+          if !params[:products][:product_id][index].blank?
+            logger.info "6666666666666666666666666666666rrrrr#{params[:products][:product_id][index]}"
+            OrderProductPriceType.create(:order_id => @order.id,
+            :product_id => params[:products][:product_id][index],
+            :price_type_id => params[:products][:product_price_type][index],
+            :price => params[:products][:price][index] )
+          end
         end
 
         format.html { redirect_to("/orders", :notice => 'Please Select Price Type for each product.') }

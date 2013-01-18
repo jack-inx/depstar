@@ -1,99 +1,38 @@
-#set :application, "production"
-set :application, "depstar"
-set :deploy_to, "/home/depstar/rails_apps/#{application}"
 
-
-set :stages, %w(staging production)
-set :default_stage, "staging" # "production"
-require 'capistrano/ext/multistage'
-
-#set :deploy_to, "/home/depstar/rails_apps/#{application}/staging"
-#set :rails_env, "staging"
-
-#############################################################
-# Bundler
-#############################################################
-
-require 'bundler/capistrano'
-
-set :bundle_gemfile,  "Gemfile"
-set :bundle_dir,      File.join(fetch(:shared_path), 'bundle')
-set :bundle_flags,    "--deployment --quiet"
-set :bundle_without,  [:development, :test]
-set :bundle_cmd,      "bundle" # e.g. "/opt/ruby/bin/bundle"
-set :bundle_roles,    {:except => {:no_release => true}} # e.g. [:app, :batch]
-
-#############################################################
-# RVM
-#############################################################
-
-require "rvm/capistrano"
-
-set :rvm_ruby_string, '1.9.3-p194@global'
-set :rvm_type, :system
-
-# namespace :rvm do
-#   desc 'Trust rvmrc file'
-#   task :trust_rvmrc do
-#     run "rvm rvmrc trust #{current_release}"
-#   end
-# end
-# 
-# after "deploy:update_code", "rvm:trust_rvmrc"
-
-#############################################################
-# Servers
-#############################################################
-
-set :user, "depstar"
+# settings application name
+set :application, "Depstar_Phase_3"
+set :repository,  "git@github.com:jack-inx/depstar.git"
+set :branch, "master"
 set :domain, "depstar.com"
-server domain, :app, :web
-role :db, domain, :primary => true
 
-#############################################################
-# Subversion
-#############################################################
+set :scm, :git                               # You can set :scm explicitly or Capistrano will make an intelligent guess 
+                                             # based on known version control directory names 
+                                             # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-#set :repository,  "https://subversion.assembla.com/svn/sparkwire/Depstar/trunk"
-#set :checkout, "export"
+default_run_options[:pty] = true  # Must be set for the password prompt
+ssh_options[:forward_agent] = true                                  # from git to work
+                                  
+set :user, "depstar"                        # The server's user for deploys
+#set :scm_passphrase, "p@ssw0rd"            # The deploy user's password
+set :deploy_via, :remote_cache
 
-#set :scm, :subversion
 
-#role :web, "depstar.com"                          # Your HTTP server, Apache/etc
-#role :app, "depstar.com"                          # This may be the same as your `Web` server
-#role :db,  "depstar.com", :primary => true        # This is where Rails migrations will run
+role :web, domain
+role :app, domain                             # This may be the same as your `Web` server
+role :db,  domain, :primary => true         # This is where Rails migrations will run
+#role :db,  "your slave db-server here"
 
-#set :scm_command, "/usr/bin/svn"
-#set :local_scm_command, "svn"
-#set :use_sudo, false
+# if you want to clean up old releases on each deploy uncomment this:
+# after "deploy:restart", "deploy:cleanup"
 
-#############################################################
-# Git
-#############################################################
+# if you're still using the script/reaper helper you will need
+# these http://github.com/rails/irs_process_scripts
 
-default_run_options[:pty] = true  # Must be set for the password prompt from git to work
-ssh_options[:forward_agent] = true
-set :repository, "git@github.com:CharlesP/Depstar.git"  # Your clone URL
-set :scm, "git"
-set :user, "depstar"  # The server's user for deploys
-
-#############################################################
-# Passenger
-#############################################################
-
-namespace :deploy do
-  
-  desc "Tell Passenger to restart the app."
-  task :restart do
-    run "touch #{current_path}/tmp/restart.txt"
-  end
-  
-  desc "Symlink shared configs and folders on each release."
-  task :symlink_shared do
-    #run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-    run "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
-  end
-  
-end
-
-after 'deploy:update_code', 'deploy:symlink_shared'
+# If you are using Passenger mod_rails uncomment this:
+ namespace :deploy do
+#   task :start do ; end
+#   task :stop do ; end
+   task :restart do#, :roles => :app, :except => { :no_release => true } do
+     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+   end
+ end

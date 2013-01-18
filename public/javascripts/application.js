@@ -119,20 +119,20 @@ $(document).ready(function() {
 			$("#user_user_id_input").show();
 		}
 	});
-	
+
 	//alert($("#catologue_category_id :selected").text());
-	
+
 	if ($("#catologue_category_id :selected").text() == "Tablet") {
-			//	alert("yes checked");
-			$("#catologue_series_list_input").hide();
-			$("#catologue_carrier_input").hide();
-			
-		} else {
-			$("#catologue_series_list_input").show();
-			$("#catologue_carrier_input").show();
+		//	alert("yes checked");
+		$("#catologue_series_list_input").hide();
+		$("#catologue_carrier_input").hide();
+
+	} else {
+		$("#catologue_series_list_input").show();
+		$("#catologue_carrier_input").show();
 	}
-		
-	$("#catologue_category_id").live('change', function(){
+
+	$("#catologue_category_id").live('change', function() {
 		if ($("#catologue_category_id :selected").text() == "Tablet") {
 			//	alert("yes checked");
 			$("#catologue_series_list_input").hide();
@@ -142,6 +142,40 @@ $(document).ready(function() {
 			$("#catologue_carrier_input").show();
 		}
 	});
+
+	$('#product_price_list').live("change", function() {
+
+		if ($(this).val() == 1) {
+			$("#product_price_value").val($("#broken_td").text());
+		}
+		if ($(this).val() == 2) {
+			$("#product_price_value").val($("#used_td").text());
+		}
+
+	});
+
+	$("input[id*=products_product_price_type_]").live('click', function() {
+		var id = $(this).attr("id").split("products_product_price_type__")[1];
+
+		if (id == 3 && $(this).is(":checked")) {
+			$("#product_used_price").hide();
+			$("#product_broken_price").hide();
+			$("#product_price_value").val("0");
+			$("#product_recycle_price").show();
+			$("#product_recycle_title").show();
+		} else {
+			$("#product_used_price").show();
+			$("#product_broken_price").show();
+			if (id == 1) {
+				$("#product_price_value").val($("#broken_td").text());
+			} else if (id == 2) {
+				$("#product_price_value").val($("#used_td").text());
+			}
+			$("#product_recycle_price").hide();
+			$("#product_recycle_title").hide();
+		}
+	});
+
 });
 
 /*
