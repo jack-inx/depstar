@@ -20,10 +20,12 @@
 				<li class="last"><a class="confirm" href="#"><span>Confirm</span></a></li>
 			</ul>
 			<div class="steps-area">
-				<h4>Payment</h4>
+				<h4 style="margin: 0 0 19px;">How would you like to get paid?</h4>			
+				<!--
 				<div class="text-block">
 					<p>How would you like to get paid?</p>
 				</div>
+				-->
 				<div class="wrapper">
 					<%#= @shipping_detail.payment_method.short_code %>
 					<% if @shipping_detail.payment_method.short_code == "check" %>

@@ -28,11 +28,11 @@ class ShippingDetail < ActiveRecord::Base
 
   validates_acceptance_of :tos, if: :on_confirm_step?
 
-  validates_format_of :phone,
-      :message => "must be a valid telephone number.",
-      :with => /^[\(\)0-9\- \+\.]{10,20}$/,
+  #validates_format_of :phone,
+      #:message => "must be a valid telephone number.",
+      #:with => /^[\(\)0-9\- \+\.]{10,20}$/,
       #:if => :on_shipping_step?
-      :if => :require_phone_validation?
+      #:if => :require_phone_validation?
     
   def require_phone_validation?
     # Only for uSell orders phone numbers are optional
