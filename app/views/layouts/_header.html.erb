@@ -18,16 +18,17 @@
 	<div class="header-info">
 		<h1 class="logo"><a href="/">depstar.com</a></h1>
 		<div class="panel">
-			<%= form_for :product, :url => { :controller => "categories", :action => "get_search_result" }, :html => { :class => 'search-item' } do |f|%>
+			<%#= form_for :product, :url => { :controller => "categories", :action => "get_search_result" }, :html => { :class => 'search-item' } do |f|%>
 			<fieldset>
 				<div class="text">
 					<!-- <input type="text" value="Sell your item" /> -->
-					<%= autocomplete_field_tag 'name', '', home_autocomplete_product_name_path, :size => 75, :value => "Sell your item" %>
+					<%#= autocomplete_field_tag 'name', '', home_autocomplete_product_name_path, :size => 75, :value => "Sell your item" %>
 				</div>
 				<!-- <input type="submit" value="sell now" class="btn-sell-now" /> -->
-				<%= f.submit :value => 'GO', :class => 'btn-sell-now',:id=>"sell_now" %>
+				<%#= f.submit :value => 'GO', :class => 'btn-sell-now',:id=>"sell_now" %>
 			</fieldset>
-			<% end %>
+			<%# end %>
+			
 			<ul class="addnav">
 				<li class="sign-up">
 					<a href="/contact">Contact</a>

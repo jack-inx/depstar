@@ -5,14 +5,14 @@
 			<li><%= link_to 'Corporate', corporate_path %></li>
 			<li><%= link_to 'Privacy Policy', privacy_policy_path %></li>
 			<li><%= link_to 'Contact', contact_path %></li>
-			<% if current_user and session[:admin].eql?(true) %>
-				<li><%= link_to 'Admin Logout', "/admin_logout_as_affiliate" %></li>
-				<li><%= link_to 'Affiliate Profile', get_user(session[:current_user]).profile %></li>
-			<% elsif current_user and session[:admin].nil? %>
-				<li><%= link_to 'Logout', logout_url %></li>
-				<li><%= link_to 'My Profile', get_user(session[:current_user]).profile %></li>
-				
-			<% end %>			
+			<!--
+			<%# if current_user and session[:admin].eql?(true) %>
+				<li><%#= link_to 'Admin Logout', "/admin_logout_as_affiliate" %></li>
+				<li><%#= link_to 'Affiliate Profile', get_user(session[:current_user]).profile %></li>
+			<%# elsif current_user and session[:admin].nil? %>
+				<li><%#= link_to 'Logout', logout_url %></li>
+				<li><%#= link_to 'My Profile', get_user(session[:current_user]).profile %></li>				
+			<%# end %> -->			
 		</ul>
 		<span class="copyright"> &copy; 2010 <a href="#">Depstar.com</a> | All rights reserved.</span>
 	</div>

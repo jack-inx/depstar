@@ -378,7 +378,7 @@ form,fieldset{
 	margin:0;
 }
 .items-holder .sell-table.iphone{margin:0;}
-.sell-table tbody td,
+
 .sell-table.iphone td{
 	border:1px solid #d7d7d7;
 	border-width:1px 0 0 1px;
@@ -388,6 +388,15 @@ form,fieldset{
 	width:155px;
 	font-weight:400;
 }
+.sell-table tbody td{
+	
+	font-size:16px;
+	line-height:50px;
+	padding:27px 5px 20px 5px;
+	width:155px;
+	font-weight:400;
+}
+
 .sell-table.iphone .thead .cell1,
 .sell-table.iphone .thead .cell2,
 .sell-table.iphone .thead .cell3,
