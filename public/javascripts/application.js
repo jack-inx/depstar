@@ -120,7 +120,6 @@ $(document).ready(function() {
 		}
 	});
 
-
 	//alert($("#catologue_category_id :selected").text());
 
 	if ($("#catologue_category_id :selected").text() == "Tablet") {
@@ -144,7 +143,6 @@ $(document).ready(function() {
 			$("#catologue_carrier_input").show();
 		}
 	});
-
 
 	$('#product_price_list').live("change", function() {
 
@@ -179,6 +177,13 @@ $(document).ready(function() {
 		}
 	});
 
+	if ($("#products_product_price_type__3").is(":checked")) {
+		$("#product_used_price").hide();
+		$("#product_broken_price").hide();
+		$("#product_price_value").val("0");
+		$("#product_recycle_price").show();
+		$("#product_recycle_title").show();
+	}
 
 });
 

@@ -7,33 +7,45 @@
 		<tr>
 			<td style="width:230px;"><b>Selected Model: </b> <%= @product_list.name %> </td>
 
-			 
-				<%#= select_tag "products[product_price_type][]", options_for_select(Order::AffiliateConditionCategory.collect.map{ |i| [i.first, i.last]}), :id=>"product_price_list" %>
-				<% Order::AffiliateConditionCategory.collect.each do |cc| %>
-					<td>
-					<%= label_tag "products[product_price_type][]", cc.first %>
-					<br>
-  					<%= radio_button_tag "products[product_price_type][]", cc.last %>
-  					</td>   										
-				<% end %>
-				<%#= radio_button_tag "products[product_price_type][]"  %>
-				<%= hidden_field_tag "products[product_id][]", @product_list.id %> 
-			
+			<%#= select_tag "products[product_price_type][]", options_for_select(Order::AffiliateConditionCategory.collect.map{ |i| [i.first, i.last]}), :id=>"product_price_list" %>
+			<% Order::AffiliateConditionCategory.collect.each_with_index do |cc, index| %>
+			<td>
+				<%= label_tag "products[product_price_type][]", cc.first %>
+				<br>
+				<% if params[:id].nil? %>				 
+					<%= radio_button_tag "products[product_price_type][]", cc.last %>
+				<% else %>					
+					<% price_type =  get_product_price(@order.products, @order.id)[0][0].price_type_id %>
+					<%#= price_type.eql?(index) %>
+					<% if price_type.eql?(index+1) %>
+						<%= radio_button_tag "products[product_price_type][]", cc.last, true %>
+					<% else %>
+						<%= radio_button_tag "products[product_price_type][]", cc.last %>
+					<% end %>
+				<% end %>								
+			</td>
+			<% end %>
+			<%#= radio_button_tag "products[product_price_type][]"  %>
+			<%= hidden_field_tag "products[product_id][]", @product_list.id %>
+
 			<!--<td> Price ($) </td>-->
 			<td> <%= hidden_field_tag "products[price][]",get_suggested_price(@product_list.id, @user.id).broken_price, :id=>"product_price_value"  %> </td>
 			<td id="product_broken_price"> Broken Price: $<span id="broken_td"><%= get_suggested_price(@product_list.id, @user.id).broken_price  %></span></td>
-			<td id="product_used_price"> Used Price : $<span id="used_td"><%= get_suggested_price(@product_list.id, @user.id).used_price  %></span> </td>
-			<td id="product_recycle_price" style="display:none"> Recycled Price : $<span id="recycle_td">0</span> </td>
-			<td id="product_recycle_title" style="display:none"> <%= text_field_tag "order[product_title]" %> </td>
-			<td style="position:absolute;top:167px;right:386px;">
-				<% if @product_list.photo  %> 
-					<%#= image_tag @product_list.photo.url %>
-					<%= image_tag "img3.png" %>
-				<% else %>
-					<%= image_tag "missing_small.gif" %>
-				<% end %>
+			<td id="product_used_price"> Used Price : $<span id="used_td"><%= get_suggested_price(@product_list.id, @user.id).used_price  %></span></td>
+			<td id="product_recycle_price" style="display:none"> Recycled Price : $<span id="recycle_td">0</span></td>
+			<td id="product_recycle_title" style="display:none">
+				<% if params[:id].nil? %>				 
+					<%= text_field_tag "order[product_title]" %>
+				<% else %>	
+					<%= text_field_tag "order[product_title]", @order.product_title %>
+				<% end %> 				
 			</td>
-
+			<td style="position:absolute;top:167px;right:386px;"> <% if @product_list.photo  %>
+			<%#= image_tag @product_list.photo.url %>
+			<%= image_tag "img3.png" %>
+			<% else %>
+			<%= image_tag "missing_small.gif" %>
+			<% end %> </td>
 
 		</tr>
 		<%# end %>
@@ -44,5 +56,4 @@
 	</div>
 	<%# end -%>
 </li>
-
 
