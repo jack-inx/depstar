@@ -153,7 +153,7 @@ $(document).ready(function() {
 			$("#product_price_value").val($("#used_td").text());
 		}
 
-	});
+	});	
 
 	$("input[id*=products_product_price_type_]").live('click', function() {
 		var id = $(this).attr("id").split("products_product_price_type__")[1];
@@ -184,6 +184,13 @@ $(document).ready(function() {
 		$("#product_recycle_price").show();
 		$("#product_recycle_title").show();
 	}
+	
+	$('.btn-go').click(function(event) {
+		event.preventDefault();
+						
+		category = $("span.jcf-unselectable").text().toLowerCase().replace(' ', '_');		
+		$('form.product-search').attr('action', "/"+category).submit();		
+	});
 
 });
 

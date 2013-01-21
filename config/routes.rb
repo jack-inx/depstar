@@ -10,7 +10,10 @@ Trunk::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  match 'search' => 'categories#search_filter'  
+  # search filter routes
+  match '/:category' => 'categories#search_filter'
+  match '/:category/:series' => 'manufacturers#manufacturer_carrier'
+    
   match 'search_result' => 'categories#get_search_result' 
   match 'categories/show/' => 'categories#show' # For the homepage form
   match "/admin_as_affiliate/:id/affiliate" => "user_sessions#admin_as_affiliate"
@@ -58,7 +61,7 @@ Trunk::Application.routes.draw do
   match 'carrier_product' => 'categories#carrier_product'
   match "/get_by_javascript"  => 'categories#get_manufacturer'
 
-  match 'manufact_carrier' => 'manufacturers#manufacturer_carrier'
+  
   match 'product_list' => 'categories#carrier_product'
 
   resources :checkout_steps

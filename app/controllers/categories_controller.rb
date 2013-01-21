@@ -134,7 +134,7 @@ class CategoriesController < ApplicationController
         
     if @category.manufacturers.first.name.include?("Apple")
       @apple_product = true   
-      logger.info "# apple product #{@apple_product}   ####"   
+      #logger.info "# apple product #{@apple_product}   ####"   
     end      
   end  
   
