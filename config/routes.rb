@@ -18,9 +18,6 @@ Trunk::Application.routes.draw do
   match '/search/:category/:manufacturer/:carrier' => 'categories#carrier_product'
   match '/search/:category/:manufacturer/:carrier/:product' => 'products#show'
  
-  #match '/search/:category/:series' => 'manufacturers#manufacturer_carrier'
-  match 'carrier_product' => 'categories#carrier_product'
-  #match '/manufact_carrier' => 'manufacturers#manufacturer_carrier'
     
   match 'search_result' => 'categories#get_search_result' 
   match 'categories/show/' => 'categories#show' # For the homepage form
