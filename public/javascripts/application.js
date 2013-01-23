@@ -189,7 +189,16 @@ $(document).ready(function() {
 		event.preventDefault();
 						
 		category = $("span.jcf-unselectable").text().toLowerCase().replace(' ', '_');		
-		$('form.product-search').attr('action', "/"+category).submit();		
+		$('form.product-search').attr('action', "/search/"+category).submit();		
+	});
+	
+	$("[id*=series_form_]").live('click',function(){
+		//alert($(this).attr("id"));
+		$(this).submit();
+	});
+	$("[id*=manufacturer_form_]").live('click',function(){
+		//alert($(this).attr("id"));
+		$(this).submit();
 	});
 
 });

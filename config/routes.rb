@@ -11,8 +11,16 @@ Trunk::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   # search filter routes
-  match '/:category' => 'categories#search_filter'
-  match '/:category/:series' => 'manufacturers#manufacturer_carrier'
+  match '/search/:category' => 'categories#search_filter'
+  match '/search/:category/:manufacturer' => 'manufacturers#manufacturer_carrier'
+
+  match '/search/:category/:manufacturer/:product' => 'products#show', :constraints => {:category => /tablet+/}
+  match '/search/:category/:manufacturer/:carrier' => 'categories#carrier_product'
+  match '/search/:category/:manufacturer/:carrier/:product' => 'products#show'
+ 
+  #match '/search/:category/:series' => 'manufacturers#manufacturer_carrier'
+  match 'carrier_product' => 'categories#carrier_product'
+  #match '/manufact_carrier' => 'manufacturers#manufacturer_carrier'
     
   match 'search_result' => 'categories#get_search_result' 
   match 'categories/show/' => 'categories#show' # For the homepage form
@@ -58,7 +66,7 @@ Trunk::Application.routes.draw do
   
   
   # checkout wizard
-  match 'carrier_product' => 'categories#carrier_product'
+  
   match "/get_by_javascript"  => 'categories#get_manufacturer'
 
   

@@ -2,7 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Recycle and Sell All Electronics - Depstar</title>
+		<title>
+			<% if @title_line.nil? %>
+				Recycle and Sell All Electronics - Depstar
+			<% else %>
+				<%= @title_line %>
+			<% end %>
+		</title>
 		<meta name="description" content="Depstar is a revolutionary new way to help save the environment and get paid at the same time. We specialize in buying and recycling all electronics and other consumer goods." />
 		<meta name="keywords" content="Depstar, cell phone recycling, recycling cell phones, sell cell phones, electronics recycling, recycle electronics, sell electronics, cash for electronics" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>

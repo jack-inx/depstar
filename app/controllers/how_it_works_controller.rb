@@ -1,6 +1,8 @@
 class HowItWorksController < ApplicationController
 
-  def index    
+  def index 
+    @title_line = "How It Works - Depstar"
+        
     @categories = Category.all
     @index = 0
     @categories.each do |category|             

@@ -7,6 +7,26 @@ class CheckoutStepsController < ApplicationController
       session[:shipping_detail] = ShippingDetail.new()
     end
     
+    if params[:id].eql?("get_paid")
+      @title_line = "Checkout - Paypal - Depstar"
+    end
+    if params[:id].eql?("email")
+      if params[:payment_method].eql?("check")
+        @title_line = "Checkout - Email Address - Depstar"
+      else
+        @title_line = "Checkout - Email Address - Depstar"
+      end  
+    end
+    if params[:id].eql?("shipping")
+      @title_line = "Checkout - Address - Depstar"  
+    end
+    if params[:id].eql?("confirm")
+      @title_line = "Checkout - Confirmation - Depstar"  
+    end  
+    if params[:id].eql?("finish")
+      @title_line = "Checkout - Complete - Depstar"  
+    end    
+    
     @shipping_detail = session[:shipping_detail]
     @shipping_detail.should_validate = true
     

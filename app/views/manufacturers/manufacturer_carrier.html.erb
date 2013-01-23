@@ -4,7 +4,7 @@
 </p>
 <div class="product">
 	<div class="items-holder">
-		<%  if !params[:manufact_id].nil?  %>
+		<%  if !params[:mid].nil?  %>
 		<table class="sell-table">
 			<thead>
 				<tr>					
@@ -16,15 +16,22 @@
 				<% @manufacturers.carriers.each_slice(5) do |slice| -%>
 				<tr>
 					<% slice.each do |carrier| %>
-					<td> 
-						<%if carrier.image.nil? %>
-							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier.id) %>
-						<% else %>
-							<%= link_to image_tag(carrier.image.url(:small)), carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier.id) %>
-						<% end %>
-						<p>
-							<%= link_to carrier.name, carrier_product_path(:cat_id => params[:cat_id],:manufact_id => params[:manufact_id], :carrier => carrier.id),:style=>'color:black;' %>
-						</p>
+					
+					<td>
+						<%= form_tag "/search/#{params[:category]}/#{params[:manufacturer]}/#{carrier.name.downcase.gsub(' ','_')}",:id=>"manufacturer_form_#{carrier.id}", :method => :post do -%>
+							<% if carrier.image.nil? %>
+								<%= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
+							<% else %>
+								<%= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
+								<%#= image_tag carrier.image.url(:small), :style=>"color:black;cursor:pointer;" %>
+							<% end %>
+							<p style="text-align:center;">
+								<%= label_tag nil,carrier.name,:style=>"color:black;cursor:pointer;" %>
+								<%= hidden_field_tag :cid,params[:cid] %>
+								<%= hidden_field_tag :mid,@manufacturers.id %>
+								<%= hidden_field_tag :carrier_id,carrier.id %>
+							</p>
+						<% end -%>						
 					</td>
 					<% end %>
 				</tr>
@@ -36,17 +43,20 @@
 				<tr>
 					<% slice.each do |carrier| %>
 					<td> 
+						<%= form_tag "/search/#{params[:category]}/#{params[:manufacturer]}/#{carrier.name.downcase.gsub(' ','_')}",:id=>"manufacturer_form_#{carrier.id}", :method => :post do -%>
 						<%if !carrier.photo %>
-							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier %>
+							<%= image_tag "http://depstar.com/assets/products/missing_small.gif",:style=>"cursor:pointer;" %>
 						<% else %>
-							<%= link_to image_tag(carrier.photo.url(:small)), carrier %>
+							<%= image_tag carrier.photo.url(:small),:style=>"cursor:pointer" %>
 						<% end %>
 						<p>
-							<%= carrier.name %>
+							<%= label_tag nil,carrier.name,:style=>"cursor:pointer" %>
 						</p>
 						<p>
-							<%= link_to "Sell Now",carrier , :class=>"sell" %>
+							<%= label_tag nil,"Sell Now" , :class=>"sell",:style=>"cursor:pointer;" %>
+							<%= hidden_field_tag :id, carrier.id %>
 						</p>
+						<% end -%>
 					</td>
 					<% end %>
 				</tr>
@@ -67,16 +77,21 @@
 				<tr>
 					<% slice.each do |carrier| %>
 					<td>
-						<%if !carrier.image %>
-							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id) %>
-						<% else %>
-							<%= link_to image_tag(carrier.image.url(:small)), carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id) %>
-						<% end %> 
-						<%#= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id ) %>
-						
-					<p>
-						<%= link_to carrier.name, carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id),:style=>"color:black;" %>
-					</p>
+						<%= form_tag "/search/#{params[:category]}/#{params[:manufacturer]}/#{carrier.name.downcase.gsub(' ','_')}",:id=>"manufacturer_form_#{carrier.id}", :method => :post do -%>
+							<% if !carrier.image %>
+								<%= image_tag "http://depstar.com/assets/products/missing_small.gif",:style=>"cursor:pointer;" %>
+							<% else %>
+								<%= image_tag carrier.image.url(:small),:style=>"cursor:pointer;" %>
+							<% end %> 
+							<%#= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id ) %>													
+							<p>
+								<%#= link_to carrier.name, carrier_product_path(:cat_id => params[:cid], :carrier => carrier.id, :series => @series_list.id),:style=>"color:black;" %>
+								<%= label_tag nil,carrier.name,:style=>"color:black;cursor:pointer;" %>
+								<%= hidden_field_tag :cid,params[:cid] %>
+								<%= hidden_field_tag :series_id,@series_list.id %>
+								<%= hidden_field_tag :carrier_id,carrier.id %>
+							</p>
+						<% end -%>
 					</td>
 					<% end %>
 				</tr>

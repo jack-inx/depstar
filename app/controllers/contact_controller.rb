@@ -1,7 +1,7 @@
 class ContactController < ApplicationController
 
   def index
-    
+    @title_line = "Contact - Depstar"
     unless params[:contact_message]            
       @contact_message = ContactMessage.new()
     else  
@@ -12,7 +12,6 @@ class ContactController < ApplicationController
 
         UserMailer.contact_email(@contact_message).deliver    
       end
-
     end
   end
   

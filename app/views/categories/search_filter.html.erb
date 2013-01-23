@@ -21,20 +21,22 @@
 				<tr>
 					<% @counter = 0 %>
 					<% slice.each do |manufact| %>
-					<% @counter += 1 %>
-					<td>
-						<% if manufact.photo.nil? %>
-							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"),"/#{params[:category]}/#{manufact.name.downcase.gsub(' ','_')}",:manufact_id => manufact %>
-						<% else %>
-							<%= link_to image_tag("#{manufact.photo.url(:small)}"),"/#{params[:category]}/#{manufact.name.downcase.gsub(' ','_')}",:manufact_id => manufact %>
-							<%#= manufact.photo.url %>
-						<% end %>
-						<p style="text-align:center;">
-							<%= link_to manufact.name, manufact_carrier_path(:cat_id=>params[:id],:manufact_id => manufact),:style=>"color:black;" %>
-							<%= hidden_field_tag :cat_id,params[:id] %>
-							<%= hidden_field_tag :manufact_id,manufact %>
-						</p>
-					</td>
+						<% @counter += 1 %>
+						<td> 
+							<%= form_tag "/search/#{params[:category]}/#{manufact.name.downcase.gsub(' ','_')}",:id=>"manufacturer_form_#{manufact.id}", :method => :post do -%>
+							<% if manufact.photo.nil? %>
+								<%= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
+							<% else %>
+								<%= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
+								<%#= manufact.photo.url, :style=>"color:black;cursor:pointer;" %>
+							<% end %>
+							<p style="text-align:center;">
+								<%= label_tag nil,manufact.name,:style=>"color:black;cursor:pointer;" %>
+								<%= hidden_field_tag :cid,params[:id] %>
+								<%= hidden_field_tag :mid,manufact.id %>
+							</p>
+							<% end -%>	
+						</td>						
 					<% end %>
 				</tr>
 				<% end %>
@@ -52,19 +54,23 @@
 				<% @category.series_lists.each_slice(5) do |slice| -%>
 				<tr>
 					<% slice.each do |series| %>
-					<td> <%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), "/#{params[:category]}/#{series.name.downcase.gsub(' ','_')}" %>
-					<p style="text-align:center;">
-						<%= link_to series.name, manufact_carrier_path(:cat_id => params[:id],:series => series),:style=>"color:black;" %>
-						<%= hidden_field_tag :cat_id,params[:id] %>
-						<%= hidden_field_tag :series,series %>
-					</p></td>
+					
+					<td> 
+						<%= form_tag "/search/#{params[:category]}/#{series.name.downcase.gsub(' ','_')}",:id=>"series_form_#{series.id}", :method => :post do -%>
+						<%= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
+						<p style="text-align:center;">
+							<%= label_tag nil,series.name,:style=>"color:black;cursor:pointer;" %>
+							<%= hidden_field_tag :cid,params[:id] %>
+							<%= hidden_field_tag :sid,series.id %>
+						</p>
+						<% end -%>	
+					</td>
+					
 					<% end %>
 				</tr>
 				<% end %>
 			</tbody>
 		</table>
 		<% end %>
-
 	</div>
 </div>
-

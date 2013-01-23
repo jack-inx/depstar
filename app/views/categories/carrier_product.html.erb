@@ -21,19 +21,24 @@
 				<tr>
 					<% @counter = 0 %>
 					<% slice.each do |product| %>
-					<% @counter += 1 %>
-					<td width=177px>
+						<% @counter += 1 %>
+						<td width=177px>
+						<%= form_tag "/search/#{params[:category]}/#{params[:manufacturer]}/#{params[:carrier]}/#{product.name.downcase.gsub(' ','_')}",:id=>"manufacturer_form_#{product.id}", :method => :post do -%>
 						<% if product.photo %>
-							<%= link_to image_tag(product.photo.url(:small)), product %>
+							<%= image_tag product.photo.url(:small),:style=>"cursor:pointer" %>
 						<% else %>
-							<%= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), product %>
+							<%= image_tag "http://depstar.com/assets/products/missing_small.gif",:style=>"cursor:pointer" %>
 						<% end %>
 						<p>
-							<%= product.name %>
+							<%#= product.name %>
+							<%= label_tag nil,product.name,:style=>"cursor:pointer" %>
 						</p>
 						<p>							
-							<%= link_to "Sell Now",product , :class=>"sell" %>							
+							<%#= label "Sell Now",product , :class=>"sell" %>
+							<%= label_tag nil,"Sell Now" , :class=>"sell",:style=>"cursor:pointer;" %>
+							<%= hidden_field_tag :id, product.id %>							
 						</p>
+						<% end -%>
 					</td>
 					<% end %>
 					

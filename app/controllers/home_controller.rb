@@ -6,6 +6,8 @@ class HomeController < ApplicationController
   autocomplete :product, :name, :full => true
   
   def index
+    @title_line = "Sell Used or Broken Cell Phones and Electronics - Depstar"
+    
     @categories = Category.order("name DESC")
     logger.info(" #{@categories.inspect}   ")
     @index = 0
