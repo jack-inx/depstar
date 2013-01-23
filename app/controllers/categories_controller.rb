@@ -131,11 +131,12 @@ class CategoriesController < ApplicationController
   
   def search_filter
     @category = Category.find(params[:id])
-        
+           
     if @category.manufacturers.first.name.include?("Apple")
       @apple_product = true   
       #logger.info "# apple product #{@apple_product}   ####"   
-    end      
+    end
+    @title_line = "Sell Your #{@category.name.singularize} - Depstar"      
   end  
   
   def get_search_result
@@ -168,9 +169,18 @@ class CategoriesController < ApplicationController
     if !params[:series_id].nil?
       @products = Product.where(:category_id => params[:cid],:carrier_id => params[:carrier_id],:series_list_id => params[:series_id])
       @series = SeriesList.find(params[:series_id])
+      
+      if @category.name.include?("iPhone")
+        @title_line = "Sell Your #{@carrier.name} #{@series.name} - Depstar"
+      else
+        @title_line = "Sell Your #{@carrier.name} #{@category.name} #{@series.name} - Depstar"
+      end
+      
     else
       @products = Product.where(:category_id => params[:cid],:carrier_id => params[:carrier_id],:manufacturer_id => params[:mid])
       @manufacturer = Manufacturer.find(params[:mid])
+      
+      @title_line = "Sell Your #{@carrier.name} #{@manufacturer.name} #{@category.name} - Depstar"
     end    
         
   end

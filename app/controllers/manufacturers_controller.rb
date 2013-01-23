@@ -19,13 +19,21 @@ class ManufacturersController < ApplicationController
     if !@category.name.include?('Tablet')  
       if !params[:mid].nil?
         @manufacturers = Manufacturer.find(params[:mid])
+        @title_line = "Sell Your #{@manufacturers.name} #{@category.name} - Depstar"
       elsif !params[:sid].nil?
         @series_list = SeriesList.find(params[:sid])
+        if !@category.name.include?("iPhone")
+          @title_line = "Sell Your #{@category.name} #{@series_list.name} - Depstar"
+        else
+          @title_line = "Sell Your #{@series_list.name} - Depstar"
+        end        
       end
     else
       @manufacturers = Manufacturer.find(params[:mid])
       @products = @category.products.where(:manufacturer_id => params[:mid] )
-    end             
+      @title_line = "Sell Your #{@manufacturers.name} #{@category.name} - Depstar"
+    end   
+                 
   end
 
 

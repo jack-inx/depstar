@@ -126,6 +126,20 @@ class ProductsController < ApplicationController
   def show    
     @product = Product.find(params[:id])
     #@title_line = "Sell your "+ @product.name + " - Depstar"
+    if @product.series_list 
+      if !@product.series_list.name.include?("iPhone")
+        @title_line = "Sell Your Used or Broken #{@product.manufacturer.name}  #{@product.category.name} #{@product.series_list.name} #{@product.name}- Depstar"
+      else
+        @title_line = "Sell Your Used or Broken #{@product.name}- Depstar"
+      end      
+    else
+      if @product.category.name.include?("Tablet")
+        @title_line = "Sell Your Used or Broken #{@product.manufacturer.name} #{@product.name}- Depstar"  
+      else        
+        @title_line = "Sell Your Used or Broken #{@product.name}- Depstar"
+      end
+      
+    end    
     
     if params[:question_response].nil?
       @question_response = QuestionResponse.new  
