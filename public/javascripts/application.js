@@ -188,7 +188,8 @@ $(document).ready(function() {
 	$('.btn-go').click(function(event) {
 		event.preventDefault();
 						
-		category = $("span.jcf-unselectable").text().toLowerCase().replace(' ', '_');		
+		category = $("span.center").text().toLowerCase().replace(' ', '_');
+		//alert(category);		
 		$('form.product-search').attr('action', "/search/"+category).submit();		
 	});
 	
