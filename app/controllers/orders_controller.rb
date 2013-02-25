@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @orders }
-      format.xls { send_data   @orders.to_csv(col_sep: "\t") }
+      format.xls #{ send_data   @orders.to_csv(col_sep: "\t") }
     end
   end
 
