@@ -140,6 +140,17 @@
 					</li>
 				</ol>
 			</fieldset>
+
+		<fieldset class="inputs">
+				<ol>
+					<li class="input optional stringish" id="user_phone_number_input">
+						<%= f.label :status_code,:class=>" label" %>
+						<%= f.select :status_code,options_for_select( Order::ShippingStatus,@order.status_code) %>
+						<%= f.hidden_field :user_id,:value => "#{session[:current_user]}" %>
+					</li>
+				</ol>
+			</fieldset>
+
 			<fieldset class="inputs">
 				<ol>
 					<li class="email input optional stringish" id="user_email_input">
