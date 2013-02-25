@@ -2,11 +2,12 @@ class Order < ActiveRecord::Base
     
   attr_accessible :user_id, :first_name, :last_name, :address, :state_id, :city, :phone_number, :email,
 
-                  :product_ids, :zip, :order_id, :notes, :serial_no, :product_title
+                  :product_ids, :zip, :order_id, :notes, :serial_no, :product_title, :status_code
 
   
   has_and_belongs_to_many :products
-  
+  ShippingStatus = [["AwaitingReceipt",0],["Shipped",1],["Received",2]]
+
   belongs_to :user
   belongs_to :state
   Condition = [["Flawless",1],["Used",2],["Broken",3]]
