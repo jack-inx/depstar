@@ -130,7 +130,13 @@ class CategoriesController < ApplicationController
   
   
   def search_filter
-    @category = Category.find(params[:id])
+    if !params[:id].nil?
+      @category = Category.find(params[:id])  
+    else
+      @c = Category.where("name LIKE ?","%#{params[:category].gsub("-"," ")}%")
+      @category = @c.first
+    end
+    
            
     if @category.manufacturers.first.name.include?("Apple")
       @apple_product = true   
@@ -184,4 +190,6 @@ class CategoriesController < ApplicationController
     end    
         
   end
+  
+  
 end

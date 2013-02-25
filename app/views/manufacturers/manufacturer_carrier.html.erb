@@ -18,7 +18,7 @@
 					<% slice.each do |carrier| %>
 					
 					<td>
-						<%= form_tag "/search/#{params[:category]}/#{params[:manufacturer]}/#{carrier.name.downcase.gsub(' ','_')}",:id=>"manufacturer_form_#{carrier.id}", :method => :post do -%>
+						<%= form_tag "/#{params[:category]}/#{params[:manufacturer]}/#{carrier.name.downcase.gsub(' ','-')}",:id=>"manufacturer_form_#{carrier.id}", :method => :post do -%>
 							<% if carrier.image.nil? %>
 								<%= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
 							<% else %>
@@ -43,7 +43,7 @@
 				<tr>
 					<% slice.each do |carrier| %>
 					<td> 
-						<%= form_tag "/search/#{params[:category]}/#{params[:manufacturer]}/#{carrier.name.downcase.gsub(' ','_')}",:id=>"manufacturer_form_#{carrier.id}", :method => :post do -%>
+						<%= form_tag "/#{params[:category]}/#{params[:manufacturer]}/#{carrier.name.downcase.gsub(' ','-')}",:id=>"manufacturer_form_#{carrier.id}", :method => :post do -%>
 						<%if !carrier.photo %>
 							<%= image_tag "http://depstar.com/assets/products/missing_small.gif",:style=>"cursor:pointer;" %>
 						<% else %>
@@ -69,15 +69,16 @@
 			<thead>
 				<tr>
 					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
-					<td colspan="5">Select your <%= @category.name if !@category.name.include?("iPhone") and !@category.name.include?("iPod") and !@category.name.include?("iPad")  %> <%= @series_list.name %> <%= "Carrier" if !@category.name.include?("iPod")  %></td>
+					<td colspan="5">Select your <%= @category.name if !@category.name.include?("iPhone") and !@category.name.include?("iPod") and !@category.name.include?("iPad")  %> <%#= @series_list.name %> <%= "Carrier" if !@category.name.include?("iPod")  %></td>
 				</tr>
 			</thead>
 			<tbody>
+				<% if !@series_list.blank? %>
 				<% @series_list.carriers.each_slice(5) do |slice| -%>
 				<tr>
 					<% slice.each do |carrier| %>
 					<td>
-						<%= form_tag "/search/#{params[:category]}/#{params[:manufacturer]}/#{carrier.name.downcase.gsub(' ','_')}",:id=>"manufacturer_form_#{carrier.id}", :method => :post do -%>
+						<%= form_tag "/#{params[:category]}/#{params[:manufacturer]}/#{carrier.name.downcase.gsub(' ','-')}",:id=>"manufacturer_form_#{carrier.id}", :method => :post do -%>
 							<% if !carrier.image %>
 								<%= image_tag "http://depstar.com/assets/products/missing_small.gif",:style=>"cursor:pointer;" %>
 							<% else %>
@@ -95,6 +96,7 @@
 					</td>
 					<% end %>
 				</tr>
+				<% end %>
 				<% end %>
 			</tbody>
 		</table>
