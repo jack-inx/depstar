@@ -133,11 +133,10 @@ class CategoriesController < ApplicationController
     if !params[:id].nil?
       @category = Category.find(params[:id])  
     else
-      @c = Category.where("name LIKE ?","%#{params[:category].gsub("-"," ")}%")
+      @c = Category.where("name LIKE ?","%#{params[:category].gsub('-',' ')}%")
       @category = @c.first
     end
-    
-    logger.info "44444444444444444444444444444444444444444 #{@category.inspect} "       
+               
     if @category.manufacturers.first.name.include?("Apple")
       @apple_product = true   
       #logger.info "# apple product #{@apple_product}   ####"   
