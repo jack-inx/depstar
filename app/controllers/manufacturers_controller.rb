@@ -111,7 +111,7 @@ class ManufacturersController < ApplicationController
   
   def show_sub_category
     if !params[:category].nil?      
-      @c = Category.where("name LIKE ?","%#{params[:category].gsub("-"," ")}%")
+      @c = Category.where("name ILIKE ?","%#{params[:category].gsub("-"," ")}%")
       @category = @c.first
     end
     
@@ -122,7 +122,7 @@ class ManufacturersController < ApplicationController
         if params[:sub_category].include?("#{params[:category]}")
           params[:sub_category].gsub("#{params[:category]}","")
         end
-        @manufacturers = Manufacturer.where("name LIKE ?","%#{params[:sub_category].gsub("-"," ")}%").first
+        @manufacturers = Manufacturer.where("name ILIKE ?","%#{params[:sub_category].gsub("-"," ")}%").first
         
         if @category.name.include?('Tablet')
           
@@ -144,7 +144,7 @@ class ManufacturersController < ApplicationController
           params[:sub_category] = params[:sub_category].gsub("#{params[:category]}-","")
         end
         
-        @series_list = SeriesList.where("name LIKE ?","%#{params[:sub_category].gsub("-"," ")}%").first
+        @series_list = SeriesList.where("name ILIKE ?","%#{params[:sub_category].gsub("-"," ")}%").first
         
         #@manufacturers = Manufacturer.find(params[:mid])
         #@products = @category.products.where(:manufacturer_id => params[:mid] )
