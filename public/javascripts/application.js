@@ -188,9 +188,9 @@ $(document).ready(function() {
 	$('.btn-go').click(function(event) {
 		event.preventDefault();
 						
-		category = $("span.center").text().toLowerCase().replace(' ', '_');
+		category = $("span.center").text().toLowerCase().replace(' ', '-');
 		//alert(category);		
-		$('form.product-search').attr('action', "/search/"+category).submit();		
+		$('form.product-search').attr('action', "/"+category).submit();		
 	});
 	
 	$("[id*=series_form_]").live('click',function(){

@@ -23,7 +23,7 @@
 					<% slice.each do |product| %>
 						<% @counter += 1 %>
 						<td width=177px>
-						<%= form_tag "/search/#{params[:category]}/#{params[:manufacturer]}/#{params[:carrier]}/#{product.name.downcase.gsub(' ','_')}",:id=>"manufacturer_form_#{product.id}", :method => :post do -%>
+						<%= form_tag "/#{params[:category]}/#{params[:manufacturer]}/#{params[:carrier]}/#{product.name.downcase.gsub(' ','-')}",:id=>"manufacturer_form_#{product.id}", :method => :post do -%>
 						<% if product.photo %>
 							<%= image_tag product.photo.url(:small),:style=>"cursor:pointer" %>
 						<% else %>

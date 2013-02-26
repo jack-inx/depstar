@@ -1,5 +1,5 @@
 class ManufacturersController < ApplicationController
-  before_filter :authorize,:except => [:manufacturer_carrier]
+  before_filter :authorize,:except => [:manufacturer_carrier, :show_sub_category]
   #add_breadcrumb "Manufacturer", :root_path
   
   # GET /manufacturers
@@ -107,5 +107,40 @@ class ManufacturersController < ApplicationController
       format.html { redirect_to(manufacturers_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def show_sub_category
+    if !params[:cid].nil?
+      @category = Category.find(params[:cid])
+    else
+      @c = Category.where("name LIKE ?","%#{params[:category].gsub("-"," ")}%")
+      @category = @c.first
+    end
+     
+    
+    
+    
+    if @category.name.include?('Tablet') or @category.name.include?('Cell Phone')
+      @manufacturer = Manufacturer.where("name LIKE ?","%#{params[:sub_category].gsub("-"," ")}%").first  
+      # if !params[:sub_category].nil?
+        # @manufacturers = Manufacturer.find(params[:sub_category])
+        # @title_line = "Sell Your #{@manufacturers.name} #{@category.name} - Depstar"
+      # elsif !params[:sid].nil?
+        # @series_list = SeriesList.find(params[:sid])
+        # if !@category.name.include?("iPhone")
+          # @title_line = "Sell Your #{@category.name} #{@series_list.name} - Depstar"
+        # else
+          # @title_line = "Sell Your #{@series_list.name} - Depstar"
+        # end        
+      # end
+    else
+      @series_list = SeriesList.where("name LIKE ?","%#{params[:sub_category].gsub("-"," ")}%").first
+      
+      #@manufacturers = Manufacturer.find(params[:mid])
+      #@products = @category.products.where(:manufacturer_id => params[:mid] )
+      #@title_line = "Sell Your #{@manufacturers.name} #{@category.name} - Depstar"
+    end
+     
+     render "manufacturer_carrier"
   end
 end

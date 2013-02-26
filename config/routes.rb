@@ -11,13 +11,16 @@ Trunk::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   # search filter routes
-  match '/search/:category' => 'categories#search_filter'
-  match '/search/:category/:manufacturer' => 'manufacturers#manufacturer_carrier'
+  match '/:category' => 'categories#search_filter'
+  match '/:category/:sub_category' => "manufacturers#show_sub_category", :constraints => lambda{|req| req.params[:id].blank? and req.params[:cid].blank?}
+  match '/:category/:manufacturer' => 'manufacturers#manufacturer_carrier'
+  
 
-  match '/search/:category/:manufacturer/:product' => 'products#show', :constraints => {:category => /tablet+/}
-  match '/search/:category/:manufacturer/:carrier' => 'categories#carrier_product'
-  match '/search/:category/:manufacturer/:carrier/:product' => 'products#show'
+  match '/:category/:manufacturer/:product' => 'products#show', :constraints => {:category => /tablet+/}
+  match '/:category/:manufacturer/:carrier' => 'categories#carrier_product'
+  match '/:category/:manufacturer/:carrier/:product' => 'products#show'
  
+  
     
   match 'search_result' => 'categories#get_search_result' 
   match 'categories/show/' => 'categories#show' # For the homepage form
