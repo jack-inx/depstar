@@ -110,9 +110,7 @@ class ManufacturersController < ApplicationController
   end
   
   def show_sub_category
-    if !params[:cid].nil?
-      @category = Category.find(params[:cid])
-    else
+    if !params[:category].nil?      
       @c = Category.where("name LIKE ?","%#{params[:category].gsub("-"," ")}%")
       @category = @c.first
     end
