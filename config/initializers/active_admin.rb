@@ -1,3 +1,4 @@
+require 'sass/plugin'
 ActiveAdmin.setup do |config|
 
   # == Site Title

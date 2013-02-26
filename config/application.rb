@@ -40,7 +40,7 @@ module Trunk
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
     config.assets.initialize_on_precompile = false
-    config.generators.stylesheet_engine = :sass
+    #config.generators.stylesheet_engine = :sass
     
     #config.assets.enabled = true
   end
