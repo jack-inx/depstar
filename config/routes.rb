@@ -12,7 +12,7 @@ Trunk::Application.routes.draw do
 
   # search filter routes
   match '/:category' => 'categories#search_filter'
-  #match '/:category/:sub_category' => "manufacturers#show_sub_category", :constraints => lambda{|req| req.params[:id].blank? and req.params[:cid].blank?}
+  match '/:category/:sub_category' => "manufacturers#show_sub_category", :constraints => lambda{|req| req.params[:id].blank? and req.params[:cid].blank?}
   match '/:category/:manufacturer' => 'manufacturers#manufacturer_carrier'
   
 

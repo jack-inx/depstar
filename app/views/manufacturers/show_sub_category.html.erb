@@ -1,0 +1,112 @@
+<%#= render_breadcrumbs :separator => ' / ' %>
+<p id="notice">
+	<%= notice %>
+</p>
+<div class="product">
+	<div class="items-holder">
+		<%  if @category.name.include?('Tablet') or @category.name.include?('Cell Phone')  %>
+		<table class="sell-table">
+			<thead>
+				<tr>					
+					<td colspan="5">Select your <%= @manufacturers.name %> <%= @category.name.singularize %> <%= "Carrier" if !@category.name.include?("Tablet")  %></td>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<% if !@category.name.include?('Tablet')   %>
+					<% if !@manufacturers.nil?  %>	
+					<% @manufacturers.carriers.each_slice(5) do |slice| -%>
+					<tr>
+						<% slice.each do |carrier| %>
+						
+						<td>
+							<%= form_tag "/#{params[:category]}/#{params[:sub_category]}/#{carrier.name.downcase.gsub(' ','-')}",:id=>"manufacturer_form_#{carrier.id}", :method => :post do -%>
+								<% if carrier.image.nil? %>
+									<%= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
+								<% else %>
+									<%= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
+									<%#= image_tag carrier.image.url(:small), :style=>"color:black;cursor:pointer;" %>
+								<% end %>
+								<p style="text-align:center;">
+									<%= label_tag nil,carrier.name,:style=>"color:black;cursor:pointer;" %>
+									<%= hidden_field_tag :cid, @category.id %>
+									<%= hidden_field_tag :mid, @manufacturers.id %>
+									<%= hidden_field_tag :carrier_id, carrier.id %>
+								</p>
+							<% end -%>						
+						</td>
+						<% end %>
+					</tr>
+					<% end %>
+				<% end %>	
+			</tbody>
+			<% else %>
+				<tbody>
+				<% if !@products.nil?   %>	
+				<% @products.each_slice(5) do |slice| -%>
+				<tr>
+					<% slice.each do |carrier| %>
+					<td> 
+						<%= form_tag "/#{params[:category]}/#{params[:sub_category]}/#{carrier.name.downcase.gsub(' ','-')}",:id=>"manufacturer_form_#{carrier.id}", :method => :post do -%>
+						<%if !carrier.photo %>
+							<%= image_tag "http://depstar.com/assets/products/missing_small.gif",:style=>"cursor:pointer;" %>
+						<% else %>
+							<%= image_tag carrier.photo.url(:small),:style=>"cursor:pointer" %>
+						<% end %>
+						<p>
+							<%= label_tag nil,carrier.name,:style=>"cursor:pointer" %>
+						</p>
+						<p>
+							<%= label_tag nil,"Sell Now" , :class=>"sell",:style=>"cursor:pointer;" %>
+							<%= hidden_field_tag :id, carrier.id %>
+						</p>
+						<% end -%>
+					</td>
+					<% end %>
+				</tr>
+				<% end %>
+			<% end %>	
+			</tbody>
+			<% end %>		
+		</table>
+		<% else %>
+		<table class="sell-table">
+			<thead>
+				<tr>
+					IPHONE
+					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
+					<td colspan="5">Select your <%= @category.name if !@category.name.include?("iPhone") and !@category.name.include?("iPod") and !@category.name.include?("iPad")  %> <%= params[:sub_category].gsub('-',' ').titleize %> <%= "Carrier" if !@category.name.include?("iPod")  %></td>
+				</tr>
+			</thead>
+			<tbody>
+				<% if !@series_list.blank? %>
+				<% @series_list.carriers.each_slice(5) do |slice| -%>
+				<tr>
+					<% slice.each do |carrier| %>
+					<td>
+						<%= form_tag "/#{params[:category]}/#{params[:sub_category]}/#{carrier.name.downcase.gsub(' ','-')}",:id=>"manufacturer_form_#{carrier.id}", :method => :post do -%>
+							<% if !carrier.image %>
+								<%= image_tag "http://depstar.com/assets/products/missing_small.gif",:style=>"cursor:pointer;" %>
+							<% else %>
+								<%= image_tag carrier.image.url(:small),:style=>"cursor:pointer;" %>
+							<% end %> 
+							<%#= link_to image_tag("http://depstar.com/assets/products/missing_small.gif"), carrier_product_path(:cat_id => params[:cat_id], :carrier => carrier.id, :series => @series_list.id ) %>													
+							<p>
+								<%#= link_to carrier.name, carrier_product_path(:cat_id => params[:cid], :carrier => carrier.id, :series => @series_list.id),:style=>"color:black;" %>
+								<%= label_tag nil,carrier.name,:style=>"color:black;cursor:pointer;" %>
+								<%= hidden_field_tag :cid, @category.id %>
+								<%= hidden_field_tag :series_id, @series_list.id %>
+								<%= hidden_field_tag :carrier_id, carrier.id %>
+							</p>
+						<% end -%>
+					</td>
+					<% end %>
+				</tr>
+				<% end %>
+				<% end %>
+			</tbody>
+		</table>
+		<% end %>
+	</div>
+</div>
+
