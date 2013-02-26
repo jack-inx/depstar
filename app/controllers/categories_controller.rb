@@ -137,7 +137,7 @@ class CategoriesController < ApplicationController
       @category = @c.first
     end
     
-           
+    logger.info "44444444444444444444444444444444444444444 #{@category.inspect} "       
     if @category.manufacturers.first.name.include?("Apple")
       @apple_product = true   
       #logger.info "# apple product #{@apple_product}   ####"   
