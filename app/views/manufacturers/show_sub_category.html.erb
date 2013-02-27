@@ -72,8 +72,7 @@
 		<% else %>
 		<table class="sell-table">
 			<thead>
-				<tr>
-					IPHONE
+				<tr>			
 					<!--<td colspan="5">These are the <%#= @category.name %> we currently buy: </td> -->
 					<td colspan="5">Select your <%= @category.name if !@category.name.include?("iPhone") and !@category.name.include?("iPod") and !@category.name.include?("iPad")  %> <%= params[:sub_category].gsub('-',' ').titleize %> <%= "Carrier" if !@category.name.include?("iPod")  %></td>
 				</tr>
