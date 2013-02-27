@@ -22,16 +22,34 @@ ActiveAdmin.register ShippingDetail, :as => "Shipping Requests" do
     column "Date",:created_at
 
     default_actions                   
-  end                                 
+  end   
+   
+  csv :separator => ';' do
+     column("FirstName")  { |post| post.first_name }
+     column("LastName") { |post| post.last_name }
+     column("Product")  { |post| post.product.name.gsub(' ','-') if !post.product.nil?  }
+     column("Email")  { |post| post.email }
+     column("Referer")  { |post| post.referer }
+     column("Offer")  { |post| post.offer }
+     column("FinalOffer")  { |post| post.final_offer }
+     column "ReferrerStatus" do |status|
+        (status.devices.map{|s| ShippingDetail::ShippingStatus.at(s.status_code)[0]}).join(',')
+     end
+     column "DepstarStatus" do |s|
+        ShippingDetail::ShippingStatus.at(s.status_code)[0]
+     end
+     column("PaymentMethod")  { |post| post.payment_method.name if !post.payment_method.nil? }  
+     column("Date")  { |post| post.created_at.strftime("%d/%m/%y") }
+  end 
+                                
   filter :first_name
   filter :last_name
   filter :user
   filter :city
   filter :email  
     
-   form do |f|
-   
-    f.inputs do 
+  form do |f|
+   f.inputs do 
      f.input :payment_method, :as => :radio
    end
 
@@ -44,6 +62,7 @@ ActiveAdmin.register ShippingDetail, :as => "Shipping Requests" do
       dev.input :notes, :as => :text
       #dev.buttons :submit, :input_html => {:hidden => true}
     end
+    
     f.inputs :email
     f.inputs :first_name
     f.inputs :last_name    
