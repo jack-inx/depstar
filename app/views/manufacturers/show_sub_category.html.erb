@@ -8,7 +8,7 @@
 		<table class="sell-table">
 			<thead>
 				<tr>					
-					<td colspan="5">Select your <%= params[:sub_category] %> <%= @category.name.singularize %> <%= "Carrier" if !@category.name.include?("Tablet")  %></td>
+					<td colspan="5">Select your <%= params[:sub_category].camelize %> <%= @category.name.singularize %> <%= "Carrier" if !@category.name.include?("Tablet")  %></td>
 				</tr>
 			</thead>
 			
