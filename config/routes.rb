@@ -10,12 +10,13 @@ Trunk::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  # search filter routes
+  match "/admin_as_affiliate/:id/affiliate" => "user_sessions#admin_as_affiliate"
+  match "/admin_logout_as_affiliate" => "user_sessions#admin_logout_as_affiliate" 
+
+  # search filter routes  
   match '/:category' => 'categories#search_filter'
   match '/:category/:sub_category' => "manufacturers#show_sub_category", :constraints => lambda{|req| req.params[:id].blank? and req.params[:cid].blank?}
   match '/:category/:manufacturer' => 'manufacturers#manufacturer_carrier'
-  
-
   match '/:category/:manufacturer/:product' => 'products#show', :constraints => {:category => /tablet+/}
   match '/:category/:manufacturer/:carrier' => 'categories#carrier_product'
   match '/:category/:manufacturer/:carrier/:product' => 'products#show'
@@ -24,8 +25,7 @@ Trunk::Application.routes.draw do
     
   match 'search_result' => 'categories#get_search_result' 
   match 'categories/show/' => 'categories#show' # For the homepage form
-  match "/admin_as_affiliate/:id/affiliate" => "user_sessions#admin_as_affiliate"
-  match "/admin_logout_as_affiliate" => "user_sessions#admin_logout_as_affiliate"  
+   
 
   match "/product_price" => "orders#add_price_type"
   match "/submit_price_type" => "orders#submit_price_type"
