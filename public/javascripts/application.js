@@ -201,6 +201,15 @@ $(document).ready(function() {
 		//alert($(this).attr("id"));
 		$(this).submit();
 	});
+	
+	$("#user_submit_action").live('click', function(event){
+						
+		if ($("#products_product_price_type__3").is(":checked") && $("#order_product_title").val() == "") 
+		{	
+			event.preventDefault();
+			alert("Please enter the recycled product name!");
+		}
+	});
 
 });
 
