@@ -14,16 +14,13 @@ Trunk::Application.routes.draw do
   match "/admin_as_affiliate/:id/affiliate"           => "user_sessions#admin_as_affiliate"
   match "/admin_logout_as_affiliate"                  => "user_sessions#admin_logout_as_affiliate" 
   
-  # constraints(Subdomain) do
-  #  match '/' => 'user_sessions#new'
-  # end
-   
-  constraints(Subdomain) do
+     
+  #constraints(Subdomain) do
       # administrator affiliate and affiliate orders routes
-      match "/"                                           => 'user_sessions#new'
-      match "/orders"                                     => "orders#order_by_sub_affiliates"
-      match "/users"                                      => "orders#sub_affiliates"
-      match "/pricing"                                    => "orders#order_pricing"
+      match "/affiliate"                                           => 'user_sessions#new'
+      match "/affiliate/orders"                                     => "orders#order_by_sub_affiliates"
+      match "/affiliate/users"                                      => "orders#sub_affiliates"
+      match "/affiliate/pricing"                                    => "orders#order_pricing"
       match "/logout"                                     => 'user_sessions#destroy', :as => :logout
       
       # routes for creating and updating the orders inside the affiliate and admin affiliate routes 
@@ -40,7 +37,7 @@ Trunk::Application.routes.draw do
       match "/order_lists"                                => "orders#order_list"
       match "/order_search"                               => "orders#search_filter"  
       match "/cancel/:id/order"                           => "orders#cancel_order"
-  end
+  #end
   
   # main application search filter routes for items  
   match '/:category'                                  => 'categories#search_filter'
