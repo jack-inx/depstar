@@ -1,9 +1,28 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  helper_method :current_user
-
+  helper_method :current_user 
+  
+  #before_filter :check_subdomain
+  
   private
+  
+  def check_subdomain
+    user_exist = false
+    
+    if request.subdomain.present? && request.subdomain != "www"
+      User.select("email").each do |user| 
+        if user.email.split('@').first.eql?(request.subdomain)
+          user_exist = true        
+        end 
+      end
+      
+      if !user_exist
+        redirect_to root_url(:host => request.domain)
+        logger.info "inside loop"
+      end      
+    end    
+  end
   
   def authorize
      unless current_user    

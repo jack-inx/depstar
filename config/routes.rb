@@ -24,7 +24,7 @@ Trunk::Application.routes.draw do
       match "/orders"                                     => "orders#order_by_sub_affiliates"
       match "/users"                                      => "orders#sub_affiliates"
       match "/pricing"                                    => "orders#order_pricing"
-      match "/logout"                                      => 'user_sessions#destroy', :as => :logout
+      match "/logout"                                     => 'user_sessions#destroy', :as => :logout
       
       # routes for creating and updating the orders inside the affiliate and admin affiliate routes 
       match "/product_price"                              => "orders#add_price_type"
