@@ -34,7 +34,7 @@
 		<% end %>
 	</td>
 	<td class="created_at"><%= Order::ShippingStatus.at(order.status_code)[0] %></td>
-	<td class="created_at"><%= order.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%d/%m/%Y %I:%M%p") %></td>
+	<td class="created_at"><%= order.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%m/%d/%Y %I:%M%p") %></td>
 	<td class=""> <%= link_to 'Show', order,:class=>"member_link view_link" %>
 	<%= link_to 'Edit', edit_order_path(order),:class=>"member_link edit_link" %>
 	<% if session[:admin] %>
