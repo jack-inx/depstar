@@ -35,13 +35,13 @@
 					</li>
 					<% if get_user_affiliate(session[:current_user]).is_affiliate_admin %>
 						<li id="categories" class="<%= @order_index_sub_affilaites %>">
-							<a href="/affiliates/orders">All Orders</a>
+							<a href="/orders">All Orders</a>
 						</li>
 						<li id="categories" class="<%= @sub_affiliates %>">
-							<a href="/affiliates/users">All Users</a>
+							<a href="/users">All Users</a>
 						</li>
 						<li id="manufacturers" class="<%= @order_pricing %>">
-							<a href="/affiliates/pricing">Pricing</a>
+							<a href="/pricing">Pricing</a>
 						</li>						
 					<% end %>					
 					<!--

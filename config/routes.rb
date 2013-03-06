@@ -1,4 +1,4 @@
-# require 'subdomain'
+require 'subdomain'
 Trunk::Application.routes.draw do
   
   resources :profiles
@@ -18,28 +18,29 @@ Trunk::Application.routes.draw do
   #  match '/' => 'user_sessions#new'
   # end
    
-  
-  # administrator affiliate and affiliate orders routes
-  match '/affiliate'                                  => 'user_sessions#new'
-  match "/affiliates/orders"                          => "orders#order_by_sub_affiliates"
-  match "/affiliates/users"                           => "orders#sub_affiliates"
-  match "/affiliates/pricing"                         => "orders#order_pricing"
-  match 'logout'                                      => 'user_sessions#destroy', :as => :logout
-  
-  # routes for creating and updating the orders inside the affiliate and admin affiliate routes 
-  match "/product_price"                              => "orders#add_price_type"
-  match "/submit_price_type"                          => "orders#submit_price_type"
-  match "/admin/affiliate/:id"                        => "users#product_prices"
-  match "/admin/affiliates/:id"                       => "users#product_prices_update"
-  match "/suggest_price_type"                         => "users#suggest_prices"
-  match "/update_versions"                            => "orders#update_versions"  
-  match "/update_versions_for_series"                 => "orders#update_versions_for_series"  
-  match "/update_versions_for_prices"                 => "orders#update_versions_for_prices"  
-  match "/update_versions_for_carrier"                => "orders#update_versions_for_carrier"
-  match "/delete_affiliate_product/:id/:user_id"      => "user_sessions#delete_affiliate_product"
-  match "/order_lists"                                => "orders#order_list"
-  match "/order_search"                               => "orders#search_filter"  
-  match "/cancel/:id/order"                           => "orders#cancel_order"
+  constraints(Subdomain) do
+      # administrator affiliate and affiliate orders routes
+      match "/"                                           => 'user_sessions#new'
+      match "/orders"                                     => "orders#order_by_sub_affiliates"
+      match "/users"                                      => "orders#sub_affiliates"
+      match "/pricing"                                    => "orders#order_pricing"
+      match "/logout"                                      => 'user_sessions#destroy', :as => :logout
+      
+      # routes for creating and updating the orders inside the affiliate and admin affiliate routes 
+      match "/product_price"                              => "orders#add_price_type"
+      match "/submit_price_type"                          => "orders#submit_price_type"
+      match "/admin/affiliate/:id"                        => "users#product_prices"
+      match "/admin/affiliates/:id"                       => "users#product_prices_update"
+      match "/suggest_price_type"                         => "users#suggest_prices"
+      match "/update_versions"                            => "orders#update_versions"  
+      match "/update_versions_for_series"                 => "orders#update_versions_for_series"  
+      match "/update_versions_for_prices"                 => "orders#update_versions_for_prices"  
+      match "/update_versions_for_carrier"                => "orders#update_versions_for_carrier"
+      match "/delete_affiliate_product/:id/:user_id"      => "user_sessions#delete_affiliate_product"
+      match "/order_lists"                                => "orders#order_list"
+      match "/order_search"                               => "orders#search_filter"  
+      match "/cancel/:id/order"                           => "orders#cancel_order"
+  end
   
   # main application search filter routes for items  
   match '/:category'                                  => 'categories#search_filter'
