@@ -45,6 +45,16 @@ ActiveAdmin.register ShippingDetail, :as => "Shipping Requests" do
      column("Referer")  { |post| post.referer }
      column("Offer")  { |post| post.offer }
      column("FinalOffer")  { |post| post.final_offer }
+    #for device offer price    
+    column "Device Offer" do |offer|
+      (offer.devices.map{ |p| p.offer }).join(',')
+    end
+
+    #for device final offer price    
+    column "Device Final Offer" do |offer|
+      (offer.devices.map{ |p| p.final_offer }).join(',')
+    end
+ 
      column "ReferrerStatus" do |status|
         (status.devices.map{|s| ShippingDetail::ShippingStatus.at(s.status_code)[0]}).join(',')
      end
