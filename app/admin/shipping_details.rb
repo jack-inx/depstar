@@ -7,16 +7,29 @@ ActiveAdmin.register ShippingDetail, :as => "Shipping Requests" do
     column :last_name
     column :product
     column :email
-#    column :status_code
+    #column :status_code
     column :referer
     column :offer
     column :final_offer
+
+    #for device offer price    
+    column "Device Offer" do |offer|
+      (offer.devices.map{ |p| p.offer }).join(',')
+    end
+
+    #for device final offer price    
+    column "Device Final Offer" do |offer|
+      (offer.devices.map{ |p| p.final_offer }).join(',')
+    end
+ 
     column "Referrer Status" do |status|
       (status.devices.map{|s| ShippingDetail::ShippingStatus.at(s.status_code)[0]}).join(',')
     end
+
     column "Depstar Status" do |s|
       ShippingDetail::ShippingStatus.at(s.status_code)[0]
     end
+
     #column :phone
     column :payment_method  
     column "Date",:created_at
