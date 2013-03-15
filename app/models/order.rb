@@ -6,7 +6,7 @@ class Order < ActiveRecord::Base
 
   
   has_and_belongs_to_many :products
-  ShippingStatus = [["AwaitingReceipt",0],["Shipped",1],["Received",2]]
+  ShippingStatus = [["Awaiting Receipt",0],["Shipped",1],["Received",2]]
 
   belongs_to :user
   belongs_to :state

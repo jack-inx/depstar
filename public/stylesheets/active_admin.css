@@ -2005,3 +2005,27 @@ body.active_admin {
   margin: 0;
   padding: 0;
   color: #323537; }
+
+
+#float_r {
+	float: right;
+	margin-right:0px;
+	margin-left:20px;
+}
+
+#float_r img {
+	height:40px;
+	width:72px;
+	}
+
+
+#float_r_main {
+	float: right;
+	margin-right:20px;
+	margin-left:20px;
+}
+	
+#float_r_main img {
+	height:100px;
+	width:150px;
+	}

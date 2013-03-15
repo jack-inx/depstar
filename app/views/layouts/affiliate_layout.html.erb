@@ -3,45 +3,31 @@
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 		<title>Orders | Depstar</title>
-		<link href="/stylesheets/active_admin.css?1353683216" media="screen" rel="stylesheet" type="text/css" />
-	
+		<link href="/stylesheets/active_admin.css?1353683216" media="screen" rel="stylesheet" type="text/css" />	
 		<script src="/javascripts/jquery.min.js?1353057840" type="text/javascript"></script>
 		<script src="/javascripts/jquery-ui.min.js?1353682084" type="text/javascript"></script>
 		<script src="/javascripts/jquery_ujs.js?1352458252" type="text/javascript"></script>
 		<script src="/javascripts/active_admin.js?1353682084" type="text/javascript"></script>
-
 		<%= javascript_include_tag "application" %>
-
 		<%= csrf_meta_tag %>
 	</head>
 	<body class="index admin_users active_admin logged_in admin_namespace">
 		<div id="wrapper">
 			<div class="header" id="header">
 				<!--h1 class="site_title" id="site_title"><a href="/">Depstar</a></h1-->
-				<ul class="header-item" id="tabs">
-					<!--
-					<li class="current" id="users">
-						<a href="/admin/users">Affiliates</a>
-					</li>
-					<li id="dashboard">
-						<a href="/admin/dashboard">Dashboard</a>
-					</li>
-					<li id="carriers">
-						<a href="/admin/carriers">Carriers</a>
-					</li>-->
-					
+				<ul class="header-item" id="tabs">					
 					<li id="orders" class="<%= @order_index %>">
 						<a href="/orders" >Orders</a>
 					</li>
 					<% if get_user_affiliate(session[:current_user]).is_affiliate_admin %>
 						<li id="categories" class="<%= @order_index_sub_affilaites %>">
-							<a href="/affiliate/orders">All Orders</a>
+							<a href="/orders">All Orders</a>
 						</li>
 						<li id="categories" class="<%= @sub_affiliates %>">
-							<a href="/affiliate/users">All Users</a>
+							<a href="/users">All Users</a>
 						</li>
 						<li id="manufacturers" class="<%= @order_pricing %>">
-							<a href="/affiliate/pricing">Pricing</a>
+							<a href="/pricing">Pricing</a>
 						</li>						
 					<% end %>					
 					<!--
@@ -64,12 +50,10 @@
 						<%= link_to 'Admin Logout', "/admin_logout_as_affiliate" %>
 					<% else %>
 						<%= link_to 'Logout', logout_url %>
-					<% end %>				
-										
+					<% end %>										
 				</p>
 			</div>
-			<%= yield %>
-			
+			<%= yield %>			
 		</div>
 	</body>
 </html>

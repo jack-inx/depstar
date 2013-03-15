@@ -42,7 +42,7 @@ class UserSessionsController < ApplicationController
   def admin_as_affiliate
     session[:current_user] = User.find(params[:id]).id
     session[:admin] = true
-
+    
     redirect_to "/orders"
   end
   
