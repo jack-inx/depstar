@@ -123,7 +123,7 @@ form,fieldset{
 }
 .logo{
 	margin:0;
-	background:url(../images/logo.png) no-repeat;
+	background:url(../images/homepage_Logo.png) no-repeat;
 	width:221px;
 	height:75px;
 	text-indent:-99999px;
@@ -178,7 +178,7 @@ form,fieldset{
 	font-size:14px;
 	line-height:20px;
 	list-style:none;
-	float:left;
+	float:right;
 }
 .addnav li:first-child{
 	background:none;
@@ -186,8 +186,9 @@ form,fieldset{
 }
 .addnav li{
 	float:left;
-	background:url(../images/separator.gif) no-repeat;
+	<!-- background:url(../images/separator.gif) no-repeat; -->
 	padding:0 6px 0 9px;
+	margin-right:20px;
 }
 .addnav li.sign-up a{background-position:19px 4px;}
 .addnav li.my-account a{background-position:-47px 3px;}
@@ -196,7 +197,7 @@ form,fieldset{
 	color:#717171;
 	padding:19px 0 5px;
 	display:block;
-	background:url(../images/bg-add-nav.png) no-repeat;
+	<!-- background:url(../images/bg-add-nav.png) no-repeat; -->
 }
 .product{
 	text-align:center;
