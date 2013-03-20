@@ -18,7 +18,7 @@ Trunk::Application.routes.draw do
   #  match '/' => 'user_sessions#new'
   # end
    
-  #constraints(Subdomain) do
+  constraints(Subdomain) do
       # administrator affiliate and affiliate orders routes
       match "/"                                           => 'user_sessions#new'
       
@@ -36,7 +36,7 @@ Trunk::Application.routes.draw do
       match "/order_lists"                                => "orders#order_list"
       match "/order_search"                               => "orders#search_filter"  
       match "/cancel/:id/order"                           => "orders#cancel_order"
-  #end
+  end
   
   # routes for admin when login as and in  affiliate account
   match "/orders"                                     => "orders#order_by_sub_affiliates"
