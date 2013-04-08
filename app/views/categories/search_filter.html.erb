@@ -27,8 +27,8 @@
 							<% if manufact.photo.nil? %>
 								<%= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
 							<% else %>
-								<%= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
-								<%#= manufact.photo.url, :style=>"color:black;cursor:pointer;" %>
+								<%#= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
+								<%= image_tag manufact.photo.url, :style=> "color:black;cursor:pointer;" %>
 							<% end %>
 							<p style="text-align:center;">
 								<%= label_tag nil,manufact.name,:style=>"color:black;cursor:pointer;" %>
@@ -57,7 +57,14 @@
 					
 					<td> 
 						<%= form_tag "/#{params[:category]}/#{series.name.downcase.gsub(' ','-')}",:id=>"series_form_#{series.id}", :method => :post do -%>
-						<%= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
+						
+						<%#= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
+						<% if series.image.nil? %>
+								<%= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
+							<% else %>
+								<%#= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
+								<%= image_tag series.image.url, :style=>"color:black;cursor:pointer;" %>
+							<% end %>
 						<p style="text-align:center;">
 							<%= label_tag nil,series.name,:style=>"color:black;cursor:pointer;" %>
 							<%= hidden_field_tag :cid,params[:id] %>

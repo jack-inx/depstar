@@ -40,11 +40,12 @@
 					<%= text_field_tag "order[product_title]", @order.product_title %>
 				<% end %> 				
 			</td>
-			<td style="position:absolute;top:167px;right:386px;"> <% if @product_list.photo  %>
-			<%#= image_tag @product_list.photo.url %>
-			<%= image_tag "img3.png" %>
+			<td style="position:absolute;top:167px;right:386px;">
+			<% if @product_list.photo  %>
+				<%#= image_tag @product_list.photo.url %>
+				<%= image_tag "img3.png" %>
 			<% else %>
-			<%= image_tag "missing_small.gif" %>
+				<%= image_tag "missing_small.gif" %>
 			<% end %> </td>
 
 		</tr>
@@ -56,4 +57,37 @@
 	</div>
 	<%# end -%>
 </li>
+<script type="text/javascript">
+
+	$("input[id*=products_product_price_type_]").live('click', function() {
+		var id = $(this).attr("id").split("products_product_price_type__")[1];
+
+		if (id == 3 && $(this).is(":checked")) {
+			$("#product_used_price").hide();
+			$("#product_broken_price").hide();
+			$("#product_price_value").val("0");
+			$("#product_recycle_price").show();
+			$("#product_recycle_title").show();
+		} else {
+			$("#product_used_price").show();
+			$("#product_broken_price").show();
+			if (id == 1) {
+				$("#product_price_value").val($("#broken_td").text());
+			} else if (id == 2) {
+				$("#product_price_value").val($("#used_td").text());
+			}
+			$("#product_recycle_price").hide();
+			$("#product_recycle_title").hide();
+		}
+	});
+
+	if ($("#products_product_price_type__3").is(":checked")) {
+		$("#product_used_price").hide();
+		$("#product_broken_price").hide();
+		$("#product_price_value").val("0");
+		$("#product_recycle_price").show();
+		$("#product_recycle_title").show();
+	}
+
+</script>
 

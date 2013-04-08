@@ -24,8 +24,8 @@
 								<% if carrier.image.nil? %>
 									<%= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
 								<% else %>
-									<%= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
-									<%#= image_tag carrier.image.url(:small), :style=>"color:black;cursor:pointer;" %>
+									<%#= image_tag "http://depstar.com/assets/products/missing_small.gif" ,:style=>"color:black;cursor:pointer;" %>
+									<%= image_tag carrier.image.url(:small), :style=>"color:black;cursor:pointer;" %>
 								<% end %>
 								<p style="text-align:center;">
 									<%= label_tag nil,carrier.name,:style=>"color:black;cursor:pointer;" %>

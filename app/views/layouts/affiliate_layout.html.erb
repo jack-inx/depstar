@@ -17,7 +17,7 @@
 				<!--h1 class="site_title" id="site_title"><a href="/">Depstar</a></h1-->
 				<ul class="header-item" id="tabs">					
 					<li id="orders" class="<%= @order_index %>">
-						<a href="/orders" >Orders</a>
+						<a href="/order_lists" >Orders</a>
 					</li>
 					<% if get_user_affiliate(session[:current_user]).is_affiliate_admin %>
 						<li id="categories" class="<%= @order_index_sub_affilaites %>">

@@ -1,7 +1,7 @@
 
 # settings application name
-set :application, "Depstar_Phase_3"
-set :repository,  "git@github.com:jack-inx/TestingCapistrano.git"
+set :application, "Depstar_Phase_2_with_3"
+set :repository,  "git@github.com:jack-inx/depstar.git"
 set :branch, "master"
 set :deploy_to, "/home/depstar/rails_apps/#{application}"
 set :domain, "depstar.com"

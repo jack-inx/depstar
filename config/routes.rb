@@ -3,7 +3,7 @@ Trunk::Application.routes.draw do
   
   resources :profiles
   
-  resources :orders
+  
 
   resources :user_sessions
 
@@ -18,9 +18,9 @@ Trunk::Application.routes.draw do
   #  match '/' => 'user_sessions#new'
   # end
    
-  constraints(Subdomain) do
+  #constraints(Subdomain) do
       # administrator affiliate and affiliate orders routes
-      match "/"                                           => 'user_sessions#new'
+      match "/affiliate"                                           => 'user_sessions#new'
       
       # routes for creating and updating the orders inside the affiliate and admin affiliate routes 
       match "/product_price"                              => "orders#add_price_type"
@@ -36,7 +36,7 @@ Trunk::Application.routes.draw do
       match "/order_lists"                                => "orders#order_list"
       match "/order_search"                               => "orders#search_filter"  
       match "/cancel/:id/order"                           => "orders#cancel_order"
-  end
+  #end
   
   # routes for admin when login as and in  affiliate account
   match "/orders"                                     => "orders#order_by_sub_affiliates"
@@ -46,7 +46,7 @@ Trunk::Application.routes.draw do
   
   
 
-
+  resources :orders
   
     
   
