@@ -74,7 +74,7 @@ class OrdersController < ApplicationController
 
         params[:products][:product_id].each_with_index do |product,index|
 
-          if !params[:products][:product_id][index].blank?
+          if !params[:products][:product_id][index].blank? and !params[:products][:product_price_type][index].blank? and !params[:products][:price][index].blank?
             logger.info "6666666666666666666666666666666rrrrr#{params[:products][:product_id][index]}"
             OrderProductPriceType.create(:order_id => @order.id,
             :product_id => params[:products][:product_id][index],

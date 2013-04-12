@@ -3,7 +3,7 @@ Trunk::Application.routes.draw do
   
   resources :profiles
   
-  
+  resources :orders
 
   resources :user_sessions
 
@@ -39,14 +39,14 @@ Trunk::Application.routes.draw do
   #end
   
   # routes for admin when login as and in  affiliate account
-  match "/orders"                                     => "orders#order_by_sub_affiliates"
+  match "/all_orders"                                 => "orders#order_by_sub_affiliates"
   match "/users"                                      => "orders#sub_affiliates"
   match "/pricing"                                    => "orders#order_pricing"
   match "/logout"                                     => 'user_sessions#destroy', :as => :logout
   
   
 
-  resources :orders
+  
   
     
   

@@ -29,7 +29,14 @@
 			<%= hidden_field_tag "products[product_id][]", @product_list.id %>
 
 			<!--<td> Price ($) </td>-->
-			<td> <%= hidden_field_tag "products[price][]",get_suggested_price(@product_list.id, @user.id).broken_price, :id=>"product_price_value"  %> </td>
+			<td> 
+				<% if params[:id].nil? %>				 
+					<%= hidden_field_tag "products[price][]",get_suggested_price(@product_list.id, @user.id).broken_price, :id=>"product_price_value"  %>
+				<% else %>	
+					<%= hidden_field_tag "products[price][]",get_order_price(@product_list.id, @order.id).price, :id=>"product_price_value"  %>	
+				<% end %>
+				 
+			</td>
 			<td id="product_broken_price"> Broken Price: $<span id="broken_td"><%= get_suggested_price(@product_list.id, @user.id).broken_price  %></span></td>
 			<td id="product_used_price"> Used Price : $<span id="used_td"><%= get_suggested_price(@product_list.id, @user.id).used_price  %></span></td>
 			<td id="product_recycle_price" style="display:none"> Recycled Price : $<span id="recycle_td">0</span></td>
